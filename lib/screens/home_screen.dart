@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text('Get Closer Withs',
+                      Text('Get Closer With',
                           textAlign: TextAlign.center,
                           style: GoogleFonts.inter(
                             fontSize: 80,
