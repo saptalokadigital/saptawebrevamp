@@ -41,6 +41,7 @@ dependencies:
   google_maps_flutter_web: ^0.4.0+3
   google_fonts: ^3.0.1
   styled_text: ^6.0.0
+  flutter_carousel_intro: ^0.0.9
 
 dev_dependencies:
   flutter_test:

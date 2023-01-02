@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:saptaloka_web_revamp/widgets/header_widget.dart';
 import 'package:styled_text/styled_text.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
@@ -26,6 +27,10 @@ class _HomeScreenState extends State<HomeScreen> {
     var screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size(screenSize.width, 70),
+        child: HeaderWidget(),
+      ),
       body: Container(
         width: screenSize.width,
         height: screenSize.height,
