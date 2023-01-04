@@ -148,9 +148,48 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
-                CardHome(),
-                CoreValues(),
-                SatisfiedClient()
+                const SizedBox(
+                  height: 50,
+                ),
+                Column(
+                  children: [
+                    Text(
+                      "Through digital transformation, our solutions will take your business to the next level",
+                      style: GoogleFonts.inter(
+                        textStyle: const TextStyle(
+                          fontSize: 25.0,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    const CardHome(),
+                  ],
+                ),
+                const SizedBox(
+                  height: 25.0,
+                ),
+                const CoreValues(),
+                const SizedBox(
+                  height: 70,
+                ),
+                Column(
+                  children: [
+                    Text(
+                      "Our Satisfied Client",
+                      style: GoogleFonts.inter(
+                        textStyle: const TextStyle(
+                          fontSize: 35.0,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    const SatisfiedClient(),
+                  ],
+                )
               ],
             ),
           ),
