@@ -74,6 +74,9 @@ class _CardHomeState extends State<CardHome> {
                       fct: () {},
                     ),
                   ),
+                  SizedBox(
+                    width: 10,
+                  ),
                   Expanded(
                     child: ItemCard(
                       title: "Shared Service",

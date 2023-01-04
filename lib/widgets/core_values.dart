@@ -47,7 +47,7 @@ class CoreValues extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text("Core Values: AKHLAK",
-                                style: GoogleFonts.poppins(
+                                style: GoogleFonts.inter(
                                   fontSize: 25,
                                   color: Color(0xff013088),
                                 ))
