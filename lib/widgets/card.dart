@@ -27,42 +27,67 @@ class _CardHomeState extends State<CardHome> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding:
-            const EdgeInsets.only(top: 20, bottom: 20, left: 50, right: 50),
-        child: Column(
-          children: [
-            Container(
+      padding: const EdgeInsets.only(top: 20, bottom: 20, left: 50, right: 50),
+      child: Column(
+        children: [
+          Container(
+            width: MediaQuery.of(context).size.width,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                    child: ItemCard(
+                  title: "Digital Solution",
+                  image: "assets/images/image_1.png",
+                  fct: () {},
+                )),
+                const SizedBox(
+                  width: 10,
+                ),
+                Expanded(
+                    child: ItemCard(
+                        title: "Shared Service",
+                        image: "assets/images/image_1.png",
+                        fct: () {})),
+                const SizedBox(
+                  width: 10,
+                ),
+                Expanded(
+                    child: ItemCard(
+                        title: "System Integrator",
+                        image: "assets/images/image_1.png",
+                        fct: () {}))
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 210, right: 210),
+            child: Container(
               width: MediaQuery.of(context).size.width,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Expanded(
-                      child: ItemCard(
-                    title: "Digital Solution",
-                    image: "assets/images/image_1.png",
-                    fct: () {},
-                  )),
-                  const SizedBox(
-                    width: 10,
+                    child: ItemCard(
+                      title: "Digital Solution",
+                      image: "assets/images/image_1.png",
+                      fct: () {},
+                    ),
                   ),
                   Expanded(
-                      child: ItemCard(
-                          title: "Shared Service",
-                          image: "assets/images/image_1.png",
-                          fct: () {})),
-                  const SizedBox(
-                    width: 10,
+                    child: ItemCard(
+                      title: "Shared Service",
+                      image: "assets/images/image_1.png",
+                      fct: () {},
+                    ),
                   ),
-                  Expanded(
-                      child: ItemCard(
-                          title: "System Integrator",
-                          image: "assets/images/image_1.png",
-                          fct: () {}))
                 ],
               ),
-            )
-          ],
-        ));
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 

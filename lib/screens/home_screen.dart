@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:saptaloka_web_revamp/widget/card.dart';
-import 'package:saptaloka_web_revamp/widget/core_values.dart';
-import 'package:saptaloka_web_revamp/widget/satisfied_client.dart';
+import 'package:saptaloka_web_revamp/widgets/card.dart';
+import 'package:saptaloka_web_revamp/widgets/core_values.dart';
+import 'package:saptaloka_web_revamp/widgets/satisfied_client.dart';
 import 'package:styled_text/styled_text.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
