@@ -46,6 +46,8 @@ dependencies:
     hovering: ^1.0.4
 
     flutter_carousel_intro: ^0.0.9
+    flutter_animate: ^2.0.1
+    animated_text_kit: ^4.2.2
 
 dev_dependencies:
     flutter_test:
