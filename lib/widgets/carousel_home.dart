@@ -1,9 +1,5 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hovering/hovering.dart';
@@ -25,12 +21,6 @@ class _CarouselHomeState extends State<CarouselHome> {
   @override
   void initState() {
     super.initState();
-
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      setState(() {
-        startAnimation = true;
-      });
-    });
     _controller = ScrollController();
     _controller.addListener(() {
       setState(() {
@@ -71,7 +61,7 @@ class _CarouselHomeState extends State<CarouselHome> {
               children: [
                 AnimatedContainer(
                   curve: Curves.easeInOut,
-                  duration: Duration(milliseconds: 500),
+                  duration: const Duration(milliseconds: 500),
                   transform: Matrix4.translationValues(0, 1, 0),
                   decoration: const BoxDecoration(
                     color: Colors.white,
@@ -130,24 +120,15 @@ class _CarouselHomeState extends State<CarouselHome> {
                   ),
                 ),
                 HoverWidget(
-                  child: Container(
-                    height: 500,
-                    decoration: BoxDecoration(color: Colors.transparent),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [],
-                    ),
-                  ),
                   hoverChild: Container(
                     height: 500,
-                    decoration: BoxDecoration(color: Colors.transparent),
+                    decoration: const BoxDecoration(color: Colors.transparent),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         ElevatedButton(
-                          style: ButtonStyle(
+                          style: const ButtonStyle(
                             backgroundColor: MaterialStatePropertyAll<Color>(
                                 Colors.transparent),
                           ),
@@ -155,7 +136,7 @@ class _CarouselHomeState extends State<CarouselHome> {
                               buttonCarouselController.previousPage(
                                   duration: Duration(milliseconds: 300),
                                   curve: Curves.linear),
-                          child: Text(
+                          child: const Text(
                             '<',
                             style: TextStyle(color: Colors.black),
                           ),
@@ -164,14 +145,14 @@ class _CarouselHomeState extends State<CarouselHome> {
                             .slideX(delay: 100.ms)
                             .fade(duration: 300.ms),
                         ElevatedButton(
-                          style: ButtonStyle(
+                          style: const ButtonStyle(
                             backgroundColor: MaterialStatePropertyAll<Color>(
                                 Colors.transparent),
                           ),
                           onPressed: () => buttonCarouselController.nextPage(
                               duration: Duration(milliseconds: 300),
                               curve: Curves.linear),
-                          child: Text(
+                          child: const Text(
                             '>',
                             style: TextStyle(color: Colors.black),
                           ),
@@ -183,6 +164,15 @@ class _CarouselHomeState extends State<CarouselHome> {
                     ),
                   ),
                   onHover: (e) {},
+                  child: Container(
+                    height: 500,
+                    decoration: const BoxDecoration(color: Colors.transparent),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: const [],
+                    ),
+                  ),
                 ),
               ],
             );
