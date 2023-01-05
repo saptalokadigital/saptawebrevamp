@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:saptaloka_web_revamp/screens/home_screen.dart';
+import 'package:saptaloka_web_revamp/screens/solutions/solutions_screen.dart';
+import 'package:saptaloka_web_revamp/widgets/footer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomeScreen(),
+      home: const SolutionsScreen(),
     );
   }
 }
