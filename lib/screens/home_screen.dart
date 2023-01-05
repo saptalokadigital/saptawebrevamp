@@ -7,8 +7,8 @@ import 'package:saptaloka_web_revamp/widgets/satisfied_client.dart';
 
 import 'package:saptaloka_web_revamp/widgets/header_widget.dart';
 
-import 'package:saptaloka_web_revamp/widget/footer.dart';
-import 'package:saptaloka_web_revamp/widget/latest_news.dart';
+import 'package:saptaloka_web_revamp/widgets/footer.dart';
+import 'package:saptaloka_web_revamp/widgets/latest_news.dart';
 import 'package:styled_text/styled_text.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
@@ -200,7 +200,25 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SatisfiedClient(),
                   ],
                 ),
-                LatestNews(),
+                const SizedBox(
+                  height: 70,
+                ),
+                Column(
+                  children: [
+                    Text(
+                      "Latest News",
+                      style: GoogleFonts.inter(
+                        textStyle: const TextStyle(
+                          fontSize: 35.0,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    const LatestNews(),
+                  ],
+                ),
                 Footer(),
               ],
             ),
