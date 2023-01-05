@@ -20,7 +20,7 @@ class Footer extends StatelessWidget {
       child: DefaultTextStyle(
         style: TextStyle(color: Colors.white, fontSize: 16),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 150.0, vertical: 50),
+          padding: const EdgeInsets.symmetric(horizontal: 100.0, vertical: 50),
           child: Container(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
