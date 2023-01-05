@@ -78,7 +78,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                 },
                 onPressed: () {},
                 child: Text(
-                  'Portfolio',
+                  'Solution',
                   style: GoogleFonts.inter(
                     color: _isHovering[1]
                         ? Color(0xff013088)
