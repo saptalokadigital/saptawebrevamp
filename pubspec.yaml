@@ -45,6 +45,7 @@ dependencies:
   hovering: ^1.0.4
   image_picker_for_web: ^2.1.10
   marquee: ^2.2.3
+  open_street_map_search_and_pick: ^0.0.15
   styled_text: ^6.0.0
   url_launcher: ^6.1.7
   web_smooth_scroll: ^1.0.0
