@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:saptaloka_web_revamp/screens/contact_us/contact_us_screen.dart';
 import 'package:saptaloka_web_revamp/screens/home_screen.dart';
+import 'package:saptaloka_web_revamp/screens/about_us/about_us_screens.dart';
 
 class HeaderWidget extends StatefulWidget {
   const HeaderWidget({super.key});
@@ -57,7 +58,14 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                     value ? _isHovering[0] = true : _isHovering[0] = false;
                   });
                 },
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacementNamed(
+                      context, AboutUsScreens.routeName);
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) => AboutUsScreens()));
+                },
                 child: Text(
                   'About Us',
                   style: GoogleFonts.inter(
@@ -80,7 +88,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                 },
                 onPressed: () {},
                 child: Text(
-                  'Portfolio',
+                  'Solution',
                   style: GoogleFonts.inter(
                     color: _isHovering[1]
                         ? const Color(0xff013088)
