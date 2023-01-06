@@ -11,7 +11,7 @@ final Uri _urlWA1 = Uri.parse(
     'https://wa.me/6281999737800?text=Halo Admin Saptaloka Digital, mau tanya-tanya dong!');
 
 final Uri _urlWA2 = Uri.parse(
-    'https://wa.me/6281911034318?text=Halo Admin Saptaloka Digital, mau tanya-tanya dong!');
+    'https://wa.me/6283873296832?text=Halo Admin Saptaloka Digital, mau tanya-tanya dong!');
 
 class MaintenanceScreen extends StatefulWidget {
   const MaintenanceScreen({super.key});
