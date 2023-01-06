@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:saptaloka_web_revamp/screens/contact_us/contact_us_screen.dart';
+import 'package:saptaloka_web_revamp/screens/home_screen.dart';
 import 'package:saptaloka_web_revamp/screens/about_us/about_us_screens.dart';
+import 'package:saptaloka_web_revamp/screens/home_screen.dart';
+import 'package:saptaloka_web_revamp/screens/solutions/solutions_screen.dart';
 
 class HeaderWidget extends StatefulWidget {
   const HeaderWidget({super.key});
@@ -34,7 +38,9 @@ class _HeaderWidgetState extends State<HeaderWidget> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushReplacementNamed(context, '/');
+              },
               child: Container(
                 height: 70,
                 width: 70,
@@ -68,8 +74,8 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                   'About Us',
                   style: GoogleFonts.inter(
                     color: _isHovering[0]
-                        ? Color(0xff013088)
-                        : Color.fromARGB(255, 0, 0, 0),
+                        ? const Color(0xff013088)
+                        : const Color.fromARGB(255, 0, 0, 0),
                   ),
                 ),
               ),
@@ -84,13 +90,16 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                     value ? _isHovering[1] = true : _isHovering[1] = false;
                   });
                 },
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacementNamed(
+                      context, SolutionsScreen.routeName);
+                },
                 child: Text(
                   'Solution',
                   style: GoogleFonts.inter(
                     color: _isHovering[1]
-                        ? Color(0xff013088)
-                        : Color.fromARGB(255, 0, 0, 0),
+                        ? const Color(0xff013088)
+                        : const Color.fromARGB(255, 0, 0, 0),
                   ),
                 ),
               ),
@@ -105,13 +114,16 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                     value ? _isHovering[2] = true : _isHovering[2] = false;
                   });
                 },
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacementNamed(
+                      context, ContactUsScreen.routeName);
+                },
                 child: Text(
                   'Contact Us',
                   style: GoogleFonts.inter(
                     color: _isHovering[2]
-                        ? Color(0xff013088)
-                        : Color.fromARGB(255, 0, 0, 0),
+                        ? const Color(0xff013088)
+                        : const Color.fromARGB(255, 0, 0, 0),
                   ),
                 ),
               ),

@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:saptaloka_web_revamp/screens/solutions/widgets/awalan.dart';
 import 'package:saptaloka_web_revamp/screens/solutions/widgets/our_solutions.dart';
 import 'package:saptaloka_web_revamp/screens/solutions/widgets/our_solutions_coba.dart';
+import 'package:saptaloka_web_revamp/widgets/footer.dart';
 import 'package:saptaloka_web_revamp/widgets/header_widget.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SolutionsScreen extends StatefulWidget {
+  static const routeName = '/Solutions';
   const SolutionsScreen({Key? key}) : super(key: key);
 
   @override
@@ -58,6 +60,10 @@ class _SolutionsScreenState extends State<SolutionsScreen> {
                     height: 50,
                   ),
                   const OurSolutionsCoba(),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  Footer()
                 ],
               ),
             ]),
