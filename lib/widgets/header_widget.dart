@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:saptaloka_web_revamp/screens/about_us/about_us_screens.dart';
+import 'package:saptaloka_web_revamp/screens/home_screen.dart';
+import 'package:saptaloka_web_revamp/screens/solutions/solutions_screen.dart';
 
 class HeaderWidget extends StatefulWidget {
   const HeaderWidget({super.key});
@@ -34,7 +36,12 @@ class _HeaderWidgetState extends State<HeaderWidget> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomeScreen()),
+                );
+              },
               child: Container(
                 height: 70,
                 width: 70,
@@ -84,7 +91,10 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                     value ? _isHovering[1] = true : _isHovering[1] = false;
                   });
                 },
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacementNamed(
+                      context, SolutionsScreen.routeName);
+                },
                 child: Text(
                   'Solution',
                   style: GoogleFonts.inter(

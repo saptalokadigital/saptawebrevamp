@@ -7,7 +7,7 @@ import 'package:saptaloka_web_revamp/screens/about_us/widget/weare_wedo.dart';
 import 'package:saptaloka_web_revamp/widgets/header_widget.dart';
 
 class AboutUsScreens extends StatefulWidget {
-  static const routeName = '/AboutUsPage';
+  static const routeName = '/AboutUs';
   const AboutUsScreens({super.key});
 
   @override

@@ -7,6 +7,7 @@ import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SolutionsScreen extends StatefulWidget {
+  static const routeName = '/Solutions';
   const SolutionsScreen({Key? key}) : super(key: key);
 
   @override

@@ -35,6 +35,7 @@ class MyApp extends StatelessWidget {
       home: const HomeScreen(),
       routes: {
         AboutUsScreens.routeName: (context) => const AboutUsScreens(),
+        SolutionsScreen.routeName: (context) => const SolutionsScreen(),
       },
     );
   }
