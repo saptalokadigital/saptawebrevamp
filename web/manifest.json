@@ -1,11 +1,11 @@
 {
-    "name": "saptaloka_web_revamp",
-    "short_name": "saptaloka_web_revamp",
+    "name": "Saptaloka Digital",
+    "short_name": "Saptaloka Digital",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "A new Saptaloka Digital Website.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
