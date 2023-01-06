@@ -1,10 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:saptaloka_web_revamp/screens/about_us/about_us_screens.dart';
+import 'package:saptaloka_web_revamp/screens/contact_us/contact_us_screen.dart';
 import 'package:saptaloka_web_revamp/screens/home_screen.dart';
 import 'package:saptaloka_web_revamp/screens/maintenance_screen.dart';
 import 'package:saptaloka_web_revamp/screens/solutions/solutions_screen.dart';
-import 'package:saptaloka_web_revamp/widgets/footer.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,6 +18,7 @@ void main() async {
         messagingSenderId: "477492485536",
         appId: "1:477492485536:web:68d1410720f1c931c0d8c5"),
   );
+  setPathUrlStrategy();
   runApp(const MyApp());
 }
 
@@ -32,10 +34,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MaintenanceScreen(),
       routes: {
+        '/': (context) => const HomeScreen(),
         AboutUsScreens.routeName: (context) => const AboutUsScreens(),
         SolutionsScreen.routeName: (context) => const SolutionsScreen(),
+        ContactUsScreen.routeName: (context) => const ContactUsScreen()
       },
     );
   }

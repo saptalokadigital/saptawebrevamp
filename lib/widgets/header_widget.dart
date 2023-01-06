@@ -39,10 +39,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
           children: [
             InkWell(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const HomeScreen()),
-                );
+                Navigator.pushReplacementNamed(context, '/');
               },
               child: Container(
                 height: 70,
@@ -118,12 +115,8 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                   });
                 },
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ContactUsScreen(),
-                    ),
-                  );
+                  Navigator.pushReplacementNamed(
+                      context, ContactUsScreen.routeName);
                 },
                 child: Text(
                   'Contact Us',
