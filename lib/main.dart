@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:saptaloka_web_revamp/screens/about_us/about_us_screens.dart';
 import 'package:saptaloka_web_revamp/screens/home_screen.dart';
 import 'package:saptaloka_web_revamp/screens/maintenance_screen.dart';
 import 'package:saptaloka_web_revamp/screens/solutions/solutions_screen.dart';
@@ -32,6 +33,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const HomeScreen(),
+      routes: {
+        AboutUsScreens.routeName: (context) => const AboutUsScreens(),
+      },
     );
   }
 }
