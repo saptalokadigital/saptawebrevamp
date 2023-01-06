@@ -60,34 +60,6 @@ class _CardHomeState extends State<CardHome> {
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 210, right: 210),
-            child: Container(
-              width: MediaQuery.of(context).size.width,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: ItemCard(
-                      title: "Digital Solution",
-                      image: "assets/images/image_1.png",
-                      fct: () {},
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Expanded(
-                    child: ItemCard(
-                      title: "Shared Service",
-                      image: "assets/images/image_1.png",
-                      fct: () {},
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
         ],
       ),
     );
@@ -110,6 +82,7 @@ class ItemCard extends StatefulWidget {
 }
 
 class _ItemCardState extends State<ItemCard> {
+  double scale = 1;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -117,65 +90,23 @@ class _ItemCardState extends State<ItemCard> {
       width: 430,
       child: Center(
         child: InkWell(
+          onHover: (isHovering) {
+            if (isHovering) {
+              setState(() {
+                scale = 1.05;
+              });
+            } else {
+              setState(() {
+                scale = 1;
+              });
+            }
+          },
           onTap: () {
             widget.fct();
           },
-          child: HoverWidget(
-            hoverChild: Container(
-              height: 230,
-              width: 390,
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.black.withOpacity(0.2),
-                      blurRadius: 5,
-                      offset: const Offset(5, 5))
-                ],
-              ),
-              child: Column(
-                children: [
-                  Container(
-                    height: 160,
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(15),
-                        topRight: Radius.circular(15),
-                      ),
-                      image: DecorationImage(
-                        image: AssetImage(widget.image),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    height: 70,
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(15),
-                        bottomRight: Radius.circular(15),
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 40),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(widget.title,
-                              style: GoogleFonts.inter(
-                                fontSize: 33,
-                                color: const Color(0xff013088),
-                                fontWeight: FontWeight.bold,
-                              ))
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            onHover: (e) {},
+          child: AnimatedScale(
+            scale: scale,
+            duration: const Duration(milliseconds: 300),
             child: Container(
               height: 200,
               width: 360,
