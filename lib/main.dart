@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:saptaloka_web_revamp/screens/about_us/about_us_screens.dart';
 import 'package:saptaloka_web_revamp/screens/home_screen.dart';
 
 void main() {
@@ -18,6 +19,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const HomeScreen(),
+      routes: {
+        AboutUsScreens.routeName: (context) => const AboutUsScreens(),
+      },
     );
   }
 }
