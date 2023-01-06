@@ -22,15 +22,15 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
               children: [
                 Spacer(),
                 CardSolution(
-                  title: "Shared Service",
+                  title: "IT Solution",
                   image: "assets/images/image_1.png",
                   desc:
-                      'Layanan Pengelolaan proses bisnis berbasis digitalisasi yang bekerja secara terpusat melalui konsolidasi dan alih daya operasional bisnis perusahaan yang berisfat non0core dan transaksional',
+                      'Layanan Pengelolaan proses bisnis berbasis digitalisasi yang bekerja secara terpusat melalui konsolidasi dan alih daya operasional bisnis perusahaan yang berisfat non-core dan transaksional',
                   link: '',
                 ),
                 SizedBox(width: 30),
                 CardSolution(
-                  title: "Digital Solution",
+                  title: "Business Digital Solution",
                   image: "assets/images/image_1.png",
                   desc:
                       'Layanan ent-to-end untuk berbagai industri yang hadir dengan berbagai solusi meliputi software as a Services (SaaS), Digital Assessment, hingga E-Eommerce.',
@@ -45,7 +45,7 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
           ),
           Center(
             child: CardSolution(
-              title: "System Integrator",
+              title: "Digital Marketing",
               image: "assets/images/image_1.png",
               desc:
                   'Layanan yang andal dan terpercaya untuk kebutuhan solusi IT terintegrasi, mulai daru consultancy, software development, hingga penyediaan hardware-software bagi perusahaan Anda',
@@ -136,7 +136,7 @@ class _CardSolutionState extends State<CardSolution> {
                       ),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 40),
+                      padding: const EdgeInsets.only(left: 40, right: 40),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,

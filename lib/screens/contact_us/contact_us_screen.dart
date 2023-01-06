@@ -1,10 +1,12 @@
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:open_street_map_search_and_pick/open_street_map_search_and_pick.dart';
+import 'package:saptaloka_web_revamp/widgets/footer.dart';
 import 'package:saptaloka_web_revamp/widgets/header_widget.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
 class ContactUsScreen extends StatefulWidget {
+  static const routeName = '/ContactUs';
   const ContactUsScreen({super.key});
 
   @override
@@ -296,6 +298,7 @@ please contact us""",
               const SizedBox(
                 height: 70.0,
               ),
+              Footer()
             ],
           ),
         ),

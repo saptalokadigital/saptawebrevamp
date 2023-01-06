@@ -14,6 +14,7 @@ import 'package:styled_text/styled_text.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
 class HomeScreen extends StatefulWidget {
+  static const routeName = '/Home';
   const HomeScreen({super.key});
 
   @override
