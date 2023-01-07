@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hovering/hovering.dart';
 
@@ -187,14 +188,16 @@ class _TeamItemState extends State<TeamItem> {
                                   border: Border.all(
                                       color: Colors.white, width: 2)),
                               child: Center(
-                                child: Text("LIHAT DETAIL",
-                                    style: GoogleFonts.inter(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                    )),
-                              ),
-                            ),
+                                  child: Text("LIHAT DETAIL",
+                                      style: GoogleFonts.inter(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ))),
+                            )
+                                .animate()
+                                .slideY(delay: 100.ms)
+                                .fade(duration: 100.ms),
                           ),
                         ),
                       ],

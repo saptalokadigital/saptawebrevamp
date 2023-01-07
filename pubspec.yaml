@@ -50,6 +50,7 @@ dependencies:
     url_launcher: ^6.1.7
     web_smooth_scroll: ^1.0.0
     url_strategy: ^0.2.0
+    flutter_admin_scaffold: ^1.1.2
 
 dev_dependencies:
     flutter_lints: ^2.0.0
