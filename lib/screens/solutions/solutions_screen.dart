@@ -59,7 +59,7 @@ class _SolutionsScreenState extends State<SolutionsScreen> {
                   const SizedBox(
                     height: 50,
                   ),
-                  const OurSolutionsCoba(),
+                  OurSolutionsCoba(),
                   const SizedBox(
                     height: 50,
                   ),
