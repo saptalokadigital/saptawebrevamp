@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:saptaloka_web_revamp/screens/solutions/widgets/it_solution.dart';
 
 class OurSolutionsCoba extends StatefulWidget {
   const OurSolutionsCoba({super.key});
@@ -22,6 +23,12 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
               children: [
                 Spacer(),
                 CardSolution(
+                  fct: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ItSolutionScreen()));
+                  },
                   title: "IT Solution",
                   image: "assets/images/image_1.png",
                   desc:
@@ -30,6 +37,7 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
                 ),
                 SizedBox(width: 30),
                 CardSolution(
+                  fct: () {},
                   title: "Business Digital Solution",
                   image: "assets/images/image_1.png",
                   desc:
@@ -45,6 +53,7 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
           ),
           Center(
             child: CardSolution(
+              fct: () {},
               title: "Digital Marketing",
               image: "assets/images/image_1.png",
               desc:
@@ -63,12 +72,14 @@ class CardSolution extends StatefulWidget {
   final String image;
   final String desc;
   final String link;
+  final Function fct;
   const CardSolution({
     super.key,
     required this.title,
     required this.image,
     required this.desc,
     required this.link,
+    required this.fct,
   });
 
   @override
@@ -95,7 +106,9 @@ class _CardSolutionState extends State<CardSolution> {
               });
             }
           },
-          onTap: () {},
+          onTap: () {
+            Navigator.pushReplacementNamed(context, ItSolutionScreen.routeName);
+          },
           child: AnimatedScale(
             scale: scale,
             duration: const Duration(milliseconds: 300),

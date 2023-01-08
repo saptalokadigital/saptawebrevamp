@@ -68,7 +68,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                   // Navigator.push(
                   //     context,
                   //     MaterialPageRoute(
-                  //         builder: (context) => AboutUsScreens()));
+                  //         builder: (context) => AboutUsScreens()));--
                 },
                 child: Text(
                   'About Us',
@@ -84,22 +84,35 @@ class _HeaderWidgetState extends State<HeaderWidget> {
               width: 25,
             ),
             Flexible(
-              child: TextButton(
-                onHover: (value) {
-                  setState(() {
-                    value ? _isHovering[1] = true : _isHovering[1] = false;
-                  });
-                },
-                onPressed: () {
-                  Navigator.pushReplacementNamed(
-                      context, SolutionsScreen.routeName);
-                },
-                child: Text(
-                  'Solution',
-                  style: GoogleFonts.inter(
-                    color: _isHovering[1]
-                        ? const Color(0xff013088)
-                        : const Color.fromARGB(255, 0, 0, 0),
+              child: Container(
+                width: 100,
+                child: TextButton(
+                  onHover: (value) {
+                    setState(() {
+                      value ? _isHovering[1] = true : _isHovering[1] = false;
+                    });
+                  },
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(
+                        context, SolutionsScreen.routeName);
+                  },
+                  child: Row(
+                    children: [
+                      Text(
+                        'Solutions',
+                        style: GoogleFonts.inter(
+                          color: _isHovering[1]
+                              ? const Color(0xff013088)
+                              : const Color.fromARGB(255, 0, 0, 0),
+                        ),
+                      ),
+                      Icon(
+                        Icons.arrow_drop_down,
+                        color: _isHovering[1]
+                            ? const Color(0xff013088)
+                            : const Color.fromARGB(255, 0, 0, 0),
+                      )
+                    ],
                   ),
                 ),
               ),
