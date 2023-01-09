@@ -52,7 +52,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
               SizedBox(
                 height: 70.0,
               ),
-              // Footer()
+              Footer()
             ],
           ),
         ),
