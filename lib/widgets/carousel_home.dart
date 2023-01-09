@@ -60,6 +60,7 @@ class _CarouselHomeState extends State<CarouselHome> {
             return Stack(
               children: [
                 AnimatedContainer(
+                  height: 500,
                   curve: Curves.easeInOut,
                   duration: const Duration(milliseconds: 500),
                   transform: Matrix4.translationValues(0, 1, 0),
@@ -122,12 +123,12 @@ class _CarouselHomeState extends State<CarouselHome> {
                 HoverWidget(
                   hoverChild: Container(
                     height: 500,
-                    decoration: const BoxDecoration(color: Colors.transparent),
+                    color: Colors.white.withOpacity(0.20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        ElevatedButton(
+                        IconButton(
                           style: const ButtonStyle(
                             backgroundColor: MaterialStatePropertyAll<Color>(
                                 Colors.transparent),
@@ -136,15 +137,15 @@ class _CarouselHomeState extends State<CarouselHome> {
                               buttonCarouselController.previousPage(
                                   duration: Duration(milliseconds: 300),
                                   curve: Curves.linear),
-                          child: const Text(
-                            '<',
-                            style: TextStyle(color: Colors.black),
+                          icon: const Icon(
+                            Icons.arrow_back_rounded,
+                            size: 30,
                           ),
                         )
                             .animate()
                             .slideX(delay: 100.ms)
                             .fade(duration: 300.ms),
-                        ElevatedButton(
+                        IconButton(
                           style: const ButtonStyle(
                             backgroundColor: MaterialStatePropertyAll<Color>(
                                 Colors.transparent),
@@ -152,9 +153,9 @@ class _CarouselHomeState extends State<CarouselHome> {
                           onPressed: () => buttonCarouselController.nextPage(
                               duration: Duration(milliseconds: 300),
                               curve: Curves.linear),
-                          child: const Text(
-                            '>',
-                            style: TextStyle(color: Colors.black),
+                          icon: const Icon(
+                            Icons.arrow_forward_rounded,
+                            size: 30,
                           ),
                         )
                             .animate()
