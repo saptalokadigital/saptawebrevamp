@@ -50,7 +50,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
               ),
               MapsWidget(),
               SizedBox(
-                height: 70.0,
+                height: 65.0,
               ),
               Footer()
             ],
