@@ -6,6 +6,7 @@ import 'package:saptaloka_web_revamp/screens/contact_us/contact_us_screen.dart';
 import 'package:saptaloka_web_revamp/screens/home_screen.dart';
 import 'package:saptaloka_web_revamp/screens/maintenance_screen.dart';
 import 'package:saptaloka_web_revamp/screens/solutions/solutions_screen.dart';
+import 'package:saptaloka_web_revamp/screens/solutions/widgets/it_solution.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 void main() async {
@@ -40,7 +41,11 @@ class MyApp extends StatelessWidget {
         AboutUsScreens.routeName: (context) => const AboutUsScreens(),
         SolutionsScreen.routeName: (context) => const SolutionsScreen(),
         ContactUsScreen.routeName: (context) => const ContactUsScreen(),
+
         AdminScreens.routeName: (context) => AdminScreens(),
+
+        ItSolutionScreen.routeName: (context) => const ItSolutionScreen()
+
       },
     );
   }

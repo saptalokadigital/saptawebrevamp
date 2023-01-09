@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:saptaloka_web_revamp/responsive.dart';
+import 'package:saptaloka_web_revamp/screens/solutions/widgets/it_solution.dart';
 
 class OurSolutionsCoba extends StatefulWidget {
   const OurSolutionsCoba({super.key});
@@ -11,48 +13,208 @@ class OurSolutionsCoba extends StatefulWidget {
 class _OurSolutionsState extends State<OurSolutionsCoba> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 20, bottom: 20, left: 50, right: 50),
-      child: Column(
-        children: [
-          Container(
-            width: MediaQuery.of(context).size.width,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Spacer(),
-                CardSolution(
-                  title: "IT Solution",
-                  image: "assets/images/image_1.png",
-                  desc:
-                      'Layanan Pengelolaan proses bisnis berbasis digitalisasi yang bekerja secara terpusat melalui konsolidasi dan alih daya operasional bisnis perusahaan yang berisfat non-core dan transaksional',
-                  link: '',
-                ),
-                SizedBox(width: 30),
-                CardSolution(
-                  title: "Business Digital Solution",
-                  image: "assets/images/image_1.png",
-                  desc:
-                      'Layanan ent-to-end untuk berbagai industri yang hadir dengan berbagai solusi meliputi software as a Services (SaaS), Digital Assessment, hingga E-Eommerce.',
-                  link: '',
-                ),
-                Spacer()
-              ],
+    return Responsive(
+      tablet: Padding(
+        padding:
+            const EdgeInsets.only(top: 20, bottom: 20, left: 50, right: 50),
+        child: Column(
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Flexible(
+                    child: CardSolution(
+                      fct: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ItSolutionScreen()));
+                      },
+                      title: "IT Solution",
+                      image: "assets/images/image_1.png",
+                      desc:
+                          'Layanan Pengelolaan proses bisnis berbasis digitalisasi yang bekerja secara terpusat melalui konsolidasi dan alih daya operasional bisnis perusahaan yang berisfat non-core dan transaksional',
+                      link: '',
+                    ),
+                  ),
+                  SizedBox(width: 30),
+                  Flexible(
+                    child: CardSolution(
+                      fct: () {},
+                      title: "Business Digital Solution",
+                      image: "assets/images/image_1.png",
+                      desc:
+                          'Layanan ent-to-end untuk berbagai industri yang hadir dengan berbagai solusi meliputi software as a Services (SaaS), Digital Assessment, hingga E-Eommerce.',
+                      link: '',
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Center(
-            child: CardSolution(
+            SizedBox(
+              height: 10,
+            ),
+            Center(
+              child: CardSolution(
+                fct: () {},
+                title: "Digital Marketing",
+                image: "assets/images/image_1.png",
+                desc:
+                    'Layanan yang andal dan terpercaya untuk kebutuhan solusi IT terintegrasi, mulai daru consultancy, software development, hingga penyediaan hardware-software bagi perusahaan Anda',
+                link: '',
+              ),
+            ),
+          ],
+        ),
+      ),
+      mobile: Padding(
+        padding:
+            const EdgeInsets.only(top: 20, bottom: 20, left: 50, right: 50),
+        child: Column(
+          children: [
+            CardSolution(
+              fct: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ItSolutionScreen()));
+              },
+              title: "IT Solution",
+              image: "assets/images/image_1.png",
+              desc:
+                  'Layanan Pengelolaan proses bisnis berbasis digitalisasi yang bekerja secara terpusat melalui konsolidasi dan alih daya operasional bisnis perusahaan yang berisfat non-core dan transaksional',
+              link: '',
+            ),
+            CardSolution(
+              fct: () {},
+              title: "Business Digital Solution",
+              image: "assets/images/image_1.png",
+              desc:
+                  'Layanan ent-to-end untuk berbagai industri yang hadir dengan berbagai solusi meliputi software as a Services (SaaS), Digital Assessment, hingga E-Eommerce.',
+              link: '',
+            ),
+            CardSolution(
+              fct: () {},
               title: "Digital Marketing",
               image: "assets/images/image_1.png",
               desc:
                   'Layanan yang andal dan terpercaya untuk kebutuhan solusi IT terintegrasi, mulai daru consultancy, software development, hingga penyediaan hardware-software bagi perusahaan Anda',
               link: '',
             ),
-          ),
-        ],
+          ],
+        ),
+      ),
+      large: Padding(
+        padding:
+            const EdgeInsets.only(top: 20, bottom: 20, left: 50, right: 50),
+        child: Column(
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Flexible(
+                    child: CardSolution(
+                      fct: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ItSolutionScreen()));
+                      },
+                      title: "IT Solution",
+                      image: "assets/images/image_1.png",
+                      desc:
+                          'Layanan Pengelolaan proses bisnis berbasis digitalisasi yang bekerja secara terpusat melalui konsolidasi dan alih daya operasional bisnis perusahaan yang berisfat non-core dan transaksional',
+                      link: '',
+                    ),
+                  ),
+                  SizedBox(width: 30),
+                  Flexible(
+                    child: CardSolution(
+                      fct: () {},
+                      title: "Business Digital Solution",
+                      image: "assets/images/image_1.png",
+                      desc:
+                          'Layanan ent-to-end untuk berbagai industri yang hadir dengan berbagai solusi meliputi software as a Services (SaaS), Digital Assessment, hingga E-Eommerce.',
+                      link: '',
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Center(
+              child: CardSolution(
+                fct: () {},
+                title: "Digital Marketing",
+                image: "assets/images/image_1.png",
+                desc:
+                    'Layanan yang andal dan terpercaya untuk kebutuhan solusi IT terintegrasi, mulai daru consultancy, software development, hingga penyediaan hardware-software bagi perusahaan Anda',
+                link: '',
+              ),
+            ),
+          ],
+        ),
+      ),
+      desktop: Padding(
+        padding:
+            const EdgeInsets.only(top: 20, bottom: 20, left: 50, right: 50),
+        child: Column(
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Flexible(
+                    child: CardSolution(
+                      fct: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ItSolutionScreen()));
+                      },
+                      title: "IT Solution",
+                      image: "assets/images/image_1.png",
+                      desc:
+                          'Layanan Pengelolaan proses bisnis berbasis digitalisasi yang bekerja secara terpusat melalui konsolidasi dan alih daya operasional bisnis perusahaan yang berisfat non-core dan transaksional',
+                      link: '',
+                    ),
+                  ),
+                  SizedBox(width: 30),
+                  Flexible(
+                    child: CardSolution(
+                      fct: () {},
+                      title: "Business Digital Solution",
+                      image: "assets/images/image_1.png",
+                      desc:
+                          'Layanan ent-to-end untuk berbagai industri yang hadir dengan berbagai solusi meliputi software as a Services (SaaS), Digital Assessment, hingga E-Eommerce.',
+                      link: '',
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Center(
+              child: CardSolution(
+                fct: () {},
+                title: "Digital Marketing",
+                image: "assets/images/image_1.png",
+                desc:
+                    'Layanan yang andal dan terpercaya untuk kebutuhan solusi IT terintegrasi, mulai daru consultancy, software development, hingga penyediaan hardware-software bagi perusahaan Anda',
+                link: '',
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -63,12 +225,14 @@ class CardSolution extends StatefulWidget {
   final String image;
   final String desc;
   final String link;
+  final Function fct;
   const CardSolution({
     super.key,
     required this.title,
     required this.image,
     required this.desc,
     required this.link,
+    required this.fct,
   });
 
   @override
@@ -95,7 +259,9 @@ class _CardSolutionState extends State<CardSolution> {
               });
             }
           },
-          onTap: () {},
+          onTap: () {
+            Navigator.pushReplacementNamed(context, ItSolutionScreen.routeName);
+          },
           child: AnimatedScale(
             scale: scale,
             duration: const Duration(milliseconds: 300),
