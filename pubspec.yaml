@@ -58,27 +58,7 @@ dependencies:
     uuid: ^3.0.7
     image_picker: ^0.8.6
 
-  animated_text_kit: ^4.2.2
-  carousel_slider: ^4.2.1
-  cupertino_icons: ^1.0.2
-  firebase: ^9.0.3
-  firebase_core: ^2.4.1
-  flutter:
-    sdk: flutter
-  flutter_animate: ^2.0.1
-  flutter_carousel_intro: ^0.0.9
-  flutter_expandable_fab: ^1.6.1
-  font_awesome_flutter: ^10.3.0
-  google_fonts: ^3.0.1
-  google_maps_flutter_web: ^0.4.0+3
-  hovering: ^1.0.4
-  image_picker_for_web: ^2.1.10
-  marquee: ^2.2.3
-  open_street_map_search_and_pick: ^0.0.15
-  styled_text: ^6.0.0
-  url_launcher: ^6.1.7
-  url_strategy: ^0.2.0
-  web_smooth_scroll: ^1.0.0
+   
 
 
 dev_dependencies:
