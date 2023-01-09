@@ -259,7 +259,8 @@ class _SliderAddState extends State<SliderAdd> {
                       }
                       return null;
                     },
-                    maxLines: 10,
+                    maxLines: 3,
+                    maxLength: 250,
                     decoration: InputDecoration(
                         icon: const FaIcon(
                           FontAwesomeIcons.paragraph,
