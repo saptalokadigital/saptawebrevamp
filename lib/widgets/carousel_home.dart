@@ -193,9 +193,9 @@ class _CarouselHomeState extends State<CarouselHome> {
           options: CarouselOptions(
             height: 500,
             initialPage: 0,
-            autoPlay: false,
-            autoPlayInterval: const Duration(seconds: 10),
-            autoPlayAnimationDuration: const Duration(seconds: 2),
+            autoPlay: true,
+            autoPlayInterval: const Duration(seconds: 5),
+            autoPlayAnimationDuration: const Duration(seconds: 1),
             autoPlayCurve: Curves.fastOutSlowIn,
             pauseAutoPlayOnTouch: true,
             viewportFraction: 1,
