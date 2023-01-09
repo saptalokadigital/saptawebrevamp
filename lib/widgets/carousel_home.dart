@@ -42,7 +42,7 @@ class _CarouselHomeState extends State<CarouselHome> {
   ];
 
   List<String> image = [
-    'assets/images/logo_gede.png',
+    'assets/images/fotojaringan.png',
     'assets/images/logo_gede.png',
     'assets/images/logo_gede.png',
   ];
@@ -67,59 +67,67 @@ class _CarouselHomeState extends State<CarouselHome> {
                   decoration: const BoxDecoration(
                     color: Colors.white,
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  child: Stack(
+                    clipBehavior: Clip.none,
                     children: [
-                      Expanded(
-                        child: Container(
-                          width: 500,
-                          height: 400,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                '${title[index]}',
-                                textAlign: TextAlign.left,
-                                style: GoogleFonts.inter(
-                                  color: Color(0xff013088),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 42,
-                                ),
-                              )
-                                  .animate()
-                                  .slideY(delay: 1000.ms)
-                                  .fade(duration: 1000.ms),
-                              const SizedBox(
-                                height: 30,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Container(
+                            width: MediaQuery.of(context).size.width / 2,
+                            height: 400,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage('${image[index]}'),
+                                  colorFilter: ColorFilter.mode(
+                                      Colors.white.withOpacity(0.85),
+                                      BlendMode.dstATop),
+                                  fit: BoxFit.contain),
+                            ),
+                          )
+                              .animate()
+                              .slideX(delay: 1000.ms)
+                              .fade(duration: 1000.ms),
+                        ],
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width / 3,
+                        height: 400,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              '${title[index]}',
+                              textAlign: TextAlign.left,
+                              style: GoogleFonts.inter(
+                                color: Color(0xff013088),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 42,
                               ),
-                              Text(
-                                '${text[index]}',
-                                maxLines: 10,
-                                style: GoogleFonts.inter(
-                                  color: Colors.black,
-                                  fontSize: 16,
-                                ),
-                              )
-                                  .animate()
-                                  .slideY(delay: 1000.ms)
-                                  .fade(duration: 1000.ms),
-                            ],
-                          ),
+                            )
+                                .animate()
+                                .slideY(delay: 1500.ms)
+                                .fade(duration: 1500.ms),
+                            const SizedBox(
+                              height: 30,
+                            ),
+                            Text(
+                              '${text[index]}',
+                              maxLines: 10,
+                              style: GoogleFonts.inter(
+                                color: Colors.black,
+                                fontSize: 16,
+                              ),
+                            )
+                                .animate()
+                                .slideY(delay: 1500.ms)
+                                .fade(duration: 1500.ms),
+                          ],
                         ),
                       ),
                       const SizedBox(
                         width: 100,
-                      ),
-                      Expanded(
-                        child: Container(
-                          width: 500,
-                          height: 400,
-                          child: Image.asset('${image[index]}'),
-                        )
-                            .animate()
-                            .slideX(delay: 1500.ms)
-                            .fade(duration: 1500.ms),
                       ),
                     ],
                   ),
