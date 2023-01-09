@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:saptaloka_web_revamp/responsive.dart';
 
 class News {
   String image;
@@ -88,49 +89,189 @@ class LatestNews extends StatefulWidget {
 class _LatestNewsState extends State<LatestNews> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 32.0),
-        child: CarouselSlider(
-          options: CarouselOptions(
-            enableInfiniteScroll: false,
-            autoPlay: true,
-            aspectRatio: 2.0,
-            viewportFraction: 0.2,
-            padEnds: false,
-          ),
-          items: images
-              .map((item) => Container(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(40.0),
-                            child: AspectRatio(
-                              aspectRatio: 1,
-                              child: Image.network(
-                                item.image!,
-                                fit: BoxFit.cover,
-                                width: 500,
+    return Responsive(
+      mobile: Container(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 32.0),
+          child: CarouselSlider(
+            options: CarouselOptions(
+              enableInfiniteScroll: false,
+              autoPlay: true,
+              aspectRatio: 0.6,
+              viewportFraction: 1,
+              padEnds: false,
+            ),
+            items: images
+                .map((item) => Container(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(40.0),
+                              child: AspectRatio(
+                                aspectRatio: 1,
+                                child: Image.network(
+                                  item.image!,
+                                  fit: BoxFit.cover,
+                                  width: 500,
+                                ),
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            item.judul!,
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xff013088)),
-                          ),
-                        ],
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              item.judul!,
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xff013088)),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ))
-              .toList(),
+                    ))
+                .toList(),
+          ),
+        ),
+      ),
+      tablet: Container(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 32.0),
+          child: CarouselSlider(
+            options: CarouselOptions(
+              enableInfiniteScroll: false,
+              autoPlay: true,
+              aspectRatio: 1.5,
+              viewportFraction: 0.33,
+              padEnds: false,
+            ),
+            items: images
+                .map((item) => Container(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(40.0),
+                              child: AspectRatio(
+                                aspectRatio: 1,
+                                child: Image.network(
+                                  item.image!,
+                                  fit: BoxFit.cover,
+                                  width: 500,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              item.judul!,
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xff013088)),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ))
+                .toList(),
+          ),
+        ),
+      ),
+      desktop: Container(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 32.0),
+          child: CarouselSlider(
+            options: CarouselOptions(
+              enableInfiniteScroll: false,
+              autoPlay: true,
+              aspectRatio: 3,
+              viewportFraction: 0.2,
+              padEnds: false,
+            ),
+            items: images
+                .map((item) => Container(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(40.0),
+                              child: AspectRatio(
+                                aspectRatio: 1,
+                                child: Image.network(
+                                  item.image!,
+                                  fit: BoxFit.cover,
+                                  width: 500,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              item.judul!,
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xff013088)),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ))
+                .toList(),
+          ),
+        ),
+      ),
+      large: Container(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 32.0),
+          child: CarouselSlider(
+            options: CarouselOptions(
+              enableInfiniteScroll: false,
+              autoPlay: true,
+              aspectRatio: 3.0,
+              viewportFraction: 0.2,
+              padEnds: false,
+            ),
+            items: images
+                .map((item) => Container(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(40.0),
+                              child: AspectRatio(
+                                aspectRatio: 1,
+                                child: Image.network(
+                                  item.image!,
+                                  fit: BoxFit.cover,
+                                  width: 500,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              item.judul!,
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xff013088)),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ))
+                .toList(),
+          ),
         ),
       ),
     );
