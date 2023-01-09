@@ -70,53 +70,57 @@ class _CarouselHomeState extends State<CarouselHome> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        width: 500,
-                        height: 400,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              '${title[index]}',
-                              textAlign: TextAlign.left,
-                              style: GoogleFonts.inter(
-                                color: Color(0xff013088),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 42,
+                      Expanded(
+                        child: Container(
+                          width: 500,
+                          height: 400,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                '${title[index]}',
+                                textAlign: TextAlign.left,
+                                style: GoogleFonts.inter(
+                                  color: Color(0xff013088),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 42,
+                                ),
+                              )
+                                  .animate()
+                                  .slideY(delay: 1000.ms)
+                                  .fade(duration: 1000.ms),
+                              const SizedBox(
+                                height: 30,
                               ),
-                            )
-                                .animate()
-                                .slideY(delay: 1000.ms)
-                                .fade(duration: 1000.ms),
-                            const SizedBox(
-                              height: 30,
-                            ),
-                            Text(
-                              '${text[index]}',
-                              maxLines: 10,
-                              style: GoogleFonts.inter(
-                                color: Colors.black,
-                                fontSize: 16,
-                              ),
-                            )
-                                .animate()
-                                .slideY(delay: 1000.ms)
-                                .fade(duration: 1000.ms),
-                          ],
+                              Text(
+                                '${text[index]}',
+                                maxLines: 10,
+                                style: GoogleFonts.inter(
+                                  color: Colors.black,
+                                  fontSize: 16,
+                                ),
+                              )
+                                  .animate()
+                                  .slideY(delay: 1000.ms)
+                                  .fade(duration: 1000.ms),
+                            ],
+                          ),
                         ),
                       ),
                       const SizedBox(
                         width: 100,
                       ),
-                      Container(
-                        width: 500,
-                        height: 400,
-                        child: Image.asset('${image[index]}'),
-                      )
-                          .animate()
-                          .slideX(delay: 1500.ms)
-                          .fade(duration: 1500.ms),
+                      Expanded(
+                        child: Container(
+                          width: 500,
+                          height: 400,
+                          child: Image.asset('${image[index]}'),
+                        )
+                            .animate()
+                            .slideX(delay: 1500.ms)
+                            .fade(duration: 1500.ms),
+                      ),
                     ],
                   ),
                 ),
