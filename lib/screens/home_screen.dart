@@ -236,6 +236,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           height: 50,
                         ),
                         Text(
+                          textAlign: TextAlign.center,
                           "Through digital transformation, our solutions will take your business to the next level",
                           style: GoogleFonts.inter(
                             textStyle: const TextStyle(
