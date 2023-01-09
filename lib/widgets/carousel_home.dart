@@ -42,7 +42,7 @@ class _CarouselHomeState extends State<CarouselHome> {
   ];
 
   List<String> image = [
-    'assets/images/logo_gede.png',
+    'assets/images/fotojaringan.png',
     'assets/images/logo_gede.png',
     'assets/images/logo_gede.png',
   ];
@@ -60,17 +60,38 @@ class _CarouselHomeState extends State<CarouselHome> {
             return Stack(
               children: [
                 AnimatedContainer(
+                  height: 500,
                   curve: Curves.easeInOut,
                   duration: const Duration(milliseconds: 500),
                   transform: Matrix4.translationValues(0, 1, 0),
                   decoration: const BoxDecoration(
                     color: Colors.white,
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  child: Stack(
+                    clipBehavior: Clip.none,
                     children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Container(
+                            width: MediaQuery.of(context).size.width / 2,
+                            height: 400,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage('${image[index]}'),
+                                  colorFilter: ColorFilter.mode(
+                                      Colors.white.withOpacity(0.85),
+                                      BlendMode.dstATop),
+                                  fit: BoxFit.contain),
+                            ),
+                          )
+                              .animate()
+                              .slideX(delay: 1000.ms)
+                              .fade(duration: 1000.ms),
+                        ],
+                      ),
                       Container(
-                        width: 500,
+                        width: MediaQuery.of(context).size.width / 3,
                         height: 400,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,8 +107,8 @@ class _CarouselHomeState extends State<CarouselHome> {
                               ),
                             )
                                 .animate()
-                                .slideY(delay: 1000.ms)
-                                .fade(duration: 1000.ms),
+                                .slideY(delay: 1500.ms)
+                                .fade(duration: 1500.ms),
                             const SizedBox(
                               height: 30,
                             ),
@@ -100,34 +121,26 @@ class _CarouselHomeState extends State<CarouselHome> {
                               ),
                             )
                                 .animate()
-                                .slideY(delay: 1000.ms)
-                                .fade(duration: 1000.ms),
+                                .slideY(delay: 1500.ms)
+                                .fade(duration: 1500.ms),
                           ],
                         ),
                       ),
                       const SizedBox(
                         width: 100,
                       ),
-                      Container(
-                        width: 500,
-                        height: 400,
-                        child: Image.asset('${image[index]}'),
-                      )
-                          .animate()
-                          .slideX(delay: 1500.ms)
-                          .fade(duration: 1500.ms),
                     ],
                   ),
                 ),
                 HoverWidget(
                   hoverChild: Container(
                     height: 500,
-                    decoration: const BoxDecoration(color: Colors.transparent),
+                    color: Colors.white.withOpacity(0.20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        ElevatedButton(
+                        IconButton(
                           style: const ButtonStyle(
                             backgroundColor: MaterialStatePropertyAll<Color>(
                                 Colors.transparent),
@@ -136,15 +149,15 @@ class _CarouselHomeState extends State<CarouselHome> {
                               buttonCarouselController.previousPage(
                                   duration: Duration(milliseconds: 300),
                                   curve: Curves.linear),
-                          child: const Text(
-                            '<',
-                            style: TextStyle(color: Colors.black),
+                          icon: const Icon(
+                            Icons.arrow_back_rounded,
+                            size: 30,
                           ),
                         )
                             .animate()
                             .slideX(delay: 100.ms)
                             .fade(duration: 300.ms),
-                        ElevatedButton(
+                        IconButton(
                           style: const ButtonStyle(
                             backgroundColor: MaterialStatePropertyAll<Color>(
                                 Colors.transparent),
@@ -152,9 +165,9 @@ class _CarouselHomeState extends State<CarouselHome> {
                           onPressed: () => buttonCarouselController.nextPage(
                               duration: Duration(milliseconds: 300),
                               curve: Curves.linear),
-                          child: const Text(
-                            '>',
-                            style: TextStyle(color: Colors.black),
+                          icon: const Icon(
+                            Icons.arrow_forward_rounded,
+                            size: 30,
                           ),
                         )
                             .animate()
@@ -180,9 +193,9 @@ class _CarouselHomeState extends State<CarouselHome> {
           options: CarouselOptions(
             height: 500,
             initialPage: 0,
-            autoPlay: false,
-            autoPlayInterval: const Duration(seconds: 10),
-            autoPlayAnimationDuration: const Duration(seconds: 2),
+            autoPlay: true,
+            autoPlayInterval: const Duration(seconds: 5),
+            autoPlayAnimationDuration: const Duration(seconds: 1),
             autoPlayCurve: Curves.fastOutSlowIn,
             pauseAutoPlayOnTouch: true,
             viewportFraction: 1,
