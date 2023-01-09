@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class Footer extends StatelessWidget {
+class Footer extends StatefulWidget {
   const Footer({Key? key}) : super(key: key);
 
+  @override
+  State<Footer> createState() => _FooterState();
+}
+
+class _FooterState extends State<Footer> {
+  bool _isHover = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -121,21 +127,62 @@ class Footer extends StatelessWidget {
                       SizedBox(
                         height: 20,
                       ),
-                      OutlinedButton(
-                        onPressed: (() {}),
-                        child: Text(
-                          'CONTACT US',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        style: ButtonStyle(
-                          side: MaterialStateProperty.all(
-                              BorderSide(color: Colors.white)),
-                          textStyle: MaterialStateProperty.all(
-                              TextStyle(color: Colors.white)),
-                          shape:
-                              MaterialStateProperty.all(RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
-                          )),
+                      InkWell(
+                        onTap: () {},
+                        onHover: (isHovering) {
+                          setState(() {
+                            _isHover = isHovering;
+                            print(isHovering);
+                          });
+                        },
+                        child: AnimatedSwitcher(
+                          duration: Duration(milliseconds: 1000),
+                          child: _isHover
+                              ? OutlinedButton(
+                                  onPressed: (() {}),
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        'CONTACT US',
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      SizedBox(
+                                        width: 5,
+                                      ),
+                                      Icon(
+                                        Icons.arrow_right_outlined,
+                                        color: Colors.white,
+                                      )
+                                    ],
+                                  ),
+                                  style: ButtonStyle(
+                                    backgroundColor: MaterialStateProperty.all(
+                                        Color.fromARGB(255, 58, 127, 255)),
+                                    textStyle: MaterialStateProperty.all(
+                                        TextStyle(color: Colors.white)),
+                                    shape: MaterialStateProperty.all(
+                                        RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(30),
+                                    )),
+                                  ),
+                                )
+                              : OutlinedButton(
+                                  onPressed: (() {}),
+                                  child: Text(
+                                    'CONTACT US',
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                  style: ButtonStyle(
+                                    side: MaterialStateProperty.all(
+                                        BorderSide(color: Colors.white)),
+                                    textStyle: MaterialStateProperty.all(
+                                        TextStyle(color: Colors.white)),
+                                    shape: MaterialStateProperty.all(
+                                        RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(30),
+                                    )),
+                                  ),
+                                ),
                         ),
                       ),
                       SizedBox(
