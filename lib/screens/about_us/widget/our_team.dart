@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hovering/hovering.dart';
 
@@ -168,28 +169,38 @@ class _TeamItemState extends State<TeamItem> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    CircleAvatar(
-                      backgroundColor: Colors.grey,
-                      backgroundImage: AssetImage('assets/images/image_1.png'),
-                      radius: 120,
-                      child: Center(
-                        child: Container(
-                          width: 150,
-                          height: 40,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              border: Border.all(
-                                  color: Color(0xff013088), width: 2)),
+                    Stack(
+                      children: [
+                        CircleAvatar(
+                          backgroundImage:
+                              AssetImage('assets/images/image_1.png'),
+                          radius: 120,
+                        ),
+                        CircleAvatar(
+                          backgroundColor: Color(0xff013088).withOpacity(0.7),
+                          radius: 120,
                           child: Center(
-                            child: Text("lihat detail",
-                                style: GoogleFonts.inter(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xff013088),
-                                )),
+                            child: Container(
+                              width: 150,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15),
+                                  border: Border.all(
+                                      color: Colors.white, width: 2)),
+                              child: Center(
+                                  child: Text("LIHAT DETAIL",
+                                      style: GoogleFonts.inter(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ))),
+                            )
+                                .animate()
+                                .slideY(delay: 100.ms)
+                                .fade(duration: 100.ms),
                           ),
                         ),
-                      ),
+                      ],
                     ),
                     SizedBox(
                       height: 10,

@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:saptaloka_web_revamp/Admin/admin_screens.dart';
 import 'package:saptaloka_web_revamp/screens/about_us/about_us_screens.dart';
 import 'package:saptaloka_web_revamp/screens/contact_us/contact_us_screen.dart';
 import 'package:saptaloka_web_revamp/screens/home_screen.dart';
@@ -40,7 +41,11 @@ class MyApp extends StatelessWidget {
         AboutUsScreens.routeName: (context) => const AboutUsScreens(),
         SolutionsScreen.routeName: (context) => const SolutionsScreen(),
         ContactUsScreen.routeName: (context) => const ContactUsScreen(),
+
+        AdminScreens.routeName: (context) => AdminScreens(),
+
         ItSolutionScreen.routeName: (context) => const ItSolutionScreen()
+
       },
     );
   }
