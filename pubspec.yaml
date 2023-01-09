@@ -51,6 +51,11 @@ dependencies:
     web_smooth_scroll: ^1.0.0
     url_strategy: ^0.2.0
     flutter_admin_scaffold: ^1.1.2
+    cloud_firestore: ^4.3.1
+    dotted_border: ^2.0.0+3
+    fluttertoast: ^8.1.2
+    uuid: ^3.0.7
+    image_picker: ^0.8.6
 
 dev_dependencies:
     flutter_lints: ^2.0.0

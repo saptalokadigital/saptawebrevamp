@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_admin_scaffold/admin_scaffold.dart';
 import 'package:saptaloka_web_revamp/Admin/main_screens/client_admin/client_admin.dart';
+import 'package:saptaloka_web_revamp/Admin/main_screens/footer/footer_admin_screens.dart';
 import 'package:saptaloka_web_revamp/Admin/main_screens/news_admin/news_admin.dart';
 import 'package:saptaloka_web_revamp/Admin/main_screens/portfolio_admin/portfolio_admin.dart';
 import 'package:saptaloka_web_revamp/Admin/main_screens/slider_home/slider_home.dart';
@@ -37,6 +38,11 @@ class _AdminScreensState extends State<AdminScreens> {
           _selectedScerrens = PortfolioAdmin();
         });
         break;
+      case FooterAdminScreens.id:
+        setState(() {
+          _selectedScerrens = FooterAdminScreens();
+        });
+        break;
     }
   }
 
@@ -68,6 +74,11 @@ class _AdminScreensState extends State<AdminScreens> {
             title: 'Portfolio',
             route: PortfolioAdmin.id,
             icon: Icons.work,
+          ),
+          AdminMenuItem(
+            title: 'Footer',
+            route: FooterAdminScreens.id,
+            icon: Icons.home,
           ),
         ],
         selectedRoute: AdminScreens.id,
