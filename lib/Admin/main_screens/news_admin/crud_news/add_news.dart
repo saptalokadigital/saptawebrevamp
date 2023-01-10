@@ -17,14 +17,14 @@ import 'package:uuid/uuid.dart';
 
 import 'package:firebase/firebase.dart' as fb;
 
-class SliderAdd extends StatefulWidget {
-  const SliderAdd({super.key});
+class NewsAdd extends StatefulWidget {
+  const NewsAdd({super.key});
 
   @override
-  State<SliderAdd> createState() => _SliderAddState();
+  State<NewsAdd> createState() => _NewsAddState();
 }
 
-class _SliderAddState extends State<SliderAdd> {
+class _NewsAddState extends State<NewsAdd> {
   final _formKey = GlobalKey<FormState>();
   File? _pickedImage;
   Uint8List webImage = Uint8List(10);
@@ -32,12 +32,12 @@ class _SliderAddState extends State<SliderAdd> {
   late Uint8List imageFile;
   bool _isLoading = false;
 
-  late final TextEditingController judulController, deskripsiController;
+  late final TextEditingController judulController, linkController;
 
   @override
   void initState() {
     judulController = TextEditingController();
-    deskripsiController = TextEditingController();
+    linkController = TextEditingController();
 
     super.initState();
   }
@@ -45,8 +45,7 @@ class _SliderAddState extends State<SliderAdd> {
   @override
   void dispose() {
     judulController.dispose();
-    deskripsiController.dispose();
-
+    linkController.dispose();
     super.dispose();
   }
 
@@ -67,17 +66,17 @@ class _SliderAddState extends State<SliderAdd> {
           _isLoading = true;
         });
         fb.StorageReference storageRef =
-            fb.storage().ref().child('SliderContent').child(_uuid + '.jpg');
+            fb.storage().ref().child('NewsContent').child(_uuid + 'jpg');
         final fb.UploadTaskSnapshot uploadTaskSnapshot =
             await storageRef.put(kIsWeb ? webImage : _pickedImage).future;
         Uri imageUri = await uploadTaskSnapshot.ref.getDownloadURL();
         await FirebaseFirestore.instance
-            .collection('SliderContent')
+            .collection('NewsContent')
             .doc(_uuid)
             .set({
           'id': _uuid,
           'judul': judulController.text,
-          'deskripsi': deskripsiController.text,
+          'link': linkController.text,
           'imageUrl': imageUri.toString(),
           'createdAt': Timestamp.now(),
         });
@@ -112,7 +111,7 @@ class _SliderAddState extends State<SliderAdd> {
 
   void _clearForm() {
     judulController.clear();
-    deskripsiController.clear();
+    linkController.clear();
 
     setState(() {
       _pickedImage = null;
@@ -251,30 +250,29 @@ class _SliderAddState extends State<SliderAdd> {
                         )),
                   ),
                   const Padding(padding: EdgeInsets.only(top: 15)),
+                  const SizedBox(
+                    height: 30,
+                  ),
                   TextFormField(
-                    controller: deskripsiController,
+                    controller: linkController,
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return "Deskripsi tidak boleh kosong";
+                        return "Link tidak boleh kosong";
                       }
                       return null;
                     },
-                    maxLines: 3,
-                    maxLength: 250,
                     decoration: InputDecoration(
                         icon: const FaIcon(
                           FontAwesomeIcons.paragraph,
                           color: Colors.black,
                         ),
-                        hintText: "Masukkan deskripsi",
-                        labelText: "Deskripsi",
+                        hintText: "Masukkan Link",
+                        labelText: "Link",
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5),
                         )),
                   ),
-                  const SizedBox(
-                    height: 30,
-                  ),
+                  const Padding(padding: EdgeInsets.only(top: 15)),
                   Container(
                     width: MediaQuery.of(context).size.width,
                     child: Row(

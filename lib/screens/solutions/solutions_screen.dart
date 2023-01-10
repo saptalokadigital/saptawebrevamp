@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:saptaloka_web_revamp/screens/solutions/widgets/awalan.dart';
-import 'package:saptaloka_web_revamp/screens/solutions/widgets/our_solutions.dart';
 import 'package:saptaloka_web_revamp/screens/solutions/widgets/our_solutions_coba.dart';
 import 'package:saptaloka_web_revamp/widgets/footer.dart';
 import 'package:saptaloka_web_revamp/widgets/header_widget.dart';
