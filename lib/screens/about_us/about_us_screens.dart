@@ -43,7 +43,6 @@ class _AboutUsScreensState extends State<AboutUsScreens> {
             SizedBox(
               height: 50,
             ),
-            OurTeam(),
             Footer()
           ],
         ),
