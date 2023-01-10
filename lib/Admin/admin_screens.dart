@@ -28,9 +28,9 @@ class _AdminScreensState extends State<AdminScreens> {
           _selectedScerrens = ClientAdmin();
         });
         break;
-      case NewsAdmin.id:
+      case NewsHome.id:
         setState(() {
-          _selectedScerrens = NewsAdmin();
+          _selectedScerrens = NewsHome();
         });
         break;
       case PortfolioAdmin.id:
@@ -67,7 +67,7 @@ class _AdminScreensState extends State<AdminScreens> {
           ),
           AdminMenuItem(
             title: 'News',
-            route: NewsAdmin.id,
+            route: NewsHome.id,
             icon: Icons.newspaper,
           ),
           AdminMenuItem(
