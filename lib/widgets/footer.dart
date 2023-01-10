@@ -16,7 +16,7 @@ class _FooterState extends State<Footer> {
     return Responsive(
       mobile: Container(
         width: MediaQuery.of(context).size.width,
-        height: 1000,
+        height: 800,
         decoration: BoxDecoration(
           gradient: LinearGradient(
               begin: Alignment.topCenter,
@@ -262,7 +262,7 @@ class _FooterState extends State<Footer> {
                       ],
                     ),
                   ),
-                  SizedBox(width: 70),
+                  SizedBox(width: 20),
                 ],
               ),
             ),
