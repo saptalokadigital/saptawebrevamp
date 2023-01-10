@@ -99,7 +99,7 @@ class _SatisfiedClientState extends State<SatisfiedClient> {
               autoPlayAnimationDuration: const Duration(milliseconds: 700),
               autoPlayCurve: Curves.fastOutSlowIn,
               pauseAutoPlayOnTouch: true,
-              viewportFraction: 0.1,
+              viewportFraction: 0.2,
               scrollDirection: Axis.horizontal,
             ),
           ),
