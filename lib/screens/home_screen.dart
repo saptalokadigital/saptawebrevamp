@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:saptaloka_web_revamp/responsive.dart';
 import 'package:saptaloka_web_revamp/screens/about_us/about_us_screens.dart';
 import 'package:saptaloka_web_revamp/screens/contact_us/contact_us_screen.dart';
 import 'package:saptaloka_web_revamp/screens/solutions/solutions_screen.dart';
@@ -217,14 +218,255 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-          body: Container(
-            width: screenSize.width,
-            height: screenSize.height,
-            // decoration: const BoxDecoration(
-            //   color: Color(0xff013088),
-            // ),
-            child: WebSmoothScroll(
-              controller: _scrollController,
+          body: Responsive(
+            large: Container(
+              width: screenSize.width,
+              height: screenSize.height,
+              // decoration: const BoxDecoration(
+              //   color: Color(0xff013088),
+              // ),
+              child: WebSmoothScroll(
+                controller: _scrollController,
+                child: SingleChildScrollView(
+                  physics: const NeverScrollableScrollPhysics(),
+                  controller: _scrollController,
+                  child: Column(
+                    children: [
+                      Column(
+                        children: [
+                          CarouselHome(),
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          Text(
+                            textAlign: TextAlign.center,
+                            "Through digital transformation, our solutions will take your business to the next level",
+                            style: GoogleFonts.inter(
+                              textStyle: const TextStyle(
+                                fontSize: 25.0,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          const CardHome(),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 25.0,
+                      ),
+                      const CoreValues(),
+                      const SizedBox(
+                        height: 70,
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            "Our Satisfied Client",
+                            style: GoogleFonts.inter(
+                              textStyle: const TextStyle(
+                                fontSize: 35.0,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          const SatisfiedClient(),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 70,
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            "Latest News",
+                            style: GoogleFonts.inter(
+                              textStyle: const TextStyle(
+                                fontSize: 35.0,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          const LatestNews(),
+                        ],
+                      ),
+                      Footer(),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            desktop: Container(
+              width: screenSize.width,
+              height: screenSize.height,
+              // decoration: const BoxDecoration(
+              //   color: Color(0xff013088),
+              // ),
+              child: WebSmoothScroll(
+                controller: _scrollController,
+                child: SingleChildScrollView(
+                  physics: const NeverScrollableScrollPhysics(),
+                  controller: _scrollController,
+                  child: Column(
+                    children: [
+                      Column(
+                        children: [
+                          CarouselHome(),
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          Text(
+                            textAlign: TextAlign.center,
+                            "Through digital transformation, our solutions will take your business to the next level",
+                            style: GoogleFonts.inter(
+                              textStyle: const TextStyle(
+                                fontSize: 25.0,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          const CardHome(),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 25.0,
+                      ),
+                      const CoreValues(),
+                      const SizedBox(
+                        height: 70,
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            "Our Satisfied Client",
+                            style: GoogleFonts.inter(
+                              textStyle: const TextStyle(
+                                fontSize: 35.0,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          const SatisfiedClient(),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 70,
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            "Latest News",
+                            style: GoogleFonts.inter(
+                              textStyle: const TextStyle(
+                                fontSize: 35.0,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          const LatestNews(),
+                        ],
+                      ),
+                      Footer(),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            tablet: Container(
+              width: screenSize.width,
+              height: screenSize.height,
+              // decoration: const BoxDecoration(
+              //   color: Color(0xff013088),
+              // ),
+              child: SingleChildScrollView(
+                controller: _scrollController,
+                child: Column(
+                  children: [
+                    Column(
+                      children: [
+                        CarouselHome(),
+                        const SizedBox(
+                          height: 50,
+                        ),
+                        Text(
+                          textAlign: TextAlign.center,
+                          "Through digital transformation, our solutions will take your business to the next level",
+                          style: GoogleFonts.inter(
+                            textStyle: const TextStyle(
+                              fontSize: 25.0,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        const CardHome(),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 25.0,
+                    ),
+                    const CoreValues(),
+                    const SizedBox(
+                      height: 70,
+                    ),
+                    Column(
+                      children: [
+                        Text(
+                          "Our Satisfied Client",
+                          style: GoogleFonts.inter(
+                            textStyle: const TextStyle(
+                              fontSize: 35.0,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 50,
+                        ),
+                        const SatisfiedClient(),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 70,
+                    ),
+                    Column(
+                      children: [
+                        Text(
+                          "Latest News",
+                          style: GoogleFonts.inter(
+                            textStyle: const TextStyle(
+                              fontSize: 35.0,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 50,
+                        ),
+                        const LatestNews(),
+                      ],
+                    ),
+                    Footer(),
+                  ],
+                ),
+              ),
+            ),
+            mobile: Container(
+              width: screenSize.width,
+              height: screenSize.height,
+              // decoration: const BoxDecoration(
+              //   color: Color(0xff013088),
+              // ),
               child: SingleChildScrollView(
                 controller: _scrollController,
                 child: Column(
