@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hovering/hovering.dart';
 import 'package:saptaloka_web_revamp/responsive.dart';
+import 'package:saptaloka_web_revamp/screens/solutions/widgets/it_solution.dart';
 
 class CardHome extends StatefulWidget {
   const CardHome({super.key});
@@ -42,7 +43,10 @@ class _CardHomeState extends State<CardHome> {
                       child: ItemCard(
                     title: "IT Solution",
                     image: "assets/images/image_1.png",
-                    fct: () {},
+                    fct: () {
+                      Navigator.pushReplacementNamed(
+                          context, ItSolutionScreen.routeName);
+                    },
                   )),
                   const SizedBox(
                     width: 10,
@@ -90,7 +94,10 @@ class _CardHomeState extends State<CardHome> {
                       child: ItemCard(
                     title: "IT Solution",
                     image: "assets/images/image_1.png",
-                    fct: () {},
+                    fct: () {
+                      Navigator.pushReplacementNamed(
+                          context, ItSolutionScreen.routeName);
+                    },
                   )),
                   const SizedBox(
                     width: 10,
@@ -138,7 +145,10 @@ class _CardHomeState extends State<CardHome> {
                     child: ItemCard(
                       title: "IT Solution",
                       image: "assets/images/image_1.png",
-                      fct: () {},
+                      fct: () {
+                        Navigator.pushReplacementNamed(
+                            context, ItSolutionScreen.routeName);
+                      },
                     ),
                   ),
                   const SizedBox(
@@ -198,7 +208,10 @@ class _CardHomeState extends State<CardHome> {
                     child: ItemCard(
                       title: "IT Solution",
                       image: "assets/images/image_1.png",
-                      fct: () {},
+                      fct: () {
+                        Navigator.pushReplacementNamed(
+                            context, ItSolutionScreen.routeName);
+                      },
                     ),
                   ),
                   const SizedBox(
