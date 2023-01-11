@@ -16,10 +16,16 @@ class SolutionsScreen extends StatefulWidget {
 
 class _SolutionsScreenState extends State<SolutionsScreen> {
   late ScrollController _scrollController;
+  double pixels = 0.0;
 
   @override
   void initState() {
     _scrollController = ScrollController();
+    _scrollController.addListener(() {
+      setState(() {
+        pixels = _scrollController.position.pixels;
+      });
+    });
     super.initState();
   }
 
@@ -38,7 +44,6 @@ class _SolutionsScreenState extends State<SolutionsScreen> {
         child: WebSmoothScroll(
           controller: _scrollController,
           child: SingleChildScrollView(
-            physics: const NeverScrollableScrollPhysics(),
             controller: _scrollController,
             child: Column(children: [
               Awalan(),

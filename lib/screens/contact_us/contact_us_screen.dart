@@ -39,7 +39,6 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
       body: WebSmoothScroll(
         controller: _scrollController,
         child: SingleChildScrollView(
-          physics: const NeverScrollableScrollPhysics(),
           controller: _scrollController,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
