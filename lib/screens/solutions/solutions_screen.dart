@@ -43,7 +43,7 @@ class _SolutionsScreenState extends State<SolutionsScreen> {
             child: Column(children: [
               Awalan(),
               const SizedBox(
-                height: 50,
+                height: 25,
               ),
               Column(
                 children: [

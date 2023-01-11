@@ -10,8 +10,8 @@ class Awalan extends StatelessWidget {
     return Responsive(
       mobile: Container(
         width: MediaQuery.of(context).size.width,
-        height: 400,
-        child: Stack(
+        height: 550,
+        child: Column(
           children: [
             Container(
               width: MediaQuery.of(context).size.width,
@@ -23,25 +23,17 @@ class Awalan extends StatelessWidget {
               ),
             ),
             Container(
-              width: MediaQuery.of(context).size.width,
-              height: 155,
-              decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.centerRight,
-                      end: Alignment.center,
-                      colors: [Colors.transparent, Color(0xFFFFFFFF)])),
-            ),
-            Container(
-              padding: EdgeInsets.only(top: 75, left: 50, right: 50),
+              padding: EdgeInsets.only(top: 25, left: 50, right: 50),
               width: MediaQuery.of(context).size.width,
               height: 400,
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
                     'Your Satisfaction is Our Top Priority',
                     style: GoogleFonts.inter(
                       fontWeight: FontWeight.bold,
-                      fontSize: 30,
+                      fontSize: 40,
                       color: Color(0xff013088),
                     ),
                   ),
@@ -51,7 +43,7 @@ class Awalan extends StatelessWidget {
                   Text(
                     'Untuk mendukung pertumbuhan perusahaan dari berbagai industri, kami terus bekerja secara maksimal melalui produk dan layanan yang kami miliki.',
                     style: GoogleFonts.inter(
-                      fontSize: 15,
+                      fontSize: 20,
                       color: Color.fromARGB(255, 58, 60, 63),
                     ),
                   ),
