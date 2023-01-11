@@ -215,6 +215,8 @@ class _LatestNewsState extends State<LatestNews> {
                             ),
                             Text(
                               item.judul!,
+                              maxLines: 4,
+                              overflow: TextOverflow.ellipsis,
                               style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
