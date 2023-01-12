@@ -639,53 +639,66 @@ class _FooterState extends State<Footer> {
                             });
                           },
                           child: AnimatedSwitcher(
-                            duration: Duration(milliseconds: 1000),
+                            duration: Duration(milliseconds: 300),
                             child: _isHover
-                                ? OutlinedButton(
-                                    onPressed: (() {}),
-                                    child: Row(
-                                      children: [
-                                        Text(
-                                          'CONTACT US',
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                        SizedBox(
-                                          width: 5,
-                                        ),
-                                        Icon(
-                                          Icons.arrow_right_outlined,
-                                          color: Colors.white,
-                                        )
-                                      ],
-                                    ),
-                                    style: ButtonStyle(
-                                      backgroundColor:
-                                          MaterialStateProperty.all(
-                                              Color.fromARGB(
-                                                  255, 58, 127, 255)),
-                                      textStyle: MaterialStateProperty.all(
-                                          TextStyle(color: Colors.white)),
-                                      shape: MaterialStateProperty.all(
-                                          RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(30),
-                                      )),
+                                ? Container(
+                                    width: 145,
+                                    key: ValueKey<int>(0),
+                                    child: OutlinedButton(
+                                      onPressed: (() {}),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'CONTACT US',
+                                            style:
+                                                TextStyle(color: Colors.white),
+                                          ),
+                                          SizedBox(
+                                            width: 5,
+                                          ),
+                                          Icon(
+                                            Icons.arrow_right_outlined,
+                                            color: Colors.white,
+                                          )
+                                        ],
+                                      ),
+                                      style: ButtonStyle(
+                                        backgroundColor:
+                                            MaterialStateProperty.all(
+                                                Color.fromARGB(
+                                                    255, 58, 127, 255)),
+                                        textStyle: MaterialStateProperty.all(
+                                            TextStyle(color: Colors.white)),
+                                        shape: MaterialStateProperty.all(
+                                            RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(30),
+                                        )),
+                                      ),
                                     ),
                                   )
-                                : OutlinedButton(
-                                    onPressed: (() {}),
-                                    child: Text(
-                                      'CONTACT US',
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                    style: ButtonStyle(
-                                      side: MaterialStateProperty.all(
-                                          BorderSide(color: Colors.white)),
-                                      textStyle: MaterialStateProperty.all(
-                                          TextStyle(color: Colors.white)),
-                                      shape: MaterialStateProperty.all(
-                                          RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(30),
-                                      )),
+                                : Container(
+                                    width: 145,
+                                    key: ValueKey<int>(1),
+                                    child: OutlinedButton(
+                                      onPressed: (() {}),
+                                      child: Text(
+                                        'CONTACT US',
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      style: ButtonStyle(
+                                        side: MaterialStateProperty.all(
+                                            BorderSide(color: Colors.white)),
+                                        textStyle: MaterialStateProperty.all(
+                                            TextStyle(color: Colors.white)),
+                                        shape: MaterialStateProperty.all(
+                                            RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(30),
+                                        )),
+                                      ),
                                     ),
                                   ),
                           ),
@@ -886,9 +899,10 @@ class _FooterState extends State<Footer> {
                             });
                           },
                           child: AnimatedSwitcher(
-                            duration: Duration(milliseconds: 1000),
+                            duration: Duration(milliseconds: 10000),
                             child: _isHover
                                 ? OutlinedButton(
+                                    key: ValueKey<int>(0),
                                     onPressed: (() {}),
                                     child: Row(
                                       children: [
@@ -913,12 +927,15 @@ class _FooterState extends State<Footer> {
                                       textStyle: MaterialStateProperty.all(
                                           TextStyle(color: Colors.white)),
                                       shape: MaterialStateProperty.all(
-                                          RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(30),
-                                      )),
+                                        RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(30),
+                                        ),
+                                      ),
                                     ),
                                   )
                                 : OutlinedButton(
+                                    key: ValueKey<int>(1),
                                     onPressed: (() {}),
                                     child: Text(
                                       'CONTACT US',
@@ -930,9 +947,11 @@ class _FooterState extends State<Footer> {
                                       textStyle: MaterialStateProperty.all(
                                           TextStyle(color: Colors.white)),
                                       shape: MaterialStateProperty.all(
-                                          RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(30),
-                                      )),
+                                        RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(30),
+                                        ),
+                                      ),
                                     ),
                                   ),
                           ),
