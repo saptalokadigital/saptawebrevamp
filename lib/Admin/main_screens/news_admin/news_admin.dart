@@ -54,67 +54,66 @@ class _NewsHomeState extends State<NewsHome> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 5,
-                ),
-                Text(
-                  "Klik konten untuk mengedit",
-                  style: GoogleFonts.inter(
-                    textStyle: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 30,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: StreamBuilder<QuerySnapshot>(
-                      stream: FirebaseFirestore.instance
-                          .collection('NewsContent')
-                          .orderBy('createdAt', descending: false)
-                          .snapshots(),
-                      builder: (context, snapshot) {
-                        if (snapshot.connectionState ==
-                            ConnectionState.waiting) {
-                          return const Center(
-                            child: CircularProgressIndicator(),
-                          );
-                        } else if (snapshot.connectionState ==
-                            ConnectionState.active) {
-                          if (snapshot.data!.docs.isNotEmpty) {
-                            return Container(
-                              width: MediaQuery.of(context).size.width,
-                              child: ListView.builder(
-                                  shrinkWrap: true,
-                                  itemCount: snapshot.data!.docs.length,
-                                  itemBuilder: (context, index) {
-                                    return NewsAdmin(
-                                        id: snapshot.data!.docs[index]['id']);
-                                  }),
-                            );
-                          } else {
-                            return const Center(
-                              child: Padding(
-                                padding: EdgeInsets.all(18.0),
-                                child: Text('is empty'),
-                              ),
-                            );
-                          }
-                        }
-                        return const Center(
-                          child: Text(
-                            'Something went wrong',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 30),
-                          ),
-                        );
-                      }),
-                )
               ],
             ),
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Text(
+            "Klik konten untuk mengedit",
+            style: GoogleFonts.inter(
+              textStyle: const TextStyle(
+                color: Colors.black,
+                fontSize: 30,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: StreamBuilder<QuerySnapshot>(
+                stream: FirebaseFirestore.instance
+                    .collection('NewsContent')
+                    .orderBy('createdAt', descending: false)
+                    .snapshots(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  } else if (snapshot.connectionState ==
+                      ConnectionState.active) {
+                    if (snapshot.data!.docs.isNotEmpty) {
+                      return Container(
+                        width: MediaQuery.of(context).size.width,
+                        child: ListView.builder(
+                            shrinkWrap: true,
+                            itemCount: snapshot.data!.docs.length,
+                            itemBuilder: (context, index) {
+                              return NewsAdmin(
+                                  id: snapshot.data!.docs[index]['id']);
+                            }),
+                      );
+                    } else {
+                      return const Center(
+                        child: Padding(
+                          padding: EdgeInsets.all(18.0),
+                          child: Text('is empty'),
+                        ),
+                      );
+                    }
+                  }
+                  return const Center(
+                    child: Text(
+                      'Something went wrong',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                    ),
+                  );
+                }),
           )
         ],
       ),
