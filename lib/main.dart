@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
         AboutUsScreens.routeName: (context) => const AboutUsScreens(),
         SolutionsScreen.routeName: (context) => const SolutionsScreen(),
         ContactUsScreen.routeName: (context) => const ContactUsScreen(),
-        ItSolutionScreen.routeName: (context) => const ItSolutionScreen()
+        ItSolutionScreen.routeName: (context) => const ItSolutionScreen(),
       },
     );
   }

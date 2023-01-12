@@ -4,8 +4,12 @@ import 'package:saptaloka_web_revamp/screens/about_us/widget/our_team.dart';
 import 'package:saptaloka_web_revamp/screens/about_us/widget/story_saptaloka.dart';
 import 'package:saptaloka_web_revamp/screens/about_us/widget/visi_misi.dart';
 import 'package:saptaloka_web_revamp/screens/about_us/widget/weare_wedo.dart';
+import 'package:saptaloka_web_revamp/screens/solutions/solutions_screen.dart';
+import 'package:saptaloka_web_revamp/screens/solutions/widgets/it_solution.dart';
 import 'package:saptaloka_web_revamp/widgets/footer.dart';
 import 'package:saptaloka_web_revamp/widgets/header_widget.dart';
+
+import '../contact_us/contact_us_screen.dart';
 
 class AboutUsScreens extends StatefulWidget {
   static const routeName = '/AboutUs';
@@ -16,38 +20,409 @@ class AboutUsScreens extends StatefulWidget {
 }
 
 class _AboutUsScreensState extends State<AboutUsScreens> {
+  final List _isHovering = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ];
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: PreferredSize(
-        preferredSize: Size(screenSize.width, 70),
-        child: HeaderWidget(),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: const [
-            StorySaptaloka(),
-            SizedBox(
-              height: 50,
+    return Stack(
+      children: [
+        Scaffold(
+          backgroundColor: Colors.white,
+          appBar: PreferredSize(
+            preferredSize: Size(screenSize.width, 70),
+            child: Container(
+              alignment: Alignment.topCenter,
+              width: screenSize.width,
+              color: Colors.white,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 50),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushReplacementNamed(context, '/');
+                      },
+                      child: Container(
+                        height: 70,
+                        width: 70,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/images/logo_header.png'),
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 60,
+                    ),
+                    Flexible(
+                      child: Stack(
+                        children: [
+                          TextButton(
+                            onHover: (value) {
+                              setState(() {
+                                value
+                                    ? _isHovering[0] = true
+                                    : _isHovering[0] = false;
+                              });
+                            },
+                            onPressed: () {
+                              Navigator.pushReplacementNamed(
+                                  context, AboutUsScreens.routeName);
+                              // Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: (context) => AboutUsScreens()));--
+                            },
+                            child: Text(
+                              'About Us',
+                              style: GoogleFonts.inter(
+                                color: _isHovering[0]
+                                    ? const Color(0xff013088)
+                                    : const Color.fromARGB(255, 0, 0, 0),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 33,
+                    ),
+                    _isHovering[1]
+                        ? InkWell(
+                            onHover: (value) {
+                              setState(() {
+                                value
+                                    ? _isHovering[1] = true
+                                    : _isHovering[1] = false;
+                              });
+                            },
+                            onTap: () {
+                              Navigator.pushReplacementNamed(
+                                  context, SolutionsScreen.routeName);
+                            },
+                            child: Container(
+                              width: 95,
+                              child: Row(
+                                children: [
+                                  Text(
+                                    'Solutions',
+                                    style: GoogleFonts.inter(
+                                      color: Colors.transparent,
+                                    ),
+                                  ),
+                                  Icon(
+                                    Icons.arrow_drop_down,
+                                    color: Colors.transparent,
+                                  )
+                                ],
+                              ),
+                            ),
+                          )
+                        : InkWell(
+                            onHover: (value) {
+                              setState(() {
+                                value
+                                    ? _isHovering[1] = true
+                                    : _isHovering[1] = false;
+                              });
+                            },
+                            onTap: () {
+                              Navigator.pushReplacementNamed(
+                                  context, SolutionsScreen.routeName);
+                            },
+                            child: Container(
+                              width: 95,
+                              child: Row(
+                                children: [
+                                  Text(
+                                    'Solutions',
+                                    style: GoogleFonts.inter(
+                                      color: _isHovering[1]
+                                          ? const Color(0xff013088)
+                                          : const Color.fromARGB(255, 0, 0, 0),
+                                    ),
+                                  ),
+                                  Icon(
+                                    Icons.arrow_drop_down,
+                                    color: _isHovering[1]
+                                        ? const Color(0xff013088)
+                                        : const Color.fromARGB(255, 0, 0, 0),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                    SizedBox(width: 22),
+                    Flexible(
+                      child: TextButton(
+                        onHover: (value) {
+                          setState(() {
+                            value
+                                ? _isHovering[2] = true
+                                : _isHovering[2] = false;
+                          });
+                        },
+                        onPressed: () {
+                          Navigator.pushReplacementNamed(
+                              context, ContactUsScreen.routeName);
+                        },
+                        child: Text(
+                          'Contact Us',
+                          style: GoogleFonts.inter(
+                            color: _isHovering[2]
+                                ? const Color(0xff013088)
+                                : const Color.fromARGB(255, 0, 0, 0),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
-            WeAreWedo(),
-            SizedBox(
-              height: 50,
+          ),
+          body: SingleChildScrollView(
+            child: Column(
+              children: const [
+                StorySaptaloka(),
+                SizedBox(
+                  height: 50,
+                ),
+                WeAreWedo(),
+                SizedBox(
+                  height: 50,
+                ),
+                VisiMisi(),
+                SizedBox(
+                  height: 50,
+                ),
+                SizedBox(
+                  height: 50,
+                ),
+                OurTeam(),
+                Footer()
+              ],
             ),
-            VisiMisi(),
-            SizedBox(
-              height: 50,
-            ),
-            SizedBox(
-              height: 50,
-            ),
-            OurTeam(),
-            Footer()
-          ],
+          ),
         ),
-      ),
+        _isHovering[1]
+            ? Padding(
+                padding: const EdgeInsets.only(left: 283, right: 100, top: 23),
+                child: Container(
+                  width: 230,
+                  child: TextButton(
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.transparent)),
+                    onHover: (value) {
+                      setState(() {
+                        value ? _isHovering[1] = true : _isHovering[1] = false;
+                      });
+                    },
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(
+                          context, SolutionsScreen.routeName);
+                    },
+                    child: Container(
+                      child: Column(
+                        children: [
+                          Container(
+                            child: Row(
+                              children: [
+                                Text(
+                                  'Solutions',
+                                  style: GoogleFonts.inter(
+                                    color: _isHovering[1]
+                                        ? const Color(0xff013088)
+                                        : const Color.fromARGB(255, 0, 0, 0),
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.arrow_drop_down,
+                                  color: _isHovering[1]
+                                      ? const Color(0xff013088)
+                                      : const Color.fromARGB(255, 0, 0, 0),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            height: 17,
+                          ),
+                          Container(
+                            height: 130,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black12,
+                                  offset: const Offset(
+                                    1.0,
+                                    1.0,
+                                  ),
+                                  blurRadius: 1.0,
+                                  spreadRadius: 1.0,
+                                ),
+                              ],
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  height: 3,
+                                  decoration: BoxDecoration(color: Colors.blue),
+                                ),
+                                Container(
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        top: 15, left: 15, bottom: 15),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Container(
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              TextButton(
+                                                onHover: (value) {
+                                                  setState(() {
+                                                    value
+                                                        ? _isHovering[1] = true
+                                                        : _isHovering[1] =
+                                                            false;
+                                                  });
+                                                },
+                                                onPressed: () {
+                                                  Navigator
+                                                      .pushReplacementNamed(
+                                                          context,
+                                                          ItSolutionScreen
+                                                              .routeName);
+                                                },
+                                                child: Text(
+                                                  'IT Solution',
+                                                  style: GoogleFonts.inter(
+                                                    color: _isHovering[1]
+                                                        ? const Color(
+                                                            0xff013088)
+                                                        : const Color.fromARGB(
+                                                            255, 0, 0, 0),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Container(
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              TextButton(
+                                                onHover: (value) {
+                                                  setState(() {
+                                                    value
+                                                        ? _isHovering[1] = true
+                                                        : _isHovering[1] =
+                                                            false;
+                                                  });
+                                                },
+                                                onPressed: () {
+                                                  Navigator
+                                                      .pushReplacementNamed(
+                                                          context,
+                                                          SolutionsScreen
+                                                              .routeName);
+                                                },
+                                                child: Text(
+                                                  'Business Digital Solution',
+                                                  style: GoogleFonts.inter(
+                                                    color: _isHovering[1]
+                                                        ? const Color(
+                                                            0xff013088)
+                                                        : const Color.fromARGB(
+                                                            255, 0, 0, 0),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Container(
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              TextButton(
+                                                onHover: (value) {
+                                                  setState(() {
+                                                    value
+                                                        ? _isHovering[1] = true
+                                                        : _isHovering[1] =
+                                                            false;
+                                                  });
+                                                },
+                                                onPressed: () {
+                                                  Navigator
+                                                      .pushReplacementNamed(
+                                                          context,
+                                                          SolutionsScreen
+                                                              .routeName);
+                                                },
+                                                child: Text(
+                                                  'Digital Marketing',
+                                                  style: GoogleFonts.inter(
+                                                    color: _isHovering[1]
+                                                        ? const Color(
+                                                            0xff013088)
+                                                        : const Color.fromARGB(
+                                                            255, 0, 0, 0),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              )
+            : Container(),
+      ],
     );
   }
 }

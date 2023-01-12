@@ -85,7 +85,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
             ),
             Flexible(
               child: Container(
-                width: 100,
+                width: 103,
                 child: TextButton(
                   onHover: (value) {
                     setState(() {
