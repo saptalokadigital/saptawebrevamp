@@ -60,154 +60,181 @@ class _CarouselHomeState extends State<CarouselHome> {
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: 558,
-          child: CarouselSlider.builder(
-            carouselController: buttonCarouselController,
-            itemBuilder: (context, index, realIndex) {
-              return Stack(
-                children: [
-                  AnimatedContainer(
-                    height: 500,
-                    curve: Curves.easeInOut,
-                    duration: const Duration(milliseconds: 500),
-                    transform: Matrix4.translationValues(0, 1, 0),
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                    ),
-                    child: Stack(
-                      clipBehavior: Clip.none,
+          child: StreamBuilder<QuerySnapshot>(
+            stream: ref.snapshots(),
+            builder: (context, snapshot) {
+              if (snapshot.hasError) {
+                return Text('Something went wrong');
+              } else if (snapshot.hasData || snapshot.data != null) {
+                return CarouselSlider.builder(
+                  carouselController: buttonCarouselController,
+                  itemBuilder: (context, index, realIndex) {
+                    var homeInfo = snapshot.data!.docs[index].data()
+                        as Map<String, dynamic>;
+                    String docId = snapshot.data!.docs[index].id;
+                    String judul = homeInfo['judul'];
+                    String desc = homeInfo['deskripsi'];
+
+                    String imageUrl = homeInfo['imageUrl'];
+
+                    return Stack(
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Container(
-                              width: MediaQuery.of(context).size.width / 2,
-                              height: 500,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image: AssetImage('${image[index]}'),
-                                    colorFilter: ColorFilter.mode(
-                                        Colors.white.withOpacity(0.85),
-                                        BlendMode.dstATop),
-                                    fit: BoxFit.contain),
-                              ),
-                            )
-                                .animate()
-                                .slideX(delay: 1000.ms)
-                                .fade(duration: 1000.ms),
-                          ],
-                        ),
-                        Container(
-                          width: MediaQuery.of(context).size.width / 3,
+                        AnimatedContainer(
                           height: 500,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
+                          curve: Curves.easeInOut,
+                          duration: const Duration(milliseconds: 500),
+                          transform: Matrix4.translationValues(0, 1, 0),
+                          decoration: const BoxDecoration(
+                            color: Colors.white,
+                          ),
+                          child: Stack(
+                            clipBehavior: Clip.none,
                             children: [
-                              Text(
-                                '${title[index]}',
-                                textAlign: TextAlign.left,
-                                style: GoogleFonts.inter(
-                                  color: Color(0xff013088),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 42,
-                                ),
-                              )
-                                  .animate()
-                                  .slideY(delay: 1500.ms)
-                                  .fade(duration: 1500.ms),
-                              const SizedBox(
-                                height: 30,
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Container(
+                                    width:
+                                        MediaQuery.of(context).size.width / 2,
+                                    height: 500,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image: NetworkImage(imageUrl),
+                                          colorFilter: ColorFilter.mode(
+                                              Colors.white.withOpacity(0.85),
+                                              BlendMode.dstATop),
+                                          fit: BoxFit.contain),
+                                    ),
+                                  )
+                                      .animate()
+                                      .slideX(delay: 1000.ms)
+                                      .fade(duration: 1000.ms),
+                                ],
                               ),
-                              Text(
-                                '${text[index]}',
-                                maxLines: 10,
-                                style: GoogleFonts.inter(
-                                  color: Colors.black,
-                                  fontSize: 16,
+                              Container(
+                                width: MediaQuery.of(context).size.width / 3,
+                                height: 500,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      judul,
+                                      textAlign: TextAlign.left,
+                                      style: GoogleFonts.inter(
+                                        color: Color(0xff013088),
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 42,
+                                      ),
+                                    )
+                                        .animate()
+                                        .slideY(delay: 1500.ms)
+                                        .fade(duration: 1500.ms),
+                                    const SizedBox(
+                                      height: 30,
+                                    ),
+                                    Text(
+                                      desc,
+                                      maxLines: 10,
+                                      style: GoogleFonts.inter(
+                                        color: Colors.black,
+                                        fontSize: 16,
+                                      ),
+                                    )
+                                        .animate()
+                                        .slideY(delay: 1500.ms)
+                                        .fade(duration: 1500.ms),
+                                  ],
                                 ),
-                              )
-                                  .animate()
-                                  .slideY(delay: 1500.ms)
-                                  .fade(duration: 1500.ms),
+                              ),
                             ],
                           ),
                         ),
+                        HoverWidget(
+                          hoverChild: Container(
+                            height: 500,
+                            color: Colors.white.withOpacity(0.20),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                IconButton(
+                                  style: const ButtonStyle(
+                                    backgroundColor:
+                                        MaterialStatePropertyAll<Color>(
+                                            Colors.transparent),
+                                  ),
+                                  onPressed: () =>
+                                      buttonCarouselController.previousPage(
+                                          duration: Duration(milliseconds: 300),
+                                          curve: Curves.linear),
+                                  icon: const Icon(
+                                    Icons.arrow_back_rounded,
+                                    size: 30,
+                                  ),
+                                )
+                                    .animate()
+                                    .slideX(delay: 100.ms)
+                                    .fade(duration: 300.ms),
+                                IconButton(
+                                  style: const ButtonStyle(
+                                    backgroundColor:
+                                        MaterialStatePropertyAll<Color>(
+                                            Colors.transparent),
+                                  ),
+                                  onPressed: () =>
+                                      buttonCarouselController.nextPage(
+                                          duration: Duration(milliseconds: 300),
+                                          curve: Curves.linear),
+                                  icon: const Icon(
+                                    Icons.arrow_forward_rounded,
+                                    size: 30,
+                                  ),
+                                )
+                                    .animate()
+                                    .slideX(delay: 100.ms)
+                                    .fade(duration: 300.ms),
+                              ],
+                            ),
+                          ),
+                          onHover: (e) {},
+                          child: Container(
+                            height: 500,
+                            decoration:
+                                const BoxDecoration(color: Colors.transparent),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: const [],
+                            ),
+                          ),
+                        ),
                       ],
-                    ),
+                    );
+                  },
+                  options: CarouselOptions(
+                    height: 500,
+                    initialPage: 0,
+                    autoPlay: true,
+                    autoPlayInterval: const Duration(seconds: 5),
+                    autoPlayAnimationDuration: const Duration(seconds: 1),
+                    autoPlayCurve: Curves.fastOutSlowIn,
+                    pauseAutoPlayOnTouch: true,
+                    viewportFraction: 1,
+                    aspectRatio: 2.0,
+                    scrollDirection: Axis.horizontal,
+                    enlargeCenterPage: true,
                   ),
-                  HoverWidget(
-                    hoverChild: Container(
-                      height: 500,
-                      color: Colors.white.withOpacity(0.20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          IconButton(
-                            style: const ButtonStyle(
-                              backgroundColor: MaterialStatePropertyAll<Color>(
-                                  Colors.transparent),
-                            ),
-                            onPressed: () =>
-                                buttonCarouselController.previousPage(
-                                    duration: Duration(milliseconds: 300),
-                                    curve: Curves.linear),
-                            icon: const Icon(
-                              Icons.arrow_back_rounded,
-                              size: 30,
-                            ),
-                          )
-                              .animate()
-                              .slideX(delay: 100.ms)
-                              .fade(duration: 300.ms),
-                          IconButton(
-                            style: const ButtonStyle(
-                              backgroundColor: MaterialStatePropertyAll<Color>(
-                                  Colors.transparent),
-                            ),
-                            onPressed: () => buttonCarouselController.nextPage(
-                                duration: Duration(milliseconds: 300),
-                                curve: Curves.linear),
-                            icon: const Icon(
-                              Icons.arrow_forward_rounded,
-                              size: 30,
-                            ),
-                          )
-                              .animate()
-                              .slideX(delay: 100.ms)
-                              .fade(duration: 300.ms),
-                        ],
-                      ),
-                    ),
-                    onHover: (e) {},
-                    child: Container(
-                      height: 500,
-                      decoration:
-                          const BoxDecoration(color: Colors.transparent),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: const [],
-                      ),
-                    ),
-                  ),
-                ],
+                  itemCount: snapshot.data!.docs.length,
+                );
+              }
+              return Center(
+                child: CircularProgressIndicator(
+                  valueColor:
+                      AlwaysStoppedAnimation<Color>(Colors.orangeAccent),
+                ),
               );
             },
-            options: CarouselOptions(
-              height: 500,
-              initialPage: 0,
-              autoPlay: true,
-              autoPlayInterval: const Duration(seconds: 5),
-              autoPlayAnimationDuration: const Duration(seconds: 1),
-              autoPlayCurve: Curves.fastOutSlowIn,
-              pauseAutoPlayOnTouch: true,
-              viewportFraction: 1,
-              aspectRatio: 2.0,
-              scrollDirection: Axis.horizontal,
-              enlargeCenterPage: true,
-            ),
-            itemCount: text.length,
           ),
         ),
       ),
@@ -217,154 +244,181 @@ class _CarouselHomeState extends State<CarouselHome> {
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: 558,
-          child: CarouselSlider.builder(
-            carouselController: buttonCarouselController,
-            itemBuilder: (context, index, realIndex) {
-              return Stack(
-                children: [
-                  AnimatedContainer(
-                    height: 500,
-                    curve: Curves.easeInOut,
-                    duration: const Duration(milliseconds: 500),
-                    transform: Matrix4.translationValues(0, 1, 0),
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                    ),
-                    child: Stack(
-                      clipBehavior: Clip.none,
+          child: StreamBuilder<QuerySnapshot>(
+            stream: ref.snapshots(),
+            builder: (context, snapshot) {
+              if (snapshot.hasError) {
+                return Text('Something went wrong');
+              } else if (snapshot.hasData || snapshot.data != null) {
+                return CarouselSlider.builder(
+                  carouselController: buttonCarouselController,
+                  itemBuilder: (context, index, realIndex) {
+                    var homeInfo = snapshot.data!.docs[index].data()
+                        as Map<String, dynamic>;
+                    String docId = snapshot.data!.docs[index].id;
+                    String judul = homeInfo['judul'];
+                    String desc = homeInfo['deskripsi'];
+
+                    String imageUrl = homeInfo['imageUrl'];
+
+                    return Stack(
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Container(
-                              width: MediaQuery.of(context).size.width / 2,
-                              height: 500,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image: AssetImage('${image[index]}'),
-                                    colorFilter: ColorFilter.mode(
-                                        Colors.white.withOpacity(0.85),
-                                        BlendMode.dstATop),
-                                    fit: BoxFit.contain),
-                              ),
-                            )
-                                .animate()
-                                .slideX(delay: 1000.ms)
-                                .fade(duration: 1000.ms),
-                          ],
-                        ),
-                        Container(
-                          width: MediaQuery.of(context).size.width / 3,
+                        AnimatedContainer(
                           height: 500,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
+                          curve: Curves.easeInOut,
+                          duration: const Duration(milliseconds: 500),
+                          transform: Matrix4.translationValues(0, 1, 0),
+                          decoration: const BoxDecoration(
+                            color: Colors.white,
+                          ),
+                          child: Stack(
+                            clipBehavior: Clip.none,
                             children: [
-                              Text(
-                                '${title[index]}',
-                                textAlign: TextAlign.left,
-                                style: GoogleFonts.inter(
-                                  color: Color(0xff013088),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 42,
-                                ),
-                              )
-                                  .animate()
-                                  .slideY(delay: 1500.ms)
-                                  .fade(duration: 1500.ms),
-                              const SizedBox(
-                                height: 30,
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Container(
+                                    width:
+                                        MediaQuery.of(context).size.width / 2,
+                                    height: 500,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image: NetworkImage(imageUrl),
+                                          colorFilter: ColorFilter.mode(
+                                              Colors.white.withOpacity(0.85),
+                                              BlendMode.dstATop),
+                                          fit: BoxFit.contain),
+                                    ),
+                                  )
+                                      .animate()
+                                      .slideX(delay: 1000.ms)
+                                      .fade(duration: 1000.ms),
+                                ],
                               ),
-                              Text(
-                                '${text[index]}',
-                                maxLines: 10,
-                                style: GoogleFonts.inter(
-                                  color: Colors.black,
-                                  fontSize: 16,
+                              Container(
+                                width: MediaQuery.of(context).size.width / 3,
+                                height: 500,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      judul,
+                                      textAlign: TextAlign.left,
+                                      style: GoogleFonts.inter(
+                                        color: Color(0xff013088),
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 42,
+                                      ),
+                                    )
+                                        .animate()
+                                        .slideY(delay: 1500.ms)
+                                        .fade(duration: 1500.ms),
+                                    const SizedBox(
+                                      height: 30,
+                                    ),
+                                    Text(
+                                      desc,
+                                      maxLines: 10,
+                                      style: GoogleFonts.inter(
+                                        color: Colors.black,
+                                        fontSize: 16,
+                                      ),
+                                    )
+                                        .animate()
+                                        .slideY(delay: 1500.ms)
+                                        .fade(duration: 1500.ms),
+                                  ],
                                 ),
-                              )
-                                  .animate()
-                                  .slideY(delay: 1500.ms)
-                                  .fade(duration: 1500.ms),
+                              ),
                             ],
                           ),
                         ),
+                        HoverWidget(
+                          hoverChild: Container(
+                            height: 500,
+                            color: Colors.white.withOpacity(0.20),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                IconButton(
+                                  style: const ButtonStyle(
+                                    backgroundColor:
+                                        MaterialStatePropertyAll<Color>(
+                                            Colors.transparent),
+                                  ),
+                                  onPressed: () =>
+                                      buttonCarouselController.previousPage(
+                                          duration: Duration(milliseconds: 300),
+                                          curve: Curves.linear),
+                                  icon: const Icon(
+                                    Icons.arrow_back_rounded,
+                                    size: 30,
+                                  ),
+                                )
+                                    .animate()
+                                    .slideX(delay: 100.ms)
+                                    .fade(duration: 300.ms),
+                                IconButton(
+                                  style: const ButtonStyle(
+                                    backgroundColor:
+                                        MaterialStatePropertyAll<Color>(
+                                            Colors.transparent),
+                                  ),
+                                  onPressed: () =>
+                                      buttonCarouselController.nextPage(
+                                          duration: Duration(milliseconds: 300),
+                                          curve: Curves.linear),
+                                  icon: const Icon(
+                                    Icons.arrow_forward_rounded,
+                                    size: 30,
+                                  ),
+                                )
+                                    .animate()
+                                    .slideX(delay: 100.ms)
+                                    .fade(duration: 300.ms),
+                              ],
+                            ),
+                          ),
+                          onHover: (e) {},
+                          child: Container(
+                            height: 500,
+                            decoration:
+                                const BoxDecoration(color: Colors.transparent),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: const [],
+                            ),
+                          ),
+                        ),
                       ],
-                    ),
+                    );
+                  },
+                  options: CarouselOptions(
+                    height: 500,
+                    initialPage: 0,
+                    autoPlay: true,
+                    autoPlayInterval: const Duration(seconds: 5),
+                    autoPlayAnimationDuration: const Duration(seconds: 1),
+                    autoPlayCurve: Curves.fastOutSlowIn,
+                    pauseAutoPlayOnTouch: true,
+                    viewportFraction: 1,
+                    aspectRatio: 2.0,
+                    scrollDirection: Axis.horizontal,
+                    enlargeCenterPage: true,
                   ),
-                  HoverWidget(
-                    hoverChild: Container(
-                      height: 500,
-                      color: Colors.white.withOpacity(0.20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          IconButton(
-                            style: const ButtonStyle(
-                              backgroundColor: MaterialStatePropertyAll<Color>(
-                                  Colors.transparent),
-                            ),
-                            onPressed: () =>
-                                buttonCarouselController.previousPage(
-                                    duration: Duration(milliseconds: 300),
-                                    curve: Curves.linear),
-                            icon: const Icon(
-                              Icons.arrow_back_rounded,
-                              size: 30,
-                            ),
-                          )
-                              .animate()
-                              .slideX(delay: 100.ms)
-                              .fade(duration: 300.ms),
-                          IconButton(
-                            style: const ButtonStyle(
-                              backgroundColor: MaterialStatePropertyAll<Color>(
-                                  Colors.transparent),
-                            ),
-                            onPressed: () => buttonCarouselController.nextPage(
-                                duration: Duration(milliseconds: 300),
-                                curve: Curves.linear),
-                            icon: const Icon(
-                              Icons.arrow_forward_rounded,
-                              size: 30,
-                            ),
-                          )
-                              .animate()
-                              .slideX(delay: 100.ms)
-                              .fade(duration: 300.ms),
-                        ],
-                      ),
-                    ),
-                    onHover: (e) {},
-                    child: Container(
-                      height: 500,
-                      decoration:
-                          const BoxDecoration(color: Colors.transparent),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: const [],
-                      ),
-                    ),
-                  ),
-                ],
+                  itemCount: snapshot.data!.docs.length,
+                );
+              }
+              return Center(
+                child: CircularProgressIndicator(
+                  valueColor:
+                      AlwaysStoppedAnimation<Color>(Colors.orangeAccent),
+                ),
               );
             },
-            options: CarouselOptions(
-              height: 500,
-              initialPage: 0,
-              autoPlay: true,
-              autoPlayInterval: const Duration(seconds: 5),
-              autoPlayAnimationDuration: const Duration(seconds: 1),
-              autoPlayCurve: Curves.fastOutSlowIn,
-              pauseAutoPlayOnTouch: true,
-              viewportFraction: 1,
-              aspectRatio: 2.0,
-              scrollDirection: Axis.horizontal,
-              enlargeCenterPage: true,
-            ),
-            itemCount: text.length,
           ),
         ),
       ),
@@ -374,154 +428,181 @@ class _CarouselHomeState extends State<CarouselHome> {
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: 558,
-          child: CarouselSlider.builder(
-            carouselController: buttonCarouselController,
-            itemBuilder: (context, index, realIndex) {
-              return Stack(
-                children: [
-                  AnimatedContainer(
-                    height: 500,
-                    curve: Curves.easeInOut,
-                    duration: const Duration(milliseconds: 500),
-                    transform: Matrix4.translationValues(0, 1, 0),
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                    ),
-                    child: Stack(
-                      clipBehavior: Clip.none,
+          child: StreamBuilder<QuerySnapshot>(
+            stream: ref.snapshots(),
+            builder: (context, snapshot) {
+              if (snapshot.hasError) {
+                return Text('Something went wrong');
+              } else if (snapshot.hasData || snapshot.data != null) {
+                return CarouselSlider.builder(
+                  carouselController: buttonCarouselController,
+                  itemBuilder: (context, index, realIndex) {
+                    var homeInfo = snapshot.data!.docs[index].data()
+                        as Map<String, dynamic>;
+                    String docId = snapshot.data!.docs[index].id;
+                    String judul = homeInfo['judul'];
+                    String desc = homeInfo['deskripsi'];
+
+                    String imageUrl = homeInfo['imageUrl'];
+
+                    return Stack(
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Container(
-                              width: MediaQuery.of(context).size.width / 2,
-                              height: 500,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image: AssetImage('${image[index]}'),
-                                    colorFilter: ColorFilter.mode(
-                                        Colors.white.withOpacity(0.85),
-                                        BlendMode.dstATop),
-                                    fit: BoxFit.contain),
-                              ),
-                            )
-                                .animate()
-                                .slideX(delay: 1000.ms)
-                                .fade(duration: 1000.ms),
-                          ],
-                        ),
-                        Container(
-                          width: MediaQuery.of(context).size.width / 3,
+                        AnimatedContainer(
                           height: 500,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
+                          curve: Curves.easeInOut,
+                          duration: const Duration(milliseconds: 500),
+                          transform: Matrix4.translationValues(0, 1, 0),
+                          decoration: const BoxDecoration(
+                            color: Colors.white,
+                          ),
+                          child: Stack(
+                            clipBehavior: Clip.none,
                             children: [
-                              Text(
-                                '${title[index]}',
-                                textAlign: TextAlign.left,
-                                style: GoogleFonts.inter(
-                                  color: Color(0xff013088),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 42,
-                                ),
-                              )
-                                  .animate()
-                                  .slideY(delay: 1500.ms)
-                                  .fade(duration: 1500.ms),
-                              const SizedBox(
-                                height: 30,
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Container(
+                                    width:
+                                        MediaQuery.of(context).size.width / 2,
+                                    height: 500,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image: NetworkImage(imageUrl),
+                                          colorFilter: ColorFilter.mode(
+                                              Colors.white.withOpacity(0.85),
+                                              BlendMode.dstATop),
+                                          fit: BoxFit.contain),
+                                    ),
+                                  )
+                                      .animate()
+                                      .slideX(delay: 1000.ms)
+                                      .fade(duration: 1000.ms),
+                                ],
                               ),
-                              Text(
-                                '${text[index]}',
-                                maxLines: 10,
-                                style: GoogleFonts.inter(
-                                  color: Colors.black,
-                                  fontSize: 16,
+                              Container(
+                                width: MediaQuery.of(context).size.width / 3,
+                                height: 500,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      judul,
+                                      textAlign: TextAlign.left,
+                                      style: GoogleFonts.inter(
+                                        color: Color(0xff013088),
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 42,
+                                      ),
+                                    )
+                                        .animate()
+                                        .slideY(delay: 1500.ms)
+                                        .fade(duration: 1500.ms),
+                                    const SizedBox(
+                                      height: 30,
+                                    ),
+                                    Text(
+                                      desc,
+                                      maxLines: 10,
+                                      style: GoogleFonts.inter(
+                                        color: Colors.black,
+                                        fontSize: 16,
+                                      ),
+                                    )
+                                        .animate()
+                                        .slideY(delay: 1500.ms)
+                                        .fade(duration: 1500.ms),
+                                  ],
                                 ),
-                              )
-                                  .animate()
-                                  .slideY(delay: 1500.ms)
-                                  .fade(duration: 1500.ms),
+                              ),
                             ],
                           ),
                         ),
+                        HoverWidget(
+                          hoverChild: Container(
+                            height: 500,
+                            color: Colors.white.withOpacity(0.20),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                IconButton(
+                                  style: const ButtonStyle(
+                                    backgroundColor:
+                                        MaterialStatePropertyAll<Color>(
+                                            Colors.transparent),
+                                  ),
+                                  onPressed: () =>
+                                      buttonCarouselController.previousPage(
+                                          duration: Duration(milliseconds: 300),
+                                          curve: Curves.linear),
+                                  icon: const Icon(
+                                    Icons.arrow_back_rounded,
+                                    size: 30,
+                                  ),
+                                )
+                                    .animate()
+                                    .slideX(delay: 100.ms)
+                                    .fade(duration: 300.ms),
+                                IconButton(
+                                  style: const ButtonStyle(
+                                    backgroundColor:
+                                        MaterialStatePropertyAll<Color>(
+                                            Colors.transparent),
+                                  ),
+                                  onPressed: () =>
+                                      buttonCarouselController.nextPage(
+                                          duration: Duration(milliseconds: 300),
+                                          curve: Curves.linear),
+                                  icon: const Icon(
+                                    Icons.arrow_forward_rounded,
+                                    size: 30,
+                                  ),
+                                )
+                                    .animate()
+                                    .slideX(delay: 100.ms)
+                                    .fade(duration: 300.ms),
+                              ],
+                            ),
+                          ),
+                          onHover: (e) {},
+                          child: Container(
+                            height: 500,
+                            decoration:
+                                const BoxDecoration(color: Colors.transparent),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: const [],
+                            ),
+                          ),
+                        ),
                       ],
-                    ),
+                    );
+                  },
+                  options: CarouselOptions(
+                    height: 500,
+                    initialPage: 0,
+                    autoPlay: true,
+                    autoPlayInterval: const Duration(seconds: 5),
+                    autoPlayAnimationDuration: const Duration(seconds: 1),
+                    autoPlayCurve: Curves.fastOutSlowIn,
+                    pauseAutoPlayOnTouch: true,
+                    viewportFraction: 1,
+                    aspectRatio: 2.0,
+                    scrollDirection: Axis.horizontal,
+                    enlargeCenterPage: true,
                   ),
-                  HoverWidget(
-                    hoverChild: Container(
-                      height: 500,
-                      color: Colors.white.withOpacity(0.20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          IconButton(
-                            style: const ButtonStyle(
-                              backgroundColor: MaterialStatePropertyAll<Color>(
-                                  Colors.transparent),
-                            ),
-                            onPressed: () =>
-                                buttonCarouselController.previousPage(
-                                    duration: Duration(milliseconds: 300),
-                                    curve: Curves.linear),
-                            icon: const Icon(
-                              Icons.arrow_back_rounded,
-                              size: 30,
-                            ),
-                          )
-                              .animate()
-                              .slideX(delay: 100.ms)
-                              .fade(duration: 300.ms),
-                          IconButton(
-                            style: const ButtonStyle(
-                              backgroundColor: MaterialStatePropertyAll<Color>(
-                                  Colors.transparent),
-                            ),
-                            onPressed: () => buttonCarouselController.nextPage(
-                                duration: Duration(milliseconds: 300),
-                                curve: Curves.linear),
-                            icon: const Icon(
-                              Icons.arrow_forward_rounded,
-                              size: 30,
-                            ),
-                          )
-                              .animate()
-                              .slideX(delay: 100.ms)
-                              .fade(duration: 300.ms),
-                        ],
-                      ),
-                    ),
-                    onHover: (e) {},
-                    child: Container(
-                      height: 500,
-                      decoration:
-                          const BoxDecoration(color: Colors.transparent),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: const [],
-                      ),
-                    ),
-                  ),
-                ],
+                  itemCount: snapshot.data!.docs.length,
+                );
+              }
+              return Center(
+                child: CircularProgressIndicator(
+                  valueColor:
+                      AlwaysStoppedAnimation<Color>(Colors.orangeAccent),
+                ),
               );
             },
-            options: CarouselOptions(
-              height: 500,
-              initialPage: 0,
-              autoPlay: true,
-              autoPlayInterval: const Duration(seconds: 5),
-              autoPlayAnimationDuration: const Duration(seconds: 1),
-              autoPlayCurve: Curves.fastOutSlowIn,
-              pauseAutoPlayOnTouch: true,
-              viewportFraction: 1,
-              aspectRatio: 2.0,
-              scrollDirection: Axis.horizontal,
-              enlargeCenterPage: true,
-            ),
-            itemCount: text.length,
           ),
         ),
       ),
@@ -530,97 +611,120 @@ class _CarouselHomeState extends State<CarouselHome> {
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: 558,
-          child: CarouselSlider.builder(
-            carouselController: buttonCarouselController,
-            itemBuilder: (context, index, realIndex) {
-              return AnimatedContainer(
-                height: 500,
-                curve: Curves.easeInOut,
-                duration: const Duration(milliseconds: 500),
-                transform: Matrix4.translationValues(0, 1, 0),
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                ),
-                child: Stack(
-                  clipBehavior: Clip.none,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          child: Container(
-                            margin: EdgeInsets.only(top: 150),
+          child: StreamBuilder<QuerySnapshot>(
+            stream: ref.snapshots(),
+            builder: (context, snapshot) {
+              if (snapshot.hasError) {
+                return Text('Something went wrong');
+              } else if (snapshot.hasData || snapshot.hasData != null) {
+                return CarouselSlider.builder(
+                  carouselController: buttonCarouselController,
+                  itemBuilder: (context, index, realIndex) {
+                    var homeInfo = snapshot.data!.docs[index].data()
+                        as Map<String, dynamic>;
+                    String docId = snapshot.data!.docs[index].id;
+                    String judul = homeInfo['judul'];
+                    String desc = homeInfo['deskripsi'];
+
+                    String imageUrl = homeInfo['imageUrl'];
+
+                    return AnimatedContainer(
+                      height: 500,
+                      curve: Curves.easeInOut,
+                      duration: const Duration(milliseconds: 500),
+                      transform: Matrix4.translationValues(0, 1, 0),
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                      ),
+                      child: Stack(
+                        clipBehavior: Clip.none,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                child: Container(
+                                  margin: EdgeInsets.only(top: 150),
+                                  width: MediaQuery.of(context).size.width,
+                                  height: 500,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        image: NetworkImage(imageUrl),
+                                        colorFilter: ColorFilter.mode(
+                                            Colors.white.withOpacity(0.85),
+                                            BlendMode.dstATop),
+                                        fit: BoxFit.contain),
+                                  ),
+                                )
+                                    .animate()
+                                    .slideX(delay: 1000.ms)
+                                    .fade(duration: 1000.ms),
+                              ),
+                            ],
+                          ),
+                          Container(
                             width: MediaQuery.of(context).size.width,
                             height: 500,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage('${image[index]}'),
-                                  colorFilter: ColorFilter.mode(
-                                      Colors.white.withOpacity(0.85),
-                                      BlendMode.dstATop),
-                                  fit: BoxFit.contain),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Text(
+                                  judul,
+                                  textAlign: TextAlign.left,
+                                  style: GoogleFonts.inter(
+                                    color: Color(0xff013088),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 32,
+                                  ),
+                                )
+                                    .animate()
+                                    .slideY(delay: 1500.ms)
+                                    .fade(duration: 1500.ms),
+                                const SizedBox(
+                                  height: 30,
+                                ),
+                                Text(
+                                  desc,
+                                  maxLines: 10,
+                                  style: GoogleFonts.inter(
+                                    color: Colors.black,
+                                    fontSize: 14,
+                                  ),
+                                )
+                                    .animate()
+                                    .slideY(delay: 1500.ms)
+                                    .fade(duration: 1500.ms),
+                              ],
                             ),
-                          )
-                              .animate()
-                              .slideX(delay: 1000.ms)
-                              .fade(duration: 1000.ms),
-                        ),
-                      ],
-                    ),
-                    Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: 500,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            '${title[index]}',
-                            textAlign: TextAlign.left,
-                            style: GoogleFonts.inter(
-                              color: Color(0xff013088),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 32,
-                            ),
-                          )
-                              .animate()
-                              .slideY(delay: 1500.ms)
-                              .fade(duration: 1500.ms),
-                          const SizedBox(
-                            height: 30,
                           ),
-                          Text(
-                            '${text[index]}',
-                            maxLines: 10,
-                            style: GoogleFonts.inter(
-                              color: Colors.black,
-                              fontSize: 14,
-                            ),
-                          )
-                              .animate()
-                              .slideY(delay: 1500.ms)
-                              .fade(duration: 1500.ms),
                         ],
                       ),
-                    ),
-                  ],
+                    );
+                  },
+                  options: CarouselOptions(
+                    height: 500,
+                    initialPage: 0,
+                    autoPlay: true,
+                    autoPlayInterval: const Duration(seconds: 5),
+                    autoPlayAnimationDuration: const Duration(seconds: 1),
+                    autoPlayCurve: Curves.fastOutSlowIn,
+                    pauseAutoPlayOnTouch: true,
+                    viewportFraction: 1,
+                    aspectRatio: 2.0,
+                    scrollDirection: Axis.horizontal,
+                    enlargeCenterPage: true,
+                  ),
+                  itemCount: snapshot.data!.docs.length,
+                );
+              }
+              return Center(
+                child: CircularProgressIndicator(
+                  valueColor:
+                      AlwaysStoppedAnimation<Color>(Colors.orangeAccent),
                 ),
               );
             },
-            options: CarouselOptions(
-              height: 500,
-              initialPage: 0,
-              autoPlay: true,
-              autoPlayInterval: const Duration(seconds: 5),
-              autoPlayAnimationDuration: const Duration(seconds: 1),
-              autoPlayCurve: Curves.fastOutSlowIn,
-              pauseAutoPlayOnTouch: true,
-              viewportFraction: 1,
-              aspectRatio: 2.0,
-              scrollDirection: Axis.horizontal,
-              enlargeCenterPage: true,
-            ),
-            itemCount: text.length,
           ),
         ),
       ),
