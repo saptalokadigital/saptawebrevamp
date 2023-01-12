@@ -1033,8 +1033,6 @@ class _FooterAdminScreensState extends State<FooterAdminScreens> {
                                 Flexible(child: Text(alamat)),
                                 Text('P: $phone'),
                                 Text('E. $email'),
-                                Text(
-                                    'E. pr.sisi@sisi.sig.id (Media & External Invitation'),
                                 SizedBox(
                                   height: 20,
                                 ),
