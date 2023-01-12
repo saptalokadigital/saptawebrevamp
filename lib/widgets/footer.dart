@@ -1,3 +1,5 @@
+// ignore_for_file: sort_child_properties_last, prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:saptaloka_web_revamp/responsive.dart';
@@ -279,7 +281,7 @@ class _FooterState extends State<Footer> {
         child: DefaultTextStyle(
           style: TextStyle(color: Colors.white, fontSize: 16),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 60.0, vertical: 50),
+            padding: const EdgeInsets.only(left: 75, top: 5),
             child: Container(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -295,12 +297,21 @@ class _FooterState extends State<Footer> {
                               children: [
                                 Text(
                                   "About Us",
-                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                                 SizedBox(
-                                  height: 20,
+                                  height: 10,
                                 ),
-                                Text('Stories'),
+                                Text(
+                                  'Stories',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
                                 SizedBox(
                                   height: 10,
                                 ),
@@ -308,10 +319,8 @@ class _FooterState extends State<Footer> {
                                 Text('Media Coverage'),
                               ]),
                         ),
-                        SizedBox(
-                          width: 95,
-                        ),
                         Container(
+                          padding: const EdgeInsets.only(left: 75, top: 70),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -337,7 +346,12 @@ class _FooterState extends State<Footer> {
                       ],
                     ),
                   ),
-                  Spacer(),
+                  const SizedBox(
+                    height: 10.0,
+                  ),
+                  const SizedBox(
+                    height: 10.0,
+                  ),
                   Container(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -494,8 +508,7 @@ class _FooterState extends State<Footer> {
         child: DefaultTextStyle(
           style: TextStyle(color: Colors.white, fontSize: 16),
           child: Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 100.0, vertical: 50),
+            padding: const EdgeInsets.only(left: 50.0, top: 50),
             child: Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -534,7 +547,7 @@ class _FooterState extends State<Footer> {
                               ]),
                         ),
                         SizedBox(
-                          width: 95,
+                          width: 55,
                         ),
                         Container(
                           child: Column(
@@ -560,6 +573,7 @@ class _FooterState extends State<Footer> {
                                     onPressed: () {},
                                     child: Text('Digital Marketing',
                                         style: TextStyle(color: Colors.white))),
+
                               ]),
                         ),
                       ],
