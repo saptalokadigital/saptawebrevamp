@@ -581,7 +581,7 @@ class _FooterState extends State<Footer> {
                         Text('Melong, Cimahi Cimahi Selatan, Jawa Barat 40534'),
                         Text('Indonesia'),
                         Text('P: +62 859 6694 9889'),
-                        Text('E. saptalokadigital@gmail.com'),
+                        Text('E.  saptalokadigital@gmail.com'),
                         SizedBox(
                           height: 20,
                         ),
