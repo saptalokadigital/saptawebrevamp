@@ -3,6 +3,15 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:saptaloka_web_revamp/responsive.dart';
+import 'package:saptaloka_web_revamp/screens/contact_us/contact_us_screen.dart';
+
+import 'package:url_launcher/url_launcher.dart';
+
+final Uri _urlIG = Uri.parse('https://www.instagram.com/saptaloka.digital/');
+final Uri _urlFB = Uri.parse('https://www.facebook.com/bengkelcoding/');
+
+final Uri _urlYT = Uri.parse(
+    'https://wa.me/6283873296832?text=Halo Admin Saptaloka Digital, mau tanya-tanya dong!');
 
 class Footer extends StatefulWidget {
   const Footer({Key? key}) : super(key: key);
@@ -12,6 +21,18 @@ class Footer extends StatefulWidget {
 }
 
 class _FooterState extends State<Footer> {
+  void _launchIG() async {
+    if (!await launchUrl(_urlIG)) throw 'Could not launch $_urlIG';
+  }
+
+  void _launchFB() async {
+    if (!await launchUrl(_urlFB)) throw 'Could not launch $_urlFB';
+  }
+
+  void _launchYT() async {
+    if (!await launchUrl(_urlYT)) throw 'Could not launch $_urlYT';
+  }
+
   bool _isHover = false;
   @override
   Widget build(BuildContext context) {
@@ -63,8 +84,6 @@ class _FooterState extends State<Footer> {
                                     ),
                                     Text('Press Release'),
                                     Text('Media Coverage'),
-                                    Text('life at SISI'),
-                                    Text('Insight')
                                   ]),
                             ),
                             Spacer(),
@@ -81,36 +100,24 @@ class _FooterState extends State<Footer> {
                                     SizedBox(
                                       height: 20,
                                     ),
-                                    Text('Shared Services'),
-                                    Text('Digital Solution'),
-                                    Text('System Integrator'),
+                                    TextButton(
+                                        onPressed: () {},
+                                        child: Text('IT Solution',
+                                            style: TextStyle(
+                                                color: Colors.white))),
+                                    TextButton(
+                                        onPressed: () {},
+                                        child: Text('Business Digital Solution',
+                                            style: TextStyle(
+                                                color: Colors.white))),
+                                    TextButton(
+                                        onPressed: () {},
+                                        child: Text('Digital Marketing',
+                                            style: TextStyle(
+                                                color: Colors.white))),
                                   ]),
                             ),
                           ],
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Container(
-                          child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Legal",
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Text('FORCA ERP Terms & Conditions'),
-                                Text('FORCA ERP Privacy'),
-                                Text('Policy'),
-                                Text('Kebijakan'),
-                                Text('Perusahaan'),
-                                Text('Whistle Blowing'),
-                                Text('System (WBS)'),
-                              ]),
                         ),
                       ],
                     ),
@@ -123,20 +130,17 @@ class _FooterState extends State<Footer> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "PT SINERGI INFORMATIKA SEMEN INDONESIA",
+                          "SAPTALOKA DIGITAL",
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         SizedBox(
                           height: 10,
                         ),
-                        Text('Graha Aktiva, 11th Floor,'),
-                        Text(
-                            'Jl. H.R. Rasuna Said, Kav 3, South Jakarta, 12950 -'),
+                        Text('Jalan Melong Tengah No.138'),
+                        Text('Melong, Cimahi Cimahi Selatan, Jawa Barat 40534'),
                         Text('Indonesia'),
-                        Text('P: +62 21 2941 0371'),
-                        Text('E. ptsisi@sisi.sig.id'),
-                        Text(
-                            'E. pr.sisi@sisi.sig.id (Media & External Invitation'),
+                        Text('P: +62 859 6694 9889'),
+                        Text('E. saptalokadigital@gmail.com'),
                         SizedBox(
                           height: 20,
                         ),
@@ -151,7 +155,10 @@ class _FooterState extends State<Footer> {
                             duration: Duration(milliseconds: 1000),
                             child: _isHover
                                 ? OutlinedButton(
-                                    onPressed: (() {}),
+                                    onPressed: (() {
+                                      Navigator.pushReplacementNamed(
+                                          context, ContactUsScreen.routeName);
+                                    }),
                                     child: Row(
                                       children: [
                                         Text(
@@ -181,7 +188,10 @@ class _FooterState extends State<Footer> {
                                     ),
                                   )
                                 : OutlinedButton(
-                                    onPressed: (() {}),
+                                    onPressed: (() {
+                                      Navigator.pushReplacementNamed(
+                                          context, ContactUsScreen.routeName);
+                                    }),
                                     child: Text(
                                       'CONTACT US',
                                       style: TextStyle(color: Colors.white),
@@ -223,20 +233,6 @@ class _FooterState extends State<Footer> {
                               height: 50,
                               child: Icon(
                                 FontAwesomeIcons.instagram,
-                                size: 20,
-                                color: Colors.white,
-                              ),
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.transparent,
-                                  border: Border.all(color: Colors.white)),
-                            ),
-                            SizedBox(width: 10),
-                            Container(
-                              width: 50,
-                              height: 50,
-                              child: Icon(
-                                FontAwesomeIcons.linkedinIn,
                                 size: 20,
                                 color: Colors.white,
                               ),
@@ -319,86 +315,33 @@ class _FooterState extends State<Footer> {
                                 SizedBox(
                                   height: 10,
                                 ),
-                                Text(
-                                  'Press Release',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                  ),
-                                ),
-                                Text(
-                                  'Media Coverage',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                  ),
-                                ),
-                                Text(
-                                  'life at SISI',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                  ),
-                                ),
-                                Text(
-                                  'Insight',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                  ),
-                                )
-                              ]),
-                        ),
-                        Container(
-                          padding: const EdgeInsets.only(left: 105, top: 5),
-                          child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Solutions",
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Text(
-                                  'Shared Services',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                  ),
-                                ),
-                                Text(
-                                  'Digital Solution',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                  ),
-                                ),
-                                Text(
-                                  'System Integrator',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                  ),
-                                ),
+                                Text('Press Release'),
+                                Text('Media Coverage'),
                               ]),
                         ),
                         Container(
                           padding: const EdgeInsets.only(left: 75, top: 70),
                           child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Legal",
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Text('FORCA ERP Terms & Conditions'),
-                                Text('FORCA ERP Privacy'),
-                                Text('Policy'),
-                                Text('Kebijakan'),
-                                Text('Perusahaan'),
-                                Text('Whistle Blowing'),
-                                Text('System (WBS)'),
-                              ]),
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Solutions",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              TextButton(
+                                  onPressed: () {}, child: Text('IT Solution')),
+                              TextButton(
+                                  onPressed: () {},
+                                  child: Text('Business Digital Solution')),
+                              TextButton(
+                                  onPressed: () {},
+                                  child: Text('Digital Marketing')),
+                            ],
+                          ),
                         ),
                       ],
                     ),
@@ -414,20 +357,17 @@ class _FooterState extends State<Footer> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "PT SINERGI INFORMATIKA SEMEN INDONESIA",
+                          "SAPTALOKA DIGITAL",
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         SizedBox(
                           height: 10,
                         ),
-                        Text('Graha Aktiva, 11th Floor,'),
-                        Text(
-                            'Jl. H.R. Rasuna Said, Kav 3, South Jakarta, 12950 -'),
+                        Text('Jalan Melong Tengah No.138'),
+                        Text('Melong, Cimahi Cimahi Selatan, Jawa Barat 40534'),
                         Text('Indonesia'),
-                        Text('P: +62 21 2941 0371'),
-                        Text('E. ptsisi@sisi.sig.id'),
-                        Text(
-                            'E. pr.sisi@sisi.sig.id (Media & External Invitation'),
+                        Text('P: +62 859 6694 9889'),
+                        Text('E. saptalokadigital@gmail.com'),
                         SizedBox(
                           height: 20,
                         ),
@@ -442,7 +382,10 @@ class _FooterState extends State<Footer> {
                             duration: Duration(milliseconds: 1000),
                             child: _isHover
                                 ? OutlinedButton(
-                                    onPressed: (() {}),
+                                    onPressed: (() {
+                                      Navigator.pushReplacementNamed(
+                                          context, ContactUsScreen.routeName);
+                                    }),
                                     child: Row(
                                       children: [
                                         Text(
@@ -472,7 +415,10 @@ class _FooterState extends State<Footer> {
                                     ),
                                   )
                                 : OutlinedButton(
-                                    onPressed: (() {}),
+                                    onPressed: (() {
+                                      Navigator.pushReplacementNamed(
+                                          context, ContactUsScreen.routeName);
+                                    }),
                                     child: Text(
                                       'CONTACT US',
                                       style: TextStyle(color: Colors.white),
@@ -514,20 +460,6 @@ class _FooterState extends State<Footer> {
                               height: 50,
                               child: Icon(
                                 FontAwesomeIcons.instagram,
-                                size: 20,
-                                color: Colors.white,
-                              ),
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.transparent,
-                                  border: Border.all(color: Colors.white)),
-                            ),
-                            SizedBox(width: 10),
-                            Container(
-                              width: 50,
-                              height: 50,
-                              child: Icon(
-                                FontAwesomeIcons.linkedinIn,
                                 size: 20,
                                 color: Colors.white,
                               ),
@@ -597,14 +529,21 @@ class _FooterState extends State<Footer> {
                                 SizedBox(
                                   height: 20,
                                 ),
-                                Text('Stories'),
+                                TextButton(
+                                    onPressed: () {},
+                                    child: Text('Stories',
+                                        style: TextStyle(color: Colors.white))),
                                 SizedBox(
                                   height: 10,
                                 ),
-                                Text('Press Release'),
-                                Text('Media Coverage'),
-                                Text('life at SISI'),
-                                Text('Insight')
+                                TextButton(
+                                    onPressed: () {},
+                                    child: Text('Press Release',
+                                        style: TextStyle(color: Colors.white))),
+                                TextButton(
+                                    onPressed: () {},
+                                    child: Text('Media Coverage',
+                                        style: TextStyle(color: Colors.white))),
                               ]),
                         ),
                         SizedBox(
@@ -622,33 +561,19 @@ class _FooterState extends State<Footer> {
                                 SizedBox(
                                   height: 20,
                                 ),
-                                Text('Shared Services'),
-                                Text('Digital Solution'),
-                                Text('System Integrator'),
-                              ]),
-                        ),
-                        SizedBox(
-                          width: 55,
-                        ),
-                        Container(
-                          child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Legal",
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Text('FORCA ERP Terms & Conditions'),
-                                Text('FORCA ERP Privacy'),
-                                Text('Policy'),
-                                Text('Kebijakan'),
-                                Text('Perusahaan'),
-                                Text('Whistle Blowing'),
-                                Text('System (WBS)'),
+                                TextButton(
+                                    onPressed: () {},
+                                    child: Text('IT Solution',
+                                        style: TextStyle(color: Colors.white))),
+                                TextButton(
+                                    onPressed: () {},
+                                    child: Text('Business Digital Solution',
+                                        style: TextStyle(color: Colors.white))),
+                                TextButton(
+                                    onPressed: () {},
+                                    child: Text('Digital Marketing',
+                                        style: TextStyle(color: Colors.white))),
+
                               ]),
                         ),
                       ],
@@ -659,39 +584,18 @@ class _FooterState extends State<Footer> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Flexible(
-                          child: Container(
-                            width: 300,
-                            height: 40,
-                            child: Text(
-                              "PT SINERGI INFORMATIKA SEMEN INDONESIA",
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                          ),
+                        Text(
+                          "SAPTALOKA DIGITAL",
+                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         SizedBox(
                           height: 10,
                         ),
-                        Text('Graha Aktiva, 11th Floor,'),
-                        Flexible(
-                          child: Container(
-                            width: 290,
-                            height: 40,
-                            child: Text(
-                                'Jl. H.R. Rasuna Said, Kav 3, South Jakarta, 12950 -'),
-                          ),
-                        ),
+                        Text('Jalan Melong Tengah No.138'),
+                        Text('Melong, Cimahi Cimahi Selatan, Jawa Barat 40534'),
                         Text('Indonesia'),
-                        Text('P: +62 21 2941 0371'),
-                        Text('E. ptsisi@sisi.sig.id'),
-                        Flexible(
-                          child: Container(
-                            width: 290,
-                            height: 40,
-                            child: Text(
-                                'E. pr.sisi@sisi.sig.id (Media & External Invitation'),
-                          ),
-                        ),
+                        Text('P: +62 859 6694 9889'),
+                        Text('E.  saptalokadigital@gmail.com'),
                         SizedBox(
                           height: 20,
                         ),
@@ -709,7 +613,10 @@ class _FooterState extends State<Footer> {
                                     width: 145,
                                     key: ValueKey<int>(0),
                                     child: OutlinedButton(
-                                      onPressed: (() {}),
+                                      onPressed: (() {
+                                        Navigator.pushReplacementNamed(
+                                            context, ContactUsScreen.routeName);
+                                      }),
                                       child: Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
@@ -772,60 +679,65 @@ class _FooterState extends State<Footer> {
                         ),
                         Row(
                           children: [
-                            Container(
-                              width: 50,
-                              height: 50,
-                              child: Icon(
-                                FontAwesomeIcons.facebookF,
-                                size: 20,
-                                color: Colors.white,
+                            InkWell(
+                              onTap: () {
+                                setState(() {
+                                  _launchFB();
+                                });
+                              },
+                              child: Container(
+                                width: 50,
+                                height: 50,
+                                child: Icon(
+                                  FontAwesomeIcons.facebookF,
+                                  size: 20,
+                                  color: Colors.white,
+                                ),
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.transparent,
+                                    border: Border.all(color: Colors.white)),
                               ),
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.transparent,
-                                  border: Border.all(color: Colors.white)),
                             ),
                             SizedBox(width: 10),
-                            Container(
-                              width: 50,
-                              height: 50,
-                              child: Icon(
-                                FontAwesomeIcons.instagram,
-                                size: 20,
-                                color: Colors.white,
+                            InkWell(
+                              onTap: () {
+                                setState(() {
+                                  _launchIG();
+                                });
+                              },
+                              child: Container(
+                                width: 50,
+                                height: 50,
+                                child: Icon(
+                                  FontAwesomeIcons.instagram,
+                                  size: 20,
+                                  color: Colors.white,
+                                ),
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.transparent,
+                                    border: Border.all(color: Colors.white)),
                               ),
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.transparent,
-                                  border: Border.all(color: Colors.white)),
                             ),
                             SizedBox(width: 10),
-                            Container(
-                              width: 50,
-                              height: 50,
-                              child: Icon(
-                                FontAwesomeIcons.linkedinIn,
-                                size: 20,
-                                color: Colors.white,
+                            InkWell(
+                              onTap: () {
+                                setState(() {});
+                              },
+                              child: Container(
+                                width: 50,
+                                height: 50,
+                                child: Icon(
+                                  FontAwesomeIcons.youtube,
+                                  size: 20,
+                                  color: Colors.white,
+                                ),
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.transparent,
+                                    border: Border.all(color: Colors.white)),
                               ),
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.transparent,
-                                  border: Border.all(color: Colors.white)),
-                            ),
-                            SizedBox(width: 10),
-                            Container(
-                              width: 50,
-                              height: 50,
-                              child: Icon(
-                                FontAwesomeIcons.youtube,
-                                size: 20,
-                                color: Colors.white,
-                              ),
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.transparent,
-                                  border: Border.all(color: Colors.white)),
                             )
                           ],
                         )
@@ -875,14 +787,17 @@ class _FooterState extends State<Footer> {
                                 SizedBox(
                                   height: 20,
                                 ),
-                                Text('Stories'),
+                                TextButton(
+                                    onPressed: () {}, child: Text('Stories')),
                                 SizedBox(
                                   height: 10,
                                 ),
-                                Text('Press Release'),
-                                Text('Media Coverage'),
-                                Text('life at SISI'),
-                                Text('Insight')
+                                TextButton(
+                                    onPressed: () {},
+                                    child: Text('Press Release')),
+                                TextButton(
+                                    onPressed: () {},
+                                    child: Text('Media Coverage')),
                               ]),
                         ),
                         SizedBox(
@@ -900,33 +815,15 @@ class _FooterState extends State<Footer> {
                                 SizedBox(
                                   height: 20,
                                 ),
-                                Text('Shared Services'),
-                                Text('Digital Solution'),
-                                Text('System Integrator'),
-                              ]),
-                        ),
-                        SizedBox(
-                          width: 95,
-                        ),
-                        Container(
-                          child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Legal",
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Text('FORCA ERP Terms & Conditions'),
-                                Text('FORCA ERP Privacy'),
-                                Text('Policy'),
-                                Text('Kebijakan'),
-                                Text('Perusahaan'),
-                                Text('Whistle Blowing'),
-                                Text('System (WBS)'),
+                                TextButton(
+                                    onPressed: () {},
+                                    child: Text('IT Solution')),
+                                TextButton(
+                                    onPressed: () {},
+                                    child: Text('Business Digital Solution')),
+                                TextButton(
+                                    onPressed: () {},
+                                    child: Text('Digital Marketing')),
                               ]),
                         ),
                       ],
@@ -938,20 +835,17 @@ class _FooterState extends State<Footer> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "PT SINERGI INFORMATIKA SEMEN INDONESIA",
+                          "SAPTALOKA DIGITAL",
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         SizedBox(
                           height: 10,
                         ),
-                        Text('Graha Aktiva, 11th Floor,'),
-                        Text(
-                            'Jl. H.R. Rasuna Said, Kav 3, South Jakarta, 12950 -'),
+                        Text('Jalan Melong Tengah No.138'),
+                        Text('Melong, Cimahi Cimahi Selatan, Jawa Barat 40534'),
                         Text('Indonesia'),
-                        Text('P: +62 21 2941 0371'),
-                        Text('E. ptsisi@sisi.sig.id'),
-                        Text(
-                            'E. pr.sisi@sisi.sig.id (Media & External Invitation'),
+                        Text('P: +62 859 6694 9889'),
+                        Text('E. saptalokadigital@gmail.com'),
                         SizedBox(
                           height: 20,
                         ),
@@ -967,7 +861,10 @@ class _FooterState extends State<Footer> {
                             child: _isHover
                                 ? OutlinedButton(
                                     key: ValueKey<int>(0),
-                                    onPressed: (() {}),
+                                    onPressed: (() {
+                                      Navigator.pushReplacementNamed(
+                                          context, ContactUsScreen.routeName);
+                                    }),
                                     child: Row(
                                       children: [
                                         Text(
@@ -1000,7 +897,10 @@ class _FooterState extends State<Footer> {
                                   )
                                 : OutlinedButton(
                                     key: ValueKey<int>(1),
-                                    onPressed: (() {}),
+                                    onPressed: (() {
+                                      Navigator.pushReplacementNamed(
+                                          context, ContactUsScreen.routeName);
+                                    }),
                                     child: Text(
                                       'CONTACT US',
                                       style: TextStyle(color: Colors.white),
@@ -1025,60 +925,67 @@ class _FooterState extends State<Footer> {
                         ),
                         Row(
                           children: [
-                            Container(
-                              width: 50,
-                              height: 50,
-                              child: Icon(
-                                FontAwesomeIcons.facebookF,
-                                size: 20,
-                                color: Colors.white,
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  _launchFB();
+                                });
+                              },
+                              child: Container(
+                                width: 50,
+                                height: 50,
+                                child: Icon(
+                                  FontAwesomeIcons.facebookF,
+                                  size: 20,
+                                  color: Colors.white,
+                                ),
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.transparent,
+                                    border: Border.all(color: Colors.white)),
                               ),
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.transparent,
-                                  border: Border.all(color: Colors.white)),
                             ),
                             SizedBox(width: 10),
-                            Container(
-                              width: 50,
-                              height: 50,
-                              child: Icon(
-                                FontAwesomeIcons.instagram,
-                                size: 20,
-                                color: Colors.white,
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  _launchIG();
+                                });
+                              },
+                              child: Container(
+                                width: 50,
+                                height: 50,
+                                child: Icon(
+                                  FontAwesomeIcons.instagram,
+                                  size: 20,
+                                  color: Colors.white,
+                                ),
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.transparent,
+                                    border: Border.all(color: Colors.white)),
                               ),
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.transparent,
-                                  border: Border.all(color: Colors.white)),
                             ),
                             SizedBox(width: 10),
-                            Container(
-                              width: 50,
-                              height: 50,
-                              child: Icon(
-                                FontAwesomeIcons.linkedinIn,
-                                size: 20,
-                                color: Colors.white,
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  _launchYT();
+                                });
+                              },
+                              child: Container(
+                                width: 50,
+                                height: 50,
+                                child: Icon(
+                                  FontAwesomeIcons.youtube,
+                                  size: 20,
+                                  color: Colors.white,
+                                ),
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.transparent,
+                                    border: Border.all(color: Colors.white)),
                               ),
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.transparent,
-                                  border: Border.all(color: Colors.white)),
-                            ),
-                            SizedBox(width: 10),
-                            Container(
-                              width: 50,
-                              height: 50,
-                              child: Icon(
-                                FontAwesomeIcons.youtube,
-                                size: 20,
-                                color: Colors.white,
-                              ),
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.transparent,
-                                  border: Border.all(color: Colors.white)),
                             )
                           ],
                         )
