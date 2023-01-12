@@ -178,7 +178,7 @@ class _NewsEditState extends State<NewsEdit> {
                     color: Colors.blue, borderRadius: BorderRadius.circular(5)),
                 child: Center(
                   child: Text(
-                    "Edit",
+                    "Update",
                     style: GoogleFonts.inter(
                         textStyle: const TextStyle(
                             fontSize: 15,
@@ -299,7 +299,7 @@ class _NewsEditState extends State<NewsEdit> {
                 ),
                 const Padding(padding: EdgeInsets.only(top: 15)),
                 TextFormField(
-                  controller: judulController,
+                  controller: linkController,
                   key: const ValueKey('link'),
                   validator: (value) {
                     if (value!.isEmpty) {
