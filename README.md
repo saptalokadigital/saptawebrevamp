@@ -1,6 +1,6 @@
-# saptaloka_web_revamp
+# Website Saptaloka Digital Revamp
 
-A new Flutter project.
+A new Saptaloka Digital Website.
 
 ## Getting Started
 
