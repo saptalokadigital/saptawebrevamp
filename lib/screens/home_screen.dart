@@ -544,219 +544,207 @@ class _HomeScreenState extends State<HomeScreen> {
 
         // Hover Menu AppBar Solutions
         _isHovering[1]
-            ? Positioned(
-                bottom: 501,
-                left: 233,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 50, right: 100),
-                  child: Container(
-                    width: 230,
-                    child: TextButton(
-                      style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.transparent)),
-                      onHover: (value) {
-                        setState(() {
-                          value
-                              ? _isHovering[1] = true
-                              : _isHovering[1] = false;
-                        });
-                      },
-                      onPressed: () {
-                        Navigator.pushReplacementNamed(
-                            context, SolutionsScreen.routeName);
-                      },
-                      child: Container(
-                        child: Column(
-                          children: [
-                            Container(
-                              child: Row(
-                                children: [
-                                  Text(
-                                    'Solutions',
-                                    style: GoogleFonts.inter(
-                                      color: _isHovering[1]
-                                          ? const Color(0xff013088)
-                                          : const Color.fromARGB(255, 0, 0, 0),
-                                    ),
-                                  ),
-                                  Icon(
-                                    Icons.arrow_drop_down,
+            ? Padding(
+                padding: const EdgeInsets.only(left: 283, right: 100, top: 23),
+                child: Container(
+                  width: 230,
+                  child: TextButton(
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.transparent)),
+                    onHover: (value) {
+                      setState(() {
+                        value ? _isHovering[1] = true : _isHovering[1] = false;
+                      });
+                    },
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(
+                          context, SolutionsScreen.routeName);
+                    },
+                    child: Container(
+                      child: Column(
+                        children: [
+                          Container(
+                            child: Row(
+                              children: [
+                                Text(
+                                  'Solutions',
+                                  style: GoogleFonts.inter(
                                     color: _isHovering[1]
                                         ? const Color(0xff013088)
                                         : const Color.fromARGB(255, 0, 0, 0),
                                   ),
-                                ],
-                              ),
+                                ),
+                                Icon(
+                                  Icons.arrow_drop_down,
+                                  color: _isHovering[1]
+                                      ? const Color(0xff013088)
+                                      : const Color.fromARGB(255, 0, 0, 0),
+                                ),
+                              ],
                             ),
-                            SizedBox(
-                              height: 17,
+                          ),
+                          SizedBox(
+                            height: 17,
+                          ),
+                          Container(
+                            height: 130,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black12,
+                                  offset: const Offset(
+                                    1.0,
+                                    1.0,
+                                  ),
+                                  blurRadius: 1.0,
+                                  spreadRadius: 1.0,
+                                ),
+                              ],
                             ),
-                            Container(
-                              height: 130,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black12,
-                                    offset: const Offset(
-                                      1.0,
-                                      1.0,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  height: 3,
+                                  decoration: BoxDecoration(color: Colors.blue),
+                                ),
+                                Container(
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        top: 15, left: 15, bottom: 15),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Container(
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              TextButton(
+                                                onHover: (value) {
+                                                  setState(() {
+                                                    value
+                                                        ? _isHovering[1] = true
+                                                        : _isHovering[1] =
+                                                            false;
+                                                  });
+                                                },
+                                                onPressed: () {
+                                                  Navigator
+                                                      .pushReplacementNamed(
+                                                          context,
+                                                          ItSolutionScreen
+                                                              .routeName);
+                                                },
+                                                child: Text(
+                                                  'IT Solution',
+                                                  style: GoogleFonts.inter(
+                                                    color: _isHovering[1]
+                                                        ? const Color(
+                                                            0xff013088)
+                                                        : const Color.fromARGB(
+                                                            255, 0, 0, 0),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Container(
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              TextButton(
+                                                onHover: (value) {
+                                                  setState(() {
+                                                    value
+                                                        ? _isHovering[1] = true
+                                                        : _isHovering[1] =
+                                                            false;
+                                                  });
+                                                },
+                                                onPressed: () {
+                                                  Navigator
+                                                      .pushReplacementNamed(
+                                                          context,
+                                                          SolutionsScreen
+                                                              .routeName);
+                                                },
+                                                child: Text(
+                                                  'Business Digital Solution',
+                                                  style: GoogleFonts.inter(
+                                                    color: _isHovering[1]
+                                                        ? const Color(
+                                                            0xff013088)
+                                                        : const Color.fromARGB(
+                                                            255, 0, 0, 0),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Container(
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              TextButton(
+                                                onHover: (value) {
+                                                  setState(() {
+                                                    value
+                                                        ? _isHovering[1] = true
+                                                        : _isHovering[1] =
+                                                            false;
+                                                  });
+                                                },
+                                                onPressed: () {
+                                                  Navigator
+                                                      .pushReplacementNamed(
+                                                          context,
+                                                          SolutionsScreen
+                                                              .routeName);
+                                                },
+                                                child: Text(
+                                                  'Digital Marketing',
+                                                  style: GoogleFonts.inter(
+                                                    color: _isHovering[1]
+                                                        ? const Color(
+                                                            0xff013088)
+                                                        : const Color.fromARGB(
+                                                            255, 0, 0, 0),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                    blurRadius: 1.0,
-                                    spreadRadius: 1.0,
                                   ),
-                                ],
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    height: 3,
-                                    decoration:
-                                        BoxDecoration(color: Colors.blue),
-                                  ),
-                                  Container(
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(
-                                          top: 15, left: 15, bottom: 15),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                TextButton(
-                                                  onHover: (value) {
-                                                    setState(() {
-                                                      value
-                                                          ? _isHovering[1] =
-                                                              true
-                                                          : _isHovering[1] =
-                                                              false;
-                                                    });
-                                                  },
-                                                  onPressed: () {
-                                                    Navigator
-                                                        .pushReplacementNamed(
-                                                            context,
-                                                            ItSolutionScreen
-                                                                .routeName);
-                                                  },
-                                                  child: Text(
-                                                    'IT Solution',
-                                                    style: GoogleFonts.inter(
-                                                      color: _isHovering[1]
-                                                          ? const Color(
-                                                              0xff013088)
-                                                          : const Color
-                                                                  .fromARGB(
-                                                              255, 0, 0, 0),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          Container(
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                TextButton(
-                                                  onHover: (value) {
-                                                    setState(() {
-                                                      value
-                                                          ? _isHovering[1] =
-                                                              true
-                                                          : _isHovering[1] =
-                                                              false;
-                                                    });
-                                                  },
-                                                  onPressed: () {
-                                                    Navigator
-                                                        .pushReplacementNamed(
-                                                            context,
-                                                            SolutionsScreen
-                                                                .routeName);
-                                                  },
-                                                  child: Text(
-                                                    'Business Digital Solution',
-                                                    style: GoogleFonts.inter(
-                                                      color: _isHovering[1]
-                                                          ? const Color(
-                                                              0xff013088)
-                                                          : const Color
-                                                                  .fromARGB(
-                                                              255, 0, 0, 0),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          Container(
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                TextButton(
-                                                  onHover: (value) {
-                                                    setState(() {
-                                                      value
-                                                          ? _isHovering[1] =
-                                                              true
-                                                          : _isHovering[1] =
-                                                              false;
-                                                    });
-                                                  },
-                                                  onPressed: () {
-                                                    Navigator
-                                                        .pushReplacementNamed(
-                                                            context,
-                                                            SolutionsScreen
-                                                                .routeName);
-                                                  },
-                                                  child: Text(
-                                                    'Digital Marketing',
-                                                    style: GoogleFonts.inter(
-                                                      color: _isHovering[1]
-                                                          ? const Color(
-                                                              0xff013088)
-                                                          : const Color
-                                                                  .fromARGB(
-                                                              255, 0, 0, 0),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
-                ))
+                ),
+              )
             : Container(),
       ],
     );

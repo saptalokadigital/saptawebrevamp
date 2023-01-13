@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hovering/hovering.dart';
+import 'package:saptaloka_web_revamp/screens/solutions/solutions_screen.dart';
+import 'package:saptaloka_web_revamp/screens/solutions/widgets/detail_solution.dart';
 
 class CardSolutionLong extends StatefulWidget {
   const CardSolutionLong({super.key});
@@ -257,7 +259,12 @@ class _CardSolutionLongState extends State<CardSolutionLong> {
                       height: 10,
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => DetailSolutionScreen()));
+                      },
                       onHover: (value) {
                         setState(() {
                           value
