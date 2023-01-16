@@ -248,8 +248,8 @@ class _CarouselHomeState extends State<CarouselHome> {
             stream: ref.snapshots(),
             builder: (context, snapshot) {
               if (snapshot.hasError) {
-                return Text('Something went wrong');
-              } else if (snapshot.hasData || snapshot.data != null) {
+                return const Text('Something went wrong');
+              } else if (snapshot.data != null || snapshot.hasData) {
                 return CarouselSlider.builder(
                   carouselController: buttonCarouselController,
                   itemBuilder: (context, index, realIndex) {
