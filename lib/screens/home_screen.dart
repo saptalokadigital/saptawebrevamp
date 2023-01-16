@@ -1,3 +1,4 @@
+import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:saptaloka_web_revamp/responsive.dart';
@@ -307,16 +308,15 @@ class _HomeScreenState extends State<HomeScreen> {
               // decoration: const BoxDecoration(
               //   color: Color(0xff013088),
               // ),
-              child: WebSmoothScroll(
-                controller: _scrollController,
+              child: AnimateIfVisibleWrapper(
+                showItemInterval: Duration(milliseconds: 500),
                 child: SingleChildScrollView(
-                  physics: const NeverScrollableScrollPhysics(),
                   controller: _scrollController,
                   child: Column(
                     children: [
                       Column(
                         children: [
-                          CarouselHome(),
+                          const CarouselHome(),
                           const SizedBox(
                             height: 50,
                           ),
@@ -332,7 +332,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           const SizedBox(
                             height: 30,
                           ),
-                          const CardHome(),
+                          CardHome(),
                         ],
                       ),
                       const SizedBox(
