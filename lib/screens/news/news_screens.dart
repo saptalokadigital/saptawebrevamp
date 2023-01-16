@@ -40,7 +40,7 @@ class _NewsScreensState extends State<NewsScreens> {
               children: [
                 InkWell(
                   onTap: () {
-                    Navigator.pushReplacementNamed(context, '/');
+                    context.go('/');
                   },
                   child: Container(
                     height: 70,
@@ -185,8 +185,57 @@ class _NewsScreensState extends State<NewsScreens> {
               .doc(widget.id!)
               .snapshots(),
           builder: ((context, snapshot) {
-            return Container(
-              child: Text(snapshot.data!['deskripsi']),
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            } else if (snapshot.connectionState == ConnectionState.active) {
+              if (snapshot.data!.exists) {
+                return SingleChildScrollView(
+                  child: Container(
+                    child: Column(
+                      children: [
+                        Text(
+                          snapshot.data!['judul'],
+                          style: GoogleFonts.inter(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 40,
+                            color: Color(0xff013088),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(40.0),
+                          child: Image.network(
+                            snapshot.data!['imageUrl'],
+                            fit: BoxFit.cover,
+                            width: 500,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Text(snapshot.data!['deskripsi']),
+                      ],
+                    ),
+                  ),
+                );
+              } else {
+                return const Center(
+                  child: Padding(
+                    padding: EdgeInsets.all(18.0),
+                    child: Text('is empty'),
+                  ),
+                );
+              }
+            }
+            return const Center(
+              child: Padding(
+                padding: EdgeInsets.all(18.0),
+                child: Text('is empty'),
+              ),
             );
           }),
         ),
