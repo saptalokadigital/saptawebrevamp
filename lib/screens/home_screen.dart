@@ -220,14 +220,11 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           body: Responsive(
-            large: Container(
-              width: screenSize.width,
-              height: screenSize.height,
-              // decoration: const BoxDecoration(
-              //   color: Color(0xff013088),
-              // ),
-              child: AnimateIfVisibleWrapper(
-                showItemInterval: Duration(milliseconds: 500),
+            large: AnimateIfVisibleWrapper(
+              showItemInterval: Duration(milliseconds: 500),
+              child: Container(
+                width: screenSize.width,
+                height: screenSize.height,
                 child: SingleChildScrollView(
                   controller: _scrollController,
                   child: Column(
@@ -319,14 +316,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            desktop: Container(
-              width: screenSize.width,
-              height: screenSize.height,
-              // decoration: const BoxDecoration(
-              //   color: Color(0xff013088),
-              // ),
-              child: AnimateIfVisibleWrapper(
-                showItemInterval: Duration(milliseconds: 500),
+            desktop: AnimateIfVisibleWrapper(
+              showItemInterval: Duration(milliseconds: 500),
+              child: Container(
+                width: screenSize.width,
+                height: screenSize.height,
                 child: SingleChildScrollView(
                   controller: _scrollController,
                   child: Column(
@@ -418,14 +412,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            tablet: Container(
-              width: screenSize.width,
-              height: screenSize.height,
-              // decoration: const BoxDecoration(
-              //   color: Color(0xff013088),
-              // ),
-              child: AnimateIfVisibleWrapper(
-                showItemInterval: Duration(milliseconds: 500),
+            tablet: AnimateIfVisibleWrapper(
+              showItemInterval: Duration(milliseconds: 500),
+              child: Container(
+                width: screenSize.width,
+                height: screenSize.height,
                 child: SingleChildScrollView(
                   controller: _scrollController,
                   child: Column(
@@ -517,14 +508,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            mobile: Container(
-              width: screenSize.width,
-              height: screenSize.height,
-              // decoration: const BoxDecoration(
-              //   color: Color(0xff013088),
-              // ),
-              child: AnimateIfVisibleWrapper(
-                showItemInterval: Duration(milliseconds: 500),
+            mobile: AnimateIfVisibleWrapper(
+              showItemInterval: Duration(milliseconds: 500),
+              child: Container(
+                width: screenSize.width,
+                height: screenSize.height,
                 child: SingleChildScrollView(
                   controller: _scrollController,
                   child: Column(
