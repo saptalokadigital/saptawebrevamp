@@ -754,7 +754,7 @@ class _FooterState extends State<Footer> {
                                   duration: Duration(milliseconds: 300),
                                   child: _isHover
                                       ? Container(
-                                          width: 145,
+                                          width: 155,
                                           key: ValueKey<int>(0),
                                           child: OutlinedButton(
                                             onPressed: (() {
@@ -798,7 +798,7 @@ class _FooterState extends State<Footer> {
                                           ),
                                         )
                                       : Container(
-                                          width: 145,
+                                          width: 155,
                                           key: ValueKey<int>(1),
                                           child: OutlinedButton(
                                             onPressed: (() {}),
