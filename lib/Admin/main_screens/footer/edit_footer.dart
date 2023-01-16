@@ -12,7 +12,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:saptaloka_web_revamp/global_methods.dart';
 
 class FooterEdit extends StatefulWidget {
-  final String id, alamat, phone, email, igLink, fbLink, linkedLink, ytLink;
+  final String id, alamat, alamat2, phone, email, igLink, fbLink, ytLink;
   const FooterEdit(
       {super.key,
       required this.id,
@@ -21,8 +21,8 @@ class FooterEdit extends StatefulWidget {
       required this.email,
       required this.igLink,
       required this.fbLink,
-      required this.linkedLink,
-      required this.ytLink});
+      required this.ytLink,
+      required this.alamat2});
 
   @override
   State<FooterEdit> createState() => _FooterEditState();
@@ -34,11 +34,11 @@ class _FooterEditState extends State<FooterEdit> {
   bool _isLoading = false;
 
   late final TextEditingController alamatController,
+      alamat2Controller,
       phoneController,
       emailController,
       igLinkController,
       fbLinkController,
-      linkedLinkController,
       ytLinkController;
 
   @override
@@ -46,9 +46,10 @@ class _FooterEditState extends State<FooterEdit> {
     phoneController = TextEditingController(text: widget.phone);
     emailController = TextEditingController(text: widget.email);
     alamatController = TextEditingController(text: widget.alamat);
+    alamat2Controller = TextEditingController(text: widget.alamat2);
     igLinkController = TextEditingController(text: widget.igLink);
     fbLinkController = TextEditingController(text: widget.fbLink);
-    linkedLinkController = TextEditingController(text: widget.linkedLink);
+
     ytLinkController = TextEditingController(text: widget.ytLink);
 
     super.initState();
@@ -57,13 +58,12 @@ class _FooterEditState extends State<FooterEdit> {
   @override
   void dispose() {
     alamatController.dispose();
-
+    alamat2Controller.dispose();
     emailController.dispose();
     phoneController.dispose();
     igLinkController.dispose();
     fbLinkController.dispose();
     ytLinkController.dispose();
-    linkedLinkController.dispose();
 
     super.dispose();
   }
@@ -85,12 +85,12 @@ class _FooterEditState extends State<FooterEdit> {
             .doc('satu')
             .update({
           'alamat': alamatController.text,
+          'alamat2': alamat2Controller.text,
           'email': emailController.text,
           'phone': phoneController.text,
           'ig': igLinkController.text,
           'fb': fbLinkController.text,
           'yt': ytLinkController.text,
-          'linked': linkedLinkController.text
         });
         await Fluttertoast.showToast(
           msg: "Product has been updated",
@@ -186,6 +186,26 @@ class _FooterEditState extends State<FooterEdit> {
                         ),
                         hintText: "Masukkan Alamat",
                         labelText: "Alamat",
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        )),
+                  ),
+                  const Padding(padding: EdgeInsets.only(top: 15)),
+                  TextFormField(
+                    controller: alamat2Controller,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return " tidak boleh kosong";
+                      }
+                      return null;
+                    },
+                    decoration: InputDecoration(
+                        icon: const FaIcon(
+                          FontAwesomeIcons.paragraph,
+                          color: Colors.black,
+                        ),
+                        hintText: "Masukkan Alamat2",
+                        labelText: "Alamat2",
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5),
                         )),
@@ -291,25 +311,6 @@ class _FooterEditState extends State<FooterEdit> {
                         )),
                   ),
                   const Padding(padding: EdgeInsets.only(top: 15)),
-                  TextFormField(
-                    controller: linkedLinkController,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return " tidak boleh kosong";
-                      }
-                      return null;
-                    },
-                    decoration: InputDecoration(
-                        icon: const FaIcon(
-                          FontAwesomeIcons.paragraph,
-                          color: Colors.black,
-                        ),
-                        hintText: "Masukkan link Linkedin",
-                        labelText: "Linked link",
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5),
-                        )),
-                  ),
                 ],
               ),
             ),
