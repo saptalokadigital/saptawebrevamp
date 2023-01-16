@@ -245,13 +245,14 @@ class _CarouselHomeState extends State<CarouselHome> {
           width: MediaQuery.of(context).size.width,
           height: 558,
           child: StreamBuilder<QuerySnapshot>(
-            stream: ref.snapshots(),
+            stream: ref.orderBy('createdAt', descending: true).snapshots(),
             builder: (context, snapshot) {
               if (snapshot.hasError) {
                 return const Text('Something went wrong');
               } else if (snapshot.data != null || snapshot.hasData) {
                 return CarouselSlider.builder(
                   carouselController: buttonCarouselController,
+                  itemCount: snapshot.data!.docs.length,
                   itemBuilder: (context, index, realIndex) {
                     var homeInfo = snapshot.data!.docs[index].data()
                         as Map<String, dynamic>;
@@ -260,6 +261,7 @@ class _CarouselHomeState extends State<CarouselHome> {
                     String desc = homeInfo['deskripsi'];
 
                     String imageUrl = homeInfo['imageUrl'];
+                    final int first = index;
 
                     return Stack(
                       children: [
@@ -409,7 +411,6 @@ class _CarouselHomeState extends State<CarouselHome> {
                     scrollDirection: Axis.horizontal,
                     enlargeCenterPage: true,
                   ),
-                  itemCount: snapshot.data!.docs.length,
                 );
               }
               return Center(

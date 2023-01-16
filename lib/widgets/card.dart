@@ -41,22 +41,24 @@ class _CardHomeState extends State<CardHome> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Expanded(
-                      child: ItemCard(
-                    title: "IT Solution",
-                    image: "assets/images/image_1.png",
-                    fct: () {
-                      Navigator.pushReplacementNamed(
-                          context, ItSolutionScreen.routeName);
-                    },
-                  )),
+                    child: ItemCard(
+                      title: "IT Solution",
+                      image: "assets/images/image_1.png",
+                      fct: () {
+                        Navigator.pushReplacementNamed(
+                            context, ItSolutionScreen.routeName);
+                      },
+                    ),
+                  ),
                   const SizedBox(
                     width: 10,
                   ),
                   Expanded(
-                      child: ItemCard(
-                          title: "Business Digital Solution",
-                          image: "assets/images/image_1.png",
-                          fct: () {})),
+                    child: ItemCard(
+                        title: "Business Digital Solution",
+                        image: "assets/images/image_1.png",
+                        fct: () {}),
+                  ),
                 ],
               ),
             ),
@@ -92,60 +94,24 @@ class _CardHomeState extends State<CardHome> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Expanded(
-                      child: AnimateIfVisible(
-                    key: Key('item.1'),
-                    duration: Duration(milliseconds: 500),
-                    builder:
-                        (BuildContext context, Animation<double> animation) {
-                      return FadeTransition(
-                        opacity: Tween<double>(
-                          begin: 0,
-                          end: 1,
-                        ).animate(animation),
-                        child: SlideTransition(
-                          position: Tween<Offset>(
-                            begin: Offset(0, -0.1),
-                            end: Offset.zero,
-                          ).animate(animation),
-                          child: ItemCard(
-                            title: "IT Solution",
-                            image: "assets/images/image_1.png",
-                            fct: () {
-                              Navigator.pushReplacementNamed(
-                                  context, ItSolutionScreen.routeName);
-                            },
-                          ),
-                        ),
-                      );
-                    },
-                  )),
+                    child: ItemCard(
+                      title: "IT Solution",
+                      image: "assets/images/image_1.png",
+                      fct: () {
+                        Navigator.pushReplacementNamed(
+                            context, ItSolutionScreen.routeName);
+                      },
+                    ),
+                  ),
                   const SizedBox(
                     width: 10,
                   ),
                   Expanded(
-                      child: AnimateIfVisible(
-                    key: Key('item.2'),
-                    duration: Duration(milliseconds: 500),
-                    builder:
-                        (BuildContext context, Animation<double> animation) {
-                      return FadeTransition(
-                        opacity: Tween<double>(
-                          begin: 0,
-                          end: 1,
-                        ).animate(animation),
-                        child: SlideTransition(
-                          position: Tween<Offset>(
-                            begin: Offset(0, -0.1),
-                            end: Offset.zero,
-                          ).animate(animation),
-                          child: ItemCard(
-                              title: "Business Digital Solution",
-                              image: "assets/images/image_1.png",
-                              fct: () {}),
-                        ),
-                      );
-                    },
-                  )),
+                    child: ItemCard(
+                        title: "Business Digital Solution",
+                        image: "assets/images/image_1.png",
+                        fct: () {}),
+                  ),
                 ],
               ),
             ),
@@ -158,29 +124,10 @@ class _CardHomeState extends State<CardHome> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Expanded(
-                    child: AnimateIfVisible(
-                      key: Key('item.3'),
-                      duration: Duration(milliseconds: 500),
-                      builder:
-                          (BuildContext context, Animation<double> animation) {
-                        return FadeTransition(
-                          opacity: Tween<double>(
-                            begin: 0,
-                            end: 1,
-                          ).animate(animation),
-                          child: SlideTransition(
-                            position: Tween<Offset>(
-                              begin: Offset(0, -0.1),
-                              end: Offset.zero,
-                            ).animate(animation),
-                            child: ItemCard(
-                              title: "Digital Marketing",
-                              image: "assets/images/image_1.png",
-                              fct: () {},
-                            ),
-                          ),
-                        );
-                      },
+                    child: ItemCard(
+                      title: "Digital Marketing",
+                      image: "assets/images/image_1.png",
+                      fct: () {},
                     ),
                   ),
                 ],
