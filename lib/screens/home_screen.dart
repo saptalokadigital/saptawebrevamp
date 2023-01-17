@@ -264,7 +264,25 @@ class _HomeScreenState extends State<HomeScreen> {
                       const SizedBox(
                         height: 25.0,
                       ),
-                      const CoreValues(),
+                      AnimateIfVisible(
+                        key: Key('item.2'),
+                        duration: Duration(milliseconds: 1000),
+                        builder: (BuildContext context,
+                            Animation<double> animation) {
+                          return FadeTransition(
+                            opacity: Tween<double>(
+                              begin: 0,
+                              end: 1,
+                            ).animate(animation),
+                            child: SlideTransition(
+                                position: Tween<Offset>(
+                                  begin: Offset(-0.1, 0),
+                                  end: Offset.zero,
+                                ).animate(animation),
+                                child: const CoreValues()),
+                          );
+                        },
+                      ),
                       const SizedBox(
                         height: 70,
                       ),
@@ -281,7 +299,26 @@ class _HomeScreenState extends State<HomeScreen> {
                           const SizedBox(
                             height: 50,
                           ),
-                          const SatisfiedClient(),
+                          AnimateIfVisible(
+                            key: Key('item.3'),
+                            duration: Duration(milliseconds: 1000),
+                            builder: (BuildContext context,
+                                Animation<double> animation) {
+                              return FadeTransition(
+                                opacity: Tween<double>(
+                                  begin: 0,
+                                  end: 1,
+                                ).animate(animation),
+                                child: SlideTransition(
+                                  position: Tween<Offset>(
+                                    begin: Offset(0.1, 0),
+                                    end: Offset.zero,
+                                  ).animate(animation),
+                                  child: const SatisfiedClient(),
+                                ),
+                              );
+                            },
+                          ),
                         ],
                       ),
                       const SizedBox(
@@ -300,7 +337,26 @@ class _HomeScreenState extends State<HomeScreen> {
                           const SizedBox(
                             height: 50,
                           ),
-                          const LatestNews(),
+                          AnimateIfVisible(
+                            key: Key('item.4'),
+                            duration: Duration(milliseconds: 1000),
+                            builder: (BuildContext context,
+                                Animation<double> animation) {
+                              return FadeTransition(
+                                opacity: Tween<double>(
+                                  begin: 0,
+                                  end: 1,
+                                ).animate(animation),
+                                child: SlideTransition(
+                                  position: Tween<Offset>(
+                                    begin: Offset(-0.1, 0),
+                                    end: Offset.zero,
+                                  ).animate(animation),
+                                  child: const LatestNews(),
+                                ),
+                              );
+                            },
+                          ),
                         ],
                       ),
                       Footer(),
@@ -512,7 +568,25 @@ class _HomeScreenState extends State<HomeScreen> {
                       const SizedBox(
                         height: 25.0,
                       ),
-                      const CoreValues(),
+                      AnimateIfVisible(
+                        key: Key('item.2'),
+                        duration: Duration(milliseconds: 1000),
+                        builder: (BuildContext context,
+                            Animation<double> animation) {
+                          return FadeTransition(
+                            opacity: Tween<double>(
+                              begin: 0,
+                              end: 1,
+                            ).animate(animation),
+                            child: SlideTransition(
+                                position: Tween<Offset>(
+                                  begin: Offset(-0.1, 0),
+                                  end: Offset.zero,
+                                ).animate(animation),
+                                child: const CoreValues()),
+                          );
+                        },
+                      ),
                       const SizedBox(
                         height: 70,
                       ),
@@ -529,7 +603,26 @@ class _HomeScreenState extends State<HomeScreen> {
                           const SizedBox(
                             height: 50,
                           ),
-                          const SatisfiedClient(),
+                          AnimateIfVisible(
+                            key: Key('item.3'),
+                            duration: Duration(milliseconds: 1000),
+                            builder: (BuildContext context,
+                                Animation<double> animation) {
+                              return FadeTransition(
+                                opacity: Tween<double>(
+                                  begin: 0,
+                                  end: 1,
+                                ).animate(animation),
+                                child: SlideTransition(
+                                  position: Tween<Offset>(
+                                    begin: Offset(0.1, 0),
+                                    end: Offset.zero,
+                                  ).animate(animation),
+                                  child: const SatisfiedClient(),
+                                ),
+                              );
+                            },
+                          ),
                         ],
                       ),
                       const SizedBox(
@@ -548,7 +641,26 @@ class _HomeScreenState extends State<HomeScreen> {
                           const SizedBox(
                             height: 50,
                           ),
-                          const LatestNews(),
+                          AnimateIfVisible(
+                            key: Key('item.4'),
+                            duration: Duration(milliseconds: 1000),
+                            builder: (BuildContext context,
+                                Animation<double> animation) {
+                              return FadeTransition(
+                                opacity: Tween<double>(
+                                  begin: 0,
+                                  end: 1,
+                                ).animate(animation),
+                                child: SlideTransition(
+                                  position: Tween<Offset>(
+                                    begin: Offset(-0.1, 0),
+                                    end: Offset.zero,
+                                  ).animate(animation),
+                                  child: const LatestNews(),
+                                ),
+                              );
+                            },
+                          ),
                         ],
                       ),
                       Footer(),
@@ -608,7 +720,25 @@ class _HomeScreenState extends State<HomeScreen> {
                       const SizedBox(
                         height: 25.0,
                       ),
-                      const CoreValues(),
+                      AnimateIfVisible(
+                        key: Key('item.2'),
+                        duration: Duration(milliseconds: 1000),
+                        builder: (BuildContext context,
+                            Animation<double> animation) {
+                          return FadeTransition(
+                            opacity: Tween<double>(
+                              begin: 0,
+                              end: 1,
+                            ).animate(animation),
+                            child: SlideTransition(
+                                position: Tween<Offset>(
+                                  begin: Offset(-0.1, 0),
+                                  end: Offset.zero,
+                                ).animate(animation),
+                                child: const CoreValues()),
+                          );
+                        },
+                      ),
                       const SizedBox(
                         height: 70,
                       ),
@@ -625,7 +755,26 @@ class _HomeScreenState extends State<HomeScreen> {
                           const SizedBox(
                             height: 50,
                           ),
-                          const SatisfiedClient(),
+                          AnimateIfVisible(
+                            key: Key('item.3'),
+                            duration: Duration(milliseconds: 1000),
+                            builder: (BuildContext context,
+                                Animation<double> animation) {
+                              return FadeTransition(
+                                opacity: Tween<double>(
+                                  begin: 0,
+                                  end: 1,
+                                ).animate(animation),
+                                child: SlideTransition(
+                                  position: Tween<Offset>(
+                                    begin: Offset(0.1, 0),
+                                    end: Offset.zero,
+                                  ).animate(animation),
+                                  child: const SatisfiedClient(),
+                                ),
+                              );
+                            },
+                          ),
                         ],
                       ),
                       const SizedBox(
@@ -644,7 +793,26 @@ class _HomeScreenState extends State<HomeScreen> {
                           const SizedBox(
                             height: 50,
                           ),
-                          const LatestNews(),
+                          AnimateIfVisible(
+                            key: Key('item.4'),
+                            duration: Duration(milliseconds: 1000),
+                            builder: (BuildContext context,
+                                Animation<double> animation) {
+                              return FadeTransition(
+                                opacity: Tween<double>(
+                                  begin: 0,
+                                  end: 1,
+                                ).animate(animation),
+                                child: SlideTransition(
+                                  position: Tween<Offset>(
+                                    begin: Offset(-0.1, 0),
+                                    end: Offset.zero,
+                                  ).animate(animation),
+                                  child: const LatestNews(),
+                                ),
+                              );
+                            },
+                          ),
                         ],
                       ),
                       Footer(),
