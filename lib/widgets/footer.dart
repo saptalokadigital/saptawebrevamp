@@ -122,230 +122,212 @@ class _FooterState extends State<Footer> {
                     height: 20,
                   ),
                   StreamBuilder<DocumentSnapshot>(
-                      stream: FirebaseFirestore.instance
-                          .collection('Footer')
-                          .doc('satu')
-                          .snapshots(),
-                      builder: (context, snapshot) {
-                        void _launchIG() async {
-                          if (!await launchUrl(Uri.parse(snapshot.data!['ig'])))
-                            throw 'Could not launch ${snapshot.data!['ig']}';
-                        }
+                    stream: FirebaseFirestore.instance
+                        .collection('Footer')
+                        .doc('satu')
+                        .snapshots(),
+                    builder: (context, snapshot) {
+                      void _launchIG() async {
+                        if (!await launchUrl(Uri.parse(snapshot.data!['ig'])))
+                          throw 'Could not launch ${snapshot.data!['ig']}';
+                      }
 
-                        void _launchFB() async {
-                          if (!await launchUrl(Uri.parse(snapshot.data!['fb'])))
-                            throw 'Could not launch ${snapshot.data!['fb']}';
-                        }
+                      void _launchFB() async {
+                        if (!await launchUrl(Uri.parse(snapshot.data!['fb'])))
+                          throw 'Could not launch ${snapshot.data!['fb']}';
+                      }
 
-                        void _launchYT() async {
-                          if (!await launchUrl(Uri.parse(snapshot.data!['yt'])))
-                            throw 'Could not launch ${snapshot.data!['yt']}';
-                        }
+                      void _launchYT() async {
+                        if (!await launchUrl(Uri.parse(snapshot.data!['yt'])))
+                          throw 'Could not launch ${snapshot.data!['yt']}';
+                      }
 
-                        if (snapshot.connectionState ==
-                            ConnectionState.waiting) {
-                          return const Center(
-                            child: CircularProgressIndicator(),
-                          );
-                        } else if (snapshot.connectionState ==
-                            ConnectionState.active) {
-                          if (snapshot.data!.exists) {
-                            return Container(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "SAPTALOKA DIGITAL",
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Text(snapshot.data!['alamat']),
-                                  Text(snapshot.data!['alamat2']),
-                                  Text('Indonesia'),
-                                  Text('P: ${snapshot.data!['phone']}'),
-                                  Text('E. ${snapshot.data!['email']}'),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  InkWell(
-                                    onTap: () {},
-                                    onHover: (isHovering) {
-                                      setState(() {
-                                        _isHover = isHovering;
-                                      });
-                                    },
-                                    child: AnimatedSwitcher(
-                                      duration: Duration(milliseconds: 300),
-                                      child: _isHover
-                                          ? Container(
-                                              width: 145,
-                                              key: ValueKey<int>(0),
-                                              child: OutlinedButton(
-                                                onPressed: (() {
-                                                  context.go(contactUsRoute);
-                                                }),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  children: [
-                                                    Text(
-                                                      'CONTACT US',
-                                                      style: TextStyle(
-                                                          color: Colors.white),
-                                                    ),
-                                                    SizedBox(
-                                                      width: 5,
-                                                    ),
-                                                    Icon(
-                                                      Icons
-                                                          .arrow_right_outlined,
-                                                      color: Colors.white,
-                                                    )
-                                                  ],
-                                                ),
-                                                style: ButtonStyle(
-                                                  backgroundColor:
-                                                      MaterialStateProperty.all(
-                                                          Color.fromARGB(255,
-                                                              58, 127, 255)),
-                                                  textStyle:
-                                                      MaterialStateProperty.all(
-                                                          TextStyle(
-                                                              color: Colors
-                                                                  .white)),
-                                                  shape:
-                                                      MaterialStateProperty.all(
-                                                          RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            30),
-                                                  )),
-                                                ),
-                                              ),
-                                            )
-                                          : Container(
-                                              width: 145,
-                                              key: ValueKey<int>(1),
-                                              child: OutlinedButton(
-                                                onPressed: (() {}),
-                                                child: Text(
+                      if (snapshot.hasError) {
+                        return Text('Something went wrong');
+                      }
+                      if (snapshot.data!.exists) {
+                        return Container(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "SAPTALOKA DIGITAL",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(snapshot.data!['alamat']),
+                              Text(snapshot.data!['alamat2']),
+                              Text('Indonesia'),
+                              Text('P: ${snapshot.data!['phone']}'),
+                              Text('E. ${snapshot.data!['email']}'),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              InkWell(
+                                onTap: () {},
+                                onHover: (isHovering) {
+                                  setState(() {
+                                    _isHover = isHovering;
+                                  });
+                                },
+                                child: AnimatedSwitcher(
+                                  duration: Duration(milliseconds: 300),
+                                  child: _isHover
+                                      ? Container(
+                                          width: 145,
+                                          key: ValueKey<int>(0),
+                                          child: OutlinedButton(
+                                            onPressed: (() {
+                                              context.go(contactUsRoute);
+                                            }),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                Text(
                                                   'CONTACT US',
                                                   style: TextStyle(
                                                       color: Colors.white),
                                                 ),
-                                                style: ButtonStyle(
-                                                  side: MaterialStateProperty
-                                                      .all(BorderSide(
-                                                          color: Colors.white)),
-                                                  textStyle:
-                                                      MaterialStateProperty.all(
-                                                          TextStyle(
-                                                              color: Colors
-                                                                  .white)),
-                                                  shape:
-                                                      MaterialStateProperty.all(
-                                                          RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            30),
-                                                  )),
+                                                SizedBox(
+                                                  width: 5,
                                                 ),
-                                              ),
+                                                Icon(
+                                                  Icons.arrow_right_outlined,
+                                                  color: Colors.white,
+                                                )
+                                              ],
                                             ),
+                                            style: ButtonStyle(
+                                              backgroundColor:
+                                                  MaterialStateProperty.all(
+                                                      Color.fromARGB(
+                                                          255, 58, 127, 255)),
+                                              textStyle:
+                                                  MaterialStateProperty.all(
+                                                      TextStyle(
+                                                          color: Colors.white)),
+                                              shape: MaterialStateProperty.all(
+                                                  RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(30),
+                                              )),
+                                            ),
+                                          ),
+                                        )
+                                      : Container(
+                                          width: 145,
+                                          key: ValueKey<int>(1),
+                                          child: OutlinedButton(
+                                            onPressed: (() {}),
+                                            child: Text(
+                                              'CONTACT US',
+                                              style: TextStyle(
+                                                  color: Colors.white),
+                                            ),
+                                            style: ButtonStyle(
+                                              side: MaterialStateProperty.all(
+                                                  BorderSide(
+                                                      color: Colors.white)),
+                                              textStyle:
+                                                  MaterialStateProperty.all(
+                                                      TextStyle(
+                                                          color: Colors.white)),
+                                              shape: MaterialStateProperty.all(
+                                                  RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(30),
+                                              )),
+                                            ),
+                                          ),
+                                        ),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Row(
+                                children: [
+                                  InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        _launchFB();
+                                      });
+                                    },
+                                    child: Container(
+                                      width: 50,
+                                      height: 50,
+                                      child: Icon(
+                                        FontAwesomeIcons.facebookF,
+                                        size: 20,
+                                        color: Colors.white,
+                                      ),
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.transparent,
+                                          border:
+                                              Border.all(color: Colors.white)),
                                     ),
                                   ),
-                                  SizedBox(
-                                    height: 20,
+                                  SizedBox(width: 10),
+                                  InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        _launchIG();
+                                      });
+                                    },
+                                    child: Container(
+                                      width: 50,
+                                      height: 50,
+                                      child: Icon(
+                                        FontAwesomeIcons.instagram,
+                                        size: 20,
+                                        color: Colors.white,
+                                      ),
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.transparent,
+                                          border:
+                                              Border.all(color: Colors.white)),
+                                    ),
                                   ),
-                                  Row(
-                                    children: [
-                                      InkWell(
-                                        onTap: () {
-                                          setState(() {
-                                            _launchFB();
-                                          });
-                                        },
-                                        child: Container(
-                                          width: 50,
-                                          height: 50,
-                                          child: Icon(
-                                            FontAwesomeIcons.facebookF,
-                                            size: 20,
-                                            color: Colors.white,
-                                          ),
-                                          decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: Colors.transparent,
-                                              border: Border.all(
-                                                  color: Colors.white)),
-                                        ),
+                                  SizedBox(width: 10),
+                                  InkWell(
+                                    onTap: () {
+                                      setState(() {});
+                                    },
+                                    child: Container(
+                                      width: 50,
+                                      height: 50,
+                                      child: Icon(
+                                        FontAwesomeIcons.youtube,
+                                        size: 20,
+                                        color: Colors.white,
                                       ),
-                                      SizedBox(width: 10),
-                                      InkWell(
-                                        onTap: () {
-                                          setState(() {
-                                            _launchIG();
-                                          });
-                                        },
-                                        child: Container(
-                                          width: 50,
-                                          height: 50,
-                                          child: Icon(
-                                            FontAwesomeIcons.instagram,
-                                            size: 20,
-                                            color: Colors.white,
-                                          ),
-                                          decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: Colors.transparent,
-                                              border: Border.all(
-                                                  color: Colors.white)),
-                                        ),
-                                      ),
-                                      SizedBox(width: 10),
-                                      InkWell(
-                                        onTap: () {
-                                          setState(() {});
-                                        },
-                                        child: Container(
-                                          width: 50,
-                                          height: 50,
-                                          child: Icon(
-                                            FontAwesomeIcons.youtube,
-                                            size: 20,
-                                            color: Colors.white,
-                                          ),
-                                          decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: Colors.transparent,
-                                              border: Border.all(
-                                                  color: Colors.white)),
-                                        ),
-                                      )
-                                    ],
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.transparent,
+                                          border:
+                                              Border.all(color: Colors.white)),
+                                    ),
                                   )
                                 ],
-                              ),
-                            );
-                          } else {
-                            return const Center(
-                              child: Padding(
-                                padding: EdgeInsets.all(18.0),
-                                child: Text('is empty'),
-                              ),
-                            );
-                          }
-                        }
+                              )
+                            ],
+                          ),
+                        );
+                      } else {
                         return const Center(
                           child: Padding(
                             padding: EdgeInsets.all(18.0),
                             child: Text('is empty'),
                           ),
                         );
-                      }),
+                      }
+                    },
+                  ),
                   SizedBox(width: 20),
                 ],
               ),
@@ -466,209 +448,194 @@ class _FooterState extends State<Footer> {
                             throw 'Could not launch ${snapshot.data!['yt']}';
                         }
 
-                        if (snapshot.connectionState ==
-                            ConnectionState.waiting) {
-                          return const Center(
-                            child: CircularProgressIndicator(),
-                          );
-                        } else if (snapshot.connectionState ==
-                            ConnectionState.active) {
-                          if (snapshot.data!.exists) {
-                            return Container(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "SAPTALOKA DIGITAL",
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Text(snapshot.data!['alamat']),
-                                  Text(snapshot.data!['alamat2']),
-                                  Text('Indonesia'),
-                                  Text('P: ${snapshot.data!['phone']}'),
-                                  Text('E. ${snapshot.data!['email']}'),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  InkWell(
-                                    onTap: () {},
-                                    onHover: (isHovering) {
-                                      setState(() {
-                                        _isHover = isHovering;
-                                      });
-                                    },
-                                    child: AnimatedSwitcher(
-                                      duration: Duration(milliseconds: 300),
-                                      child: _isHover
-                                          ? Container(
-                                              width: 145,
-                                              key: ValueKey<int>(0),
-                                              child: OutlinedButton(
-                                                onPressed: (() {
-                                                  context.go(contactUsRoute);
-                                                }),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  children: [
-                                                    Text(
-                                                      'CONTACT US',
-                                                      style: TextStyle(
-                                                          color: Colors.white),
-                                                    ),
-                                                    SizedBox(
-                                                      width: 5,
-                                                    ),
-                                                    Icon(
-                                                      Icons
-                                                          .arrow_right_outlined,
-                                                      color: Colors.white,
-                                                    )
-                                                  ],
-                                                ),
-                                                style: ButtonStyle(
-                                                  backgroundColor:
-                                                      MaterialStateProperty.all(
-                                                          Color.fromARGB(255,
-                                                              58, 127, 255)),
-                                                  textStyle:
-                                                      MaterialStateProperty.all(
-                                                          TextStyle(
-                                                              color: Colors
-                                                                  .white)),
-                                                  shape:
-                                                      MaterialStateProperty.all(
-                                                          RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            30),
-                                                  )),
-                                                ),
+                        if (snapshot.hasError) {
+                          return Text('Something went wrong');
+                        }
+                        if (snapshot.data!.exists) {
+                          return Container(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "SAPTALOKA DIGITAL",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Text(snapshot.data!['alamat']),
+                                Text(snapshot.data!['alamat2']),
+                                Text('Indonesia'),
+                                Text('P: ${snapshot.data!['phone']}'),
+                                Text('E. ${snapshot.data!['email']}'),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                InkWell(
+                                  onTap: () {},
+                                  onHover: (isHovering) {
+                                    setState(() {
+                                      _isHover = isHovering;
+                                    });
+                                  },
+                                  child: AnimatedSwitcher(
+                                    duration: Duration(milliseconds: 300),
+                                    child: _isHover
+                                        ? Container(
+                                            width: 145,
+                                            key: ValueKey<int>(0),
+                                            child: OutlinedButton(
+                                              onPressed: (() {
+                                                context.go(contactUsRoute);
+                                              }),
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    'CONTACT US',
+                                                    style: TextStyle(
+                                                        color: Colors.white),
+                                                  ),
+                                                  SizedBox(
+                                                    width: 5,
+                                                  ),
+                                                  Icon(
+                                                    Icons.arrow_right_outlined,
+                                                    color: Colors.white,
+                                                  )
+                                                ],
                                               ),
-                                            )
-                                          : Container(
-                                              width: 145,
-                                              key: ValueKey<int>(1),
-                                              child: OutlinedButton(
-                                                onPressed: (() {}),
-                                                child: Text(
-                                                  'CONTACT US',
-                                                  style: TextStyle(
-                                                      color: Colors.white),
-                                                ),
-                                                style: ButtonStyle(
-                                                  side: MaterialStateProperty
-                                                      .all(BorderSide(
-                                                          color: Colors.white)),
-                                                  textStyle:
-                                                      MaterialStateProperty.all(
-                                                          TextStyle(
-                                                              color: Colors
-                                                                  .white)),
-                                                  shape:
-                                                      MaterialStateProperty.all(
-                                                          RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            30),
-                                                  )),
-                                                ),
+                                              style: ButtonStyle(
+                                                backgroundColor:
+                                                    MaterialStateProperty.all(
+                                                        Color.fromARGB(
+                                                            255, 58, 127, 255)),
+                                                textStyle:
+                                                    MaterialStateProperty.all(
+                                                        TextStyle(
+                                                            color:
+                                                                Colors.white)),
+                                                shape:
+                                                    MaterialStateProperty.all(
+                                                        RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(30),
+                                                )),
                                               ),
                                             ),
+                                          )
+                                        : Container(
+                                            width: 145,
+                                            key: ValueKey<int>(1),
+                                            child: OutlinedButton(
+                                              onPressed: (() {}),
+                                              child: Text(
+                                                'CONTACT US',
+                                                style: TextStyle(
+                                                    color: Colors.white),
+                                              ),
+                                              style: ButtonStyle(
+                                                side: MaterialStateProperty.all(
+                                                    BorderSide(
+                                                        color: Colors.white)),
+                                                textStyle:
+                                                    MaterialStateProperty.all(
+                                                        TextStyle(
+                                                            color:
+                                                                Colors.white)),
+                                                shape:
+                                                    MaterialStateProperty.all(
+                                                        RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(30),
+                                                )),
+                                              ),
+                                            ),
+                                          ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Row(
+                                  children: [
+                                    InkWell(
+                                      onTap: () {
+                                        setState(() {
+                                          _launchFB();
+                                        });
+                                      },
+                                      child: Container(
+                                        width: 50,
+                                        height: 50,
+                                        child: Icon(
+                                          FontAwesomeIcons.facebookF,
+                                          size: 20,
+                                          color: Colors.white,
+                                        ),
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: Colors.transparent,
+                                            border: Border.all(
+                                                color: Colors.white)),
+                                      ),
                                     ),
-                                  ),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  Row(
-                                    children: [
-                                      InkWell(
-                                        onTap: () {
-                                          setState(() {
-                                            _launchFB();
-                                          });
-                                        },
-                                        child: Container(
-                                          width: 50,
-                                          height: 50,
-                                          child: Icon(
-                                            FontAwesomeIcons.facebookF,
-                                            size: 20,
-                                            color: Colors.white,
-                                          ),
-                                          decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: Colors.transparent,
-                                              border: Border.all(
-                                                  color: Colors.white)),
+                                    SizedBox(width: 10),
+                                    InkWell(
+                                      onTap: () {
+                                        setState(() {
+                                          _launchIG();
+                                        });
+                                      },
+                                      child: Container(
+                                        width: 50,
+                                        height: 50,
+                                        child: Icon(
+                                          FontAwesomeIcons.instagram,
+                                          size: 20,
+                                          color: Colors.white,
                                         ),
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: Colors.transparent,
+                                            border: Border.all(
+                                                color: Colors.white)),
                                       ),
-                                      SizedBox(width: 10),
-                                      InkWell(
-                                        onTap: () {
-                                          setState(() {
-                                            _launchIG();
-                                          });
-                                        },
-                                        child: Container(
-                                          width: 50,
-                                          height: 50,
-                                          child: Icon(
-                                            FontAwesomeIcons.instagram,
-                                            size: 20,
-                                            color: Colors.white,
-                                          ),
-                                          decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: Colors.transparent,
-                                              border: Border.all(
-                                                  color: Colors.white)),
+                                    ),
+                                    SizedBox(width: 10),
+                                    InkWell(
+                                      onTap: () {
+                                        setState(() {});
+                                      },
+                                      child: Container(
+                                        width: 50,
+                                        height: 50,
+                                        child: Icon(
+                                          FontAwesomeIcons.youtube,
+                                          size: 20,
+                                          color: Colors.white,
                                         ),
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: Colors.transparent,
+                                            border: Border.all(
+                                                color: Colors.white)),
                                       ),
-                                      SizedBox(width: 10),
-                                      InkWell(
-                                        onTap: () {
-                                          setState(() {});
-                                        },
-                                        child: Container(
-                                          width: 50,
-                                          height: 50,
-                                          child: Icon(
-                                            FontAwesomeIcons.youtube,
-                                            size: 20,
-                                            color: Colors.white,
-                                          ),
-                                          decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: Colors.transparent,
-                                              border: Border.all(
-                                                  color: Colors.white)),
-                                        ),
-                                      )
-                                    ],
-                                  )
-                                ],
-                              ),
-                            );
-                          } else {
-                            return const Center(
-                              child: Padding(
-                                padding: EdgeInsets.all(18.0),
-                                child: Text('is empty'),
-                              ),
-                            );
-                          }
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                          );
+                        } else {
+                          return const Center(
+                            child: Padding(
+                              padding: EdgeInsets.all(18.0),
+                              child: Text('is empty'),
+                            ),
+                          );
                         }
-                        return const Center(
-                          child: Padding(
-                            padding: EdgeInsets.all(18.0),
-                            child: Text('is empty'),
-                          ),
-                        );
                       }),
                   SizedBox(width: 70),
                 ],
@@ -783,209 +750,193 @@ class _FooterState extends State<Footer> {
                             throw 'Could not launch ${snapshot.data!['yt']}';
                         }
 
-                        if (snapshot.connectionState ==
-                            ConnectionState.waiting) {
-                          return const Center(
-                            child: CircularProgressIndicator(),
-                          );
-                        } else if (snapshot.connectionState ==
-                            ConnectionState.active) {
-                          if (snapshot.data!.exists) {
-                            return Container(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "SAPTALOKA DIGITAL",
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Text(snapshot.data!['alamat']),
-                                  Text(snapshot.data!['alamat2']),
-                                  Text('Indonesia'),
-                                  Text('P: ${snapshot.data!['phone']}'),
-                                  Text('E. ${snapshot.data!['email']}'),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  InkWell(
-                                    onTap: () {},
-                                    onHover: (isHovering) {
-                                      setState(() {
-                                        _isHover = isHovering;
-                                      });
-                                    },
-                                    child: AnimatedSwitcher(
-                                      duration: Duration(milliseconds: 300),
-                                      child: _isHover
-                                          ? Container(
-                                              width: 155,
-                                              key: ValueKey<int>(0),
-                                              child: OutlinedButton(
-                                                onPressed: (() {
-                                                  context.go(contactUsRoute);
-                                                }),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  children: [
-                                                    Text(
-                                                      'CONTACT US',
-                                                      style: TextStyle(
-                                                          color: Colors.white),
-                                                    ),
-                                                    SizedBox(
-                                                      width: 5,
-                                                    ),
-                                                    Icon(
-                                                      Icons
-                                                          .arrow_right_outlined,
-                                                      color: Colors.white,
-                                                    )
-                                                  ],
-                                                ),
-                                                style: ButtonStyle(
-                                                  backgroundColor:
-                                                      MaterialStateProperty.all(
-                                                          Color.fromARGB(255,
-                                                              58, 127, 255)),
-                                                  textStyle:
-                                                      MaterialStateProperty.all(
-                                                          TextStyle(
-                                                              color: Colors
-                                                                  .white)),
-                                                  shape:
-                                                      MaterialStateProperty.all(
-                                                          RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            30),
-                                                  )),
-                                                ),
+                        if (snapshot.hasError) {
+                          return Text('Something went wrong');
+                        } else if (snapshot.data!.exists) {
+                          return Container(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "SAPTALOKA DIGITAL",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Text(snapshot.data!['alamat']),
+                                Text(snapshot.data!['alamat2']),
+                                Text('Indonesia'),
+                                Text('P: ${snapshot.data!['phone']}'),
+                                Text('E. ${snapshot.data!['email']}'),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                InkWell(
+                                  onTap: () {},
+                                  onHover: (isHovering) {
+                                    setState(() {
+                                      _isHover = isHovering;
+                                    });
+                                  },
+                                  child: AnimatedSwitcher(
+                                    duration: Duration(milliseconds: 300),
+                                    child: _isHover
+                                        ? Container(
+                                            width: 155,
+                                            key: ValueKey<int>(0),
+                                            child: OutlinedButton(
+                                              onPressed: (() {
+                                                context.go(contactUsRoute);
+                                              }),
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    'CONTACT US',
+                                                    style: TextStyle(
+                                                        color: Colors.white),
+                                                  ),
+                                                  SizedBox(
+                                                    width: 5,
+                                                  ),
+                                                  Icon(
+                                                    Icons.arrow_right_outlined,
+                                                    color: Colors.white,
+                                                  )
+                                                ],
                                               ),
-                                            )
-                                          : Container(
-                                              width: 155,
-                                              key: ValueKey<int>(1),
-                                              child: OutlinedButton(
-                                                onPressed: (() {}),
-                                                child: Text(
-                                                  'CONTACT US',
-                                                  style: TextStyle(
-                                                      color: Colors.white),
-                                                ),
-                                                style: ButtonStyle(
-                                                  side: MaterialStateProperty
-                                                      .all(BorderSide(
-                                                          color: Colors.white)),
-                                                  textStyle:
-                                                      MaterialStateProperty.all(
-                                                          TextStyle(
-                                                              color: Colors
-                                                                  .white)),
-                                                  shape:
-                                                      MaterialStateProperty.all(
-                                                          RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            30),
-                                                  )),
-                                                ),
+                                              style: ButtonStyle(
+                                                backgroundColor:
+                                                    MaterialStateProperty.all(
+                                                        Color.fromARGB(
+                                                            255, 58, 127, 255)),
+                                                textStyle:
+                                                    MaterialStateProperty.all(
+                                                        TextStyle(
+                                                            color:
+                                                                Colors.white)),
+                                                shape:
+                                                    MaterialStateProperty.all(
+                                                        RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(30),
+                                                )),
                                               ),
                                             ),
+                                          )
+                                        : Container(
+                                            width: 155,
+                                            key: ValueKey<int>(1),
+                                            child: OutlinedButton(
+                                              onPressed: (() {}),
+                                              child: Text(
+                                                'CONTACT US',
+                                                style: TextStyle(
+                                                    color: Colors.white),
+                                              ),
+                                              style: ButtonStyle(
+                                                side: MaterialStateProperty.all(
+                                                    BorderSide(
+                                                        color: Colors.white)),
+                                                textStyle:
+                                                    MaterialStateProperty.all(
+                                                        TextStyle(
+                                                            color:
+                                                                Colors.white)),
+                                                shape:
+                                                    MaterialStateProperty.all(
+                                                        RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(30),
+                                                )),
+                                              ),
+                                            ),
+                                          ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Row(
+                                  children: [
+                                    InkWell(
+                                      onTap: () {
+                                        setState(() {
+                                          _launchFB();
+                                        });
+                                      },
+                                      child: Container(
+                                        width: 50,
+                                        height: 50,
+                                        child: Icon(
+                                          FontAwesomeIcons.facebookF,
+                                          size: 20,
+                                          color: Colors.white,
+                                        ),
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: Colors.transparent,
+                                            border: Border.all(
+                                                color: Colors.white)),
+                                      ),
                                     ),
-                                  ),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  Row(
-                                    children: [
-                                      InkWell(
-                                        onTap: () {
-                                          setState(() {
-                                            _launchFB();
-                                          });
-                                        },
-                                        child: Container(
-                                          width: 50,
-                                          height: 50,
-                                          child: Icon(
-                                            FontAwesomeIcons.facebookF,
-                                            size: 20,
-                                            color: Colors.white,
-                                          ),
-                                          decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: Colors.transparent,
-                                              border: Border.all(
-                                                  color: Colors.white)),
+                                    SizedBox(width: 10),
+                                    InkWell(
+                                      onTap: () {
+                                        setState(() {
+                                          _launchIG();
+                                        });
+                                      },
+                                      child: Container(
+                                        width: 50,
+                                        height: 50,
+                                        child: Icon(
+                                          FontAwesomeIcons.instagram,
+                                          size: 20,
+                                          color: Colors.white,
                                         ),
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: Colors.transparent,
+                                            border: Border.all(
+                                                color: Colors.white)),
                                       ),
-                                      SizedBox(width: 10),
-                                      InkWell(
-                                        onTap: () {
-                                          setState(() {
-                                            _launchIG();
-                                          });
-                                        },
-                                        child: Container(
-                                          width: 50,
-                                          height: 50,
-                                          child: Icon(
-                                            FontAwesomeIcons.instagram,
-                                            size: 20,
-                                            color: Colors.white,
-                                          ),
-                                          decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: Colors.transparent,
-                                              border: Border.all(
-                                                  color: Colors.white)),
+                                    ),
+                                    SizedBox(width: 10),
+                                    InkWell(
+                                      onTap: () {
+                                        setState(() {});
+                                      },
+                                      child: Container(
+                                        width: 50,
+                                        height: 50,
+                                        child: Icon(
+                                          FontAwesomeIcons.youtube,
+                                          size: 20,
+                                          color: Colors.white,
                                         ),
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: Colors.transparent,
+                                            border: Border.all(
+                                                color: Colors.white)),
                                       ),
-                                      SizedBox(width: 10),
-                                      InkWell(
-                                        onTap: () {
-                                          setState(() {});
-                                        },
-                                        child: Container(
-                                          width: 50,
-                                          height: 50,
-                                          child: Icon(
-                                            FontAwesomeIcons.youtube,
-                                            size: 20,
-                                            color: Colors.white,
-                                          ),
-                                          decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: Colors.transparent,
-                                              border: Border.all(
-                                                  color: Colors.white)),
-                                        ),
-                                      )
-                                    ],
-                                  )
-                                ],
-                              ),
-                            );
-                          } else {
-                            return const Center(
-                              child: Padding(
-                                padding: EdgeInsets.all(18.0),
-                                child: Text('is empty'),
-                              ),
-                            );
-                          }
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                          );
+                        } else {
+                          return const Center(
+                            child: Padding(
+                              padding: EdgeInsets.all(18.0),
+                              child: Text('is empty'),
+                            ),
+                          );
                         }
-                        return const Center(
-                          child: Padding(
-                            padding: EdgeInsets.all(18.0),
-                            child: Text('is empty'),
-                          ),
-                        );
                       }),
                   SizedBox(width: 70),
                 ],
@@ -1101,209 +1052,193 @@ class _FooterState extends State<Footer> {
                             throw 'Could not launch ${snapshot.data!['yt']}';
                         }
 
-                        if (snapshot.connectionState ==
-                            ConnectionState.waiting) {
-                          return const Center(
-                            child: CircularProgressIndicator(),
-                          );
-                        } else if (snapshot.connectionState ==
-                            ConnectionState.active) {
-                          if (snapshot.data!.exists) {
-                            return Container(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "SAPTALOKA DIGITAL",
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Text(snapshot.data!['alamat']),
-                                  Text(snapshot.data!['alamat2']),
-                                  Text('Indonesia'),
-                                  Text('P: ${snapshot.data!['phone']}'),
-                                  Text('E. ${snapshot.data!['email']}'),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  InkWell(
-                                    onTap: () {},
-                                    onHover: (isHovering) {
-                                      setState(() {
-                                        _isHover = isHovering;
-                                      });
-                                    },
-                                    child: AnimatedSwitcher(
-                                      duration: Duration(milliseconds: 300),
-                                      child: _isHover
-                                          ? Container(
-                                              width: 145,
-                                              key: ValueKey<int>(0),
-                                              child: OutlinedButton(
-                                                onPressed: (() {
-                                                  context.go(contactUsRoute);
-                                                }),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  children: [
-                                                    Text(
-                                                      'CONTACT US',
-                                                      style: TextStyle(
-                                                          color: Colors.white),
-                                                    ),
-                                                    SizedBox(
-                                                      width: 5,
-                                                    ),
-                                                    Icon(
-                                                      Icons
-                                                          .arrow_right_outlined,
-                                                      color: Colors.white,
-                                                    )
-                                                  ],
-                                                ),
-                                                style: ButtonStyle(
-                                                  backgroundColor:
-                                                      MaterialStateProperty.all(
-                                                          Color.fromARGB(255,
-                                                              58, 127, 255)),
-                                                  textStyle:
-                                                      MaterialStateProperty.all(
-                                                          TextStyle(
-                                                              color: Colors
-                                                                  .white)),
-                                                  shape:
-                                                      MaterialStateProperty.all(
-                                                          RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            30),
-                                                  )),
-                                                ),
+                        if (snapshot.hasError) {
+                          return Text('Something went wrong');
+                        } else if (snapshot.data!.exists) {
+                          return Container(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "SAPTALOKA DIGITAL",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Text(snapshot.data!['alamat']),
+                                Text(snapshot.data!['alamat2']),
+                                Text('Indonesia'),
+                                Text('P: ${snapshot.data!['phone']}'),
+                                Text('E. ${snapshot.data!['email']}'),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                InkWell(
+                                  onTap: () {},
+                                  onHover: (isHovering) {
+                                    setState(() {
+                                      _isHover = isHovering;
+                                    });
+                                  },
+                                  child: AnimatedSwitcher(
+                                    duration: Duration(milliseconds: 300),
+                                    child: _isHover
+                                        ? Container(
+                                            width: 145,
+                                            key: ValueKey<int>(0),
+                                            child: OutlinedButton(
+                                              onPressed: (() {
+                                                context.go(contactUsRoute);
+                                              }),
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    'CONTACT US',
+                                                    style: TextStyle(
+                                                        color: Colors.white),
+                                                  ),
+                                                  SizedBox(
+                                                    width: 5,
+                                                  ),
+                                                  Icon(
+                                                    Icons.arrow_right_outlined,
+                                                    color: Colors.white,
+                                                  )
+                                                ],
                                               ),
-                                            )
-                                          : Container(
-                                              width: 145,
-                                              key: ValueKey<int>(1),
-                                              child: OutlinedButton(
-                                                onPressed: (() {}),
-                                                child: Text(
-                                                  'CONTACT US',
-                                                  style: TextStyle(
-                                                      color: Colors.white),
-                                                ),
-                                                style: ButtonStyle(
-                                                  side: MaterialStateProperty
-                                                      .all(BorderSide(
-                                                          color: Colors.white)),
-                                                  textStyle:
-                                                      MaterialStateProperty.all(
-                                                          TextStyle(
-                                                              color: Colors
-                                                                  .white)),
-                                                  shape:
-                                                      MaterialStateProperty.all(
-                                                          RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            30),
-                                                  )),
-                                                ),
+                                              style: ButtonStyle(
+                                                backgroundColor:
+                                                    MaterialStateProperty.all(
+                                                        Color.fromARGB(
+                                                            255, 58, 127, 255)),
+                                                textStyle:
+                                                    MaterialStateProperty.all(
+                                                        TextStyle(
+                                                            color:
+                                                                Colors.white)),
+                                                shape:
+                                                    MaterialStateProperty.all(
+                                                        RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(30),
+                                                )),
                                               ),
                                             ),
+                                          )
+                                        : Container(
+                                            width: 145,
+                                            key: ValueKey<int>(1),
+                                            child: OutlinedButton(
+                                              onPressed: (() {}),
+                                              child: Text(
+                                                'CONTACT US',
+                                                style: TextStyle(
+                                                    color: Colors.white),
+                                              ),
+                                              style: ButtonStyle(
+                                                side: MaterialStateProperty.all(
+                                                    BorderSide(
+                                                        color: Colors.white)),
+                                                textStyle:
+                                                    MaterialStateProperty.all(
+                                                        TextStyle(
+                                                            color:
+                                                                Colors.white)),
+                                                shape:
+                                                    MaterialStateProperty.all(
+                                                        RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(30),
+                                                )),
+                                              ),
+                                            ),
+                                          ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Row(
+                                  children: [
+                                    InkWell(
+                                      onTap: () {
+                                        setState(() {
+                                          _launchFB();
+                                        });
+                                      },
+                                      child: Container(
+                                        width: 50,
+                                        height: 50,
+                                        child: Icon(
+                                          FontAwesomeIcons.facebookF,
+                                          size: 20,
+                                          color: Colors.white,
+                                        ),
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: Colors.transparent,
+                                            border: Border.all(
+                                                color: Colors.white)),
+                                      ),
                                     ),
-                                  ),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  Row(
-                                    children: [
-                                      InkWell(
-                                        onTap: () {
-                                          setState(() {
-                                            _launchFB();
-                                          });
-                                        },
-                                        child: Container(
-                                          width: 50,
-                                          height: 50,
-                                          child: Icon(
-                                            FontAwesomeIcons.facebookF,
-                                            size: 20,
-                                            color: Colors.white,
-                                          ),
-                                          decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: Colors.transparent,
-                                              border: Border.all(
-                                                  color: Colors.white)),
+                                    SizedBox(width: 10),
+                                    InkWell(
+                                      onTap: () {
+                                        setState(() {
+                                          _launchIG();
+                                        });
+                                      },
+                                      child: Container(
+                                        width: 50,
+                                        height: 50,
+                                        child: Icon(
+                                          FontAwesomeIcons.instagram,
+                                          size: 20,
+                                          color: Colors.white,
                                         ),
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: Colors.transparent,
+                                            border: Border.all(
+                                                color: Colors.white)),
                                       ),
-                                      SizedBox(width: 10),
-                                      InkWell(
-                                        onTap: () {
-                                          setState(() {
-                                            _launchIG();
-                                          });
-                                        },
-                                        child: Container(
-                                          width: 50,
-                                          height: 50,
-                                          child: Icon(
-                                            FontAwesomeIcons.instagram,
-                                            size: 20,
-                                            color: Colors.white,
-                                          ),
-                                          decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: Colors.transparent,
-                                              border: Border.all(
-                                                  color: Colors.white)),
+                                    ),
+                                    SizedBox(width: 10),
+                                    InkWell(
+                                      onTap: () {
+                                        setState(() {});
+                                      },
+                                      child: Container(
+                                        width: 50,
+                                        height: 50,
+                                        child: Icon(
+                                          FontAwesomeIcons.youtube,
+                                          size: 20,
+                                          color: Colors.white,
                                         ),
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: Colors.transparent,
+                                            border: Border.all(
+                                                color: Colors.white)),
                                       ),
-                                      SizedBox(width: 10),
-                                      InkWell(
-                                        onTap: () {
-                                          setState(() {});
-                                        },
-                                        child: Container(
-                                          width: 50,
-                                          height: 50,
-                                          child: Icon(
-                                            FontAwesomeIcons.youtube,
-                                            size: 20,
-                                            color: Colors.white,
-                                          ),
-                                          decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: Colors.transparent,
-                                              border: Border.all(
-                                                  color: Colors.white)),
-                                        ),
-                                      )
-                                    ],
-                                  )
-                                ],
-                              ),
-                            );
-                          } else {
-                            return const Center(
-                              child: Padding(
-                                padding: EdgeInsets.all(18.0),
-                                child: Text('is empty'),
-                              ),
-                            );
-                          }
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                          );
+                        } else {
+                          return const Center(
+                            child: Padding(
+                              padding: EdgeInsets.all(18.0),
+                              child: Text('is empty'),
+                            ),
+                          );
                         }
-                        return const Center(
-                          child: Padding(
-                            padding: EdgeInsets.all(18.0),
-                            child: Text('is empty'),
-                          ),
-                        );
                       }),
                   SizedBox(width: 70),
                 ],
