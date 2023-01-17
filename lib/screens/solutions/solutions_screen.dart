@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:saptaloka_web_revamp/router_const.dart';
 import 'package:saptaloka_web_revamp/screens/about_us/about_us_screens.dart';
 import 'package:saptaloka_web_revamp/screens/contact_us/contact_us_screen.dart';
 import 'package:saptaloka_web_revamp/screens/solutions/widgets/awalan.dart';
@@ -8,9 +9,9 @@ import 'package:saptaloka_web_revamp/widgets/footer.dart';
 import 'package:saptaloka_web_revamp/widgets/header_widget.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:go_router/go_router.dart';
 
 class SolutionsScreen extends StatefulWidget {
-  static const routeName = '/Solutions';
   const SolutionsScreen({Key? key}) : super(key: key);
 
   @override
@@ -63,7 +64,7 @@ class _SolutionsScreenState extends State<SolutionsScreen> {
                   children: [
                     InkWell(
                       onTap: () {
-                        Navigator.pushReplacementNamed(context, '/');
+                        context.go('/');
                       },
                       child: Container(
                         height: 70,
@@ -91,12 +92,7 @@ class _SolutionsScreenState extends State<SolutionsScreen> {
                               });
                             },
                             onPressed: () {
-                              Navigator.pushReplacementNamed(
-                                  context, AboutUsScreens.routeName);
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (context) => AboutUsScreens()));--
+                              context.go(aboutUsRoute);
                             },
                             child: Text(
                               'About Us',
@@ -123,8 +119,7 @@ class _SolutionsScreenState extends State<SolutionsScreen> {
                               });
                             },
                             onTap: () {
-                              Navigator.pushReplacementNamed(
-                                  context, SolutionsScreen.routeName);
+                              context.go(solutionsRoute);
                             },
                             child: Container(
                               width: 95,
@@ -153,8 +148,7 @@ class _SolutionsScreenState extends State<SolutionsScreen> {
                               });
                             },
                             onTap: () {
-                              Navigator.pushReplacementNamed(
-                                  context, SolutionsScreen.routeName);
+                              context.go(solutionsRoute);
                             },
                             child: Container(
                               width: 95,
@@ -189,8 +183,7 @@ class _SolutionsScreenState extends State<SolutionsScreen> {
                           });
                         },
                         onPressed: () {
-                          Navigator.pushReplacementNamed(
-                              context, ContactUsScreen.routeName);
+                          context.go(contactUsRoute);
                         },
                         child: Text(
                           'Contact Us',
@@ -259,8 +252,7 @@ class _SolutionsScreenState extends State<SolutionsScreen> {
                       });
                     },
                     onPressed: () {
-                      Navigator.pushReplacementNamed(
-                          context, SolutionsScreen.routeName);
+                      context.go(solutionsRoute);
                     },
                     child: Container(
                       child: Column(
@@ -339,11 +331,7 @@ class _SolutionsScreenState extends State<SolutionsScreen> {
                                                   });
                                                 },
                                                 onPressed: () {
-                                                  Navigator
-                                                      .pushReplacementNamed(
-                                                          context,
-                                                          ItSolutionScreen
-                                                              .routeName);
+                                                  context.go(itSolutionsRoute);
                                                 },
                                                 child: Text(
                                                   'IT Solution',
@@ -376,11 +364,7 @@ class _SolutionsScreenState extends State<SolutionsScreen> {
                                                   });
                                                 },
                                                 onPressed: () {
-                                                  Navigator
-                                                      .pushReplacementNamed(
-                                                          context,
-                                                          SolutionsScreen
-                                                              .routeName);
+                                                  context.go(solutionsRoute);
                                                 },
                                                 child: Text(
                                                   'Business Digital Solution',
@@ -413,11 +397,7 @@ class _SolutionsScreenState extends State<SolutionsScreen> {
                                                   });
                                                 },
                                                 onPressed: () {
-                                                  Navigator
-                                                      .pushReplacementNamed(
-                                                          context,
-                                                          SolutionsScreen
-                                                              .routeName);
+                                                  context.go(solutionsRoute);
                                                 },
                                                 child: Text(
                                                   'Digital Marketing',

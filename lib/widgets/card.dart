@@ -1,10 +1,13 @@
 import 'dart:html';
 
+import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hovering/hovering.dart';
 import 'package:saptaloka_web_revamp/responsive.dart';
+import 'package:saptaloka_web_revamp/router_const.dart';
 import 'package:saptaloka_web_revamp/screens/solutions/widgets/it_solution.dart';
+import 'package:go_router/go_router.dart';
 
 class CardHome extends StatefulWidget {
   const CardHome({super.key});
@@ -40,22 +43,23 @@ class _CardHomeState extends State<CardHome> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Expanded(
-                      child: ItemCard(
-                    title: "IT Solution",
-                    image: "assets/images/image_1.png",
-                    fct: () {
-                      Navigator.pushReplacementNamed(
-                          context, ItSolutionScreen.routeName);
-                    },
-                  )),
+                    child: ItemCard(
+                      title: "IT Solution",
+                      image: "assets/images/image_1.png",
+                      fct: () {
+                        context.go(itSolutionsRoute);
+                      },
+                    ),
+                  ),
                   const SizedBox(
                     width: 10,
                   ),
                   Expanded(
-                      child: ItemCard(
-                          title: "Business Digital Solution",
-                          image: "assets/images/image_1.png",
-                          fct: () {})),
+                    child: ItemCard(
+                        title: "Business Digital Solution",
+                        image: "assets/images/image_1.png",
+                        fct: () {}),
+                  ),
                 ],
               ),
             ),
@@ -91,22 +95,23 @@ class _CardHomeState extends State<CardHome> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Expanded(
-                      child: ItemCard(
-                    title: "IT Solution",
-                    image: "assets/images/image_1.png",
-                    fct: () {
-                      Navigator.pushReplacementNamed(
-                          context, ItSolutionScreen.routeName);
-                    },
-                  )),
+                    child: ItemCard(
+                      title: "IT Solution",
+                      image: "assets/images/image_1.png",
+                      fct: () {
+                        context.go(itSolutionsRoute);
+                      },
+                    ),
+                  ),
                   const SizedBox(
                     width: 10,
                   ),
                   Expanded(
-                      child: ItemCard(
-                          title: "Business Digital Solution",
-                          image: "assets/images/image_1.png",
-                          fct: () {})),
+                    child: ItemCard(
+                        title: "Business Digital Solution",
+                        image: "assets/images/image_1.png",
+                        fct: () {}),
+                  ),
                 ],
               ),
             ),
@@ -146,8 +151,7 @@ class _CardHomeState extends State<CardHome> {
                       title: "IT Solution",
                       image: "assets/images/image_1.png",
                       fct: () {
-                        Navigator.pushReplacementNamed(
-                            context, ItSolutionScreen.routeName);
+                        context.go(itSolutionsRoute);
                       },
                     ),
                   ),
@@ -209,8 +213,7 @@ class _CardHomeState extends State<CardHome> {
                       title: "IT Solution",
                       image: "assets/images/image_1.png",
                       fct: () {
-                        Navigator.pushReplacementNamed(
-                            context, ItSolutionScreen.routeName);
+                        context.go(itSolutionsRoute);
                       },
                     ),
                   ),

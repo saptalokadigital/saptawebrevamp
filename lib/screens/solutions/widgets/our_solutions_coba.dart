@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:saptaloka_web_revamp/responsive.dart';
+import 'package:saptaloka_web_revamp/router_const.dart';
 import 'package:saptaloka_web_revamp/screens/solutions/widgets/it_solution.dart';
+import 'package:go_router/go_router.dart';
 
 class OurSolutionsCoba extends StatefulWidget {
   const OurSolutionsCoba({super.key});
@@ -27,10 +29,7 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
                   Flexible(
                     child: CardSolution(
                       fct: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ItSolutionScreen()));
+                        context.go(itSolutionsRoute);
                       },
                       title: "IT Solution",
                       image: "assets/images/image_1.png",
@@ -76,10 +75,7 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
           children: [
             CardSolutionMobile(
               fct: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => ItSolutionScreen()));
+                context.go(itSolutionsRoute);
               },
               title: "IT Solution",
               image: "assets/images/image_1.png",
@@ -125,10 +121,7 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
                   Flexible(
                     child: CardSolution(
                       fct: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ItSolutionScreen()));
+                        context.go(itSolutionsRoute);
                       },
                       title: "IT Solution",
                       image: "assets/images/image_1.png",
@@ -180,10 +173,7 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
                   Flexible(
                     child: CardSolution(
                       fct: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ItSolutionScreen()));
+                        context.go(itSolutionsRoute);
                       },
                       title: "IT Solution",
                       image: "assets/images/image_1.png",
@@ -266,7 +256,7 @@ class _CardSolutionState extends State<CardSolution> {
             }
           },
           onTap: () {
-            Navigator.pushReplacementNamed(context, ItSolutionScreen.routeName);
+            context.go(itSolutionsRoute);
           },
           child: AnimatedScale(
             scale: scale,
@@ -379,7 +369,7 @@ class _CardSolutionMobileState extends State<CardSolutionMobile> {
         child: InkWell(
           onHover: (isHovering) {},
           onTap: () {
-            Navigator.pushReplacementNamed(context, ItSolutionScreen.routeName);
+            context.go(itSolutionsRoute);
           },
           child: Container(
             height: 254,

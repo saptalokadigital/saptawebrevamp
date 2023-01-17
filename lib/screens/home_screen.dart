@@ -1,6 +1,8 @@
+import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:saptaloka_web_revamp/responsive.dart';
+import 'package:saptaloka_web_revamp/router_const.dart';
 import 'package:saptaloka_web_revamp/screens/about_us/about_us_screens.dart';
 import 'package:saptaloka_web_revamp/screens/contact_us/contact_us_screen.dart';
 import 'package:saptaloka_web_revamp/screens/solutions/solutions_screen.dart';
@@ -20,7 +22,6 @@ import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatefulWidget {
-  static const routeName = '/Home';
   const HomeScreen({super.key});
 
   @override
@@ -103,12 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               });
                             },
                             onPressed: () {
-                              Navigator.pushReplacementNamed(
-                                  context, AboutUsScreens.routeName);
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (context) => AboutUsScreens()));--
+                              context.go(aboutUsRoute);
                             },
                             child: Text(
                               'About Us',
@@ -135,8 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               });
                             },
                             onTap: () {
-                              Navigator.pushReplacementNamed(
-                                  context, SolutionsScreen.routeName);
+                              context.go('/Solutions');
                             },
                             child: Container(
                               width: 95,
@@ -165,8 +160,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               });
                             },
                             onTap: () {
-                              Navigator.pushReplacementNamed(
-                                  context, SolutionsScreen.routeName);
+                              context.go('/Solutions');
                             },
                             child: Container(
                               width: 95,
@@ -201,8 +195,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           });
                         },
                         onPressed: () {
-                          Navigator.pushReplacementNamed(
-                              context, ContactUsScreen.routeName);
+                          context.go(contactUsRoute);
                         },
                         child: Text(
                           'Contact Us',
@@ -220,16 +213,12 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           body: Responsive(
-            large: Container(
-              width: screenSize.width,
-              height: screenSize.height,
-              // decoration: const BoxDecoration(
-              //   color: Color(0xff013088),
-              // ),
-              child: WebSmoothScroll(
-                controller: _scrollController,
+            large: AnimateIfVisibleWrapper(
+              showItemInterval: Duration(milliseconds: 500),
+              child: Container(
+                width: screenSize.width,
+                height: screenSize.height,
                 child: SingleChildScrollView(
-                  physics: const NeverScrollableScrollPhysics(),
                   controller: _scrollController,
                   child: Column(
                     children: [
@@ -251,7 +240,25 @@ class _HomeScreenState extends State<HomeScreen> {
                           const SizedBox(
                             height: 30,
                           ),
-                          const CardHome(),
+                          AnimateIfVisible(
+                            key: Key('item.1'),
+                            duration: Duration(milliseconds: 1000),
+                            builder: (BuildContext context,
+                                Animation<double> animation) {
+                              return FadeTransition(
+                                opacity: Tween<double>(
+                                  begin: 0,
+                                  end: 1,
+                                ).animate(animation),
+                                child: SlideTransition(
+                                    position: Tween<Offset>(
+                                      begin: Offset(0, -0.1),
+                                      end: Offset.zero,
+                                    ).animate(animation),
+                                    child: const CardHome()),
+                              );
+                            },
+                          ),
                         ],
                       ),
                       const SizedBox(
@@ -302,16 +309,126 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            desktop: Container(
-              width: screenSize.width,
-              height: screenSize.height,
-              // decoration: const BoxDecoration(
-              //   color: Color(0xff013088),
-              // ),
-              child: WebSmoothScroll(
-                controller: _scrollController,
+            desktop: AnimateIfVisibleWrapper(
+              showItemInterval: Duration(milliseconds: 500),
+              child: Container(
+                width: screenSize.width,
+                height: screenSize.height,
                 child: SingleChildScrollView(
-                  physics: const NeverScrollableScrollPhysics(),
+                  controller: _scrollController,
+                  child: Column(
+                    children: [
+                      Column(
+                        children: [
+                          const CarouselHome(),
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          Text(
+                            textAlign: TextAlign.center,
+                            "Through digital transformation, our solutions will take your business to the next level",
+                            style: GoogleFonts.inter(
+                              textStyle: const TextStyle(
+                                fontSize: 25.0,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          AnimateIfVisible(
+                            key: Key('item.1'),
+                            duration: Duration(milliseconds: 1000),
+                            builder: (BuildContext context,
+                                Animation<double> animation) {
+                              return FadeTransition(
+                                opacity: Tween<double>(
+                                  begin: 0,
+                                  end: 1,
+                                ).animate(animation),
+                                child: SlideTransition(
+                                    position: Tween<Offset>(
+                                      begin: Offset(0, -0.1),
+                                      end: Offset.zero,
+                                    ).animate(animation),
+                                    child: const CardHome()),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 25.0,
+                      ),
+                      AnimateIfVisible(
+                        key: Key('item.2'),
+                        duration: Duration(milliseconds: 1000),
+                        builder: (BuildContext context,
+                            Animation<double> animation) {
+                          return FadeTransition(
+                            opacity: Tween<double>(
+                              begin: 0,
+                              end: 1,
+                            ).animate(animation),
+                            child: SlideTransition(
+                                position: Tween<Offset>(
+                                  begin: Offset(-0.1, 0),
+                                  end: Offset.zero,
+                                ).animate(animation),
+                                child: const CoreValues()),
+                          );
+                        },
+                      ),
+                      const SizedBox(
+                        height: 70,
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            "Our Satisfied Client",
+                            style: GoogleFonts.inter(
+                              textStyle: const TextStyle(
+                                fontSize: 35.0,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          const SatisfiedClient(),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 70,
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            "Latest News",
+                            style: GoogleFonts.inter(
+                              textStyle: const TextStyle(
+                                fontSize: 35.0,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          const LatestNews(),
+                        ],
+                      ),
+                      Footer(),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            tablet: AnimateIfVisibleWrapper(
+              showItemInterval: Duration(milliseconds: 500),
+              child: Container(
+                width: screenSize.width,
+                height: screenSize.height,
+                child: SingleChildScrollView(
                   controller: _scrollController,
                   child: Column(
                     children: [
@@ -333,7 +450,25 @@ class _HomeScreenState extends State<HomeScreen> {
                           const SizedBox(
                             height: 30,
                           ),
-                          const CardHome(),
+                          AnimateIfVisible(
+                            key: Key('item.1'),
+                            duration: Duration(milliseconds: 1000),
+                            builder: (BuildContext context,
+                                Animation<double> animation) {
+                              return FadeTransition(
+                                opacity: Tween<double>(
+                                  begin: 0,
+                                  end: 1,
+                                ).animate(animation),
+                                child: SlideTransition(
+                                    position: Tween<Offset>(
+                                      begin: Offset(0, -0.1),
+                                      end: Offset.zero,
+                                    ).animate(animation),
+                                    child: const CardHome()),
+                              );
+                            },
+                          ),
                         ],
                       ),
                       const SizedBox(
@@ -384,159 +519,99 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            tablet: Container(
-              width: screenSize.width,
-              height: screenSize.height,
-              // decoration: const BoxDecoration(
-              //   color: Color(0xff013088),
-              // ),
-              child: SingleChildScrollView(
-                controller: _scrollController,
-                child: Column(
-                  children: [
-                    Column(
-                      children: [
-                        CarouselHome(),
-                        const SizedBox(
-                          height: 50,
-                        ),
-                        Text(
-                          textAlign: TextAlign.center,
-                          "Through digital transformation, our solutions will take your business to the next level",
-                          style: GoogleFonts.inter(
-                            textStyle: const TextStyle(
-                              fontSize: 25.0,
+            mobile: AnimateIfVisibleWrapper(
+              showItemInterval: Duration(milliseconds: 500),
+              child: Container(
+                width: screenSize.width,
+                height: screenSize.height,
+                child: SingleChildScrollView(
+                  controller: _scrollController,
+                  child: Column(
+                    children: [
+                      Column(
+                        children: [
+                          CarouselHome(),
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          Text(
+                            textAlign: TextAlign.center,
+                            "Through digital transformation, our solutions will take your business to the next level",
+                            style: GoogleFonts.inter(
+                              textStyle: const TextStyle(
+                                fontSize: 25.0,
+                              ),
                             ),
                           ),
-                        ),
-                        const SizedBox(
-                          height: 30,
-                        ),
-                        const CardHome(),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 25.0,
-                    ),
-                    const CoreValues(),
-                    const SizedBox(
-                      height: 70,
-                    ),
-                    Column(
-                      children: [
-                        Text(
-                          "Our Satisfied Client",
-                          style: GoogleFonts.inter(
-                            textStyle: const TextStyle(
-                              fontSize: 35.0,
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          AnimateIfVisible(
+                            key: Key('item.1'),
+                            duration: Duration(milliseconds: 1000),
+                            builder: (BuildContext context,
+                                Animation<double> animation) {
+                              return FadeTransition(
+                                opacity: Tween<double>(
+                                  begin: 0,
+                                  end: 1,
+                                ).animate(animation),
+                                child: SlideTransition(
+                                    position: Tween<Offset>(
+                                      begin: Offset(0, -0.1),
+                                      end: Offset.zero,
+                                    ).animate(animation),
+                                    child: const CardHome()),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 25.0,
+                      ),
+                      const CoreValues(),
+                      const SizedBox(
+                        height: 70,
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            "Our Satisfied Client",
+                            style: GoogleFonts.inter(
+                              textStyle: const TextStyle(
+                                fontSize: 35.0,
+                              ),
                             ),
                           ),
-                        ),
-                        const SizedBox(
-                          height: 50,
-                        ),
-                        const SatisfiedClient(),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 70,
-                    ),
-                    Column(
-                      children: [
-                        Text(
-                          "Latest News",
-                          style: GoogleFonts.inter(
-                            textStyle: const TextStyle(
-                              fontSize: 35.0,
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          const SatisfiedClient(),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 70,
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            "Latest News",
+                            style: GoogleFonts.inter(
+                              textStyle: const TextStyle(
+                                fontSize: 35.0,
+                              ),
                             ),
                           ),
-                        ),
-                        const SizedBox(
-                          height: 50,
-                        ),
-                        const LatestNews(),
-                      ],
-                    ),
-                    Footer(),
-                  ],
-                ),
-              ),
-            ),
-            mobile: Container(
-              width: screenSize.width,
-              height: screenSize.height,
-              // decoration: const BoxDecoration(
-              //   color: Color(0xff013088),
-              // ),
-              child: SingleChildScrollView(
-                controller: _scrollController,
-                child: Column(
-                  children: [
-                    Column(
-                      children: [
-                        CarouselHome(),
-                        const SizedBox(
-                          height: 50,
-                        ),
-                        Text(
-                          textAlign: TextAlign.center,
-                          "Through digital transformation, our solutions will take your business to the next level",
-                          style: GoogleFonts.inter(
-                            textStyle: const TextStyle(
-                              fontSize: 25.0,
-                            ),
+                          const SizedBox(
+                            height: 50,
                           ),
-                        ),
-                        const SizedBox(
-                          height: 30,
-                        ),
-                        const CardHome(),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 25.0,
-                    ),
-                    const CoreValues(),
-                    const SizedBox(
-                      height: 70,
-                    ),
-                    Column(
-                      children: [
-                        Text(
-                          "Our Satisfied Client",
-                          style: GoogleFonts.inter(
-                            textStyle: const TextStyle(
-                              fontSize: 35.0,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 50,
-                        ),
-                        const SatisfiedClient(),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 70,
-                    ),
-                    Column(
-                      children: [
-                        Text(
-                          "Latest News",
-                          style: GoogleFonts.inter(
-                            textStyle: const TextStyle(
-                              fontSize: 35.0,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 50,
-                        ),
-                        const LatestNews(),
-                      ],
-                    ),
-                    Footer(),
-                  ],
+                          const LatestNews(),
+                        ],
+                      ),
+                      Footer(),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -559,8 +634,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       });
                     },
                     onPressed: () {
-                      Navigator.pushReplacementNamed(
-                          context, SolutionsScreen.routeName);
+                      context.go(solutionsRoute);
                     },
                     child: Container(
                       child: Column(
@@ -639,11 +713,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   });
                                                 },
                                                 onPressed: () {
-                                                  Navigator
-                                                      .pushReplacementNamed(
-                                                          context,
-                                                          ItSolutionScreen
-                                                              .routeName);
+                                                  context.go(itSolutionsRoute);
                                                 },
                                                 child: Text(
                                                   'IT Solution',
@@ -676,11 +746,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   });
                                                 },
                                                 onPressed: () {
-                                                  Navigator
-                                                      .pushReplacementNamed(
-                                                          context,
-                                                          SolutionsScreen
-                                                              .routeName);
+                                                  context.go(solutionsRoute);
                                                 },
                                                 child: Text(
                                                   'Business Digital Solution',
@@ -713,11 +779,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   });
                                                 },
                                                 onPressed: () {
-                                                  Navigator
-                                                      .pushReplacementNamed(
-                                                          context,
-                                                          SolutionsScreen
-                                                              .routeName);
+                                                  context.go(
+                                                      '/Solutions/ITSolution');
                                                 },
                                                 child: Text(
                                                   'Digital Marketing',

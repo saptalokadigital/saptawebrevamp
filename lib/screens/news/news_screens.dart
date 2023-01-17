@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:go_router/go_router.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:saptaloka_web_revamp/router_const.dart';
 
 class NewsScreens extends StatefulWidget {
   String? id;
@@ -68,7 +69,7 @@ class _NewsScreensState extends State<NewsScreens> {
                           });
                         },
                         onPressed: () {
-                          context.go('/AboutUs');
+                          context.go(aboutUsRoute);
                           // Navigator.push(
                           //     context,
                           //     MaterialPageRoute(
@@ -99,7 +100,7 @@ class _NewsScreensState extends State<NewsScreens> {
                           });
                         },
                         onTap: () {
-                          context.go('/Solutions');
+                          context.go(solutionsRoute);
                         },
                         child: Container(
                           width: 95,
@@ -128,7 +129,7 @@ class _NewsScreensState extends State<NewsScreens> {
                           });
                         },
                         onTap: () {
-                          context.go('/Solutions');
+                          context.go(solutionsRoute);
                         },
                         child: Container(
                           width: 95,
@@ -161,7 +162,7 @@ class _NewsScreensState extends State<NewsScreens> {
                       });
                     },
                     onPressed: () {
-                      context.go('/Solutions');
+                      context.go(contactUsRoute);
                     },
                     child: Text(
                       'Contact Us',

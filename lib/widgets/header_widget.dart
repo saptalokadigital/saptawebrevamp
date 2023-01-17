@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:saptaloka_web_revamp/screens/contact_us/contact_us_screen.dart';
-import 'package:saptaloka_web_revamp/screens/home_screen.dart';
-import 'package:saptaloka_web_revamp/screens/about_us/about_us_screens.dart';
-import 'package:saptaloka_web_revamp/screens/home_screen.dart';
-import 'package:saptaloka_web_revamp/screens/solutions/solutions_screen.dart';
+import 'package:saptaloka_web_revamp/router_const.dart';
+import 'package:go_router/go_router.dart';
 
 class HeaderWidget extends StatefulWidget {
   const HeaderWidget({super.key});
@@ -63,12 +60,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                   });
                 },
                 onPressed: () {
-                  Navigator.pushReplacementNamed(
-                      context, AboutUsScreens.routeName);
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => AboutUsScreens()));--
+                  context.go(aboutUsRoute);
                 },
                 child: Text(
                   'About Us',
@@ -93,8 +85,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                     });
                   },
                   onPressed: () {
-                    Navigator.pushReplacementNamed(
-                        context, SolutionsScreen.routeName);
+                    context.go(solutionsRoute);
                   },
                   child: Row(
                     children: [
@@ -128,8 +119,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                   });
                 },
                 onPressed: () {
-                  Navigator.pushReplacementNamed(
-                      context, ContactUsScreen.routeName);
+                  context.go(contactUsRoute);
                 },
                 child: Text(
                   'Contact Us',

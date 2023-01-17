@@ -6,6 +6,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hovering/hovering.dart';
 import 'package:saptaloka_web_revamp/responsive.dart';
 
+import '../global_methods.dart';
+
 class CarouselHome extends StatefulWidget {
   const CarouselHome({super.key});
 
@@ -31,6 +33,9 @@ class _CarouselHomeState extends State<CarouselHome> {
     });
   }
 
+  CollectionReference ref =
+      FirebaseFirestore.instance.collection('SliderContent');
+
   List<String> title = [
     'Saptaloka Digital',
     'Heheheh',
@@ -51,8 +56,6 @@ class _CarouselHomeState extends State<CarouselHome> {
 
   @override
   Widget build(BuildContext context) {
-    CollectionReference ref =
-        FirebaseFirestore.instance.collection('SliderContent');
     return Responsive(
       large: Padding(
         padding:
@@ -245,21 +248,22 @@ class _CarouselHomeState extends State<CarouselHome> {
           width: MediaQuery.of(context).size.width,
           height: 558,
           child: StreamBuilder<QuerySnapshot>(
-            stream: ref.snapshots(),
+            stream: ref.orderBy('createdAt', descending: true).snapshots(),
             builder: (context, snapshot) {
               if (snapshot.hasError) {
-                return Text('Something went wrong');
-              } else if (snapshot.hasData || snapshot.data != null) {
+                return const Text('Something went wrong');
+              } else if (snapshot.data != null || snapshot.hasData) {
                 return CarouselSlider.builder(
                   carouselController: buttonCarouselController,
+                  itemCount: snapshot.data!.docs.length,
                   itemBuilder: (context, index, realIndex) {
                     var homeInfo = snapshot.data!.docs[index].data()
                         as Map<String, dynamic>;
-                    String docId = snapshot.data!.docs[index].id;
-                    String judul = homeInfo['judul'];
-                    String desc = homeInfo['deskripsi'];
+                    String? docId = snapshot.data!.docs[index].id;
+                    String? judul = homeInfo['judul'];
+                    String? desc = homeInfo['deskripsi'];
 
-                    String imageUrl = homeInfo['imageUrl'];
+                    String? imageUrl = homeInfo['imageUrl'];
 
                     return Stack(
                       children: [
@@ -283,7 +287,8 @@ class _CarouselHomeState extends State<CarouselHome> {
                                     height: 500,
                                     decoration: BoxDecoration(
                                       image: DecorationImage(
-                                          image: NetworkImage(imageUrl),
+                                          image: NetworkImage(imageUrl ??
+                                              'assets/images/fotojaringan.png'),
                                           colorFilter: ColorFilter.mode(
                                               Colors.white.withOpacity(0.85),
                                               BlendMode.dstATop),
@@ -303,7 +308,7 @@ class _CarouselHomeState extends State<CarouselHome> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text(
-                                      judul,
+                                      judul ?? 'Saptaloka Digital',
                                       textAlign: TextAlign.left,
                                       style: GoogleFonts.inter(
                                         color: Color(0xff013088),
@@ -318,7 +323,7 @@ class _CarouselHomeState extends State<CarouselHome> {
                                       height: 30,
                                     ),
                                     Text(
-                                      desc,
+                                      desc ?? 'Deskripsi yow',
                                       maxLines: 10,
                                       style: GoogleFonts.inter(
                                         color: Colors.black,
@@ -409,7 +414,6 @@ class _CarouselHomeState extends State<CarouselHome> {
                     scrollDirection: Axis.horizontal,
                     enlargeCenterPage: true,
                   ),
-                  itemCount: snapshot.data!.docs.length,
                 );
               }
               return Center(
