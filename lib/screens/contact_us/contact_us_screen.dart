@@ -3,6 +3,7 @@
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:open_street_map_search_and_pick/open_street_map_search_and_pick.dart';
+import 'package:saptaloka_web_revamp/router_const.dart';
 import 'package:saptaloka_web_revamp/screens/about_us/about_us_screens.dart';
 import 'package:saptaloka_web_revamp/screens/contact_us/widgets/form_contact_us.dart';
 import 'package:saptaloka_web_revamp/screens/contact_us/widgets/maps_widget.dart';
@@ -11,9 +12,9 @@ import 'package:saptaloka_web_revamp/screens/solutions/widgets/it_solution.dart'
 import 'package:saptaloka_web_revamp/widgets/footer.dart';
 import 'package:saptaloka_web_revamp/widgets/header_widget.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
+import 'package:go_router/go_router.dart';
 
 class ContactUsScreen extends StatefulWidget {
-  static const routeName = '/ContactUs';
   const ContactUsScreen({super.key});
 
   @override
@@ -61,7 +62,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                   children: [
                     InkWell(
                       onTap: () {
-                        Navigator.pushReplacementNamed(context, '/');
+                        context.go('/');
                       },
                       child: Container(
                         height: 70,
@@ -89,12 +90,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                               });
                             },
                             onPressed: () {
-                              Navigator.pushReplacementNamed(
-                                  context, AboutUsScreens.routeName);
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (context) => AboutUsScreens()));--
+                              context.go(aboutUsRoute);
                             },
                             child: Text(
                               'About Us',
@@ -121,8 +117,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                               });
                             },
                             onTap: () {
-                              Navigator.pushReplacementNamed(
-                                  context, SolutionsScreen.routeName);
+                              context.go(solutionsRoute);
                             },
                             child: Container(
                               width: 95,
@@ -151,8 +146,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                               });
                             },
                             onTap: () {
-                              Navigator.pushReplacementNamed(
-                                  context, SolutionsScreen.routeName);
+                              context.go(solutionsRoute);
                             },
                             child: Container(
                               width: 95,
@@ -187,8 +181,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                           });
                         },
                         onPressed: () {
-                          Navigator.pushReplacementNamed(
-                              context, ContactUsScreen.routeName);
+                          context.go(contactUsRoute);
                         },
                         child: Text(
                           'Contact Us',
@@ -241,8 +234,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                       });
                     },
                     onPressed: () {
-                      Navigator.pushReplacementNamed(
-                          context, SolutionsScreen.routeName);
+                      context.go(solutionsRoute);
                     },
                     child: Container(
                       child: Column(
@@ -321,11 +313,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                                                   });
                                                 },
                                                 onPressed: () {
-                                                  Navigator
-                                                      .pushReplacementNamed(
-                                                          context,
-                                                          ItSolutionScreen
-                                                              .routeName);
+                                                  context.go(itSolutionsRoute);
                                                 },
                                                 child: Text(
                                                   'IT Solution',
@@ -358,11 +346,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                                                   });
                                                 },
                                                 onPressed: () {
-                                                  Navigator
-                                                      .pushReplacementNamed(
-                                                          context,
-                                                          SolutionsScreen
-                                                              .routeName);
+                                                  context.go(solutionsRoute);
                                                 },
                                                 child: Text(
                                                   'Business Digital Solution',
@@ -395,11 +379,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                                                   });
                                                 },
                                                 onPressed: () {
-                                                  Navigator
-                                                      .pushReplacementNamed(
-                                                          context,
-                                                          SolutionsScreen
-                                                              .routeName);
+                                                  context.go(solutionsRoute);
                                                 },
                                                 child: Text(
                                                   'Digital Marketing',

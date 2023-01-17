@@ -2,10 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:saptaloka_web_revamp/responsive.dart';
+import 'package:saptaloka_web_revamp/router_const.dart';
 import 'package:saptaloka_web_revamp/screens/contact_us/contact_us_screen.dart';
 
 import 'package:url_launcher/url_launcher.dart';
-
+import 'package:go_router/go_router.dart';
 import '../global_methods.dart';
 
 class Footer extends StatefulWidget {
@@ -175,9 +176,7 @@ class _FooterState extends State<Footer> {
                                           key: ValueKey<int>(0),
                                           child: OutlinedButton(
                                             onPressed: (() {
-                                              Navigator.pushReplacementNamed(
-                                                  context,
-                                                  ContactUsScreen.routeName);
+                                              context.go(contactUsRoute);
                                             }),
                                             child: Row(
                                               mainAxisAlignment:
@@ -470,9 +469,7 @@ class _FooterState extends State<Footer> {
                                           key: ValueKey<int>(0),
                                           child: OutlinedButton(
                                             onPressed: (() {
-                                              Navigator.pushReplacementNamed(
-                                                  context,
-                                                  ContactUsScreen.routeName);
+                                              context.go(contactUsRoute);
                                             }),
                                             child: Row(
                                               mainAxisAlignment:
@@ -758,9 +755,7 @@ class _FooterState extends State<Footer> {
                                           key: ValueKey<int>(0),
                                           child: OutlinedButton(
                                             onPressed: (() {
-                                              Navigator.pushReplacementNamed(
-                                                  context,
-                                                  ContactUsScreen.routeName);
+                                              context.go(contactUsRoute);
                                             }),
                                             child: Row(
                                               mainAxisAlignment:
@@ -1047,9 +1042,7 @@ class _FooterState extends State<Footer> {
                                           key: ValueKey<int>(0),
                                           child: OutlinedButton(
                                             onPressed: (() {
-                                              Navigator.pushReplacementNamed(
-                                                  context,
-                                                  ContactUsScreen.routeName);
+                                              context.go(contactUsRoute);
                                             }),
                                             child: Row(
                                               mainAxisAlignment:
