@@ -145,7 +145,7 @@ class _FooterState extends State<Footer> {
                       if (snapshot.hasError) {
                         return Text('Something went wrong');
                       }
-                      if (snapshot.data!.exists) {
+                      if (snapshot.hasData || snapshot.data != null) {
                         return Container(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -451,7 +451,7 @@ class _FooterState extends State<Footer> {
                         if (snapshot.hasError) {
                           return Text('Something went wrong');
                         }
-                        if (snapshot.data!.exists) {
+                        if (snapshot.hasData || snapshot.data != null) {
                           return Container(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -752,7 +752,7 @@ class _FooterState extends State<Footer> {
 
                         if (snapshot.hasError) {
                           return Text('Something went wrong');
-                        } else if (snapshot.data!.exists) {
+                        } else if (snapshot.hasData || snapshot.data != null) {
                           return Container(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -1054,7 +1054,7 @@ class _FooterState extends State<Footer> {
 
                         if (snapshot.hasError) {
                           return Text('Something went wrong');
-                        } else if (snapshot.data!.exists) {
+                        } else if (snapshot.hasData || snapshot.data != null) {
                           return Container(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
