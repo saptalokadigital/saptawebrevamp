@@ -1,3 +1,4 @@
+import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:saptaloka_web_revamp/router_const.dart';
@@ -199,8 +200,8 @@ class _AboutUsScreensState extends State<AboutUsScreens> {
               ),
             ),
           ),
-          body: WebSmoothScroll(
-            controller: _scrollController,
+          body: AnimateIfVisibleWrapper(
+            showItemInterval: Duration(milliseconds: 500),
             child: SingleChildScrollView(
               controller: _scrollController,
               child: Column(
