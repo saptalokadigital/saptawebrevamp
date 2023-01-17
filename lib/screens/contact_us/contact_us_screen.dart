@@ -1,5 +1,6 @@
 // ignore_for_file: sized_box_for_whitespace
 
+import 'package:auto_animated/auto_animated.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:open_street_map_search_and_pick/open_street_map_search_and_pick.dart';
@@ -198,8 +199,8 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
               ),
             ),
           ),
-          body: WebSmoothScroll(
-            controller: _scrollController,
+          body: AnimateIfVisibleWrapper(
+            showItemInterval: Duration(milliseconds: 500),
             child: SingleChildScrollView(
               controller: _scrollController,
               child: Column(
