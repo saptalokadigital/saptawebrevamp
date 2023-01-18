@@ -1,6 +1,8 @@
+import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:saptaloka_web_revamp/responsive.dart';
+import 'package:styled_text/styled_text.dart';
 
 class StorySaptaloka extends StatefulWidget {
   const StorySaptaloka({super.key});
@@ -22,13 +24,33 @@ class _StorySaptalokaState extends State<StorySaptaloka> {
                 width: screenSize.width,
                 child: Stack(
                   children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: 230,
-                      decoration: const BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage("assets/images/image_1.png"),
-                              fit: BoxFit.cover)),
+                    AnimateIfVisible(
+                      key: const Key('item.1'),
+                      duration: const Duration(milliseconds: 500),
+                      builder:
+                          (BuildContext context, Animation<double> animation) {
+                        return FadeTransition(
+                          opacity: Tween<double>(
+                            begin: 0,
+                            end: 1,
+                          ).animate(animation),
+                          child: SlideTransition(
+                            position: Tween<Offset>(
+                              begin: const Offset(0, -0.5),
+                              end: Offset.zero,
+                            ).animate(animation),
+                            child: Container(
+                              width: MediaQuery.of(context).size.width,
+                              height: 230,
+                              decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          "assets/images/image_1.png"),
+                                      fit: BoxFit.cover)),
+                            ),
+                          ),
+                        );
+                      },
                     ),
                     // Positioned(
                     //   bottom: 0,
@@ -80,12 +102,32 @@ class _StorySaptalokaState extends State<StorySaptaloka> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Flexible(
-                                child: Text("Story Of Saptaloka Digital",
-                                    style: GoogleFonts.inter(
-                                      fontSize: 40,
-                                      fontWeight: FontWeight.bold,
-                                      color: Color(0xff013088),
-                                    )),
+                                child: AnimateIfVisible(
+                                  key: const Key('item.2'),
+                                  duration: const Duration(milliseconds: 500),
+                                  builder: (BuildContext context,
+                                      Animation<double> animation) {
+                                    return FadeTransition(
+                                      opacity: Tween<double>(
+                                        begin: 0,
+                                        end: 1,
+                                      ).animate(animation),
+                                      child: SlideTransition(
+                                        position: Tween<Offset>(
+                                          begin: const Offset(-0.5, 0),
+                                          end: Offset.zero,
+                                        ).animate(animation),
+                                        child:
+                                            Text("Story of Saptaloka Digital",
+                                                style: GoogleFonts.inter(
+                                                  fontSize: 28,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Color(0xff013088),
+                                                )),
+                                      ),
+                                    );
+                                  },
+                                ),
                               )
                             ],
                           ),
@@ -100,16 +142,50 @@ class _StorySaptalokaState extends State<StorySaptaloka> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Flexible(
-                              child: Text(
-                                  """Pada tahun 2020 akhir terbentuk Bengkel Coding yang merupakan sebuah startup dan bergerak di bidang jasa IT Consultant. Pada awalnya seorang programmer yang bernama Fikri Zaki Aditama bertemu kembali dengan teman lamanya, yaitu Muhammad Nur Rizka Novanto yang memiliki latar belakang di bidang Manajemen Bisnis. Mereka berdua berunding untuk merumuskan sebuah startup. Setelah perundingan tersebut Fikri merekrut Dede Miftahul Anwar yang sebelumnya pernah ada dalam satu tim dengan Fikri untuk terlibat dalam perumusan startup ini. 
-
-Fikri dan Dede pernah membuat sebuah tim IT pada 7 Juli 2019 yang bernama Erudev Studio dengan anggota berjumlah 6 orang. Namun perjalanan tim tersebut harus terhenti karena tidak adanya manajemen yang mengatur semua permasalahan internal. Sehingga pada awal tahun 2021 telah resmi terbentuk sebuah startup yang bernama Bengkel Coding dengan jumlah 2 orang programmer dan 1 orang manajemen. Selama masa perjalanannya di tahun 2021, Bengkel Coding telah menyelesaikan beberapa project.
-
-""",
-                                  style: GoogleFonts.inter(
-                                    fontSize: 15,
-                                    color: Colors.black,
-                                  )),
+                              child: AnimateIfVisible(
+                                key: const Key('item.3'),
+                                duration: const Duration(milliseconds: 500),
+                                builder: (BuildContext context,
+                                    Animation<double> animation) {
+                                  return FadeTransition(
+                                    opacity: Tween<double>(
+                                      begin: 0,
+                                      end: 1,
+                                    ).animate(animation),
+                                    child: SlideTransition(
+                                      position: Tween<Offset>(
+                                        begin: const Offset(-0.5, 0),
+                                        end: Offset.zero,
+                                      ).animate(animation),
+                                      child: StyledText(
+                                          text:
+                                              """     <bold>Saptaloka Digital</bold> terbentuk pada tanggal 1 Januari 2022. <bold>Saptaloka Digital</bold> terbentuk dari gabungan dua perusahaan, yaitu <bold>Bengkel Coding</bold> dan <bold>Alsi Media</bold>.
+                              
+      Bengkel Coding merupakan perusahaan yang bergerak di bidang jasa <miring>IT Consultant</miring> sejak tahun 2020-2021. Selama perjalanannya, Bengkel Coding telah menyelesaikan <miring>project-project</miring> dari beberapa klien.
+                              
+      Alsi Media merupakan perusahaan yang bergerak di bidang jasa <miring>Digital Marketing</miring> dan <miring>Production House</miring>. Pada perjalanannya Alsi Media telah menerima jasa pembuatan video dan fotografi serta menyelesaikan lebih dari 5 <miring>Project Digital Marketing</miring>.
+                              
+      Kedua perusahaan tersebut akhirnya memutuskan untuk bergabung dan <miring>re-branding</miring> menjadi <bold>Saptaloka Digital</bold> yang bergerak di bidang <miring>IT & Business Consultant</miring>.
+                              
+                              """,
+                                          tags: {
+                                            'bold': StyledTextTag(
+                                                style: TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.bold)),
+                                            'miring': StyledTextTag(
+                                                style: TextStyle(
+                                                    fontStyle:
+                                                        FontStyle.italic)),
+                                          },
+                                          style: GoogleFonts.inter(
+                                            fontSize: 15,
+                                            color: Colors.black,
+                                          )),
+                                    ),
+                                  );
+                                },
+                              ),
                             )
                           ],
                         ),
@@ -182,40 +258,94 @@ Fikri dan Dede pernah membuat sebuah tim IT pada 7 Juli 2019 yang bernama Erudev
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            width: 220,
+                            width: MediaQuery.of(context).size.width / 2,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Flexible(
-                                  child: Text("Story Of Saptaloka Digital",
-                                      style: GoogleFonts.inter(
-                                        fontSize: 35,
-                                        fontWeight: FontWeight.bold,
-                                        color: Color(0xff013088),
-                                      )),
+                                  child: AnimateIfVisible(
+                                    key: const Key('item.1'),
+                                    duration: const Duration(milliseconds: 500),
+                                    builder: (BuildContext context,
+                                        Animation<double> animation) {
+                                      return FadeTransition(
+                                        opacity: Tween<double>(
+                                          begin: 0,
+                                          end: 1,
+                                        ).animate(animation),
+                                        child: SlideTransition(
+                                          position: Tween<Offset>(
+                                            begin: const Offset(-0.5, 0),
+                                            end: Offset.zero,
+                                          ).animate(animation),
+                                          child:
+                                              Text("Story of Saptaloka Digital",
+                                                  style: GoogleFonts.inter(
+                                                    fontSize: 48,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Color(0xff013088),
+                                                  )),
+                                        ),
+                                      );
+                                    },
+                                  ),
                                 )
                               ],
                             ),
                           ),
                           SizedBox(
-                            height: 25,
+                            height: 50,
                           ),
                           Container(
-                            width: 470,
+                            width: MediaQuery.of(context).size.width / 2.1,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Flexible(
-                                  child: Text(
-                                      """Pada tahun 2020 akhir terbentuk Bengkel Coding yang merupakan sebuah startup dan bergerak di bidang jasa IT Consultant. Pada awalnya seorang programmer yang bernama Fikri Zaki Aditama bertemu kembali dengan teman lamanya, yaitu Muhammad Nur Rizka Novanto yang memiliki latar belakang di bidang Manajemen Bisnis. Mereka berdua berunding untuk merumuskan sebuah startup. Setelah perundingan tersebut Fikri merekrut Dede Miftahul Anwar yang sebelumnya pernah ada dalam satu tim dengan Fikri untuk terlibat dalam perumusan startup ini. 
-
-Fikri dan Dede pernah membuat sebuah tim IT pada 7 Juli 2019 yang bernama Erudev Studio dengan anggota berjumlah 6 orang. Namun perjalanan tim tersebut harus terhenti karena tidak adanya manajemen yang mengatur semua permasalahan internal. Sehingga pada awal tahun 2021 telah resmi terbentuk sebuah startup yang bernama Bengkel Coding dengan jumlah 2 orang programmer dan 1 orang manajemen. Selama masa perjalanannya di tahun 2021, Bengkel Coding telah menyelesaikan beberapa project.
-
-""",
-                                      style: GoogleFonts.inter(
-                                        fontSize: 17,
-                                        color: Colors.black,
-                                      )),
+                                  child: AnimateIfVisible(
+                                    key: const Key('item.2'),
+                                    duration: const Duration(milliseconds: 500),
+                                    builder: (BuildContext context,
+                                        Animation<double> animation) {
+                                      return FadeTransition(
+                                        opacity: Tween<double>(
+                                          begin: 0,
+                                          end: 1,
+                                        ).animate(animation),
+                                        child: SlideTransition(
+                                          position: Tween<Offset>(
+                                            begin: const Offset(-0.5, 0),
+                                            end: Offset.zero,
+                                          ).animate(animation),
+                                          child: StyledText(
+                                              text:
+                                                  """     <bold>Saptaloka Digital</bold> terbentuk pada tanggal 1 Januari 2022. <bold>Saptaloka Digital</bold> terbentuk dari gabungan dua perusahaan, yaitu <bold>Bengkel Coding</bold> dan <bold>Alsi Media</bold>.
+                                  
+      Bengkel Coding merupakan perusahaan yang bergerak di bidang jasa <miring>IT Consultant</miring> sejak tahun 2020-2021. Selama perjalanannya, Bengkel Coding telah menyelesaikan <miring>project-project</miring> dari beberapa klien.
+                                  
+      Alsi Media merupakan perusahaan yang bergerak di bidang jasa <miring>Digital Marketing</miring> dan <miring>Production House</miring>. Pada perjalanannya Alsi Media telah menerima jasa pembuatan video dan fotografi serta menyelesaikan lebih dari 5 <miring>Project Digital Marketing</miring>.
+                                  
+      Kedua perusahaan tersebut akhirnya memutuskan untuk bergabung dan <miring>re-branding</miring> menjadi <bold>Saptaloka Digital</bold> yang bergerak di bidang <miring>IT & Business Consultant</miring>.
+                                  
+                                  """,
+                                              tags: {
+                                                'bold': StyledTextTag(
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold)),
+                                                'miring': StyledTextTag(
+                                                    style: TextStyle(
+                                                        fontStyle:
+                                                            FontStyle.italic)),
+                                              },
+                                              style: GoogleFonts.inter(
+                                                fontSize: 18,
+                                                color: Colors.black,
+                                              )),
+                                        ),
+                                      );
+                                    },
+                                  ),
                                 )
                               ],
                             ),
@@ -290,41 +420,95 @@ Fikri dan Dede pernah membuat sebuah tim IT pada 7 Juli 2019 yang bernama Erudev
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            width: 420,
+                            width: MediaQuery.of(context).size.width / 3,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Flexible(
-                                  child: Text("Story Of Saptaloka Digital",
-                                      style: GoogleFonts.inter(
-                                        fontSize: 50,
-                                        fontWeight: FontWeight.bold,
-                                        color: Color(0xff013088),
-                                      )),
+                                  child: AnimateIfVisible(
+                                    key: const Key('item.1'),
+                                    duration: const Duration(milliseconds: 500),
+                                    builder: (BuildContext context,
+                                        Animation<double> animation) {
+                                      return FadeTransition(
+                                        opacity: Tween<double>(
+                                          begin: 0,
+                                          end: 1,
+                                        ).animate(animation),
+                                        child: SlideTransition(
+                                          position: Tween<Offset>(
+                                            begin: const Offset(-0.5, 0),
+                                            end: Offset.zero,
+                                          ).animate(animation),
+                                          child:
+                                              Text("Story of Saptaloka Digital",
+                                                  style: GoogleFonts.inter(
+                                                    fontSize: 52,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Color(0xff013088),
+                                                  )),
+                                        ),
+                                      );
+                                    },
+                                  ),
                                 )
                               ],
                             ),
                           ),
                           SizedBox(
-                            height: 25,
+                            height: 50,
                           ),
                           Container(
-                            width: 570,
+                            width: MediaQuery.of(context).size.width / 2.1,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Flexible(
-                                  child: Text(
-                                      """Pada tahun 2020 akhir terbentuk Bengkel Coding yang merupakan sebuah startup dan bergerak di bidang jasa IT Consultant. Pada awalnya seorang programmer yang bernama Fikri Zaki Aditama bertemu kembali dengan teman lamanya, yaitu Muhammad Nur Rizka Novanto yang memiliki latar belakang di bidang Manajemen Bisnis. Mereka berdua berunding untuk merumuskan sebuah startup. Setelah perundingan tersebut Fikri merekrut Dede Miftahul Anwar yang sebelumnya pernah ada dalam satu tim dengan Fikri untuk terlibat dalam perumusan startup ini.
-
-Fikri dan Dede pernah membuat sebuah tim IT pada 7 Juli 2019 yang bernama Erudev Studio dengan anggota berjumlah 6 orang. Namun perjalanan tim tersebut harus terhenti karena tidak adanya manajemen yang mengatur semua permasalahan internal. Sehingga pada awal tahun 2021 telah resmi terbentuk sebuah startup yang bernama Bengkel Coding dengan jumlah 2 orang programmer dan 1 orang manajemen. Selama masa perjalanannya di tahun 2021, Bengkel Coding telah menyelesaikan beberapa project.
-
+                                  child: AnimateIfVisible(
+                                    key: const Key('item.2'),
+                                    duration: const Duration(milliseconds: 500),
+                                    builder: (BuildContext context,
+                                        Animation<double> animation) {
+                                      return FadeTransition(
+                                        opacity: Tween<double>(
+                                          begin: 0,
+                                          end: 1,
+                                        ).animate(animation),
+                                        child: SlideTransition(
+                                          position: Tween<Offset>(
+                                            begin: const Offset(-0.5, 0),
+                                            end: Offset.zero,
+                                          ).animate(animation),
+                                          child: StyledText(
+                                              text:
+                                                  """      <bold>Saptaloka Digital</bold> terbentuk pada tanggal 1 Januari 2022. <bold>Saptaloka Digital</bold> terbentuk dari gabungan dua perusahaan, yaitu <bold>Bengkel Coding</bold> dan <bold>Alsi Media</bold>.
+                                  
+      Bengkel Coding merupakan perusahaan yang bergerak di bidang jasa <miring>IT Consultant</miring> sejak tahun 2020-2021. Selama perjalanannya, Bengkel Coding telah menyelesaikan <miring>project-project</miring> dari beberapa klien.
+                                  
+      Alsi Media merupakan perusahaan yang bergerak di bidang jasa <miring>Digital Marketing</miring> dan <miring>Production House</miring>. Pada perjalanannya Alsi Media telah menerima jasa pembuatan video dan fotografi serta menyelesaikan lebih dari 5 <miring>Project Digital Marketing</miring>.
+                                  
+      Kedua perusahaan tersebut akhirnya memutuskan untuk bergabung dan <miring>re-branding</miring> menjadi <bold>Saptaloka Digital</bold> yang bergerak di bidang <miring>IT & Business Consultant</miring>.
+                                  
 """,
-                                      style: GoogleFonts.inter(
-                                        fontSize: 20,
-                                        color: Colors.black,
-                                      )),
-                                )
+                                              tags: {
+                                                'bold': StyledTextTag(
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold)),
+                                                'miring': StyledTextTag(
+                                                    style: TextStyle(
+                                                        fontStyle:
+                                                            FontStyle.italic)),
+                                              },
+                                              style: GoogleFonts.inter(
+                                                fontSize: 22,
+                                                color: Colors.black,
+                                              )),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ),
                               ],
                             ),
                           ),
@@ -398,17 +582,37 @@ Fikri dan Dede pernah membuat sebuah tim IT pada 7 Juli 2019 yang bernama Erudev
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            width: 420,
+                            width: MediaQuery.of(context).size.width / 3.2,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Flexible(
-                                  child: Text("Story Of Saptaloka Digital",
-                                      style: GoogleFonts.inter(
-                                        fontSize: 50,
-                                        fontWeight: FontWeight.bold,
-                                        color: Color(0xff013088),
-                                      )),
+                                  child: AnimateIfVisible(
+                                    key: const Key('item.1'),
+                                    duration: const Duration(milliseconds: 500),
+                                    builder: (BuildContext context,
+                                        Animation<double> animation) {
+                                      return FadeTransition(
+                                        opacity: Tween<double>(
+                                          begin: 0,
+                                          end: 1,
+                                        ).animate(animation),
+                                        child: SlideTransition(
+                                          position: Tween<Offset>(
+                                            begin: const Offset(-0.5, 0),
+                                            end: Offset.zero,
+                                          ).animate(animation),
+                                          child:
+                                              Text("Story of Saptaloka Digital",
+                                                  style: GoogleFonts.inter(
+                                                    fontSize: 70,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Color(0xff013088),
+                                                  )),
+                                        ),
+                                      );
+                                    },
+                                  ),
                                 )
                               ],
                             ),
@@ -417,21 +621,56 @@ Fikri dan Dede pernah membuat sebuah tim IT pada 7 Juli 2019 yang bernama Erudev
                             height: 25,
                           ),
                           Container(
-                            width: 470,
+                            width: MediaQuery.of(context).size.width / 2,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Flexible(
-                                  child: Text(
-                                      """Pada tahun 2020 akhir terbentuk Bengkel Coding yang merupakan sebuah startup dan bergerak di bidang jasa IT Consultant. Pada awalnya seorang programmer yang bernama Fikri Zaki Aditama bertemu kembali dengan teman lamanya, yaitu Muhammad Nur Rizka Novanto yang memiliki latar belakang di bidang Manajemen Bisnis. Mereka berdua berunding untuk merumuskan sebuah startup. Setelah perundingan tersebut Fikri merekrut Dede Miftahul Anwar yang sebelumnya pernah ada dalam satu tim dengan Fikri untuk terlibat dalam perumusan startup ini. 
-                                      
-Fikri dan Dede pernah membuat sebuah tim IT pada 7 Juli 2019 yang bernama Erudev Studio dengan anggota berjumlah 6 orang. Namun perjalanan tim tersebut harus terhenti karena tidak adanya manajemen yang mengatur semua permasalahan internal. Sehingga pada awal tahun 2021 telah resmi terbentuk sebuah startup yang bernama Bengkel Coding dengan jumlah 2 orang programmer dan 1 orang manajemen. Selama masa perjalanannya di tahun 2021, Bengkel Coding telah menyelesaikan beberapa project.
-
-""",
-                                      style: GoogleFonts.inter(
-                                        fontSize: 20,
-                                        color: Colors.black,
-                                      )),
+                                  child: AnimateIfVisible(
+                                    key: const Key('item.2'),
+                                    duration: const Duration(milliseconds: 500),
+                                    builder: (BuildContext context,
+                                        Animation<double> animation) {
+                                      return FadeTransition(
+                                        opacity: Tween<double>(
+                                          begin: 0,
+                                          end: 1,
+                                        ).animate(animation),
+                                        child: SlideTransition(
+                                          position: Tween<Offset>(
+                                            begin: const Offset(-0.5, 0),
+                                            end: Offset.zero,
+                                          ).animate(animation),
+                                          child: StyledText(
+                                              text:
+                                                  """     <bold>Saptaloka Digital</bold> terbentuk pada tanggal 1 Januari 2022. <bold>Saptaloka Digital</bold> terbentuk dari gabungan dua perusahaan, yaitu <bold>Bengkel Coding</bold> dan <bold>Alsi Media</bold>.
+                                  
+      Bengkel Coding merupakan perusahaan yang bergerak di bidang jasa <miring>IT Consultant</miring> sejak tahun 2020-2021. Selama perjalanannya, Bengkel Coding telah menyelesaikan <miring>project-project</miring> dari beberapa klien.
+                                  
+      Alsi Media merupakan perusahaan yang bergerak di bidang jasa <miring>Digital Marketing</miring> dan <miring>Production House</miring>. Pada perjalanannya Alsi Media telah menerima jasa pembuatan video dan fotografi serta menyelesaikan lebih dari 5 <miring>Project Digital Marketing</miring>.
+                                  
+      Kedua perusahaan tersebut akhirnya memutuskan untuk bergabung dan <miring>re-branding</miring> menjadi <bold>Saptaloka Digital</bold> yang bergerak di bidang <miring>IT & Business Consultant</miring>.
+                                  
+                                  """,
+                                              tags: {
+                                                'bold': StyledTextTag(
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold)),
+                                                'miring': StyledTextTag(
+                                                    style: TextStyle(
+                                                        fontStyle:
+                                                            FontStyle.italic)),
+                                              },
+                                              style: GoogleFonts.inter(
+                                                letterSpacing: 0.1,
+                                                fontSize: 25,
+                                                color: Colors.black,
+                                              )),
+                                        ),
+                                      );
+                                    },
+                                  ),
                                 )
                               ],
                             ),
