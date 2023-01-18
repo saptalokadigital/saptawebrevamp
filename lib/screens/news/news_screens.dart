@@ -72,10 +72,6 @@ class _NewsScreensState extends State<NewsScreens> {
                         },
                         onPressed: () {
                           context.go(aboutUsRoute);
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) => AboutUsScreens()));--
                         },
                         child: Text(
                           'About Us',
@@ -304,15 +300,20 @@ class _NewsScreensState extends State<NewsScreens> {
                                                     (BuildContext context,
                                                         int index) {
                                                   return Padding(
-                                                    padding:
-                                                        const EdgeInsets.only(
-                                                            top: 15.0),
-                                                    child: Text(
-                                                      '${snapshot.data!.docs[index].get('judul')}',
-                                                      style: TextStyle(
-                                                          fontSize: 16),
-                                                    ),
-                                                  );
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              top: 15.0),
+                                                      child: TextButton(
+                                                        onPressed: () {
+                                                          context.go(
+                                                              '/News/${snapshot.data!.docs[index].get('id')}');
+                                                        },
+                                                        child: Text(
+                                                          '${snapshot.data!.docs[index].get('judul')}',
+                                                          style: TextStyle(
+                                                              fontSize: 16),
+                                                        ),
+                                                      ));
                                                 },
                                               );
                                             }
