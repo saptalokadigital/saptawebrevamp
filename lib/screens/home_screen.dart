@@ -143,7 +143,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       color: Colors.transparent,
                                     ),
                                   ),
-                                  Icon(
+                                  const Icon(
                                     Icons.arrow_drop_down,
                                     color: Colors.transparent,
                                   )
@@ -184,7 +184,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                           ),
-                    SizedBox(width: 22),
+                    const SizedBox(width: 22),
                     Flexible(
                       child: TextButton(
                         onHover: (value) {
@@ -214,159 +214,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           body: Responsive(
             large: AnimateIfVisibleWrapper(
-              showItemInterval: Duration(milliseconds: 500),
-              child: Container(
-                width: screenSize.width,
-                height: screenSize.height,
-                child: SingleChildScrollView(
-                  controller: _scrollController,
-                  child: Column(
-                    children: [
-                      Column(
-                        children: [
-                          CarouselHome(),
-                          const SizedBox(
-                            height: 50,
-                          ),
-                          Text(
-                            textAlign: TextAlign.center,
-                            "Through digital transformation, our solutions will take your business to the next level",
-                            style: GoogleFonts.inter(
-                              textStyle: const TextStyle(
-                                fontSize: 25.0,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 30,
-                          ),
-                          AnimateIfVisible(
-                            key: Key('item.1'),
-                            duration: Duration(milliseconds: 1000),
-                            builder: (BuildContext context,
-                                Animation<double> animation) {
-                              return FadeTransition(
-                                opacity: Tween<double>(
-                                  begin: 0,
-                                  end: 1,
-                                ).animate(animation),
-                                child: SlideTransition(
-                                    position: Tween<Offset>(
-                                      begin: Offset(0, -0.1),
-                                      end: Offset.zero,
-                                    ).animate(animation),
-                                    child: const CardHome()),
-                              );
-                            },
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 25.0,
-                      ),
-                      AnimateIfVisible(
-                        key: Key('item.2'),
-                        duration: Duration(milliseconds: 1000),
-                        builder: (BuildContext context,
-                            Animation<double> animation) {
-                          return FadeTransition(
-                            opacity: Tween<double>(
-                              begin: 0,
-                              end: 1,
-                            ).animate(animation),
-                            child: SlideTransition(
-                                position: Tween<Offset>(
-                                  begin: Offset(-0.1, 0),
-                                  end: Offset.zero,
-                                ).animate(animation),
-                                child: const CoreValues()),
-                          );
-                        },
-                      ),
-                      const SizedBox(
-                        height: 70,
-                      ),
-                      Column(
-                        children: [
-                          Text(
-                            "Our Satisfied Client",
-                            style: GoogleFonts.inter(
-                              textStyle: const TextStyle(
-                                fontSize: 35.0,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 50,
-                          ),
-                          AnimateIfVisible(
-                            key: Key('item.3'),
-                            duration: Duration(milliseconds: 1000),
-                            builder: (BuildContext context,
-                                Animation<double> animation) {
-                              return FadeTransition(
-                                opacity: Tween<double>(
-                                  begin: 0,
-                                  end: 1,
-                                ).animate(animation),
-                                child: SlideTransition(
-                                  position: Tween<Offset>(
-                                    begin: Offset(0.1, 0),
-                                    end: Offset.zero,
-                                  ).animate(animation),
-                                  child: const SatisfiedClient(),
-                                ),
-                              );
-                            },
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 70,
-                      ),
-                      Column(
-                        children: [
-                          Text(
-                            "Latest News",
-                            style: GoogleFonts.inter(
-                              textStyle: const TextStyle(
-                                fontSize: 35.0,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 50,
-                          ),
-                          AnimateIfVisible(
-                            key: Key('item.4'),
-                            duration: Duration(milliseconds: 1000),
-                            builder: (BuildContext context,
-                                Animation<double> animation) {
-                              return FadeTransition(
-                                opacity: Tween<double>(
-                                  begin: 0,
-                                  end: 1,
-                                ).animate(animation),
-                                child: SlideTransition(
-                                  position: Tween<Offset>(
-                                    begin: Offset(-0.1, 0),
-                                    end: Offset.zero,
-                                  ).animate(animation),
-                                  child: const LatestNews(),
-                                ),
-                              );
-                            },
-                          ),
-                        ],
-                      ),
-                      Footer(),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            desktop: AnimateIfVisibleWrapper(
-              showItemInterval: Duration(milliseconds: 500),
+              showItemInterval: const Duration(milliseconds: 500),
               child: Container(
                 width: screenSize.width,
                 height: screenSize.height,
@@ -393,8 +241,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 30,
                           ),
                           AnimateIfVisible(
-                            key: Key('item.1'),
-                            duration: Duration(milliseconds: 1000),
+                            key: const Key('item.1'),
+                            duration: const Duration(milliseconds: 1000),
                             builder: (BuildContext context,
                                 Animation<double> animation) {
                               return FadeTransition(
@@ -404,7 +252,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ).animate(animation),
                                 child: SlideTransition(
                                     position: Tween<Offset>(
-                                      begin: Offset(0, -0.1),
+                                      begin: const Offset(0, -0.1),
                                       end: Offset.zero,
                                     ).animate(animation),
                                     child: const CardHome()),
@@ -417,8 +265,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         height: 25.0,
                       ),
                       AnimateIfVisible(
-                        key: Key('item.2'),
-                        duration: Duration(milliseconds: 1000),
+                        key: const Key('item.2'),
+                        duration: const Duration(milliseconds: 1000),
                         builder: (BuildContext context,
                             Animation<double> animation) {
                           return FadeTransition(
@@ -428,7 +276,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ).animate(animation),
                             child: SlideTransition(
                                 position: Tween<Offset>(
-                                  begin: Offset(-0.1, 0),
+                                  begin: const Offset(-0.1, 0),
                                   end: Offset.zero,
                                 ).animate(animation),
                                 child: const CoreValues()),
@@ -452,8 +300,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 50,
                           ),
                           AnimateIfVisible(
-                            key: Key('item.3'),
-                            duration: Duration(milliseconds: 1000),
+                            key: const Key('item.3'),
+                            duration: const Duration(milliseconds: 1000),
                             builder: (BuildContext context,
                                 Animation<double> animation) {
                               return FadeTransition(
@@ -463,7 +311,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ).animate(animation),
                                 child: SlideTransition(
                                   position: Tween<Offset>(
-                                    begin: Offset(0.1, 0),
+                                    begin: const Offset(0.1, 0),
                                     end: Offset.zero,
                                   ).animate(animation),
                                   child: const SatisfiedClient(),
@@ -490,8 +338,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 50,
                           ),
                           AnimateIfVisible(
-                            key: Key('item.4'),
-                            duration: Duration(milliseconds: 1000),
+                            key: const Key('item.4'),
+                            duration: const Duration(milliseconds: 1000),
                             builder: (BuildContext context,
                                 Animation<double> animation) {
                               return FadeTransition(
@@ -501,7 +349,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ).animate(animation),
                                 child: SlideTransition(
                                   position: Tween<Offset>(
-                                    begin: Offset(-0.1, 0),
+                                    begin: const Offset(-0.1, 0),
                                     end: Offset.zero,
                                   ).animate(animation),
                                   child: const LatestNews(),
@@ -511,14 +359,166 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ],
                       ),
-                      Footer(),
+                      const Footer(),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            desktop: AnimateIfVisibleWrapper(
+              showItemInterval: const Duration(milliseconds: 500),
+              child: Container(
+                width: screenSize.width,
+                height: screenSize.height,
+                child: SingleChildScrollView(
+                  controller: _scrollController,
+                  child: Column(
+                    children: [
+                      Column(
+                        children: [
+                          const CarouselHome(),
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          Text(
+                            textAlign: TextAlign.center,
+                            "Through digital transformation, our solutions will take your business to the next level",
+                            style: GoogleFonts.inter(
+                              textStyle: const TextStyle(
+                                fontSize: 25.0,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          AnimateIfVisible(
+                            key: const Key('item.1'),
+                            duration: const Duration(milliseconds: 1000),
+                            builder: (BuildContext context,
+                                Animation<double> animation) {
+                              return FadeTransition(
+                                opacity: Tween<double>(
+                                  begin: 0,
+                                  end: 1,
+                                ).animate(animation),
+                                child: SlideTransition(
+                                    position: Tween<Offset>(
+                                      begin: const Offset(0, -0.1),
+                                      end: Offset.zero,
+                                    ).animate(animation),
+                                    child: const CardHome()),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 25.0,
+                      ),
+                      AnimateIfVisible(
+                        key: const Key('item.2'),
+                        duration: const Duration(milliseconds: 1000),
+                        builder: (BuildContext context,
+                            Animation<double> animation) {
+                          return FadeTransition(
+                            opacity: Tween<double>(
+                              begin: 0,
+                              end: 1,
+                            ).animate(animation),
+                            child: SlideTransition(
+                                position: Tween<Offset>(
+                                  begin: const Offset(-0.1, 0),
+                                  end: Offset.zero,
+                                ).animate(animation),
+                                child: const CoreValues()),
+                          );
+                        },
+                      ),
+                      const SizedBox(
+                        height: 70,
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            "Our Satisfied Client",
+                            style: GoogleFonts.inter(
+                              textStyle: const TextStyle(
+                                fontSize: 35.0,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          AnimateIfVisible(
+                            key: const Key('item.3'),
+                            duration: const Duration(milliseconds: 1000),
+                            builder: (BuildContext context,
+                                Animation<double> animation) {
+                              return FadeTransition(
+                                opacity: Tween<double>(
+                                  begin: 0,
+                                  end: 1,
+                                ).animate(animation),
+                                child: SlideTransition(
+                                  position: Tween<Offset>(
+                                    begin: const Offset(0.1, 0),
+                                    end: Offset.zero,
+                                  ).animate(animation),
+                                  child: const SatisfiedClient(),
+                                ),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 70,
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            "Latest News",
+                            style: GoogleFonts.inter(
+                              textStyle: const TextStyle(
+                                fontSize: 35.0,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          AnimateIfVisible(
+                            key: const Key('item.4'),
+                            duration: const Duration(milliseconds: 1000),
+                            builder: (BuildContext context,
+                                Animation<double> animation) {
+                              return FadeTransition(
+                                opacity: Tween<double>(
+                                  begin: 0,
+                                  end: 1,
+                                ).animate(animation),
+                                child: SlideTransition(
+                                  position: Tween<Offset>(
+                                    begin: const Offset(-0.1, 0),
+                                    end: Offset.zero,
+                                  ).animate(animation),
+                                  child: const LatestNews(),
+                                ),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                      const Footer(),
                     ],
                   ),
                 ),
               ),
             ),
             tablet: AnimateIfVisibleWrapper(
-              showItemInterval: Duration(milliseconds: 500),
+              showItemInterval: const Duration(milliseconds: 500),
               child: Container(
                 width: screenSize.width,
                 height: screenSize.height,
@@ -528,7 +528,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       Column(
                         children: [
-                          CarouselHome(),
+                          const CarouselHome(),
                           const SizedBox(
                             height: 50,
                           ),
@@ -545,8 +545,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 30,
                           ),
                           AnimateIfVisible(
-                            key: Key('item.1'),
-                            duration: Duration(milliseconds: 1000),
+                            key: const Key('item.1'),
+                            duration: const Duration(milliseconds: 1000),
                             builder: (BuildContext context,
                                 Animation<double> animation) {
                               return FadeTransition(
@@ -556,7 +556,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ).animate(animation),
                                 child: SlideTransition(
                                     position: Tween<Offset>(
-                                      begin: Offset(0, -0.1),
+                                      begin: const Offset(0, -0.1),
                                       end: Offset.zero,
                                     ).animate(animation),
                                     child: const CardHome()),
@@ -569,8 +569,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         height: 25.0,
                       ),
                       AnimateIfVisible(
-                        key: Key('item.2'),
-                        duration: Duration(milliseconds: 1000),
+                        key: const Key('item.2'),
+                        duration: const Duration(milliseconds: 1000),
                         builder: (BuildContext context,
                             Animation<double> animation) {
                           return FadeTransition(
@@ -580,7 +580,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ).animate(animation),
                             child: SlideTransition(
                                 position: Tween<Offset>(
-                                  begin: Offset(-0.1, 0),
+                                  begin: const Offset(-0.1, 0),
                                   end: Offset.zero,
                                 ).animate(animation),
                                 child: const CoreValues()),
@@ -604,8 +604,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 50,
                           ),
                           AnimateIfVisible(
-                            key: Key('item.3'),
-                            duration: Duration(milliseconds: 1000),
+                            key: const Key('item.3'),
+                            duration: const Duration(milliseconds: 1000),
                             builder: (BuildContext context,
                                 Animation<double> animation) {
                               return FadeTransition(
@@ -615,7 +615,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ).animate(animation),
                                 child: SlideTransition(
                                   position: Tween<Offset>(
-                                    begin: Offset(0.1, 0),
+                                    begin: const Offset(0.1, 0),
                                     end: Offset.zero,
                                   ).animate(animation),
                                   child: const SatisfiedClient(),
@@ -642,8 +642,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 50,
                           ),
                           AnimateIfVisible(
-                            key: Key('item.4'),
-                            duration: Duration(milliseconds: 1000),
+                            key: const Key('item.4'),
+                            duration: const Duration(milliseconds: 1000),
                             builder: (BuildContext context,
                                 Animation<double> animation) {
                               return FadeTransition(
@@ -653,7 +653,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ).animate(animation),
                                 child: SlideTransition(
                                   position: Tween<Offset>(
-                                    begin: Offset(-0.1, 0),
+                                    begin: const Offset(-0.1, 0),
                                     end: Offset.zero,
                                   ).animate(animation),
                                   child: const LatestNews(),
@@ -663,14 +663,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ],
                       ),
-                      Footer(),
+                      const Footer(),
                     ],
                   ),
                 ),
               ),
             ),
             mobile: AnimateIfVisibleWrapper(
-              showItemInterval: Duration(milliseconds: 500),
+              showItemInterval: const Duration(milliseconds: 500),
               child: Container(
                 width: screenSize.width,
                 height: screenSize.height,
@@ -680,7 +680,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       Column(
                         children: [
-                          CarouselHome(),
+                          const CarouselHome(),
                           const SizedBox(
                             height: 50,
                           ),
@@ -697,8 +697,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 30,
                           ),
                           AnimateIfVisible(
-                            key: Key('item.1'),
-                            duration: Duration(milliseconds: 1000),
+                            key: const Key('item.1'),
+                            duration: const Duration(milliseconds: 1000),
                             builder: (BuildContext context,
                                 Animation<double> animation) {
                               return FadeTransition(
@@ -708,7 +708,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ).animate(animation),
                                 child: SlideTransition(
                                     position: Tween<Offset>(
-                                      begin: Offset(0, -0.1),
+                                      begin: const Offset(0, -0.1),
                                       end: Offset.zero,
                                     ).animate(animation),
                                     child: const CardHome()),
@@ -721,8 +721,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         height: 25.0,
                       ),
                       AnimateIfVisible(
-                        key: Key('item.2'),
-                        duration: Duration(milliseconds: 1000),
+                        key: const Key('item.2'),
+                        duration: const Duration(milliseconds: 1000),
                         builder: (BuildContext context,
                             Animation<double> animation) {
                           return FadeTransition(
@@ -732,7 +732,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ).animate(animation),
                             child: SlideTransition(
                                 position: Tween<Offset>(
-                                  begin: Offset(-0.1, 0),
+                                  begin: const Offset(-0.1, 0),
                                   end: Offset.zero,
                                 ).animate(animation),
                                 child: const CoreValues()),
@@ -756,8 +756,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 50,
                           ),
                           AnimateIfVisible(
-                            key: Key('item.3'),
-                            duration: Duration(milliseconds: 1000),
+                            key: const Key('item.3'),
+                            duration: const Duration(milliseconds: 1000),
                             builder: (BuildContext context,
                                 Animation<double> animation) {
                               return FadeTransition(
@@ -767,7 +767,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ).animate(animation),
                                 child: SlideTransition(
                                   position: Tween<Offset>(
-                                    begin: Offset(0.1, 0),
+                                    begin: const Offset(0.1, 0),
                                     end: Offset.zero,
                                   ).animate(animation),
                                   child: const SatisfiedClient(),
@@ -794,8 +794,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 50,
                           ),
                           AnimateIfVisible(
-                            key: Key('item.4'),
-                            duration: Duration(milliseconds: 1000),
+                            key: const Key('item.4'),
+                            duration: const Duration(milliseconds: 1000),
                             builder: (BuildContext context,
                                 Animation<double> animation) {
                               return FadeTransition(
@@ -805,7 +805,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ).animate(animation),
                                 child: SlideTransition(
                                   position: Tween<Offset>(
-                                    begin: Offset(-0.1, 0),
+                                    begin: const Offset(-0.1, 0),
                                     end: Offset.zero,
                                   ).animate(animation),
                                   child: const LatestNews(),
@@ -815,7 +815,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ],
                       ),
-                      Footer(),
+                      const Footer(),
                     ],
                   ),
                 ),
@@ -865,17 +865,17 @@ class _HomeScreenState extends State<HomeScreen> {
                               ],
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 17,
                           ),
                           Container(
                             height: 130,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: Colors.white,
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.black12,
-                                  offset: const Offset(
+                                  offset: Offset(
                                     1.0,
                                     1.0,
                                   ),
@@ -890,7 +890,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               children: [
                                 Container(
                                   height: 3,
-                                  decoration: BoxDecoration(color: Colors.blue),
+                                  decoration:
+                                      const BoxDecoration(color: Colors.blue),
                                 ),
                                 Container(
                                   child: Padding(
