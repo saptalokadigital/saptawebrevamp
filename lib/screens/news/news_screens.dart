@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:go_router/go_router.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:saptaloka_web_revamp/router_const.dart';
+import 'package:saptaloka_web_revamp/widgets/footer.dart';
+import 'package:auto_animated/auto_animated.dart';
 
 class NewsScreens extends StatefulWidget {
   String? id;
@@ -180,65 +182,162 @@ class _NewsScreensState extends State<NewsScreens> {
         ),
       ),
       body: Container(
-        child: StreamBuilder<DocumentSnapshot>(
-          stream: FirebaseFirestore.instance
-              .collection('NewsContent')
-              .doc(widget.id!)
-              .snapshots(),
-          builder: ((context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            } else if (snapshot.connectionState == ConnectionState.active) {
-              if (snapshot.data!.exists) {
-                return SingleChildScrollView(
-                  child: Container(
-                    child: Column(
+        width: screenSize.width,
+        height: screenSize.height,
+        child: AnimateIfVisibleWrapper(
+          showItemInterval: Duration(milliseconds: 500),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Container(
+                  child: Padding(
+                    padding: EdgeInsets.all(40),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          snapshot.data!['judul'],
-                          style: GoogleFonts.inter(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 40,
-                            color: Color(0xff013088),
+                        Flexible(
+                          flex: 2,
+                          child: StreamBuilder<DocumentSnapshot>(
+                            stream: FirebaseFirestore.instance
+                                .collection('NewsContent')
+                                .doc(widget.id!)
+                                .snapshots(),
+                            builder: ((context, snapshot) {
+                              if (snapshot.hasError) {
+                                return Text('Something went wrong');
+                              } else if (snapshot.data != null ||
+                                  snapshot.hasData) {
+                                return SingleChildScrollView(
+                                  child: Container(
+                                    child: Column(
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 8.0),
+                                          child: Text(
+                                            snapshot.data!['judul'],
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.inter(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                              color: Color(0xff013088),
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 40,
+                                        ),
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(40.0),
+                                          child: Image.network(
+                                            snapshot.data!['imageUrl'],
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 40,
+                                        ),
+                                        Text(
+                                          snapshot.data!['deskripsi'],
+                                          style: GoogleFonts.inter(
+                                            fontSize: 20,
+                                            color:
+                                                Color.fromARGB(255, 58, 60, 63),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              } else {
+                                return const Center(
+                                  child: Padding(
+                                    padding: EdgeInsets.all(18.0),
+                                    child: Text('is empty'),
+                                  ),
+                                );
+                              }
+                            }),
                           ),
                         ),
                         SizedBox(
-                          height: 20,
+                          width: 80,
                         ),
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(40.0),
-                          child: Image.network(
-                            snapshot.data!['imageUrl'],
-                            fit: BoxFit.cover,
-                            width: 500,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(snapshot.data!['deskripsi']),
+                        Flexible(
+                            flex: 2,
+                            child: Container(
+                              width: double.infinity,
+                              height: 400,
+                              child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Recent Posts',
+                                      style: GoogleFonts.inter(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 30,
+                                        color: Color(0xff013088),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 40,
+                                    ),
+                                    Expanded(
+                                      child: Container(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 140),
+                                        child: StreamBuilder<QuerySnapshot>(
+                                          stream: FirebaseFirestore.instance
+                                              .collection('NewsContent')
+                                              .snapshots(),
+                                          builder: ((context, snapshot) {
+                                            if (snapshot.hasError) {
+                                              return Text(
+                                                  'Something went wrong');
+                                            } else if (snapshot.hasData ||
+                                                snapshot.data != null) {
+                                              return ListView.builder(
+                                                itemCount:
+                                                    snapshot.data!.docs.length,
+                                                itemBuilder:
+                                                    (BuildContext context,
+                                                        int index) {
+                                                  return Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            top: 15.0),
+                                                    child: Text(
+                                                      '${snapshot.data!.docs[index].get('judul')}',
+                                                      style: TextStyle(
+                                                          fontSize: 16),
+                                                    ),
+                                                  );
+                                                },
+                                              );
+                                            }
+                                            return Center(
+                                              child: CircularProgressIndicator(
+                                                valueColor:
+                                                    AlwaysStoppedAnimation<
+                                                            Color>(
+                                                        Colors.orangeAccent),
+                                              ),
+                                            );
+                                          }),
+                                        ),
+                                      ),
+                                    )
+                                  ]),
+                            ))
                       ],
                     ),
                   ),
-                );
-              } else {
-                return const Center(
-                  child: Padding(
-                    padding: EdgeInsets.all(18.0),
-                    child: Text('is empty'),
-                  ),
-                );
-              }
-            }
-            return const Center(
-              child: Padding(
-                padding: EdgeInsets.all(18.0),
-                child: Text('is empty'),
-              ),
-            );
-          }),
+                ),
+                Footer(),
+              ],
+            ),
+          ),
         ),
       ),
     );
