@@ -1,3 +1,4 @@
+import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:saptaloka_web_revamp/router_const.dart';
 import 'package:saptaloka_web_revamp/screens/about_us/about_us_screens.dart';
@@ -203,8 +204,8 @@ class _SolutionsScreenState extends State<SolutionsScreen> {
           body: Container(
             width: screenSize.width,
             height: screenSize.height,
-            child: WebSmoothScroll(
-              controller: _scrollController,
+            child: AnimateIfVisibleWrapper(
+              showItemInterval: Duration(milliseconds: 500),
               child: SingleChildScrollView(
                 controller: _scrollController,
                 child: Column(children: [
