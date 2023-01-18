@@ -179,66 +179,90 @@ class _NewsScreensState extends State<NewsScreens> {
           ),
         ),
       ),
-      body: Container(
-        child: StreamBuilder<DocumentSnapshot>(
-          stream: FirebaseFirestore.instance
-              .collection('NewsContent')
-              .doc(widget.id!)
-              .snapshots(),
-          builder: ((context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            } else if (snapshot.connectionState == ConnectionState.active) {
-              if (snapshot.data!.exists) {
-                return SingleChildScrollView(
-                  child: Container(
-                    child: Column(
-                      children: [
-                        Text(
-                          snapshot.data!['judul'],
-                          style: GoogleFonts.inter(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 40,
-                            color: Color(0xff013088),
-                          ),
+      body: SingleChildScrollView(
+        child: Container(
+          child: Padding(
+            padding: EdgeInsets.all(40),
+            child: Row(
+              children: [
+                Flexible(
+                  flex: 2,
+                  child: StreamBuilder<DocumentSnapshot>(
+                    stream: FirebaseFirestore.instance
+                        .collection('NewsContent')
+                        .doc(widget.id!)
+                        .snapshots(),
+                    builder: ((context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      } else if (snapshot.connectionState ==
+                          ConnectionState.active) {
+                        if (snapshot.data!.exists) {
+                          return SingleChildScrollView(
+                            child: Container(
+                              child: Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 8.0),
+                                    child: Text(
+                                      snapshot.data!['judul'],
+                                      textAlign: TextAlign.center,
+                                      style: GoogleFonts.inter(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 30,
+                                        color: Color(0xff013088),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 40,
+                                  ),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(40.0),
+                                    child: Image.network(
+                                      snapshot.data!['imageUrl'],
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 40,
+                                  ),
+                                  Text(
+                                    snapshot.data!['deskripsi'],
+                                    style: GoogleFonts.inter(
+                                      fontSize: 20,
+                                      color: Color.fromARGB(255, 58, 60, 63),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        } else {
+                          return const Center(
+                            child: Padding(
+                              padding: EdgeInsets.all(18.0),
+                              child: Text('is empty'),
+                            ),
+                          );
+                        }
+                      }
+                      return const Center(
+                        child: Padding(
+                          padding: EdgeInsets.all(18.0),
+                          child: Text('is empty'),
                         ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(40.0),
-                          child: Image.network(
-                            snapshot.data!['imageUrl'],
-                            fit: BoxFit.cover,
-                            width: 500,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(snapshot.data!['deskripsi']),
-                      ],
-                    ),
+                      );
+                    }),
                   ),
-                );
-              } else {
-                return const Center(
-                  child: Padding(
-                    padding: EdgeInsets.all(18.0),
-                    child: Text('is empty'),
-                  ),
-                );
-              }
-            }
-            return const Center(
-              child: Padding(
-                padding: EdgeInsets.all(18.0),
-                child: Text('is empty'),
-              ),
-            );
-          }),
+                ),
+                Flexible(flex: 2, child: Container())
+              ],
+            ),
+          ),
         ),
       ),
     );
