@@ -131,7 +131,7 @@ class NewsAdmin extends StatefulWidget {
 
 class _NewsAdminState extends State<NewsAdmin> {
   String judul = '';
-  String link = '';
+  String deskripsi = '';
 
   String? imageUrl;
 
@@ -153,7 +153,7 @@ class _NewsAdminState extends State<NewsAdmin> {
       } else {
         setState(() {
           judul = PengertianDIvisiDoc.get('judul');
-          link = PengertianDIvisiDoc.get('link');
+          deskripsi = PengertianDIvisiDoc.get('deskripsi');
 
           imageUrl = PengertianDIvisiDoc.get('imageUrl');
         });
@@ -172,7 +172,7 @@ class _NewsAdminState extends State<NewsAdmin> {
             MaterialPageRoute(
                 builder: (context) => NewsEdit(
                     judul: judul,
-                    link: link,
+                    deskripsi: deskripsi,
                     imageUrl: imageUrl == null
                         ? 'https://www.lifepng.com/wp-content/uploads/2020/11/Apricot-Large-Single-png-hd.png'
                         : imageUrl!,
@@ -204,20 +204,6 @@ class _NewsAdminState extends State<NewsAdmin> {
                           color: Color(0xff013088),
                           fontWeight: FontWeight.bold,
                           fontSize: 42,
-                        ),
-                      )
-                          .animate()
-                          .slideY(delay: 1000.ms)
-                          .fade(duration: 1000.ms),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      Text(
-                        link,
-                        maxLines: 10,
-                        style: GoogleFonts.inter(
-                          color: Colors.black,
-                          fontSize: 16,
                         ),
                       )
                           .animate()

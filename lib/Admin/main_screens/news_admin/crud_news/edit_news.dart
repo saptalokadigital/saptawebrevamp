@@ -13,11 +13,11 @@ import 'package:image_picker/image_picker.dart';
 import 'package:saptaloka_web_revamp/global_methods.dart';
 
 class NewsEdit extends StatefulWidget {
-  final String id, judul, link, imageUrl;
+  final String id, judul, imageUrl, deskripsi;
   const NewsEdit(
       {super.key,
       required this.judul,
-      required this.link,
+      required this.deskripsi,
       required this.imageUrl,
       required this.id});
 
@@ -33,15 +33,12 @@ class _NewsEditState extends State<NewsEdit> {
   late Uint8List imageFile;
   bool _isLoading = false;
 
-  late final TextEditingController linkController,
-      paragraf2Controller,
-      judulController;
+  late final TextEditingController deskripsiController, judulController;
 
   @override
   void initState() {
     judulController = TextEditingController(text: widget.judul);
-    linkController = TextEditingController(text: widget.link);
-
+    deskripsiController = TextEditingController(text: widget.deskripsi);
     _imageUrl = widget.imageUrl;
 
     super.initState();
@@ -49,10 +46,8 @@ class _NewsEditState extends State<NewsEdit> {
 
   @override
   void dispose() {
-    linkController.dispose();
-
     judulController.dispose();
-
+    deskripsiController.dispose();
     super.dispose();
   }
 
@@ -80,7 +75,7 @@ class _NewsEditState extends State<NewsEdit> {
             .doc(widget.id)
             .update({
           'judul': judulController.text,
-          'link': linkController.text,
+          'deskripsi': deskripsiController.text,
           'imageUrl':
               _pickedImage == null ? widget.imageUrl : imageUri.toString(),
         });
@@ -297,23 +292,25 @@ class _NewsEditState extends State<NewsEdit> {
                         borderRadius: BorderRadius.circular(5),
                       )),
                 ),
-                const Padding(padding: EdgeInsets.only(top: 15)),
+                const SizedBox(
+                  height: 30,
+                ),
                 TextFormField(
-                  controller: linkController,
-                  key: const ValueKey('link'),
+                  controller: deskripsiController,
                   validator: (value) {
                     if (value!.isEmpty) {
-                      return "Link tidak boleh kosong";
+                      return "Deskripsi tidak boleh kosong";
                     }
                     return null;
                   },
+                  maxLines: 10,
                   decoration: InputDecoration(
                       icon: const FaIcon(
                         FontAwesomeIcons.paragraph,
                         color: Colors.black,
                       ),
-                      hintText: "Masukkan Link",
-                      labelText: "Link",
+                      hintText: "Masukkan deskripsi",
+                      labelText: "Deskripsi",
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
                       )),
