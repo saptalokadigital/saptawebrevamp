@@ -32,12 +32,12 @@ class _NewsAddState extends State<NewsAdd> {
   late Uint8List imageFile;
   bool _isLoading = false;
 
-  late final TextEditingController judulController, linkController;
+  late final TextEditingController judulController, deskripsiController;
 
   @override
   void initState() {
     judulController = TextEditingController();
-    linkController = TextEditingController();
+    deskripsiController = TextEditingController();
 
     super.initState();
   }
@@ -45,7 +45,6 @@ class _NewsAddState extends State<NewsAdd> {
   @override
   void dispose() {
     judulController.dispose();
-    linkController.dispose();
     super.dispose();
   }
 
@@ -60,7 +59,11 @@ class _NewsAddState extends State<NewsAdd> {
             subtitle: 'Please pick up an image', context: context);
         return;
       }
-      final _uuid = const Uuid().v4();
+      final _uuid = judulController.text
+          .replaceAll(RegExp(r'[^\w\s]+'), '')
+          .replaceAll(RegExp(' +'), '-')
+          .toLowerCase();
+
       try {
         setState(() {
           _isLoading = true;
@@ -76,7 +79,7 @@ class _NewsAddState extends State<NewsAdd> {
             .set({
           'id': _uuid,
           'judul': judulController.text,
-          'link': linkController.text,
+          'deskripsi': deskripsiController.text,
           'imageUrl': imageUri.toString(),
           'createdAt': Timestamp.now(),
         });
@@ -111,7 +114,7 @@ class _NewsAddState extends State<NewsAdd> {
 
   void _clearForm() {
     judulController.clear();
-    linkController.clear();
+    deskripsiController.clear();
 
     setState(() {
       _pickedImage = null;
@@ -249,25 +252,26 @@ class _NewsAddState extends State<NewsAdd> {
                           borderRadius: BorderRadius.circular(5),
                         )),
                   ),
-                  const Padding(padding: EdgeInsets.only(top: 15)),
                   const SizedBox(
                     height: 30,
                   ),
+                  const Padding(padding: EdgeInsets.only(top: 15)),
                   TextFormField(
-                    controller: linkController,
+                    controller: deskripsiController,
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return "Link tidak boleh kosong";
+                        return "Deskripsi tidak boleh kosong";
                       }
                       return null;
                     },
+                    maxLines: 10,
                     decoration: InputDecoration(
                         icon: const FaIcon(
                           FontAwesomeIcons.paragraph,
                           color: Colors.black,
                         ),
-                        hintText: "Masukkan Link",
-                        labelText: "Link",
+                        hintText: "Masukkan deskripsi",
+                        labelText: "Deskripsi",
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5),
                         )),
