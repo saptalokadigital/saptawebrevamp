@@ -216,13 +216,32 @@ class _SolutionsScreenState extends State<SolutionsScreen> {
                   ),
                   Column(
                     children: [
-                      Text(
-                        "Our Solutions",
-                        style: GoogleFonts.inter(
-                          textStyle: const TextStyle(
-                            fontSize: 35.0,
-                          ),
-                        ),
+                      AnimateIfVisible(
+                        key: const Key('item.4'),
+                        duration: const Duration(milliseconds: 1000),
+                        builder: (BuildContext context,
+                            Animation<double> animation) {
+                          return FadeTransition(
+                            opacity: Tween<double>(
+                              begin: 0,
+                              end: 1,
+                            ).animate(animation),
+                            child: SlideTransition(
+                              position: Tween<Offset>(
+                                begin: const Offset(-0.5, 0),
+                                end: Offset.zero,
+                              ).animate(animation),
+                              child: Text(
+                                "Our Solutions",
+                                style: GoogleFonts.inter(
+                                  textStyle: const TextStyle(
+                                    fontSize: 35.0,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          );
+                        },
                       ),
                       const SizedBox(
                         height: 50,

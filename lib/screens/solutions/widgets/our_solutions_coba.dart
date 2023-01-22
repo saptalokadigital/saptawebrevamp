@@ -1,3 +1,4 @@
+import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:saptaloka_web_revamp/responsive.dart';
@@ -27,26 +28,64 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Flexible(
-                    child: CardSolution(
-                      fct: () {
-                        context.go(itSolutionsRoute);
+                    child: AnimateIfVisible(
+                      key: const Key('item.8'),
+                      duration: const Duration(milliseconds: 1000),
+                      builder:
+                          (BuildContext context, Animation<double> animation) {
+                        return FadeTransition(
+                          opacity: Tween<double>(
+                            begin: 0,
+                            end: 1,
+                          ).animate(animation),
+                          child: SlideTransition(
+                            position: Tween<Offset>(
+                              begin: const Offset(-0.5, 0),
+                              end: Offset.zero,
+                            ).animate(animation),
+                            child: CardSolution(
+                              fct: () {
+                                context.go(itSolutionsRoute);
+                              },
+                              title: "IT Solution",
+                              image: "assets/images/image_1.png",
+                              desc:
+                                  'Layanan Pengelolaan proses bisnis berbasis digitalisasi yang bekerja secara terpusat melalui konsolidasi dan alih daya operasional bisnis perusahaan yang berisfat non-core dan transaksional',
+                              link: '',
+                            ),
+                          ),
+                        );
                       },
-                      title: "IT Solution",
-                      image: "assets/images/image_1.png",
-                      desc:
-                          'Layanan Pengelolaan proses bisnis berbasis digitalisasi yang bekerja secara terpusat melalui konsolidasi dan alih daya operasional bisnis perusahaan yang berisfat non-core dan transaksional',
-                      link: '',
                     ),
                   ),
                   SizedBox(width: 30),
                   Flexible(
-                    child: CardSolution(
-                      fct: () {},
-                      title: "Business Digital Solution",
-                      image: "assets/images/image_1.png",
-                      desc:
-                          'Layanan ent-to-end untuk berbagai industri yang hadir dengan berbagai solusi meliputi software as a Services (SaaS), Digital Assessment, hingga E-Eommerce.',
-                      link: '',
+                    child: AnimateIfVisible(
+                      key: const Key('item.9'),
+                      duration: const Duration(milliseconds: 1000),
+                      builder:
+                          (BuildContext context, Animation<double> animation) {
+                        return FadeTransition(
+                          opacity: Tween<double>(
+                            begin: 0,
+                            end: 1,
+                          ).animate(animation),
+                          child: SlideTransition(
+                            position: Tween<Offset>(
+                              begin: const Offset(0.5, 0),
+                              end: Offset.zero,
+                            ).animate(animation),
+                            child: CardSolution(
+                              fct: () {},
+                              title: "Business Digital Solution",
+                              image: "assets/images/image_1.png",
+                              desc:
+                                  'Layanan ent-to-end untuk berbagai industri yang hadir dengan berbagai solusi meliputi software as a Services (SaaS), Digital Assessment, hingga E-Eommerce.',
+                              link: '',
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   ),
                 ],
@@ -56,13 +95,31 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
               height: 10,
             ),
             Center(
-              child: CardSolution(
-                fct: () {},
-                title: "Digital Marketing",
-                image: "assets/images/image_1.png",
-                desc:
-                    'Layanan yang andal dan terpercaya untuk kebutuhan solusi IT terintegrasi, mulai daru consultancy, software development, hingga penyediaan hardware-software bagi perusahaan Anda',
-                link: '',
+              child: AnimateIfVisible(
+                key: const Key('item.10'),
+                duration: const Duration(milliseconds: 1000),
+                builder: (BuildContext context, Animation<double> animation) {
+                  return FadeTransition(
+                    opacity: Tween<double>(
+                      begin: 0,
+                      end: 1,
+                    ).animate(animation),
+                    child: SlideTransition(
+                      position: Tween<Offset>(
+                        begin: const Offset(0, 0.5),
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: CardSolution(
+                        fct: () {},
+                        title: "Digital Marketing",
+                        image: "assets/images/image_1.png",
+                        desc:
+                            'Layanan yang andal dan terpercaya untuk kebutuhan solusi IT terintegrasi, mulai daru consultancy, software development, hingga penyediaan hardware-software bagi perusahaan Anda',
+                        link: '',
+                      ),
+                    ),
+                  );
+                },
               ),
             ),
           ],
@@ -73,37 +130,91 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
             const EdgeInsets.only(top: 20, bottom: 20, left: 50, right: 50),
         child: Column(
           children: [
-            CardSolutionMobile(
-              fct: () {
-                context.go(itSolutionsRoute);
+            AnimateIfVisible(
+              key: const Key('item.8'),
+              duration: const Duration(milliseconds: 1000),
+              builder: (BuildContext context, Animation<double> animation) {
+                return FadeTransition(
+                  opacity: Tween<double>(
+                    begin: 0,
+                    end: 1,
+                  ).animate(animation),
+                  child: SlideTransition(
+                    position: Tween<Offset>(
+                      begin: const Offset(-0.5, 0),
+                      end: Offset.zero,
+                    ).animate(animation),
+                    child: CardSolutionMobile(
+                      fct: () {
+                        context.go(itSolutionsRoute);
+                      },
+                      title: "IT Solution",
+                      image: "assets/images/image_1.png",
+                      desc:
+                          'Layanan Pengelolaan proses bisnis berbasis digitalisasi yang bekerja secara terpusat melalui konsolidasi dan alih daya operasional bisnis perusahaan yang berisfat non-core dan transaksional',
+                      link: '',
+                    ),
+                  ),
+                );
               },
-              title: "IT Solution",
-              image: "assets/images/image_1.png",
-              desc:
-                  'Layanan Pengelolaan proses bisnis berbasis digitalisasi yang bekerja secara terpusat melalui konsolidasi dan alih daya operasional bisnis perusahaan yang berisfat non-core dan transaksional',
-              link: '',
             ),
             SizedBox(
               height: 20,
             ),
-            CardSolutionMobile(
-              fct: () {},
-              title: "Business Digital Solution",
-              image: "assets/images/image_1.png",
-              desc:
-                  'Layanan ent-to-end untuk berbagai industri yang hadir dengan berbagai solusi meliputi software as a Services (SaaS), Digital Assessment, hingga E-Eommerce.',
-              link: '',
+            AnimateIfVisible(
+              key: const Key('item.9'),
+              duration: const Duration(milliseconds: 1000),
+              builder: (BuildContext context, Animation<double> animation) {
+                return FadeTransition(
+                  opacity: Tween<double>(
+                    begin: 0,
+                    end: 1,
+                  ).animate(animation),
+                  child: SlideTransition(
+                    position: Tween<Offset>(
+                      begin: const Offset(0.5, 0),
+                      end: Offset.zero,
+                    ).animate(animation),
+                    child: CardSolutionMobile(
+                      fct: () {},
+                      title: "Business Digital Solution",
+                      image: "assets/images/image_1.png",
+                      desc:
+                          'Layanan ent-to-end untuk berbagai industri yang hadir dengan berbagai solusi meliputi software as a Services (SaaS), Digital Assessment, hingga E-Eommerce.',
+                      link: '',
+                    ),
+                  ),
+                );
+              },
             ),
             SizedBox(
               height: 20,
             ),
-            CardSolutionMobile(
-              fct: () {},
-              title: "Digital Marketing",
-              image: "assets/images/image_1.png",
-              desc:
-                  'Layanan yang andal dan terpercaya untuk kebutuhan solusi IT terintegrasi, mulai daru consultancy, software development, hingga penyediaan hardware-software bagi perusahaan Anda',
-              link: '',
+            AnimateIfVisible(
+              key: const Key('item.10'),
+              duration: const Duration(milliseconds: 1000),
+              builder: (BuildContext context, Animation<double> animation) {
+                return FadeTransition(
+                  opacity: Tween<double>(
+                    begin: 0,
+                    end: 1,
+                  ).animate(animation),
+                  child: SlideTransition(
+                    position: Tween<Offset>(
+                      begin: const Offset(-0.5, 0),
+                      end: Offset.zero,
+                    ).animate(animation),
+                    child: CardSolutionMobile(
+                      fct: () {},
+                      title: "Digital Marketing",
+                      image: "assets/images/image_1.png",
+                      desc:
+                          'Layanan yang andal dan terpercaya untuk kebutuhan solusi IT terintegrasi, mulai daru consultancy, software development, hingga penyediaan hardware-software bagi perusahaan Anda',
+                      link: '',
+                    ),
+                  ),
+                );
+              },
             ),
           ],
         ),
@@ -119,26 +230,64 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Flexible(
-                    child: CardSolution(
-                      fct: () {
-                        context.go(itSolutionsRoute);
+                    child: AnimateIfVisible(
+                      key: const Key('item.8'),
+                      duration: const Duration(milliseconds: 1000),
+                      builder:
+                          (BuildContext context, Animation<double> animation) {
+                        return FadeTransition(
+                          opacity: Tween<double>(
+                            begin: 0,
+                            end: 1,
+                          ).animate(animation),
+                          child: SlideTransition(
+                            position: Tween<Offset>(
+                              begin: const Offset(-0.5, 0),
+                              end: Offset.zero,
+                            ).animate(animation),
+                            child: CardSolution(
+                              fct: () {
+                                context.go(itSolutionsRoute);
+                              },
+                              title: "IT Solution",
+                              image: "assets/images/image_1.png",
+                              desc:
+                                  'Layanan Pengelolaan proses bisnis berbasis digitalisasi yang bekerja secara terpusat melalui konsolidasi dan alih daya operasional bisnis perusahaan yang berisfat non-core dan transaksional',
+                              link: '',
+                            ),
+                          ),
+                        );
                       },
-                      title: "IT Solution",
-                      image: "assets/images/image_1.png",
-                      desc:
-                          'Layanan Pengelolaan proses bisnis berbasis digitalisasi yang bekerja secara terpusat melalui konsolidasi dan alih daya operasional bisnis perusahaan yang berisfat non-core dan transaksional',
-                      link: '',
                     ),
                   ),
                   SizedBox(width: 30),
                   Flexible(
-                    child: CardSolution(
-                      fct: () {},
-                      title: "Business Digital Solution",
-                      image: "assets/images/image_1.png",
-                      desc:
-                          'Layanan ent-to-end untuk berbagai industri yang hadir dengan berbagai solusi meliputi software as a Services (SaaS), Digital Assessment, hingga E-Eommerce.',
-                      link: '',
+                    child: AnimateIfVisible(
+                      key: const Key('item.9'),
+                      duration: const Duration(milliseconds: 1000),
+                      builder:
+                          (BuildContext context, Animation<double> animation) {
+                        return FadeTransition(
+                          opacity: Tween<double>(
+                            begin: 0,
+                            end: 1,
+                          ).animate(animation),
+                          child: SlideTransition(
+                            position: Tween<Offset>(
+                              begin: const Offset(0.5, 0),
+                              end: Offset.zero,
+                            ).animate(animation),
+                            child: CardSolution(
+                              fct: () {},
+                              title: "Business Digital Solution",
+                              image: "assets/images/image_1.png",
+                              desc:
+                                  'Layanan ent-to-end untuk berbagai industri yang hadir dengan berbagai solusi meliputi software as a Services (SaaS), Digital Assessment, hingga E-Eommerce.',
+                              link: '',
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   ),
                 ],
@@ -148,13 +297,31 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
               height: 10,
             ),
             Center(
-              child: CardSolution(
-                fct: () {},
-                title: "Digital Marketing",
-                image: "assets/images/image_1.png",
-                desc:
-                    'Layanan yang andal dan terpercaya untuk kebutuhan solusi IT terintegrasi, mulai daru consultancy, software development, hingga penyediaan hardware-software bagi perusahaan Anda',
-                link: '',
+              child: AnimateIfVisible(
+                key: const Key('item.10'),
+                duration: const Duration(milliseconds: 1000),
+                builder: (BuildContext context, Animation<double> animation) {
+                  return FadeTransition(
+                    opacity: Tween<double>(
+                      begin: 0,
+                      end: 1,
+                    ).animate(animation),
+                    child: SlideTransition(
+                      position: Tween<Offset>(
+                        begin: const Offset(0, 0.5),
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: CardSolution(
+                        fct: () {},
+                        title: "Digital Marketing",
+                        image: "assets/images/image_1.png",
+                        desc:
+                            'Layanan yang andal dan terpercaya untuk kebutuhan solusi IT terintegrasi, mulai daru consultancy, software development, hingga penyediaan hardware-software bagi perusahaan Anda',
+                        link: '',
+                      ),
+                    ),
+                  );
+                },
               ),
             ),
           ],
@@ -171,26 +338,64 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Flexible(
-                    child: CardSolution(
-                      fct: () {
-                        context.go(itSolutionsRoute);
+                    child: AnimateIfVisible(
+                      key: const Key('item.8'),
+                      duration: const Duration(milliseconds: 1000),
+                      builder:
+                          (BuildContext context, Animation<double> animation) {
+                        return FadeTransition(
+                          opacity: Tween<double>(
+                            begin: 0,
+                            end: 1,
+                          ).animate(animation),
+                          child: SlideTransition(
+                            position: Tween<Offset>(
+                              begin: const Offset(-0.5, 0),
+                              end: Offset.zero,
+                            ).animate(animation),
+                            child: CardSolution(
+                              fct: () {
+                                context.go(itSolutionsRoute);
+                              },
+                              title: "IT Solution",
+                              image: "assets/images/image_1.png",
+                              desc:
+                                  'Layanan Pengelolaan proses bisnis berbasis digitalisasi yang bekerja secara terpusat melalui konsolidasi dan alih daya operasional bisnis perusahaan yang berisfat non-core dan transaksional',
+                              link: '',
+                            ),
+                          ),
+                        );
                       },
-                      title: "IT Solution",
-                      image: "assets/images/image_1.png",
-                      desc:
-                          'Layanan Pengelolaan proses bisnis berbasis digitalisasi yang bekerja secara terpusat melalui konsolidasi dan alih daya operasional bisnis perusahaan yang berisfat non-core dan transaksional',
-                      link: '',
                     ),
                   ),
                   SizedBox(width: 30),
                   Flexible(
-                    child: CardSolution(
-                      fct: () {},
-                      title: "Business Digital Solution",
-                      image: "assets/images/image_1.png",
-                      desc:
-                          'Layanan ent-to-end untuk berbagai industri yang hadir dengan berbagai solusi meliputi software as a Services (SaaS), Digital Assessment, hingga E-Eommerce.',
-                      link: '',
+                    child: AnimateIfVisible(
+                      key: const Key('item.9'),
+                      duration: const Duration(milliseconds: 1000),
+                      builder:
+                          (BuildContext context, Animation<double> animation) {
+                        return FadeTransition(
+                          opacity: Tween<double>(
+                            begin: 0,
+                            end: 1,
+                          ).animate(animation),
+                          child: SlideTransition(
+                            position: Tween<Offset>(
+                              begin: const Offset(0.5, 0),
+                              end: Offset.zero,
+                            ).animate(animation),
+                            child: CardSolution(
+                              fct: () {},
+                              title: "Business Digital Solution",
+                              image: "assets/images/image_1.png",
+                              desc:
+                                  'Layanan ent-to-end untuk berbagai industri yang hadir dengan berbagai solusi meliputi software as a Services (SaaS), Digital Assessment, hingga E-Eommerce.',
+                              link: '',
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   ),
                 ],
@@ -200,13 +405,31 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
               height: 10,
             ),
             Center(
-              child: CardSolution(
-                fct: () {},
-                title: "Digital Marketing",
-                image: "assets/images/image_1.png",
-                desc:
-                    'Layanan yang andal dan terpercaya untuk kebutuhan solusi IT terintegrasi, mulai daru consultancy, software development, hingga penyediaan hardware-software bagi perusahaan Anda',
-                link: '',
+              child: AnimateIfVisible(
+                key: const Key('item.10'),
+                duration: const Duration(milliseconds: 1000),
+                builder: (BuildContext context, Animation<double> animation) {
+                  return FadeTransition(
+                    opacity: Tween<double>(
+                      begin: 0,
+                      end: 1,
+                    ).animate(animation),
+                    child: SlideTransition(
+                      position: Tween<Offset>(
+                        begin: const Offset(0, 0.5),
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: CardSolution(
+                        fct: () {},
+                        title: "Digital Marketing",
+                        image: "assets/images/image_1.png",
+                        desc:
+                            'Layanan yang andal dan terpercaya untuk kebutuhan solusi IT terintegrasi, mulai daru consultancy, software development, hingga penyediaan hardware-software bagi perusahaan Anda',
+                        link: '',
+                      ),
+                    ),
+                  );
+                },
               ),
             ),
           ],
