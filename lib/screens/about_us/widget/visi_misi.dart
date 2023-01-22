@@ -11,11 +11,9 @@ class VisiMisi extends StatefulWidget {
 
 class _VisiMisiState extends State<VisiMisi> {
   List<String> misi = [
-    "Mengembangkan solusi Shared Services dan Digital Solution yang inovatif untuk peningkatan daya saing bisnis dan kemudahan bagi customer dan stakeholder",
-    "Mengembangkan sistem manajemen untuk pengembangan, penyediaan, dan pengelolaan layanan Shared Services dan Digital Solution yang unggul dan berorientasi kepada kepuasan pelanggan",
-    "Memberikan pelayanan terbaik demi tercapainya kepuasan pelanggan dengan jaminan kualitas pekerjaan, kecepatan, ketepatan, dan harga yang kompetitif",
-    "Meningkatkan kemampuan dan mengoptimalkan pengelolaan sumber daya manusia yang unggul dan dapat dipercaya",
-    "Meningkatkan value perusahaan secara berkesinambungan."
+    "Menjadi mitra kunci dengan membangun kepercayaan client dalam membangun alur bisnis secara digital.",
+    "Membuat produk dalam bidang IT untuk memberikan solusi terhadap permasalahan masyarakat pada era 5.0.",
+    "Menjadi pelopor jasa IT dan Digital Marketing serta mengembangkan inovasi di era industri 5.0.",
   ];
   @override
   Widget build(BuildContext context) {
@@ -93,7 +91,7 @@ class _VisiMisiState extends State<VisiMisi> {
                           children: [
                             Flexible(
                               child: Text(
-                                  "Menjadi perusahaan Shared Services & Digital Solution yang berdaya saing dengan memberikan layanan & solusi terbaik, serta bernilai tambah bagi customer & stakeholder",
+                                  "Membantu mengembangkan bisnis client dalam bidang konsultan IT dan Digital Marketing serta menghasilkan produk teknologi yang berguna bagi masyarakat.",
                                   style: GoogleFonts.inter(
                                     fontSize: 25,
                                     fontWeight: FontWeight.bold,
@@ -225,7 +223,7 @@ class _VisiMisiState extends State<VisiMisi> {
                               children: [
                                 Flexible(
                                   child: Text(
-                                      "Menjadi perusahaan Shared Services & Digital Solution yang berdaya saing dengan memberikan layanan & solusi terbaik, serta bernilai tambah bagi customer & stakeholder",
+                                      "Membantu mengembangkan bisnis client dalam bidang konsultan IT dan Digital Marketing serta menghasilkan produk teknologi yang berguna bagi masyarakat.",
                                       style: GoogleFonts.inter(
                                         fontSize: 35,
                                         height: 1.0,
@@ -361,7 +359,7 @@ class _VisiMisiState extends State<VisiMisi> {
                               children: [
                                 Flexible(
                                   child: Text(
-                                      "Menjadi perusahaan Shared Services & Digital Solution yang berdaya saing dengan memberikan layanan & solusi terbaik, serta bernilai tambah bagi customer & stakeholder",
+                                      "Membantu mengembangkan bisnis client dalam bidang konsultan IT dan Digital Marketing serta menghasilkan produk teknologi yang berguna bagi masyarakat.",
                                       style: GoogleFonts.inter(
                                         fontSize: 35,
                                         fontWeight: FontWeight.bold,
@@ -496,7 +494,7 @@ class _VisiMisiState extends State<VisiMisi> {
                               children: [
                                 Flexible(
                                   child: Text(
-                                      "Menjadi perusahaan Shared Services & Digital Solution yang berdaya saing dengan memberikan layanan & solusi terbaik, serta bernilai tambah bagi customer & stakeholder",
+                                      "Membantu mengembangkan bisnis client dalam bidang konsultan IT dan Digital Marketing serta menghasilkan produk teknologi yang berguna bagi masyarakat.",
                                       style: GoogleFonts.inter(
                                         fontSize: 35,
                                         fontWeight: FontWeight.bold,

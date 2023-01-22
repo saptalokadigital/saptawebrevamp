@@ -11,15 +11,15 @@ class WeAreWedo extends StatefulWidget {
 
 class _WeAreWedoState extends State<WeAreWedo> {
   List<String> weAre = [
-    "PT Sinergi Informatika Semen Indonesia (SISI) merupakan anak usaha dari PT Semen Indonesia (Persero) Tbk.",
-    "SISI merupakan tim inti Pengembangan dan Dukungan Operasional ICT untuk Semen Indonesia dan seluruh anak perusahaannya.",
-    "Saat ini kami juga menjadi penyedia platform digital e-commerce untuk seluruh ekosistem Semen Indonesia Group."
+    "Saptaloka Digital merupakan perusahaan yang bergerak di bidang IT & Business Consultant.",
+    "Saptaloka Digital menawarkan jasa IT berupa pembuatan website, multiplatform apps dan game. Selain itu, kami juga menawarkan jasa digital marketing.",
+    "Saat ini Saptaloka Digital memiliki produk ERP dan MES."
   ];
 
   List<String> weDo = [
-    "Aktif berkontribusi di bidang IT dalam inovasi, pengembangan, dan keberlanjutan Semen Indonesia beserta seluruh anak perusahaannya.",
-    "Berbagi keahlian pengalaman dengan bisnis dan industri lain dalam skema yang saling menguntungkan.",
-    "Kami juga berkontribusi kepada komunitas dan negara untuk meningkatkan adopsi ICT dalam menumbuhkan daya saing dan menjadikan hidup lebih mudah."
+    "Memberi saran pada client tentang pemakaian IT untuk memenuhi target bisnis ataupun membantu problem solving dari masalah client.",
+    "Membantu migrasi teknologi untuk memudahkan operasional bisnis client.",
+    "Saat ini kami sedang mengembangkan produk platform digital ERP dan MES yang akan ditawarkan ke seluruh perusahaan yang ada di Indonesia."
   ];
   @override
   Widget build(BuildContext context) {
