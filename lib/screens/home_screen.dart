@@ -3,22 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:saptaloka_web_revamp/responsive.dart';
 import 'package:saptaloka_web_revamp/router_const.dart';
-import 'package:saptaloka_web_revamp/screens/about_us/about_us_screens.dart';
-import 'package:saptaloka_web_revamp/screens/contact_us/contact_us_screen.dart';
-import 'package:saptaloka_web_revamp/screens/solutions/solutions_screen.dart';
-import 'package:saptaloka_web_revamp/screens/solutions/widgets/it_solution.dart';
 
 import 'package:saptaloka_web_revamp/widgets/card.dart';
 import 'package:saptaloka_web_revamp/widgets/carousel_home.dart';
 import 'package:saptaloka_web_revamp/widgets/core_values.dart';
 import 'package:saptaloka_web_revamp/widgets/satisfied_client.dart';
 
-import 'package:saptaloka_web_revamp/widgets/header_widget.dart';
-
 import 'package:saptaloka_web_revamp/widgets/footer.dart';
 import 'package:saptaloka_web_revamp/widgets/latest_news.dart';
-import 'package:styled_text/styled_text.dart';
-import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -218,6 +210,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Container(
                 width: screenSize.width,
                 height: screenSize.height,
+                color: Colors.white,
                 child: SingleChildScrollView(
                   controller: _scrollController,
                   child: Column(
@@ -370,6 +363,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Container(
                 width: screenSize.width,
                 height: screenSize.height,
+                color: Colors.white,
                 child: SingleChildScrollView(
                   controller: _scrollController,
                   child: Column(
@@ -522,6 +516,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Container(
                 width: screenSize.width,
                 height: screenSize.height,
+                color: Colors.white,
                 child: SingleChildScrollView(
                   controller: _scrollController,
                   child: Column(
@@ -674,6 +669,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Container(
                 width: screenSize.width,
                 height: screenSize.height,
+                color: Colors.white,
                 child: SingleChildScrollView(
                   controller: _scrollController,
                   child: Column(
