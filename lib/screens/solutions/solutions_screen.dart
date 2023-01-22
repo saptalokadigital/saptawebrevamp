@@ -204,6 +204,7 @@ class _SolutionsScreenState extends State<SolutionsScreen> {
           body: Container(
             width: screenSize.width,
             height: screenSize.height,
+            color: Colors.white,
             child: AnimateIfVisibleWrapper(
               showItemInterval: Duration(milliseconds: 500),
               child: SingleChildScrollView(
