@@ -1,3 +1,4 @@
+import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:saptaloka_web_revamp/responsive.dart';
@@ -13,14 +14,32 @@ class Awalan extends StatelessWidget {
         height: 550,
         child: Column(
           children: [
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 150,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('assets/images/image_1.png'),
-                    fit: BoxFit.cover),
-              ),
+            AnimateIfVisible(
+              key: const Key('item.1'),
+              duration: const Duration(milliseconds: 1000),
+              builder: (BuildContext context, Animation<double> animation) {
+                return FadeTransition(
+                  opacity: Tween<double>(
+                    begin: 0,
+                    end: 1,
+                  ).animate(animation),
+                  child: SlideTransition(
+                    position: Tween<Offset>(
+                      begin: const Offset(0.5, 0),
+                      end: Offset.zero,
+                    ).animate(animation),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: 150,
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage('assets/images/image_1.png'),
+                            fit: BoxFit.cover),
+                      ),
+                    ),
+                  ),
+                );
+              },
             ),
             Container(
               padding: EdgeInsets.only(top: 25, left: 50, right: 50),
@@ -29,23 +48,61 @@ class Awalan extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    'Your Satisfaction is Our Top Priority',
-                    style: GoogleFonts.inter(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 40,
-                      color: Color(0xff013088),
-                    ),
+                  AnimateIfVisible(
+                    key: const Key('item.2'),
+                    duration: const Duration(milliseconds: 1000),
+                    builder:
+                        (BuildContext context, Animation<double> animation) {
+                      return FadeTransition(
+                        opacity: Tween<double>(
+                          begin: 0,
+                          end: 1,
+                        ).animate(animation),
+                        child: SlideTransition(
+                          position: Tween<Offset>(
+                            begin: const Offset(-0.5, 0),
+                            end: Offset.zero,
+                          ).animate(animation),
+                          child: Text(
+                            'Your Satisfaction is Our Top Priority',
+                            style: GoogleFonts.inter(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 40,
+                              color: Color(0xff013088),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
                   ),
                   SizedBox(
                     height: 20,
                   ),
-                  Text(
-                    'Untuk mendukung pertumbuhan perusahaan dari berbagai industri, kami terus bekerja secara maksimal melalui produk dan layanan yang kami miliki.',
-                    style: GoogleFonts.inter(
-                      fontSize: 20,
-                      color: Color.fromARGB(255, 58, 60, 63),
-                    ),
+                  AnimateIfVisible(
+                    key: const Key('item.3'),
+                    duration: const Duration(milliseconds: 1000),
+                    builder:
+                        (BuildContext context, Animation<double> animation) {
+                      return FadeTransition(
+                        opacity: Tween<double>(
+                          begin: 0,
+                          end: 1,
+                        ).animate(animation),
+                        child: SlideTransition(
+                          position: Tween<Offset>(
+                            begin: const Offset(-0.5, 0),
+                            end: Offset.zero,
+                          ).animate(animation),
+                          child: Text(
+                            'Untuk mendukung pertumbuhan perusahaan dari berbagai industri, kami terus bekerja secara maksimal melalui produk dan layanan yang kami miliki.',
+                            style: GoogleFonts.inter(
+                              fontSize: 20,
+                              color: Color.fromARGB(255, 58, 60, 63),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),
@@ -58,14 +115,32 @@ class Awalan extends StatelessWidget {
         height: 400,
         child: Stack(
           children: [
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 300,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('assets/images/image_1.png'),
-                    fit: BoxFit.cover),
-              ),
+            AnimateIfVisible(
+              key: const Key('item.1'),
+              duration: const Duration(milliseconds: 1000),
+              builder: (BuildContext context, Animation<double> animation) {
+                return FadeTransition(
+                  opacity: Tween<double>(
+                    begin: 0,
+                    end: 1,
+                  ).animate(animation),
+                  child: SlideTransition(
+                    position: Tween<Offset>(
+                      begin: const Offset(0.5, 0),
+                      end: Offset.zero,
+                    ).animate(animation),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: 300,
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage('assets/images/image_1.png'),
+                            fit: BoxFit.cover),
+                      ),
+                    ),
+                  ),
+                );
+              },
             ),
             Container(
               width: MediaQuery.of(context).size.width,
@@ -82,23 +157,61 @@ class Awalan extends StatelessWidget {
               height: 400,
               child: Column(
                 children: [
-                  Text(
-                    'Your Satisfaction is Our Top Priority',
-                    style: GoogleFonts.inter(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 45,
-                      color: Color(0xff013088),
-                    ),
+                  AnimateIfVisible(
+                    key: const Key('item.2'),
+                    duration: const Duration(milliseconds: 1000),
+                    builder:
+                        (BuildContext context, Animation<double> animation) {
+                      return FadeTransition(
+                        opacity: Tween<double>(
+                          begin: 0,
+                          end: 1,
+                        ).animate(animation),
+                        child: SlideTransition(
+                          position: Tween<Offset>(
+                            begin: const Offset(-0.5, 0),
+                            end: Offset.zero,
+                          ).animate(animation),
+                          child: Text(
+                            'Your Satisfaction is Our Top Priority',
+                            style: GoogleFonts.inter(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 45,
+                              color: Color(0xff013088),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
                   ),
                   SizedBox(
                     height: 20,
                   ),
-                  Text(
-                    'Untuk mendukung pertumbuhan perusahaan dari berbagai industri, kami terus bekerja secara maksimal melalui produk dan layanan yang kami miliki.',
-                    style: GoogleFonts.inter(
-                      fontSize: 20,
-                      color: Color.fromARGB(255, 58, 60, 63),
-                    ),
+                  AnimateIfVisible(
+                    key: const Key('item.3'),
+                    duration: const Duration(milliseconds: 1000),
+                    builder:
+                        (BuildContext context, Animation<double> animation) {
+                      return FadeTransition(
+                        opacity: Tween<double>(
+                          begin: 0,
+                          end: 1,
+                        ).animate(animation),
+                        child: SlideTransition(
+                          position: Tween<Offset>(
+                            begin: const Offset(-0.5, 0),
+                            end: Offset.zero,
+                          ).animate(animation),
+                          child: Text(
+                            'Untuk mendukung pertumbuhan perusahaan dari berbagai industri, kami terus bekerja secara maksimal melalui produk dan layanan yang kami miliki.',
+                            style: GoogleFonts.inter(
+                              fontSize: 20,
+                              color: Color.fromARGB(255, 58, 60, 63),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),
@@ -111,14 +224,32 @@ class Awalan extends StatelessWidget {
         height: 400,
         child: Stack(
           children: [
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 400,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('assets/images/image_1.png'),
-                    fit: BoxFit.cover),
-              ),
+            AnimateIfVisible(
+              key: const Key('item.1'),
+              duration: const Duration(milliseconds: 1000),
+              builder: (BuildContext context, Animation<double> animation) {
+                return FadeTransition(
+                  opacity: Tween<double>(
+                    begin: 0,
+                    end: 1,
+                  ).animate(animation),
+                  child: SlideTransition(
+                    position: Tween<Offset>(
+                      begin: const Offset(0.5, 0),
+                      end: Offset.zero,
+                    ).animate(animation),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: 400,
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage('assets/images/image_1.png'),
+                            fit: BoxFit.cover),
+                      ),
+                    ),
+                  ),
+                );
+              },
             ),
             Container(
               width: MediaQuery.of(context).size.width,
@@ -135,23 +266,61 @@ class Awalan extends StatelessWidget {
               height: 400,
               child: Column(
                 children: [
-                  Text(
-                    'Your Satisfaction is Our Top Priority',
-                    style: GoogleFonts.inter(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 60,
-                      color: Color(0xff013088),
-                    ),
+                  AnimateIfVisible(
+                    key: const Key('item.2'),
+                    duration: const Duration(milliseconds: 1000),
+                    builder:
+                        (BuildContext context, Animation<double> animation) {
+                      return FadeTransition(
+                        opacity: Tween<double>(
+                          begin: 0,
+                          end: 1,
+                        ).animate(animation),
+                        child: SlideTransition(
+                          position: Tween<Offset>(
+                            begin: const Offset(-0.5, 0),
+                            end: Offset.zero,
+                          ).animate(animation),
+                          child: Text(
+                            'Your Satisfaction is Our Top Priority',
+                            style: GoogleFonts.inter(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 60,
+                              color: Color(0xff013088),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
                   ),
                   SizedBox(
                     height: 20,
                   ),
-                  Text(
-                    'Untuk mendukung pertumbuhan perusahaan dari berbagai industri, kami terus bekerja secara maksimal melalui produk dan layanan yang kami miliki.',
-                    style: GoogleFonts.inter(
-                      fontSize: 25,
-                      color: Color.fromARGB(255, 58, 60, 63),
-                    ),
+                  AnimateIfVisible(
+                    key: const Key('item.3'),
+                    duration: const Duration(milliseconds: 1000),
+                    builder:
+                        (BuildContext context, Animation<double> animation) {
+                      return FadeTransition(
+                        opacity: Tween<double>(
+                          begin: 0,
+                          end: 1,
+                        ).animate(animation),
+                        child: SlideTransition(
+                          position: Tween<Offset>(
+                            begin: const Offset(-0.5, 0),
+                            end: Offset.zero,
+                          ).animate(animation),
+                          child: Text(
+                            'Untuk mendukung pertumbuhan perusahaan dari berbagai industri, kami terus bekerja secara maksimal melalui produk dan layanan yang kami miliki.',
+                            style: GoogleFonts.inter(
+                              fontSize: 25,
+                              color: Color.fromARGB(255, 58, 60, 63),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),
@@ -164,14 +333,32 @@ class Awalan extends StatelessWidget {
         height: 400,
         child: Stack(
           children: [
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 400,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('assets/images/image_1.png'),
-                    fit: BoxFit.cover),
-              ),
+            AnimateIfVisible(
+              key: const Key('item.1'),
+              duration: const Duration(milliseconds: 1000),
+              builder: (BuildContext context, Animation<double> animation) {
+                return FadeTransition(
+                  opacity: Tween<double>(
+                    begin: 0,
+                    end: 1,
+                  ).animate(animation),
+                  child: SlideTransition(
+                    position: Tween<Offset>(
+                      begin: const Offset(0.5, 0),
+                      end: Offset.zero,
+                    ).animate(animation),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: 400,
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage('assets/images/image_1.png'),
+                            fit: BoxFit.cover),
+                      ),
+                    ),
+                  ),
+                );
+              },
             ),
             Container(
               width: MediaQuery.of(context).size.width,
@@ -188,23 +375,61 @@ class Awalan extends StatelessWidget {
               height: 400,
               child: Column(
                 children: [
-                  Text(
-                    'Your Satisfaction is Our Top Priority',
-                    style: GoogleFonts.inter(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 60,
-                      color: Color(0xff013088),
-                    ),
+                  AnimateIfVisible(
+                    key: const Key('item.2'),
+                    duration: const Duration(milliseconds: 1000),
+                    builder:
+                        (BuildContext context, Animation<double> animation) {
+                      return FadeTransition(
+                        opacity: Tween<double>(
+                          begin: 0,
+                          end: 1,
+                        ).animate(animation),
+                        child: SlideTransition(
+                          position: Tween<Offset>(
+                            begin: const Offset(-0.5, 0),
+                            end: Offset.zero,
+                          ).animate(animation),
+                          child: Text(
+                            'Your Satisfaction is Our Top Priority',
+                            style: GoogleFonts.inter(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 60,
+                              color: Color(0xff013088),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
                   ),
                   SizedBox(
                     height: 20,
                   ),
-                  Text(
-                    'Untuk mendukung pertumbuhan perusahaan dari berbagai industri, kami terus bekerja secara maksimal melalui produk dan layanan yang kami miliki.',
-                    style: GoogleFonts.inter(
-                      fontSize: 25,
-                      color: Color.fromARGB(255, 58, 60, 63),
-                    ),
+                  AnimateIfVisible(
+                    key: const Key('item.2'),
+                    duration: const Duration(milliseconds: 1000),
+                    builder:
+                        (BuildContext context, Animation<double> animation) {
+                      return FadeTransition(
+                        opacity: Tween<double>(
+                          begin: 0,
+                          end: 1,
+                        ).animate(animation),
+                        child: SlideTransition(
+                          position: Tween<Offset>(
+                            begin: const Offset(-0.5, 0),
+                            end: Offset.zero,
+                          ).animate(animation),
+                          child: Text(
+                            'Untuk mendukung pertumbuhan perusahaan dari berbagai industri, kami terus bekerja secara maksimal melalui produk dan layanan yang kami miliki.',
+                            style: GoogleFonts.inter(
+                              fontSize: 25,
+                              color: Color.fromARGB(255, 58, 60, 63),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),
