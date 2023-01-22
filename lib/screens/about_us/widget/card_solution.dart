@@ -102,7 +102,7 @@ class _CardSolutionLongState extends State<CardSolutionLong> {
                     ),
                     Container(
                       child: Text(
-                        'Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsumLorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum  lorem ipsum lorem lorem ipsum lorem  lorem ipsum lorem',
+                        'Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum  lorem ipsum lorem lorem ipsum lorem  lorem ipsum',
                         style: GoogleFonts.inter(
                           color: Colors.black,
                           textStyle: const TextStyle(
@@ -195,7 +195,7 @@ class _CardSolutionLongState extends State<CardSolutionLong> {
                     ),
                     Container(
                       child: Text(
-                        'Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsumLorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum  lorem ipsum lorem lorem ipsum lorem  lorem ipsum lorem',
+                        'Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum  lorem ipsum lorem lorem ipsum lorem  lorem ipsum',
                         style: GoogleFonts.inter(
                           color: Colors.black,
                           textStyle: const TextStyle(

@@ -189,6 +189,7 @@ class _ItSolutionScreenState extends State<ItSolutionScreen> {
             showItemInterval: Duration(milliseconds: 500),
             child: SingleChildScrollView(
               child: Container(
+                color: Colors.white,
                 child: Column(
                   children: [
                     // Header Nya
