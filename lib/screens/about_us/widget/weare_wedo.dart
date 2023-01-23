@@ -13,13 +13,13 @@ class _WeAreWedoState extends State<WeAreWedo> {
   List<String> weAre = [
     "Saptaloka Digital merupakan perusahaan yang bergerak di bidang IT & Business Consultant.",
     "Saptaloka Digital menawarkan jasa IT berupa pembuatan website, multiplatform apps dan game. Selain itu, kami juga menawarkan jasa digital marketing.",
-    "Saat ini Saptaloka Digital memiliki produk ERP dan MES."
+    "Saptaloka Digital membantu perkembangan perusahaan-perusahaan dari berbagai industri."
   ];
 
   List<String> weDo = [
     "Memberi saran pada client tentang pemakaian IT untuk memenuhi target bisnis ataupun membantu problem solving dari masalah client.",
     "Membantu migrasi teknologi untuk memudahkan operasional bisnis client.",
-    "Saat ini kami sedang mengembangkan produk platform digital ERP dan MES yang akan ditawarkan ke seluruh perusahaan yang ada di Indonesia."
+    "Saat ini kami sedang mengembangkan produk platform digital ERP dan MES untuk mendukung pertumbuhan perusahaan-perusahaan dari berbagai industri."
   ];
   @override
   Widget build(BuildContext context) {

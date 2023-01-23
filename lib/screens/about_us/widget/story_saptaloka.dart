@@ -365,7 +365,7 @@ class _StorySaptalokaState extends State<StorySaptaloka> {
                 height: 800,
                 decoration: const BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage("assets/images/image_1.png"),
+                        image: AssetImage("assets/images/logo-sapta-biru.png"),
                         fit: BoxFit.cover)),
               ),
               Container(
