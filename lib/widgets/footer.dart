@@ -221,8 +221,8 @@ class _FooterState extends State<Footer> {
                                       Text(snapshot.data!['alamat']),
                                       Text(snapshot.data!['alamat2']),
                                       Text('Indonesia'),
-                                      Text('P: ${snapshot.data!['phone']}'),
-                                      Text('E. ${snapshot.data!['email']}'),
+                                      Text('Phone: ${snapshot.data!['phone']}'),
+                                      Text('Email: ${snapshot.data!['email']}'),
                                       SizedBox(
                                         height: 20,
                                       ),
@@ -613,8 +613,10 @@ class _FooterState extends State<Footer> {
                                         Text(snapshot.data!['alamat']),
                                         Text(snapshot.data!['alamat2']),
                                         Text('Indonesia'),
-                                        Text('P: ${snapshot.data!['phone']}'),
-                                        Text('E. ${snapshot.data!['email']}'),
+                                        Text(
+                                            'Phone: ${snapshot.data!['phone']}'),
+                                        Text(
+                                            'Email: ${snapshot.data!['email']}'),
                                         SizedBox(
                                           height: 20,
                                         ),
@@ -999,8 +1001,10 @@ class _FooterState extends State<Footer> {
                                         Text(snapshot.data!['alamat']),
                                         Text(snapshot.data!['alamat2']),
                                         Text('Indonesia'),
-                                        Text('P: ${snapshot.data!['phone']}'),
-                                        Text('E. ${snapshot.data!['email']}'),
+                                        Text(
+                                            'Phone  : ${snapshot.data!['phone']}'),
+                                        Text(
+                                            'E-mail  : ${snapshot.data!['email']}'),
                                         SizedBox(
                                           height: 20,
                                         ),
@@ -1386,8 +1390,10 @@ class _FooterState extends State<Footer> {
                                         Text(snapshot.data!['alamat']),
                                         Text(snapshot.data!['alamat2']),
                                         Text('Indonesia'),
-                                        Text('P: ${snapshot.data!['phone']}'),
-                                        Text('E. ${snapshot.data!['email']}'),
+                                        Text(
+                                            'Phone: ${snapshot.data!['phone']}'),
+                                        Text(
+                                            'Email: ${snapshot.data!['email']}'),
                                         SizedBox(
                                           height: 20,
                                         ),
