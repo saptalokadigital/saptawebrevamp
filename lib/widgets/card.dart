@@ -57,7 +57,8 @@ class _CardHomeState extends State<CardHome> {
                   Expanded(
                     child: ItemCard(
                         title: "Business Digital Solution",
-                        image: "assets/images/image_1.png",
+                        image:
+                            "assets/images/industrial-health-measures-during-corona-virus-pandemic.jpg",
                         fct: () {}),
                   ),
                 ],
@@ -74,7 +75,8 @@ class _CardHomeState extends State<CardHome> {
                   Expanded(
                     child: ItemCard(
                       title: "Digital Marketing",
-                      image: "assets/images/image_1.png",
+                      image:
+                          "assets/images/marketing-strategy-connting-digital-devices-concept.jpg",
                       fct: () {},
                     ),
                   ),
@@ -109,7 +111,8 @@ class _CardHomeState extends State<CardHome> {
                   Expanded(
                     child: ItemCard(
                         title: "Business Digital Solution",
-                        image: "assets/images/image_1.png",
+                        image:
+                            "assets/images/industrial-health-measures-during-corona-virus-pandemic.jpg",
                         fct: () {}),
                   ),
                 ],
@@ -126,7 +129,8 @@ class _CardHomeState extends State<CardHome> {
                   Expanded(
                     child: ItemCard(
                       title: "Digital Marketing",
-                      image: "assets/images/image_1.png",
+                      image:
+                          "assets/images/marketing-strategy-connting-digital-devices-concept.jpg",
                       fct: () {},
                     ),
                   ),
@@ -161,7 +165,8 @@ class _CardHomeState extends State<CardHome> {
                   Expanded(
                     child: ItemCard(
                         title: "Business Digital Solution",
-                        image: "assets/images/image_1.png",
+                        image:
+                            "assets/images/industrial-health-measures-during-corona-virus-pandemic.jpg",
                         fct: () {}),
                   ),
                   const SizedBox(
@@ -170,7 +175,8 @@ class _CardHomeState extends State<CardHome> {
                   Expanded(
                     child: ItemCard(
                       title: "Digital Marketing",
-                      image: "assets/images/image_1.png",
+                      image:
+                          "assets/images/marketing-strategy-connting-digital-devices-concept.jpg",
                       fct: () {},
                     ),
                   ),
@@ -223,7 +229,8 @@ class _CardHomeState extends State<CardHome> {
                   Expanded(
                     child: ItemCard(
                         title: "Business Digital Solution",
-                        image: "assets/images/image_1.png",
+                        image:
+                            "assets/images/industrial-health-measures-during-corona-virus-pandemic.jpg",
                         fct: () {}),
                   ),
                   const SizedBox(
@@ -232,7 +239,8 @@ class _CardHomeState extends State<CardHome> {
                   Expanded(
                     child: ItemCard(
                       title: "Digital Marketing",
-                      image: "assets/images/image_1.png",
+                      image:
+                          "assets/images/marketing-strategy-connting-digital-devices-concept.jpg",
                       fct: () {},
                     ),
                   ),
@@ -327,6 +335,7 @@ class _ItemCardState extends State<ItemCard> {
                       ),
                       image: DecorationImage(
                         image: AssetImage(widget.image),
+                        fit: BoxFit.cover,
                       ),
                     ),
                   ),

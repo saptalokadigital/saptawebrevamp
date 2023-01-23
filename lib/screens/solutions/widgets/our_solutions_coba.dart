@@ -50,7 +50,7 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
                               title: "IT Solution",
                               image: "assets/images/image_1.png",
                               desc:
-                                  'Layanan Pengelolaan proses bisnis berbasis digitalisasi yang bekerja secara terpusat melalui konsolidasi dan alih daya operasional bisnis perusahaan yang berisfat non-core dan transaksional',
+                                  'Layanan terbaik untuk kebutuhan solusi IT terintegrasi (Software Development). Mulai dari website, aplikasi multiplatform dan game.',
                               link: '',
                             ),
                           ),
@@ -78,9 +78,10 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
                             child: CardSolution(
                               fct: () {},
                               title: "Business Digital Solution",
-                              image: "assets/images/image_1.png",
+                              image:
+                                  "assets/images/industrial-health-measures-during-corona-virus-pandemic.jpg",
                               desc:
-                                  'Layanan ent-to-end untuk berbagai industri yang hadir dengan berbagai solusi meliputi software as a Services (SaaS), Digital Assessment, hingga E-Eommerce.',
+                                  'Layanan jasa pembuatan Enterprise Resource Planning (ERP) dan Manufacturing Execution Systems (MES) untuk berbagai industri.',
                               link: '',
                             ),
                           ),
@@ -112,9 +113,10 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
                       child: CardSolution(
                         fct: () {},
                         title: "Digital Marketing",
-                        image: "assets/images/image_1.png",
+                        image:
+                            "assets/images/marketing-strategy-connting-digital-devices-concept.jpg",
                         desc:
-                            'Layanan yang andal dan terpercaya untuk kebutuhan solusi IT terintegrasi, mulai daru consultancy, software development, hingga penyediaan hardware-software bagi perusahaan Anda',
+                            'Layanan jasa Social Media Marketing, Website Landing Page, dan lainnya untuk bisnis Anda.',
                         link: '',
                       ),
                     ),
@@ -151,7 +153,7 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
                       title: "IT Solution",
                       image: "assets/images/image_1.png",
                       desc:
-                          'Layanan Pengelolaan proses bisnis berbasis digitalisasi yang bekerja secara terpusat melalui konsolidasi dan alih daya operasional bisnis perusahaan yang berisfat non-core dan transaksional',
+                          'Layanan terbaik untuk kebutuhan solusi IT terintegrasi (Software Development). Mulai dari website, aplikasi multiplatform dan game.',
                       link: '',
                     ),
                   ),
@@ -178,9 +180,10 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
                     child: CardSolutionMobile(
                       fct: () {},
                       title: "Business Digital Solution",
-                      image: "assets/images/image_1.png",
+                      image:
+                          "assets/images/industrial-health-measures-during-corona-virus-pandemic.jpg",
                       desc:
-                          'Layanan ent-to-end untuk berbagai industri yang hadir dengan berbagai solusi meliputi software as a Services (SaaS), Digital Assessment, hingga E-Eommerce.',
+                          'Layanan jasa pembuatan Enterprise Resource Planning (ERP) dan Manufacturing Execution Systems (MES) untuk berbagai industri.',
                       link: '',
                     ),
                   ),
@@ -207,9 +210,10 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
                     child: CardSolutionMobile(
                       fct: () {},
                       title: "Digital Marketing",
-                      image: "assets/images/image_1.png",
+                      image:
+                          "assets/images/marketing-strategy-connting-digital-devices-concept.jpg",
                       desc:
-                          'Layanan yang andal dan terpercaya untuk kebutuhan solusi IT terintegrasi, mulai daru consultancy, software development, hingga penyediaan hardware-software bagi perusahaan Anda',
+                          'Layanan jasa Social Media Marketing, Website Landing Page, dan lainnya untuk bisnis Anda.',
                       link: '',
                     ),
                   ),
@@ -252,7 +256,7 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
                               title: "IT Solution",
                               image: "assets/images/image_1.png",
                               desc:
-                                  'Layanan Pengelolaan proses bisnis berbasis digitalisasi yang bekerja secara terpusat melalui konsolidasi dan alih daya operasional bisnis perusahaan yang berisfat non-core dan transaksional',
+                                  'Layanan terbaik untuk kebutuhan solusi IT terintegrasi (Software Development). Mulai dari website, aplikasi multiplatform dan game.',
                               link: '',
                             ),
                           ),
@@ -280,9 +284,10 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
                             child: CardSolution(
                               fct: () {},
                               title: "Business Digital Solution",
-                              image: "assets/images/image_1.png",
+                              image:
+                                  "assets/images/industrial-health-measures-during-corona-virus-pandemic.jpg",
                               desc:
-                                  'Layanan ent-to-end untuk berbagai industri yang hadir dengan berbagai solusi meliputi software as a Services (SaaS), Digital Assessment, hingga E-Eommerce.',
+                                  'Layanan jasa pembuatan Enterprise Resource Planning (ERP) dan Manufacturing Execution Systems (MES) untuk berbagai industri.',
                               link: '',
                             ),
                           ),
@@ -314,9 +319,10 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
                       child: CardSolution(
                         fct: () {},
                         title: "Digital Marketing",
-                        image: "assets/images/image_1.png",
+                        image:
+                            "assets/images/marketing-strategy-connting-digital-devices-concept.jpg",
                         desc:
-                            'Layanan yang andal dan terpercaya untuk kebutuhan solusi IT terintegrasi, mulai daru consultancy, software development, hingga penyediaan hardware-software bagi perusahaan Anda',
+                            'Layanan jasa Social Media Marketing, Website Landing Page, dan lainnya untuk bisnis Anda.',
                         link: '',
                       ),
                     ),
@@ -360,7 +366,7 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
                               title: "IT Solution",
                               image: "assets/images/image_1.png",
                               desc:
-                                  'Layanan Pengelolaan proses bisnis berbasis digitalisasi yang bekerja secara terpusat melalui konsolidasi dan alih daya operasional bisnis perusahaan yang berisfat non-core dan transaksional',
+                                  'Layanan terbaik untuk kebutuhan solusi IT terintegrasi (Software Development). Mulai dari website, aplikasi multiplatform dan game.',
                               link: '',
                             ),
                           ),
@@ -388,9 +394,10 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
                             child: CardSolution(
                               fct: () {},
                               title: "Business Digital Solution",
-                              image: "assets/images/image_1.png",
+                              image:
+                                  "assets/images/industrial-health-measures-during-corona-virus-pandemic.jpg",
                               desc:
-                                  'Layanan ent-to-end untuk berbagai industri yang hadir dengan berbagai solusi meliputi software as a Services (SaaS), Digital Assessment, hingga E-Eommerce.',
+                                  'Layanan jasa pembuatan Enterprise Resource Planning (ERP) dan Manufacturing Execution Systems (MES) untuk berbagai industri.',
                               link: '',
                             ),
                           ),
@@ -422,9 +429,10 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
                       child: CardSolution(
                         fct: () {},
                         title: "Digital Marketing",
-                        image: "assets/images/image_1.png",
+                        image:
+                            "assets/images/marketing-strategy-connting-digital-devices-concept.jpg",
                         desc:
-                            'Layanan yang andal dan terpercaya untuk kebutuhan solusi IT terintegrasi, mulai daru consultancy, software development, hingga penyediaan hardware-software bagi perusahaan Anda',
+                            'Layanan jasa Social Media Marketing, Website Landing Page, dan lainnya untuk bisnis Anda.',
                         link: '',
                       ),
                     ),

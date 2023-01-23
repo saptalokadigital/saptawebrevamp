@@ -33,7 +33,8 @@ class Awalan extends StatelessWidget {
                       height: 150,
                       decoration: const BoxDecoration(
                         image: DecorationImage(
-                            image: AssetImage('assets/images/image_1.png'),
+                            image: AssetImage(
+                                'assets/images/satisfaction-happy-service-client-customer-user-concept.jpg'),
                             fit: BoxFit.cover),
                       ),
                     ),
@@ -134,7 +135,8 @@ class Awalan extends StatelessWidget {
                       height: 300,
                       decoration: const BoxDecoration(
                         image: DecorationImage(
-                            image: AssetImage('assets/images/image_1.png'),
+                            image: AssetImage(
+                                'assets/images/satisfaction-happy-service-client-customer-user-concept.jpg'),
                             fit: BoxFit.cover),
                       ),
                     ),
@@ -221,7 +223,7 @@ class Awalan extends StatelessWidget {
       ),
       desktop: Container(
         width: MediaQuery.of(context).size.width,
-        height: 400,
+        height: 500,
         child: Stack(
           children: [
             AnimateIfVisible(
@@ -240,10 +242,11 @@ class Awalan extends StatelessWidget {
                     ).animate(animation),
                     child: Container(
                       width: MediaQuery.of(context).size.width,
-                      height: 400,
+                      height: 500,
                       decoration: const BoxDecoration(
                         image: DecorationImage(
-                            image: AssetImage('assets/images/image_1.png'),
+                            image: AssetImage(
+                                'assets/images/satisfaction-happy-service-client-customer-user-concept.jpg'),
                             fit: BoxFit.cover),
                       ),
                     ),
@@ -253,7 +256,7 @@ class Awalan extends StatelessWidget {
             ),
             Container(
               width: MediaQuery.of(context).size.width,
-              height: 405,
+              height: 505,
               decoration: const BoxDecoration(
                   gradient: LinearGradient(
                       begin: Alignment.centerRight,
@@ -263,7 +266,7 @@ class Awalan extends StatelessWidget {
             Container(
               padding: EdgeInsets.only(top: 75, left: 100),
               width: MediaQuery.of(context).size.width / 2,
-              height: 400,
+              height: 500,
               child: Column(
                 children: [
                   AnimateIfVisible(
@@ -282,10 +285,10 @@ class Awalan extends StatelessWidget {
                             end: Offset.zero,
                           ).animate(animation),
                           child: Text(
-                            'Your Satisfaction is Our Top Priority',
+                            'Client Trust and Satisfaction is Our Top Priority',
                             style: GoogleFonts.inter(
                               fontWeight: FontWeight.bold,
-                              fontSize: 60,
+                              fontSize: 50,
                               color: Color(0xff013088),
                             ),
                           ),
@@ -312,7 +315,7 @@ class Awalan extends StatelessWidget {
                             end: Offset.zero,
                           ).animate(animation),
                           child: Text(
-                            'Untuk mendukung pertumbuhan perusahaan dari berbagai industri, kami terus bekerja secara maksimal melalui produk dan layanan yang kami miliki.',
+                            'Kami terus bekerja secara maksimal melalui produk dan layanan yang kami miliki untuk mendukung pertumbuhan bisnis Anda.',
                             style: GoogleFonts.inter(
                               fontSize: 25,
                               color: Color.fromARGB(255, 58, 60, 63),
@@ -352,7 +355,8 @@ class Awalan extends StatelessWidget {
                       height: 400,
                       decoration: const BoxDecoration(
                         image: DecorationImage(
-                            image: AssetImage('assets/images/image_1.png'),
+                            image: AssetImage(
+                                'assets/images/satisfaction-happy-service-client-customer-user-concept.jpg'),
                             fit: BoxFit.cover),
                       ),
                     ),
