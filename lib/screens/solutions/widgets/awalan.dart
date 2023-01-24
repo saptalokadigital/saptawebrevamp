@@ -333,7 +333,7 @@ class Awalan extends StatelessWidget {
       ),
       large: Container(
         width: MediaQuery.of(context).size.width,
-        height: 400,
+        height: 500,
         child: Stack(
           children: [
             AnimateIfVisible(
@@ -352,7 +352,7 @@ class Awalan extends StatelessWidget {
                     ).animate(animation),
                     child: Container(
                       width: MediaQuery.of(context).size.width,
-                      height: 400,
+                      height: 500,
                       decoration: const BoxDecoration(
                         image: DecorationImage(
                             image: AssetImage(
@@ -366,7 +366,7 @@ class Awalan extends StatelessWidget {
             ),
             Container(
               width: MediaQuery.of(context).size.width,
-              height: 405,
+              height: 505,
               decoration: const BoxDecoration(
                   gradient: LinearGradient(
                       begin: Alignment.centerRight,
@@ -376,7 +376,7 @@ class Awalan extends StatelessWidget {
             Container(
               padding: EdgeInsets.only(top: 75, left: 100),
               width: MediaQuery.of(context).size.width / 2,
-              height: 400,
+              height: 500,
               child: Column(
                 children: [
                   AnimateIfVisible(
@@ -395,10 +395,10 @@ class Awalan extends StatelessWidget {
                             end: Offset.zero,
                           ).animate(animation),
                           child: Text(
-                            'Your Satisfaction is Our Top Priority',
+                            'Client Trust and Satisfaction is Our Top Priority',
                             style: GoogleFonts.inter(
                               fontWeight: FontWeight.bold,
-                              fontSize: 60,
+                              fontSize: 50,
                               color: Color(0xff013088),
                             ),
                           ),
@@ -410,7 +410,7 @@ class Awalan extends StatelessWidget {
                     height: 20,
                   ),
                   AnimateIfVisible(
-                    key: const Key('item.2'),
+                    key: const Key('item.3'),
                     duration: const Duration(milliseconds: 1000),
                     builder:
                         (BuildContext context, Animation<double> animation) {
@@ -425,7 +425,7 @@ class Awalan extends StatelessWidget {
                             end: Offset.zero,
                           ).animate(animation),
                           child: Text(
-                            'Untuk mendukung pertumbuhan perusahaan dari berbagai industri, kami terus bekerja secara maksimal melalui produk dan layanan yang kami miliki.',
+                            'Kami terus bekerja secara maksimal melalui produk dan layanan yang kami miliki untuk mendukung pertumbuhan bisnis Anda.',
                             style: GoogleFonts.inter(
                               fontSize: 25,
                               color: Color.fromARGB(255, 58, 60, 63),
