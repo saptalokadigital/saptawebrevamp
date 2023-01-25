@@ -7,6 +7,7 @@ import 'package:saptaloka_web_revamp/router_const.dart';
 import 'package:saptaloka_web_revamp/widgets/card.dart';
 import 'package:saptaloka_web_revamp/widgets/carousel_home.dart';
 import 'package:saptaloka_web_revamp/widgets/core_values.dart';
+import 'package:saptaloka_web_revamp/widgets/drawer.dart';
 import 'package:saptaloka_web_revamp/widgets/satisfied_client.dart';
 
 import 'package:saptaloka_web_revamp/widgets/footer.dart';
@@ -53,159 +54,470 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Stack(
       children: [
-        Scaffold(
-          appBar: PreferredSize(
-            preferredSize: Size(screenSize.width, 70),
-            child: Container(
-              alignment: Alignment.topCenter,
-              width: screenSize.width,
-              color: Colors.white,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 50),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        context.go('/');
-                      },
-                      child: Container(
-                        height: 70,
-                        width: 70,
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage('assets/images/logo_header.png'),
-                            fit: BoxFit.fill,
+        Responsive(
+          large: Scaffold(
+            appBar: PreferredSize(
+              preferredSize: Size(screenSize.width, 70),
+              child: Container(
+                alignment: Alignment.topCenter,
+                width: screenSize.width,
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 50),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          context.go('/');
+                        },
+                        child: Container(
+                          height: 70,
+                          width: 70,
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                              image:
+                                  AssetImage('assets/images/logo_header.png'),
+                              fit: BoxFit.fill,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    const SizedBox(
-                      width: 60,
-                    ),
-                    Flexible(
-                      child: Stack(
-                        children: [
-                          TextButton(
-                            onHover: (value) {
-                              setState(() {
-                                value
-                                    ? _isHovering[0] = true
-                                    : _isHovering[0] = false;
-                              });
-                            },
-                            onPressed: () {
-                              context.go(aboutUsRoute);
-                            },
-                            child: Text(
-                              'About Us',
-                              style: GoogleFonts.inter(
-                                color: _isHovering[0]
-                                    ? const Color(0xff013088)
-                                    : const Color.fromARGB(255, 0, 0, 0),
-                              ),
-                            ),
-                          ),
-                        ],
+                      const SizedBox(
+                        width: 60,
                       ),
-                    ),
-                    const SizedBox(
-                      width: 33,
-                    ),
-                    _isHovering[1]
-                        ? InkWell(
-                            onHover: (value) {
-                              setState(() {
-                                value
-                                    ? _isHovering[1] = true
-                                    : _isHovering[1] = false;
-                              });
-                            },
-                            onTap: () {
-                              context.go('/Solutions');
-                            },
-                            child: Container(
-                              width: 95,
-                              child: Row(
-                                children: [
-                                  Text(
-                                    'Solutions',
-                                    style: GoogleFonts.inter(
-                                      color: Colors.transparent,
-                                    ),
-                                  ),
-                                  const Icon(
-                                    Icons.arrow_drop_down,
-                                    color: Colors.transparent,
-                                  )
-                                ],
+                      Flexible(
+                        child: Stack(
+                          children: [
+                            TextButton(
+                              onHover: (value) {
+                                setState(() {
+                                  value
+                                      ? _isHovering[0] = true
+                                      : _isHovering[0] = false;
+                                });
+                              },
+                              onPressed: () {
+                                context.go(aboutUsRoute);
+                              },
+                              child: Text(
+                                'About Us',
+                                style: GoogleFonts.inter(
+                                  color: _isHovering[0]
+                                      ? const Color(0xff013088)
+                                      : const Color.fromARGB(255, 0, 0, 0),
+                                ),
                               ),
                             ),
-                          )
-                        : InkWell(
-                            onHover: (value) {
-                              setState(() {
-                                value
-                                    ? _isHovering[1] = true
-                                    : _isHovering[1] = false;
-                              });
-                            },
-                            onTap: () {
-                              context.go('/Solutions');
-                            },
-                            child: Container(
-                              width: 95,
-                              child: Row(
-                                children: [
-                                  Text(
-                                    'Solutions',
-                                    style: GoogleFonts.inter(
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 33,
+                      ),
+                      _isHovering[1]
+                          ? InkWell(
+                              onHover: (value) {
+                                setState(() {
+                                  value
+                                      ? _isHovering[1] = true
+                                      : _isHovering[1] = false;
+                                });
+                              },
+                              onTap: () {
+                                context.go('/Solutions');
+                              },
+                              child: Container(
+                                width: 95,
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      'Solutions',
+                                      style: GoogleFonts.inter(
+                                        color: Colors.transparent,
+                                      ),
+                                    ),
+                                    const Icon(
+                                      Icons.arrow_drop_down,
+                                      color: Colors.transparent,
+                                    )
+                                  ],
+                                ),
+                              ),
+                            )
+                          : InkWell(
+                              onHover: (value) {
+                                setState(() {
+                                  value
+                                      ? _isHovering[1] = true
+                                      : _isHovering[1] = false;
+                                });
+                              },
+                              onTap: () {
+                                context.go('/Solutions');
+                              },
+                              child: Container(
+                                width: 95,
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      'Solutions',
+                                      style: GoogleFonts.inter(
+                                        color: _isHovering[1]
+                                            ? const Color(0xff013088)
+                                            : const Color.fromARGB(
+                                                255, 0, 0, 0),
+                                      ),
+                                    ),
+                                    Icon(
+                                      Icons.arrow_drop_down,
                                       color: _isHovering[1]
                                           ? const Color(0xff013088)
                                           : const Color.fromARGB(255, 0, 0, 0),
-                                    ),
-                                  ),
-                                  Icon(
-                                    Icons.arrow_drop_down,
-                                    color: _isHovering[1]
-                                        ? const Color(0xff013088)
-                                        : const Color.fromARGB(255, 0, 0, 0),
-                                  )
-                                ],
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                    const SizedBox(width: 22),
-                    Flexible(
-                      child: TextButton(
-                        onHover: (value) {
-                          setState(() {
-                            value
-                                ? _isHovering[2] = true
-                                : _isHovering[2] = false;
-                          });
-                        },
-                        onPressed: () {
-                          context.go(contactUsRoute);
-                        },
-                        child: Text(
-                          'Contact Us',
-                          style: GoogleFonts.inter(
-                            color: _isHovering[2]
-                                ? const Color(0xff013088)
-                                : const Color.fromARGB(255, 0, 0, 0),
+                      const SizedBox(width: 22),
+                      Flexible(
+                        child: TextButton(
+                          onHover: (value) {
+                            setState(() {
+                              value
+                                  ? _isHovering[2] = true
+                                  : _isHovering[2] = false;
+                            });
+                          },
+                          onPressed: () {
+                            context.go(contactUsRoute);
+                          },
+                          child: Text(
+                            'Contact Us',
+                            style: GoogleFonts.inter(
+                              color: _isHovering[2]
+                                  ? const Color(0xff013088)
+                                  : const Color.fromARGB(255, 0, 0, 0),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            body: AnimateIfVisibleWrapper(
+              showItemInterval: const Duration(milliseconds: 500),
+              child: Container(
+                width: screenSize.width,
+                height: screenSize.height,
+                color: Colors.white,
+                child: SingleChildScrollView(
+                  controller: _scrollController,
+                  child: Column(
+                    children: [
+                      Column(
+                        children: [
+                          const CarouselHome(),
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          Text(
+                            textAlign: TextAlign.center,
+                            "Through digital transformation, our solutions will take your business to the next level",
+                            style: GoogleFonts.inter(
+                              textStyle: const TextStyle(
+                                fontSize: 25.0,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          AnimateIfVisible(
+                            key: const Key('item.1'),
+                            duration: const Duration(milliseconds: 1000),
+                            builder: (BuildContext context,
+                                Animation<double> animation) {
+                              return FadeTransition(
+                                opacity: Tween<double>(
+                                  begin: 0,
+                                  end: 1,
+                                ).animate(animation),
+                                child: SlideTransition(
+                                    position: Tween<Offset>(
+                                      begin: const Offset(0, -0.1),
+                                      end: Offset.zero,
+                                    ).animate(animation),
+                                    child: const CardHome()),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 25.0,
+                      ),
+                      AnimateIfVisible(
+                        key: const Key('item.2'),
+                        duration: const Duration(milliseconds: 1000),
+                        builder: (BuildContext context,
+                            Animation<double> animation) {
+                          return FadeTransition(
+                            opacity: Tween<double>(
+                              begin: 0,
+                              end: 1,
+                            ).animate(animation),
+                            child: SlideTransition(
+                                position: Tween<Offset>(
+                                  begin: const Offset(-0.1, 0),
+                                  end: Offset.zero,
+                                ).animate(animation),
+                                child: const CoreValues()),
+                          );
+                        },
+                      ),
+                      const SizedBox(
+                        height: 70,
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            "Our Client",
+                            style: GoogleFonts.inter(
+                              textStyle: const TextStyle(
+                                fontSize: 35.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          AnimateIfVisible(
+                            key: const Key('item.3'),
+                            duration: const Duration(milliseconds: 1000),
+                            builder: (BuildContext context,
+                                Animation<double> animation) {
+                              return FadeTransition(
+                                opacity: Tween<double>(
+                                  begin: 0,
+                                  end: 1,
+                                ).animate(animation),
+                                child: SlideTransition(
+                                  position: Tween<Offset>(
+                                    begin: const Offset(0.1, 0),
+                                    end: Offset.zero,
+                                  ).animate(animation),
+                                  child: const SatisfiedClient(),
+                                ),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 70,
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            "Latest News",
+                            style: GoogleFonts.inter(
+                              textStyle: const TextStyle(
+                                fontSize: 35.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          AnimateIfVisible(
+                            key: const Key('item.4'),
+                            duration: const Duration(milliseconds: 1000),
+                            builder: (BuildContext context,
+                                Animation<double> animation) {
+                              return FadeTransition(
+                                opacity: Tween<double>(
+                                  begin: 0,
+                                  end: 1,
+                                ).animate(animation),
+                                child: SlideTransition(
+                                  position: Tween<Offset>(
+                                    begin: const Offset(-0.1, 0),
+                                    end: Offset.zero,
+                                  ).animate(animation),
+                                  child: const LatestNews(),
+                                ),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                      const Footer(),
+                    ],
+                  ),
                 ),
               ),
             ),
           ),
-          body: Responsive(
-            large: AnimateIfVisibleWrapper(
+          desktop: Scaffold(
+            appBar: PreferredSize(
+              preferredSize: Size(screenSize.width, 70),
+              child: Container(
+                alignment: Alignment.topCenter,
+                width: screenSize.width,
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 50),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          context.go('/');
+                        },
+                        child: Container(
+                          height: 70,
+                          width: 70,
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                              image:
+                                  AssetImage('assets/images/logo_header.png'),
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 60,
+                      ),
+                      Flexible(
+                        child: Stack(
+                          children: [
+                            TextButton(
+                              onHover: (value) {
+                                setState(() {
+                                  value
+                                      ? _isHovering[0] = true
+                                      : _isHovering[0] = false;
+                                });
+                              },
+                              onPressed: () {
+                                context.go(aboutUsRoute);
+                              },
+                              child: Text(
+                                'About Us',
+                                style: GoogleFonts.inter(
+                                  color: _isHovering[0]
+                                      ? const Color(0xff013088)
+                                      : const Color.fromARGB(255, 0, 0, 0),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 33,
+                      ),
+                      _isHovering[1]
+                          ? InkWell(
+                              onHover: (value) {
+                                setState(() {
+                                  value
+                                      ? _isHovering[1] = true
+                                      : _isHovering[1] = false;
+                                });
+                              },
+                              onTap: () {
+                                context.go('/Solutions');
+                              },
+                              child: Container(
+                                width: 95,
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      'Solutions',
+                                      style: GoogleFonts.inter(
+                                        color: Colors.transparent,
+                                      ),
+                                    ),
+                                    const Icon(
+                                      Icons.arrow_drop_down,
+                                      color: Colors.transparent,
+                                    )
+                                  ],
+                                ),
+                              ),
+                            )
+                          : InkWell(
+                              onHover: (value) {
+                                setState(() {
+                                  value
+                                      ? _isHovering[1] = true
+                                      : _isHovering[1] = false;
+                                });
+                              },
+                              onTap: () {
+                                context.go('/Solutions');
+                              },
+                              child: Container(
+                                width: 95,
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      'Solutions',
+                                      style: GoogleFonts.inter(
+                                        color: _isHovering[1]
+                                            ? const Color(0xff013088)
+                                            : const Color.fromARGB(
+                                                255, 0, 0, 0),
+                                      ),
+                                    ),
+                                    Icon(
+                                      Icons.arrow_drop_down,
+                                      color: _isHovering[1]
+                                          ? const Color(0xff013088)
+                                          : const Color.fromARGB(255, 0, 0, 0),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                      const SizedBox(width: 22),
+                      Flexible(
+                        child: TextButton(
+                          onHover: (value) {
+                            setState(() {
+                              value
+                                  ? _isHovering[2] = true
+                                  : _isHovering[2] = false;
+                            });
+                          },
+                          onPressed: () {
+                            context.go(contactUsRoute);
+                          },
+                          child: Text(
+                            'Contact Us',
+                            style: GoogleFonts.inter(
+                              color: _isHovering[2]
+                                  ? const Color(0xff013088)
+                                  : const Color.fromARGB(255, 0, 0, 0),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            body: AnimateIfVisibleWrapper(
               showItemInterval: const Duration(milliseconds: 500),
               child: Container(
                 width: screenSize.width,
@@ -360,7 +672,161 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            desktop: AnimateIfVisibleWrapper(
+          ),
+          tablet: Scaffold(
+            appBar: PreferredSize(
+              preferredSize: Size(screenSize.width, 70),
+              child: Container(
+                alignment: Alignment.topCenter,
+                width: screenSize.width,
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 50),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          context.go('/');
+                        },
+                        child: Container(
+                          height: 70,
+                          width: 70,
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                              image:
+                                  AssetImage('assets/images/logo_header.png'),
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 60,
+                      ),
+                      Flexible(
+                        child: Stack(
+                          children: [
+                            TextButton(
+                              onHover: (value) {
+                                setState(() {
+                                  value
+                                      ? _isHovering[0] = true
+                                      : _isHovering[0] = false;
+                                });
+                              },
+                              onPressed: () {
+                                context.go(aboutUsRoute);
+                              },
+                              child: Text(
+                                'About Us',
+                                style: GoogleFonts.inter(
+                                  color: _isHovering[0]
+                                      ? const Color(0xff013088)
+                                      : const Color.fromARGB(255, 0, 0, 0),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 33,
+                      ),
+                      _isHovering[1]
+                          ? InkWell(
+                              onHover: (value) {
+                                setState(() {
+                                  value
+                                      ? _isHovering[1] = true
+                                      : _isHovering[1] = false;
+                                });
+                              },
+                              onTap: () {
+                                context.go('/Solutions');
+                              },
+                              child: Container(
+                                width: 95,
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      'Solutions',
+                                      style: GoogleFonts.inter(
+                                        color: Colors.transparent,
+                                      ),
+                                    ),
+                                    const Icon(
+                                      Icons.arrow_drop_down,
+                                      color: Colors.transparent,
+                                    )
+                                  ],
+                                ),
+                              ),
+                            )
+                          : InkWell(
+                              onHover: (value) {
+                                setState(() {
+                                  value
+                                      ? _isHovering[1] = true
+                                      : _isHovering[1] = false;
+                                });
+                              },
+                              onTap: () {
+                                context.go('/Solutions');
+                              },
+                              child: Container(
+                                width: 95,
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      'Solutions',
+                                      style: GoogleFonts.inter(
+                                        color: _isHovering[1]
+                                            ? const Color(0xff013088)
+                                            : const Color.fromARGB(
+                                                255, 0, 0, 0),
+                                      ),
+                                    ),
+                                    Icon(
+                                      Icons.arrow_drop_down,
+                                      color: _isHovering[1]
+                                          ? const Color(0xff013088)
+                                          : const Color.fromARGB(255, 0, 0, 0),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                      const SizedBox(width: 22),
+                      Flexible(
+                        child: TextButton(
+                          onHover: (value) {
+                            setState(() {
+                              value
+                                  ? _isHovering[2] = true
+                                  : _isHovering[2] = false;
+                            });
+                          },
+                          onPressed: () {
+                            context.go(contactUsRoute);
+                          },
+                          child: Text(
+                            'Contact Us',
+                            style: GoogleFonts.inter(
+                              color: _isHovering[2]
+                                  ? const Color(0xff013088)
+                                  : const Color.fromARGB(255, 0, 0, 0),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            body: AnimateIfVisibleWrapper(
               showItemInterval: const Duration(milliseconds: 500),
               child: Container(
                 width: screenSize.width,
@@ -515,162 +981,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            tablet: AnimateIfVisibleWrapper(
-              showItemInterval: const Duration(milliseconds: 500),
-              child: Container(
-                width: screenSize.width,
-                height: screenSize.height,
-                color: Colors.white,
-                child: SingleChildScrollView(
-                  controller: _scrollController,
-                  child: Column(
-                    children: [
-                      Column(
-                        children: [
-                          const CarouselHome(),
-                          const SizedBox(
-                            height: 50,
-                          ),
-                          Text(
-                            textAlign: TextAlign.center,
-                            "Through digital transformation, our solutions will take your business to the next level",
-                            style: GoogleFonts.inter(
-                              textStyle: const TextStyle(
-                                fontSize: 25.0,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 30,
-                          ),
-                          AnimateIfVisible(
-                            key: const Key('item.1'),
-                            duration: const Duration(milliseconds: 1000),
-                            builder: (BuildContext context,
-                                Animation<double> animation) {
-                              return FadeTransition(
-                                opacity: Tween<double>(
-                                  begin: 0,
-                                  end: 1,
-                                ).animate(animation),
-                                child: SlideTransition(
-                                    position: Tween<Offset>(
-                                      begin: const Offset(0, -0.1),
-                                      end: Offset.zero,
-                                    ).animate(animation),
-                                    child: const CardHome()),
-                              );
-                            },
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 25.0,
-                      ),
-                      AnimateIfVisible(
-                        key: const Key('item.2'),
-                        duration: const Duration(milliseconds: 1000),
-                        builder: (BuildContext context,
-                            Animation<double> animation) {
-                          return FadeTransition(
-                            opacity: Tween<double>(
-                              begin: 0,
-                              end: 1,
-                            ).animate(animation),
-                            child: SlideTransition(
-                                position: Tween<Offset>(
-                                  begin: const Offset(-0.1, 0),
-                                  end: Offset.zero,
-                                ).animate(animation),
-                                child: const CoreValues()),
-                          );
-                        },
-                      ),
-                      const SizedBox(
-                        height: 70,
-                      ),
-                      Column(
-                        children: [
-                          Text(
-                            "Our Client",
-                            style: GoogleFonts.inter(
-                              textStyle: const TextStyle(
-                                fontSize: 35.0,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 50,
-                          ),
-                          AnimateIfVisible(
-                            key: const Key('item.3'),
-                            duration: const Duration(milliseconds: 1000),
-                            builder: (BuildContext context,
-                                Animation<double> animation) {
-                              return FadeTransition(
-                                opacity: Tween<double>(
-                                  begin: 0,
-                                  end: 1,
-                                ).animate(animation),
-                                child: SlideTransition(
-                                  position: Tween<Offset>(
-                                    begin: const Offset(0.1, 0),
-                                    end: Offset.zero,
-                                  ).animate(animation),
-                                  child: const SatisfiedClient(),
-                                ),
-                              );
-                            },
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 70,
-                      ),
-                      Column(
-                        children: [
-                          Text(
-                            "Latest News",
-                            style: GoogleFonts.inter(
-                              textStyle: const TextStyle(
-                                fontSize: 35.0,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 50,
-                          ),
-                          AnimateIfVisible(
-                            key: const Key('item.4'),
-                            duration: const Duration(milliseconds: 1000),
-                            builder: (BuildContext context,
-                                Animation<double> animation) {
-                              return FadeTransition(
-                                opacity: Tween<double>(
-                                  begin: 0,
-                                  end: 1,
-                                ).animate(animation),
-                                child: SlideTransition(
-                                  position: Tween<Offset>(
-                                    begin: const Offset(-0.1, 0),
-                                    end: Offset.zero,
-                                  ).animate(animation),
-                                  child: const LatestNews(),
-                                ),
-                              );
-                            },
-                          ),
-                        ],
-                      ),
-                      const Footer(),
-                    ],
-                  ),
-                ),
-              ),
+          ),
+          mobile: Scaffold(
+            appBar: AppBar(
+              leading: Container(
+                  margin: EdgeInsets.only(left: 5),
+                  child: Image.asset('assets/images/logo_header.png')),
+              backgroundColor: Colors.white,
+              iconTheme: IconThemeData(color: Color(0xff019CDE)),
             ),
-            mobile: AnimateIfVisibleWrapper(
+            endDrawer: MenuDraw(),
+            body: AnimateIfVisibleWrapper(
               showItemInterval: const Duration(milliseconds: 500),
               child: Container(
                 width: screenSize.width,

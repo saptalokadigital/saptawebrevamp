@@ -47,7 +47,7 @@ class _CardHomeState extends State<CardHome> {
                       title: "IT Solution",
                       image: "assets/images/image_1.png",
                       fct: () {
-                        context.go(itSolutionsRoute);
+                        /* context.go(itSolutionsRoute); */
                       },
                     ),
                   ),
@@ -101,7 +101,7 @@ class _CardHomeState extends State<CardHome> {
                       title: "IT Solution",
                       image: "assets/images/image_1.png",
                       fct: () {
-                        context.go(itSolutionsRoute);
+                        /* context.go(itSolutionsRoute); */
                       },
                     ),
                   ),
@@ -155,7 +155,7 @@ class _CardHomeState extends State<CardHome> {
                       title: "IT Solution",
                       image: "assets/images/image_1.png",
                       fct: () {
-                        context.go(itSolutionsRoute);
+                        /* context.go(itSolutionsRoute); */
                       },
                     ),
                   ),
@@ -219,7 +219,7 @@ class _CardHomeState extends State<CardHome> {
                       title: "IT Solution",
                       image: "assets/images/image_1.png",
                       fct: () {
-                        context.go(itSolutionsRoute);
+                        /* context.go(itSolutionsRoute); */
                       },
                     ),
                   ),

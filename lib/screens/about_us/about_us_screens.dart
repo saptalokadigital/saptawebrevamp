@@ -1,6 +1,7 @@
 import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:saptaloka_web_revamp/responsive.dart';
 import 'package:saptaloka_web_revamp/router_const.dart';
 import 'package:saptaloka_web_revamp/screens/about_us/widget/our_team.dart';
 import 'package:saptaloka_web_revamp/screens/about_us/widget/story_saptaloka.dart';
@@ -10,6 +11,8 @@ import 'package:saptaloka_web_revamp/widgets/footer.dart';
 import 'package:saptaloka_web_revamp/widgets/header_widget.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../widgets/drawer.dart';
 
 class AboutUsScreens extends StatefulWidget {
   const AboutUsScreens({super.key});
@@ -48,181 +51,584 @@ class _AboutUsScreensState extends State<AboutUsScreens> {
     var screenSize = MediaQuery.of(context).size;
     return Stack(
       children: [
-        Scaffold(
-          backgroundColor: Colors.white,
-          appBar: PreferredSize(
-            preferredSize: Size(screenSize.width, 70),
-            child: Container(
-              alignment: Alignment.topCenter,
-              width: screenSize.width,
-              color: Colors.white,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 50),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        context.go('/');
-                      },
-                      child: Container(
-                        height: 70,
-                        width: 70,
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage('assets/images/logo_header.png'),
-                            fit: BoxFit.fill,
+        Responsive(
+          large: Scaffold(
+            backgroundColor: Colors.white,
+            appBar: PreferredSize(
+              preferredSize: Size(screenSize.width, 70),
+              child: Container(
+                alignment: Alignment.topCenter,
+                width: screenSize.width,
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 50),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          context.go('/');
+                        },
+                        child: Container(
+                          height: 70,
+                          width: 70,
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                              image:
+                                  AssetImage('assets/images/logo_header.png'),
+                              fit: BoxFit.fill,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    const SizedBox(
-                      width: 60,
-                    ),
-                    Flexible(
-                      child: Stack(
-                        children: [
-                          TextButton(
-                            onHover: (value) {
-                              setState(() {
-                                value
-                                    ? _isHovering[0] = true
-                                    : _isHovering[0] = false;
-                              });
-                            },
-                            onPressed: () {
-                              context.go(aboutUsRoute);
-                            },
-                            child: Text(
-                              'About Us',
-                              style: GoogleFonts.inter(
-                                color: _isHovering[0]
-                                    ? const Color(0xff013088)
-                                    : const Color.fromARGB(255, 0, 0, 0),
-                              ),
-                            ),
-                          ),
-                        ],
+                      const SizedBox(
+                        width: 60,
                       ),
-                    ),
-                    const SizedBox(
-                      width: 33,
-                    ),
-                    _isHovering[1]
-                        ? InkWell(
-                            onHover: (value) {
-                              setState(() {
-                                value
-                                    ? _isHovering[1] = true
-                                    : _isHovering[1] = false;
-                              });
-                            },
-                            onTap: () {
-                              context.go(solutionsRoute);
-                            },
-                            child: Container(
-                              width: 95,
-                              child: Row(
-                                children: [
-                                  Text(
-                                    'Solutions',
-                                    style: GoogleFonts.inter(
-                                      color: Colors.transparent,
-                                    ),
-                                  ),
-                                  Icon(
-                                    Icons.arrow_drop_down,
-                                    color: Colors.transparent,
-                                  )
-                                ],
+                      Flexible(
+                        child: Stack(
+                          children: [
+                            TextButton(
+                              onHover: (value) {
+                                setState(() {
+                                  value
+                                      ? _isHovering[0] = true
+                                      : _isHovering[0] = false;
+                                });
+                              },
+                              onPressed: () {
+                                context.go(aboutUsRoute);
+                              },
+                              child: Text(
+                                'About Us',
+                                style: GoogleFonts.inter(
+                                  color: _isHovering[0]
+                                      ? const Color(0xff013088)
+                                      : const Color.fromARGB(255, 0, 0, 0),
+                                ),
                               ),
                             ),
-                          )
-                        : InkWell(
-                            onHover: (value) {
-                              setState(() {
-                                value
-                                    ? _isHovering[1] = true
-                                    : _isHovering[1] = false;
-                              });
-                            },
-                            onTap: () {
-                              context.go(solutionsRoute);
-                            },
-                            child: Container(
-                              width: 95,
-                              child: Row(
-                                children: [
-                                  Text(
-                                    'Solutions',
-                                    style: GoogleFonts.inter(
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 33,
+                      ),
+                      _isHovering[1]
+                          ? InkWell(
+                              onHover: (value) {
+                                setState(() {
+                                  value
+                                      ? _isHovering[1] = true
+                                      : _isHovering[1] = false;
+                                });
+                              },
+                              onTap: () {
+                                context.go(solutionsRoute);
+                              },
+                              child: Container(
+                                width: 95,
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      'Solutions',
+                                      style: GoogleFonts.inter(
+                                        color: Colors.transparent,
+                                      ),
+                                    ),
+                                    Icon(
+                                      Icons.arrow_drop_down,
+                                      color: Colors.transparent,
+                                    )
+                                  ],
+                                ),
+                              ),
+                            )
+                          : InkWell(
+                              onHover: (value) {
+                                setState(() {
+                                  value
+                                      ? _isHovering[1] = true
+                                      : _isHovering[1] = false;
+                                });
+                              },
+                              onTap: () {
+                                context.go(solutionsRoute);
+                              },
+                              child: Container(
+                                width: 95,
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      'Solutions',
+                                      style: GoogleFonts.inter(
+                                        color: _isHovering[1]
+                                            ? const Color(0xff013088)
+                                            : const Color.fromARGB(
+                                                255, 0, 0, 0),
+                                      ),
+                                    ),
+                                    Icon(
+                                      Icons.arrow_drop_down,
                                       color: _isHovering[1]
                                           ? const Color(0xff013088)
                                           : const Color.fromARGB(255, 0, 0, 0),
-                                    ),
-                                  ),
-                                  Icon(
-                                    Icons.arrow_drop_down,
-                                    color: _isHovering[1]
-                                        ? const Color(0xff013088)
-                                        : const Color.fromARGB(255, 0, 0, 0),
-                                  )
-                                ],
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                    SizedBox(width: 22),
-                    Flexible(
-                      child: TextButton(
-                        onHover: (value) {
-                          setState(() {
-                            value
-                                ? _isHovering[2] = true
-                                : _isHovering[2] = false;
-                          });
-                        },
-                        onPressed: () {
-                          context.go(contactUsRoute);
-                        },
-                        child: Text(
-                          'Contact Us',
-                          style: GoogleFonts.inter(
-                            color: _isHovering[2]
-                                ? const Color(0xff013088)
-                                : const Color.fromARGB(255, 0, 0, 0),
+                      SizedBox(width: 22),
+                      Flexible(
+                        child: TextButton(
+                          onHover: (value) {
+                            setState(() {
+                              value
+                                  ? _isHovering[2] = true
+                                  : _isHovering[2] = false;
+                            });
+                          },
+                          onPressed: () {
+                            context.go(contactUsRoute);
+                          },
+                          child: Text(
+                            'Contact Us',
+                            style: GoogleFonts.inter(
+                              color: _isHovering[2]
+                                  ? const Color(0xff013088)
+                                  : const Color.fromARGB(255, 0, 0, 0),
+                            ),
                           ),
                         ),
                       ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            body: AnimateIfVisibleWrapper(
+              showItemInterval: Duration(milliseconds: 500),
+              child: SingleChildScrollView(
+                controller: _scrollController,
+                child: Column(
+                  children: const [
+                    StorySaptaloka(),
+                    SizedBox(
+                      height: 50,
                     ),
+                    WeAreWedo(),
+                    SizedBox(
+                      height: 50,
+                    ),
+                    VisiMisi(),
+                    SizedBox(
+                      height: 50,
+                    ),
+                    SizedBox(
+                      height: 50,
+                    ),
+                    Footer()
                   ],
                 ),
               ),
             ),
           ),
-          body: AnimateIfVisibleWrapper(
-            showItemInterval: Duration(milliseconds: 500),
-            child: SingleChildScrollView(
-              controller: _scrollController,
-              child: Column(
-                children: const [
-                  StorySaptaloka(),
-                  SizedBox(
-                    height: 50,
+          desktop: Scaffold(
+            backgroundColor: Colors.white,
+            appBar: PreferredSize(
+              preferredSize: Size(screenSize.width, 70),
+              child: Container(
+                alignment: Alignment.topCenter,
+                width: screenSize.width,
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 50),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          context.go('/');
+                        },
+                        child: Container(
+                          height: 70,
+                          width: 70,
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                              image:
+                                  AssetImage('assets/images/logo_header.png'),
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 60,
+                      ),
+                      Flexible(
+                        child: Stack(
+                          children: [
+                            TextButton(
+                              onHover: (value) {
+                                setState(() {
+                                  value
+                                      ? _isHovering[0] = true
+                                      : _isHovering[0] = false;
+                                });
+                              },
+                              onPressed: () {
+                                context.go(aboutUsRoute);
+                              },
+                              child: Text(
+                                'About Us',
+                                style: GoogleFonts.inter(
+                                  color: _isHovering[0]
+                                      ? const Color(0xff013088)
+                                      : const Color.fromARGB(255, 0, 0, 0),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 33,
+                      ),
+                      _isHovering[1]
+                          ? InkWell(
+                              onHover: (value) {
+                                setState(() {
+                                  value
+                                      ? _isHovering[1] = true
+                                      : _isHovering[1] = false;
+                                });
+                              },
+                              onTap: () {
+                                context.go(solutionsRoute);
+                              },
+                              child: Container(
+                                width: 95,
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      'Solutions',
+                                      style: GoogleFonts.inter(
+                                        color: Colors.transparent,
+                                      ),
+                                    ),
+                                    Icon(
+                                      Icons.arrow_drop_down,
+                                      color: Colors.transparent,
+                                    )
+                                  ],
+                                ),
+                              ),
+                            )
+                          : InkWell(
+                              onHover: (value) {
+                                setState(() {
+                                  value
+                                      ? _isHovering[1] = true
+                                      : _isHovering[1] = false;
+                                });
+                              },
+                              onTap: () {
+                                context.go(solutionsRoute);
+                              },
+                              child: Container(
+                                width: 95,
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      'Solutions',
+                                      style: GoogleFonts.inter(
+                                        color: _isHovering[1]
+                                            ? const Color(0xff013088)
+                                            : const Color.fromARGB(
+                                                255, 0, 0, 0),
+                                      ),
+                                    ),
+                                    Icon(
+                                      Icons.arrow_drop_down,
+                                      color: _isHovering[1]
+                                          ? const Color(0xff013088)
+                                          : const Color.fromARGB(255, 0, 0, 0),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                      SizedBox(width: 22),
+                      Flexible(
+                        child: TextButton(
+                          onHover: (value) {
+                            setState(() {
+                              value
+                                  ? _isHovering[2] = true
+                                  : _isHovering[2] = false;
+                            });
+                          },
+                          onPressed: () {
+                            context.go(contactUsRoute);
+                          },
+                          child: Text(
+                            'Contact Us',
+                            style: GoogleFonts.inter(
+                              color: _isHovering[2]
+                                  ? const Color(0xff013088)
+                                  : const Color.fromARGB(255, 0, 0, 0),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                  WeAreWedo(),
-                  SizedBox(
-                    height: 50,
+                ),
+              ),
+            ),
+            body: AnimateIfVisibleWrapper(
+              showItemInterval: Duration(milliseconds: 500),
+              child: SingleChildScrollView(
+                controller: _scrollController,
+                child: Column(
+                  children: const [
+                    StorySaptaloka(),
+                    SizedBox(
+                      height: 50,
+                    ),
+                    WeAreWedo(),
+                    SizedBox(
+                      height: 50,
+                    ),
+                    VisiMisi(),
+                    SizedBox(
+                      height: 50,
+                    ),
+                    SizedBox(
+                      height: 50,
+                    ),
+                    Footer()
+                  ],
+                ),
+              ),
+            ),
+          ),
+          tablet: Scaffold(
+            backgroundColor: Colors.white,
+            appBar: PreferredSize(
+              preferredSize: Size(screenSize.width, 70),
+              child: Container(
+                alignment: Alignment.topCenter,
+                width: screenSize.width,
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 50),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          context.go('/');
+                        },
+                        child: Container(
+                          height: 70,
+                          width: 70,
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                              image:
+                                  AssetImage('assets/images/logo_header.png'),
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 60,
+                      ),
+                      Flexible(
+                        child: Stack(
+                          children: [
+                            TextButton(
+                              onHover: (value) {
+                                setState(() {
+                                  value
+                                      ? _isHovering[0] = true
+                                      : _isHovering[0] = false;
+                                });
+                              },
+                              onPressed: () {
+                                context.go(aboutUsRoute);
+                              },
+                              child: Text(
+                                'About Us',
+                                style: GoogleFonts.inter(
+                                  color: _isHovering[0]
+                                      ? const Color(0xff013088)
+                                      : const Color.fromARGB(255, 0, 0, 0),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 33,
+                      ),
+                      _isHovering[1]
+                          ? InkWell(
+                              onHover: (value) {
+                                setState(() {
+                                  value
+                                      ? _isHovering[1] = true
+                                      : _isHovering[1] = false;
+                                });
+                              },
+                              onTap: () {
+                                context.go(solutionsRoute);
+                              },
+                              child: Container(
+                                width: 95,
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      'Solutions',
+                                      style: GoogleFonts.inter(
+                                        color: Colors.transparent,
+                                      ),
+                                    ),
+                                    Icon(
+                                      Icons.arrow_drop_down,
+                                      color: Colors.transparent,
+                                    )
+                                  ],
+                                ),
+                              ),
+                            )
+                          : InkWell(
+                              onHover: (value) {
+                                setState(() {
+                                  value
+                                      ? _isHovering[1] = true
+                                      : _isHovering[1] = false;
+                                });
+                              },
+                              onTap: () {
+                                context.go(solutionsRoute);
+                              },
+                              child: Container(
+                                width: 95,
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      'Solutions',
+                                      style: GoogleFonts.inter(
+                                        color: _isHovering[1]
+                                            ? const Color(0xff013088)
+                                            : const Color.fromARGB(
+                                                255, 0, 0, 0),
+                                      ),
+                                    ),
+                                    Icon(
+                                      Icons.arrow_drop_down,
+                                      color: _isHovering[1]
+                                          ? const Color(0xff013088)
+                                          : const Color.fromARGB(255, 0, 0, 0),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                      SizedBox(width: 22),
+                      Flexible(
+                        child: TextButton(
+                          onHover: (value) {
+                            setState(() {
+                              value
+                                  ? _isHovering[2] = true
+                                  : _isHovering[2] = false;
+                            });
+                          },
+                          onPressed: () {
+                            context.go(contactUsRoute);
+                          },
+                          child: Text(
+                            'Contact Us',
+                            style: GoogleFonts.inter(
+                              color: _isHovering[2]
+                                  ? const Color(0xff013088)
+                                  : const Color.fromARGB(255, 0, 0, 0),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                  VisiMisi(),
-                  SizedBox(
-                    height: 50,
-                  ),
-                  SizedBox(
-                    height: 50,
-                  ),
-                  Footer()
-                ],
+                ),
+              ),
+            ),
+            body: AnimateIfVisibleWrapper(
+              showItemInterval: Duration(milliseconds: 500),
+              child: SingleChildScrollView(
+                controller: _scrollController,
+                child: Column(
+                  children: const [
+                    StorySaptaloka(),
+                    SizedBox(
+                      height: 50,
+                    ),
+                    WeAreWedo(),
+                    SizedBox(
+                      height: 50,
+                    ),
+                    VisiMisi(),
+                    SizedBox(
+                      height: 50,
+                    ),
+                    SizedBox(
+                      height: 50,
+                    ),
+                    Footer()
+                  ],
+                ),
+              ),
+            ),
+          ),
+          mobile: Scaffold(
+            backgroundColor: Colors.white,
+            appBar: AppBar(
+              leading: Container(
+                  margin: EdgeInsets.only(left: 5),
+                  child: Image.asset('assets/images/logo_header.png')),
+              backgroundColor: Colors.white,
+              iconTheme: IconThemeData(color: Color(0xff019CDE)),
+            ),
+            endDrawer: MenuDraw(),
+            body: AnimateIfVisibleWrapper(
+              showItemInterval: Duration(milliseconds: 500),
+              child: SingleChildScrollView(
+                controller: _scrollController,
+                child: Column(
+                  children: const [
+                    StorySaptaloka(),
+                    SizedBox(
+                      height: 50,
+                    ),
+                    WeAreWedo(),
+                    SizedBox(
+                      height: 50,
+                    ),
+                    VisiMisi(),
+                    SizedBox(
+                      height: 50,
+                    ),
+                    SizedBox(
+                      height: 50,
+                    ),
+                    Footer()
+                  ],
+                ),
               ),
             ),
           ),
