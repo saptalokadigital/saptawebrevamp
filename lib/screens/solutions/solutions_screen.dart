@@ -236,6 +236,7 @@ class _SolutionsScreenState extends State<SolutionsScreen> {
                                 style: GoogleFonts.inter(
                                   textStyle: const TextStyle(
                                     fontSize: 35.0,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
                               ),
@@ -352,7 +353,7 @@ class _SolutionsScreenState extends State<SolutionsScreen> {
                                                   });
                                                 },
                                                 onPressed: () {
-                                                  context.go(itSolutionsRoute);
+                                                  /* context.go(itSolutionsRoute); */
                                                 },
                                                 child: Text(
                                                   'IT Solution',

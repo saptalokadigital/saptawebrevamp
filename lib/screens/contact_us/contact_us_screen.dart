@@ -205,12 +205,17 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
               controller: _scrollController,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   FormContactUs(),
                   SizedBox(
                     height: 50.0,
                   ),
-                  MapsWidget(),
+                  //MapsWidget(),
+                  Container(
+                    height: 450,
+                    width: MediaQuery.of(context).size.width,
+                    child: Image.asset('assets/images/Untitled.png'),
+                  ),
                   SizedBox(
                     height: 65.0,
                   ),
@@ -314,7 +319,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                                                   });
                                                 },
                                                 onPressed: () {
-                                                  context.go(itSolutionsRoute);
+                                                  /* context.go(itSolutionsRoute); */
                                                 },
                                                 child: Text(
                                                   'IT Solution',

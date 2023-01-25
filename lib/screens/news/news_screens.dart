@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:saptaloka_web_revamp/router_const.dart';
 import 'package:saptaloka_web_revamp/widgets/footer.dart';
 import 'package:auto_animated/auto_animated.dart';
+import 'package:styled_text/styled_text.dart';
 
 class NewsScreens extends StatefulWidget {
   String? id;
@@ -234,13 +235,31 @@ class _NewsScreensState extends State<NewsScreens> {
                                         SizedBox(
                                           height: 40,
                                         ),
-                                        Text(
-                                          snapshot.data!['deskripsi'],
+                                        StyledText(
+                                          text: snapshot.data!['deskripsi'],
                                           style: GoogleFonts.inter(
                                             fontSize: 20,
                                             color:
                                                 Color.fromARGB(255, 58, 60, 63),
                                           ),
+                                          tags: {
+                                            'title': StyledTextTag(
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 25,
+                                              ),
+                                            ),
+                                            'bold': StyledTextTag(
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                            'italic': StyledTextTag(
+                                              style: TextStyle(
+                                                fontStyle: FontStyle.italic,
+                                              ),
+                                            ),
+                                          },
                                         ),
                                       ],
                                     ),

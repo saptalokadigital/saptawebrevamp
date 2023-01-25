@@ -924,7 +924,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   });
                                                 },
                                                 onPressed: () {
-                                                  context.go(itSolutionsRoute);
+                                                  /* context.go(itSolutionsRoute); */
                                                 },
                                                 child: Text(
                                                   'IT Solution',
@@ -990,8 +990,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   });
                                                 },
                                                 onPressed: () {
-                                                  context.go(
-                                                      '/Solutions/ITSolution');
+                                                  /* context.go(
+                                                      '/Solutions/ITSolution'); */
                                                 },
                                                 child: Text(
                                                   'Digital Marketing',

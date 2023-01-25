@@ -145,12 +145,11 @@ class _FormContactUsState extends State<FormContactUs> {
                       });
                     },
                     items: <String>[
-                      'Where do you her about us?',
-                      'Google',
-                      'Online News',
-                      'Connections',
-                      'Newspaper / Magazine',
-                      'Brochure / Pamphlet',
+                      'Where do you hear about us?',
+                      'Multiplatform Apps',
+                      'ERP',
+                      'MES',
+                      'Software Development',
                       'Others'
                     ].map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(

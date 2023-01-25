@@ -240,7 +240,7 @@ class _ItSolutionScreenState extends State<ItSolutionScreen> {
                                   height: 20,
                                 ),
                                 Text(
-                                  'Sistem yang telah dikembangkan melalui teknologi digital membuat sebuah perusaahan dapat bergerak lebih maju menjadi yang terbaik hehehe',
+                                  'Development of websites, multiplatform software (web, mobile and desktop apps) and games',
                                   style: GoogleFonts.inter(
                                     fontSize: 25,
                                     color: Color.fromARGB(255, 58, 60, 63),
@@ -1156,7 +1156,7 @@ class _ItSolutionScreenState extends State<ItSolutionScreen> {
                                                   });
                                                 },
                                                 onPressed: () {
-                                                  context.go(itSolutionsRoute);
+                                                  /* context.go(itSolutionsRoute); */
                                                 },
                                                 child: Text(
                                                   'IT Solution',
