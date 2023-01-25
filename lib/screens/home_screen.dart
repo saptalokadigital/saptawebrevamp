@@ -282,10 +282,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       Column(
                         children: [
                           Text(
-                            "Our Satisfied Client",
+                            "Our Client",
                             style: GoogleFonts.inter(
                               textStyle: const TextStyle(
                                 fontSize: 35.0,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
@@ -324,6 +325,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             style: GoogleFonts.inter(
                               textStyle: const TextStyle(
                                 fontSize: 35.0,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
@@ -435,10 +437,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       Column(
                         children: [
                           Text(
-                            "Our Satisfied Client",
+                            "Our Client",
                             style: GoogleFonts.inter(
                               textStyle: const TextStyle(
                                 fontSize: 35.0,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
@@ -477,6 +480,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             style: GoogleFonts.inter(
                               textStyle: const TextStyle(
                                 fontSize: 35.0,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
@@ -588,10 +592,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       Column(
                         children: [
                           Text(
-                            "Our Satisfied Client",
+                            "Our Client",
                             style: GoogleFonts.inter(
                               textStyle: const TextStyle(
                                 fontSize: 35.0,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
@@ -630,6 +635,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             style: GoogleFonts.inter(
                               textStyle: const TextStyle(
                                 fontSize: 35.0,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
@@ -741,10 +747,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       Column(
                         children: [
                           Text(
-                            "Our Satisfied Client",
+                            "Our Client",
                             style: GoogleFonts.inter(
                               textStyle: const TextStyle(
                                 fontSize: 35.0,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
@@ -783,6 +790,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             style: GoogleFonts.inter(
                               textStyle: const TextStyle(
                                 fontSize: 35.0,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),

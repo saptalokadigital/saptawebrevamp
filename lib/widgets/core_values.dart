@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:saptaloka_web_revamp/responsive.dart';
+import 'package:styled_text/styled_text.dart';
 
 class CoreValues extends StatelessWidget {
   const CoreValues({super.key});
@@ -18,7 +19,8 @@ class CoreValues extends StatelessWidget {
               height: 800,
               decoration: const BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage("assets/images/image_1.png"),
+                      image: AssetImage(
+                          "assets/images/teamwork-power-successful-business-meeting-workplace-concept.jpg"),
                       fit: BoxFit.cover)),
             ),
             Container(
@@ -36,7 +38,7 @@ class CoreValues extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(right: 250, top: 50),
+              padding: const EdgeInsets.only(right: 500, top: 50),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -48,64 +50,100 @@ class CoreValues extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Text("Core Values: ALIVES",
-                                  style: GoogleFonts.inter(
-                                    fontSize: 25,
-                                    color: Color(0xff013088),
-                                  ))
+                              StyledText(
+                                text:
+                                    "Core Values of <bold>Saptaloka Digital</bold>",
+                                style: GoogleFonts.poppins(
+                                  fontSize: 25,
+                                  color: const Color(0xff013088),
+                                ),
+                                tags: {
+                                  'bold': StyledTextTag(
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                },
+                              ),
                             ],
                           ),
                         ),
-                        SizedBox(
-                          height: 25,
+                        const SizedBox(
+                          height: 35,
                         ),
-                        ItemCoreValues(
+                        Container(
+                          child: Stack(
+                            children: [
+                              Text("' ALIVES '",
+                                  style: GoogleFonts.inter(
+                                    fontSize: 32,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 15,
+                                    foreground: Paint()
+                                      ..style = PaintingStyle.stroke
+                                      ..strokeWidth = 10
+                                      ..color = const Color(0xff019CDE),
+                                  )),
+                              Text("' ALIVES '",
+                                  style: GoogleFonts.inter(
+                                    fontSize: 32,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 15,
+                                    color: Colors.white,
+                                  )),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 35,
+                        ),
+                        const ItemCoreValues(
                           fontSize: 30,
                           fontSize2: 15,
                           title: "Amanah",
                           deskripsi:
                               "Saptaloka Digital memengang teguh kepercayaan yang diberikan.",
                         ),
-                        SizedBox(
-                          height: 25,
+                        const SizedBox(
+                          height: 20,
                         ),
-                        ItemCoreValues(
+                        const ItemCoreValues(
                             fontSize: 30,
                             fontSize2: 15,
                             title: "Loyal",
                             deskripsi:
                                 "Saptaloka Digital berdedikasi untuk mendigitalisasikan perusahaan yang ada di seluruh Indonesia."),
-                        SizedBox(
-                          height: 25,
+                        const SizedBox(
+                          height: 20,
                         ),
-                        ItemCoreValues(
+                        const ItemCoreValues(
                             fontSize: 30,
                             fontSize2: 15,
                             title: "Innovative",
                             deskripsi:
                                 "Saptaloka Digital terus berinovasi mengembangkan produk IT dalam memajukan teknologi di Indonesia."),
-                        SizedBox(
-                          height: 25,
+                        const SizedBox(
+                          height: 20,
                         ),
-                        ItemCoreValues(
+                        const ItemCoreValues(
                             fontSize: 30,
                             fontSize2: 15,
                             title: "Visioner",
                             deskripsi:
                                 "Saptaloka Digital menciptakan produk IT yang baru untuk era 5.0 mendatang."),
-                        SizedBox(
-                          height: 25,
+                        const SizedBox(
+                          height: 20,
                         ),
-                        ItemCoreValues(
+                        const ItemCoreValues(
                             fontSize: 30,
                             fontSize2: 15,
                             title: "Enthusiastic",
                             deskripsi:
                                 "Saptaloka Digital antusias dalam menggerakkan ataupun menghadapi perubahan teknologi."),
-                        SizedBox(
-                          height: 25,
+                        const SizedBox(
+                          height: 20,
                         ),
-                        ItemCoreValues(
+                        const ItemCoreValues(
                             fontSize: 30,
                             fontSize2: 15,
                             title: "Solutive",
@@ -130,7 +168,8 @@ class CoreValues extends StatelessWidget {
               height: 800,
               decoration: const BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage("assets/images/image_1.png"),
+                      image: AssetImage(
+                          "assets/images/teamwork-power-successful-business-meeting-workplace-concept.jpg"),
                       fit: BoxFit.cover)),
             ),
             Container(
@@ -160,64 +199,100 @@ class CoreValues extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Text("Core Values: ALIVES",
-                                  style: GoogleFonts.inter(
-                                    fontSize: 25,
-                                    color: Color(0xff013088),
-                                  ))
+                              StyledText(
+                                text:
+                                    "Core Values of <bold>Saptaloka Digital</bold>",
+                                style: GoogleFonts.poppins(
+                                  fontSize: 25,
+                                  color: const Color(0xff013088),
+                                ),
+                                tags: {
+                                  'bold': StyledTextTag(
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                },
+                              ),
                             ],
                           ),
                         ),
-                        SizedBox(
-                          height: 25,
+                        const SizedBox(
+                          height: 35,
                         ),
-                        ItemCoreValues(
+                        Container(
+                          child: Stack(
+                            children: [
+                              Text("' ALIVES '",
+                                  style: GoogleFonts.inter(
+                                    fontSize: 32,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 15,
+                                    foreground: Paint()
+                                      ..style = PaintingStyle.stroke
+                                      ..strokeWidth = 10
+                                      ..color = const Color(0xff019CDE),
+                                  )),
+                              Text("' ALIVES '",
+                                  style: GoogleFonts.inter(
+                                    fontSize: 32,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 15,
+                                    color: Colors.white,
+                                  )),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 35,
+                        ),
+                        const ItemCoreValues(
                           fontSize: 30,
                           fontSize2: 15,
                           title: "Amanah",
                           deskripsi:
                               "Saptaloka Digital memengang teguh kepercayaan yang diberikan.",
                         ),
-                        SizedBox(
-                          height: 25,
+                        const SizedBox(
+                          height: 20,
                         ),
-                        ItemCoreValues(
+                        const ItemCoreValues(
                             fontSize: 30,
                             fontSize2: 15,
                             title: "Loyal",
                             deskripsi:
                                 "Saptaloka Digital berdedikasi untuk mendigitalisasikan perusahaan yang ada di seluruh Indonesia."),
-                        SizedBox(
-                          height: 25,
+                        const SizedBox(
+                          height: 20,
                         ),
-                        ItemCoreValues(
+                        const ItemCoreValues(
                             fontSize: 30,
                             fontSize2: 15,
                             title: "Innovative",
                             deskripsi:
                                 "Saptaloka Digital terus berinovasi mengembangkan produk IT dalam memajukan teknologi di Indonesia."),
-                        SizedBox(
-                          height: 25,
+                        const SizedBox(
+                          height: 20,
                         ),
-                        ItemCoreValues(
+                        const ItemCoreValues(
                             fontSize: 30,
                             fontSize2: 15,
                             title: "Visioner",
                             deskripsi:
                                 "Saptaloka Digital menciptakan produk IT yang baru untuk era 5.0 mendatang."),
-                        SizedBox(
-                          height: 25,
+                        const SizedBox(
+                          height: 20,
                         ),
-                        ItemCoreValues(
+                        const ItemCoreValues(
                             fontSize: 30,
                             fontSize2: 15,
                             title: "Enthusiastic",
                             deskripsi:
                                 "Saptaloka Digital antusias dalam menggerakkan ataupun menghadapi perubahan teknologi."),
-                        SizedBox(
-                          height: 25,
+                        const SizedBox(
+                          height: 20,
                         ),
-                        ItemCoreValues(
+                        const ItemCoreValues(
                             fontSize: 30,
                             fontSize2: 15,
                             title: "Solutive",
@@ -242,7 +317,8 @@ class CoreValues extends StatelessWidget {
               height: 800,
               decoration: const BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage("assets/images/image_1.png"),
+                      image: AssetImage(
+                          "assets/images/teamwork-power-successful-business-meeting-workplace-concept.jpg"),
                       fit: BoxFit.cover)),
             ),
             Container(
@@ -272,64 +348,100 @@ class CoreValues extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Text("Core Values: ALIVES",
-                                  style: GoogleFonts.inter(
-                                    fontSize: 25,
-                                    color: Color(0xff013088),
-                                  ))
+                              StyledText(
+                                text:
+                                    "Core Values of <bold>Saptaloka Digital</bold>",
+                                style: GoogleFonts.poppins(
+                                  fontSize: 25,
+                                  color: const Color(0xff013088),
+                                ),
+                                tags: {
+                                  'bold': StyledTextTag(
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                },
+                              ),
                             ],
                           ),
                         ),
-                        SizedBox(
-                          height: 25,
+                        const SizedBox(
+                          height: 35,
                         ),
-                        ItemCoreValues(
+                        Container(
+                          child: Stack(
+                            children: [
+                              Text("' ALIVES '",
+                                  style: GoogleFonts.inter(
+                                    fontSize: 32,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 15,
+                                    foreground: Paint()
+                                      ..style = PaintingStyle.stroke
+                                      ..strokeWidth = 10
+                                      ..color = const Color(0xff019CDE),
+                                  )),
+                              Text("' ALIVES '",
+                                  style: GoogleFonts.inter(
+                                    fontSize: 32,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 15,
+                                    color: Colors.white,
+                                  )),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 35,
+                        ),
+                        const ItemCoreValues(
                           fontSize: 30,
                           fontSize2: 15,
                           title: "Amanah",
                           deskripsi:
                               "Saptaloka Digital memengang teguh kepercayaan yang diberikan.",
                         ),
-                        SizedBox(
-                          height: 25,
+                        const SizedBox(
+                          height: 20,
                         ),
-                        ItemCoreValues(
+                        const ItemCoreValues(
                             fontSize: 30,
                             fontSize2: 15,
                             title: "Loyal",
                             deskripsi:
                                 "Saptaloka Digital berdedikasi untuk mendigitalisasikan perusahaan yang ada di seluruh Indonesia."),
-                        SizedBox(
-                          height: 25,
+                        const SizedBox(
+                          height: 20,
                         ),
-                        ItemCoreValues(
+                        const ItemCoreValues(
                             fontSize: 30,
                             fontSize2: 15,
                             title: "Innovative",
                             deskripsi:
                                 "Saptaloka Digital terus berinovasi mengembangkan produk IT dalam memajukan teknologi di Indonesia."),
-                        SizedBox(
-                          height: 25,
+                        const SizedBox(
+                          height: 20,
                         ),
-                        ItemCoreValues(
+                        const ItemCoreValues(
                             fontSize: 30,
                             fontSize2: 15,
                             title: "Visioner",
                             deskripsi:
                                 "Saptaloka Digital menciptakan produk IT yang baru untuk era 5.0 mendatang."),
-                        SizedBox(
-                          height: 25,
+                        const SizedBox(
+                          height: 20,
                         ),
-                        ItemCoreValues(
+                        const ItemCoreValues(
                             fontSize: 30,
                             fontSize2: 15,
                             title: "Enthusiastic",
                             deskripsi:
                                 "Saptaloka Digital antusias dalam menggerakkan ataupun menghadapi perubahan teknologi."),
-                        SizedBox(
-                          height: 25,
+                        const SizedBox(
+                          height: 20,
                         ),
-                        ItemCoreValues(
+                        const ItemCoreValues(
                             fontSize: 30,
                             fontSize2: 15,
                             title: "Solutive",
@@ -384,65 +496,100 @@ class CoreValues extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Text("Core Values: ALIVES",
-                                  style: GoogleFonts.inter(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                    color: Color(0xff013088),
-                                  ))
+                              StyledText(
+                                text:
+                                    "Core Values of <bold>Saptaloka Digital</bold>",
+                                style: GoogleFonts.poppins(
+                                  fontSize: 12,
+                                  color: const Color(0xff013088),
+                                ),
+                                tags: {
+                                  'bold': StyledTextTag(
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                },
+                              ),
                             ],
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 25,
                         ),
-                        ItemCoreValues(
+                        Container(
+                          child: Stack(
+                            children: [
+                              Text("'ALIVES'",
+                                  style: GoogleFonts.inter(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 10,
+                                    foreground: Paint()
+                                      ..style = PaintingStyle.stroke
+                                      ..strokeWidth = 10
+                                      ..color = const Color(0xff019CDE),
+                                  )),
+                              Text("'ALIVES'",
+                                  style: GoogleFonts.inter(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 10,
+                                    color: Colors.white,
+                                  )),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        const ItemCoreValues(
                           fontSize: 20,
                           fontSize2: 10,
                           title: "Amanah",
                           deskripsi:
                               "Saptaloka Digital memengang teguh kepercayaan yang diberikan.",
                         ),
-                        SizedBox(
-                          height: 25,
+                        const SizedBox(
+                          height: 20,
                         ),
-                        ItemCoreValues(
+                        const ItemCoreValues(
                             fontSize: 20,
                             fontSize2: 10,
                             title: "Loyal",
                             deskripsi:
                                 "Saptaloka Digital berdedikasi untuk mendigitalisasikan perusahaan yang ada di seluruh Indonesia."),
-                        SizedBox(
-                          height: 25,
+                        const SizedBox(
+                          height: 20,
                         ),
-                        ItemCoreValues(
+                        const ItemCoreValues(
                             fontSize: 20,
                             fontSize2: 10,
                             title: "Innovative",
                             deskripsi:
                                 "Saptaloka Digital terus berinovasi mengembangkan produk IT dalam memajukan teknologi di Indonesia."),
-                        SizedBox(
-                          height: 25,
+                        const SizedBox(
+                          height: 20,
                         ),
-                        ItemCoreValues(
+                        const ItemCoreValues(
                             fontSize: 20,
                             fontSize2: 10,
                             title: "Visioner",
                             deskripsi:
                                 "Saptaloka Digital menciptakan produk IT yang baru untuk era 5.0 mendatang."),
-                        SizedBox(
-                          height: 25,
+                        const SizedBox(
+                          height: 20,
                         ),
-                        ItemCoreValues(
+                        const ItemCoreValues(
                             fontSize: 20,
                             fontSize2: 10,
                             title: "Enthusiastic",
                             deskripsi:
                                 "Saptaloka Digital antusias dalam menggerakkan ataupun menghadapi perubahan teknologi."),
-                        SizedBox(
-                          height: 25,
+                        const SizedBox(
+                          height: 20,
                         ),
-                        ItemCoreValues(
+                        const ItemCoreValues(
                             fontSize: 20,
                             fontSize2: 10,
                             title: "Solutive",
@@ -489,7 +636,7 @@ class ItemCoreValues extends StatelessWidget {
                   Text(title,
                       style: GoogleFonts.inter(
                         fontSize: fontSize,
-                        color: Color(0xff013088),
+                        color: const Color(0xff013088),
                         fontWeight: FontWeight.bold,
                       ))
                 ],
