@@ -361,7 +361,7 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
                             ).animate(animation),
                             child: CardSolution(
                               fct: () {
-                                context.go(itSolutionsRoute);
+                                /* context.go(itSolutionsRoute); */
                               },
                               title: "IT Solution",
                               image: "assets/images/image_1.png",

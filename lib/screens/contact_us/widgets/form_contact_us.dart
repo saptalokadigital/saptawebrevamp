@@ -22,7 +22,7 @@ class _FormContactUsState extends State<FormContactUs> {
     false,
     false
   ];
-  String dropdownvalue = 'Where do you her about us?';
+  String dropdownvalue = 'Where do you hear about us?';
   @override
   Widget build(BuildContext context) {
     return Responsive(
@@ -145,12 +145,11 @@ class _FormContactUsState extends State<FormContactUs> {
                       });
                     },
                     items: <String>[
-                      'Where do you her about us?',
-                      'Google',
-                      'Online News',
-                      'Connections',
-                      'Newspaper / Magazine',
-                      'Brochure / Pamphlet',
+                      'Where do you hear about us?',
+                      'Multiplatform Apps',
+                      'ERP',
+                      'MES',
+                      'Software Development',
                       'Others'
                     ].map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
@@ -359,12 +358,11 @@ please contact us""",
                       });
                     },
                     items: <String>[
-                      'Where do you her about us?',
-                      'Google',
-                      'Online News',
-                      'Connections',
-                      'Newspaper / Magazine',
-                      'Brochure / Pamphlet',
+                      'Where do you hear about us?',
+                      'Multiplatform Apps',
+                      'ERP',
+                      'MES',
+                      'Software Development',
                       'Others'
                     ].map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
@@ -575,12 +573,11 @@ please contact us""",
                       });
                     },
                     items: <String>[
-                      'Where do you her about us?',
-                      'Google',
-                      'Online News',
-                      'Connections',
-                      'Newspaper / Magazine',
-                      'Brochure / Pamphlet',
+                      'Where do you hear about us?',
+                      'Multiplatform Apps',
+                      'ERP',
+                      'MES',
+                      'Software Development',
                       'Others'
                     ].map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
@@ -791,12 +788,11 @@ please contact us""",
                       });
                     },
                     items: <String>[
-                      'Where do you her about us?',
-                      'Google',
-                      'Online News',
-                      'Connections',
-                      'Newspaper / Magazine',
-                      'Brochure / Pamphlet',
+                      'Where do you hear about us?',
+                      'Multiplatform Apps',
+                      'ERP',
+                      'MES',
+                      'Software Development',
                       'Others'
                     ].map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(

@@ -587,7 +587,7 @@ class CoreValues extends StatelessWidget {
                             deskripsi:
                                 "Saptaloka Digital antusias dalam menggerakkan ataupun menghadapi perubahan teknologi."),
                         const SizedBox(
-                          height: 20,
+                          height: 2,
                         ),
                         const ItemCoreValues(
                             fontSize: 20,

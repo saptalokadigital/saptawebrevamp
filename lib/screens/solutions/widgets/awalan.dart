@@ -95,7 +95,7 @@ class Awalan extends StatelessWidget {
                             end: Offset.zero,
                           ).animate(animation),
                           child: Text(
-                            'Untuk mendukung pertumbuhan perusahaan dari berbagai industri, kami terus bekerja secara maksimal melalui produk dan layanan yang kami miliki.',
+                            'We continue to work optimally through the products and services we have to support your business growth.',
                             style: GoogleFonts.inter(
                               fontSize: 20,
                               color: Color.fromARGB(255, 58, 60, 63),
@@ -205,7 +205,7 @@ class Awalan extends StatelessWidget {
                             end: Offset.zero,
                           ).animate(animation),
                           child: Text(
-                            'Untuk mendukung pertumbuhan perusahaan dari berbagai industri, kami terus bekerja secara maksimal melalui produk dan layanan yang kami miliki.',
+                            'We continue to work optimally through the products and services we have to support your business growth.',
                             style: GoogleFonts.inter(
                               fontSize: 20,
                               color: Color.fromARGB(255, 58, 60, 63),
@@ -315,7 +315,7 @@ class Awalan extends StatelessWidget {
                             end: Offset.zero,
                           ).animate(animation),
                           child: Text(
-                            'Kami terus bekerja secara maksimal melalui produk dan layanan yang kami miliki untuk mendukung pertumbuhan bisnis Anda.',
+                            'We continue to work optimally through the products and services we have to support your business growth.',
                             style: GoogleFonts.inter(
                               fontSize: 25,
                               color: Color.fromARGB(255, 58, 60, 63),
@@ -425,7 +425,7 @@ class Awalan extends StatelessWidget {
                             end: Offset.zero,
                           ).animate(animation),
                           child: Text(
-                            'Kami terus bekerja secara maksimal melalui produk dan layanan yang kami miliki untuk mendukung pertumbuhan bisnis Anda.',
+                            'We continue to work optimally through the products and services we have to support your business growth.',
                             style: GoogleFonts.inter(
                               fontSize: 25,
                               color: Color.fromARGB(255, 58, 60, 63),

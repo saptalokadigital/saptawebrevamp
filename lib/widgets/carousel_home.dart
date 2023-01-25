@@ -611,10 +611,10 @@ class _CarouselHomeState extends State<CarouselHome> {
         ),
       ),
       mobile: Padding(
-        padding: const EdgeInsets.only(top: 30, left: 10, right: 10),
+        padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
         child: Container(
           width: MediaQuery.of(context).size.width,
-          height: 558,
+          height: 500,
           child: StreamBuilder<QuerySnapshot>(
             stream: ref.snapshots(),
             builder: (context, snapshot) {
@@ -632,82 +632,57 @@ class _CarouselHomeState extends State<CarouselHome> {
 
                     String imageUrl = homeInfo['imageUrl'];
 
-                    return AnimatedContainer(
-                      height: 500,
-                      curve: Curves.easeInOut,
-                      duration: const Duration(milliseconds: 500),
-                      transform: Matrix4.translationValues(0, 1, 0),
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
-                      ),
-                      child: Stack(
-                        clipBehavior: Clip.none,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Expanded(
-                                child: Container(
-                                  margin: EdgeInsets.only(top: 150),
-                                  width: MediaQuery.of(context).size.width,
-                                  height: 500,
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        image: NetworkImage(imageUrl),
-                                        colorFilter: ColorFilter.mode(
-                                            Colors.white.withOpacity(0.85),
-                                            BlendMode.dstATop),
-                                        fit: BoxFit.contain),
-                                  ),
-                                )
-                                    .animate()
-                                    .slideX(delay: 1000.ms)
-                                    .fade(duration: 1000.ms),
-                              ),
-                            ],
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          judul,
+                          textAlign: TextAlign.left,
+                          style: GoogleFonts.inter(
+                            color: Color(0xff013088),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 32,
                           ),
-                          Container(
-                            width: MediaQuery.of(context).size.width,
-                            height: 500,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Text(
-                                  judul,
-                                  textAlign: TextAlign.left,
-                                  style: GoogleFonts.inter(
-                                    color: Color(0xff013088),
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 32,
-                                  ),
-                                )
-                                    .animate()
-                                    .slideY(delay: 1500.ms)
-                                    .fade(duration: 1500.ms),
-                                const SizedBox(
-                                  height: 30,
-                                ),
-                                Text(
-                                  desc,
-                                  maxLines: 10,
-                                  style: GoogleFonts.inter(
-                                    color: Colors.black,
-                                    fontSize: 14,
-                                  ),
-                                )
-                                    .animate()
-                                    .slideY(delay: 1500.ms)
-                                    .fade(duration: 1500.ms),
-                              ],
-                            ),
+                        )
+                            .animate()
+                            .slideY(delay: 1500.ms)
+                            .fade(duration: 1500.ms),
+                        Container(
+                          margin: EdgeInsets.only(top: 20),
+                          width: MediaQuery.of(context).size.width,
+                          height: 200,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: NetworkImage(imageUrl),
+                                colorFilter: ColorFilter.mode(
+                                    Colors.white.withOpacity(0.85),
+                                    BlendMode.dstATop),
+                                fit: BoxFit.cover),
                           ),
-                        ],
-                      ),
+                        )
+                            .animate()
+                            .slideX(delay: 1000.ms)
+                            .fade(duration: 1000.ms),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        Text(
+                          desc,
+                          maxLines: 10,
+                          style: GoogleFonts.inter(
+                            color: Colors.black,
+                            fontSize: 14,
+                          ),
+                        )
+                            .animate()
+                            .slideY(delay: 1500.ms)
+                            .fade(duration: 1500.ms),
+                      ],
                     );
                   },
                   options: CarouselOptions(
-                    height: 500,
+                    height: 600,
                     initialPage: 0,
                     autoPlay: true,
                     autoPlayInterval: const Duration(seconds: 5),
