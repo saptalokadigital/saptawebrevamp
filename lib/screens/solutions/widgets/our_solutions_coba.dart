@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:saptaloka_web_revamp/responsive.dart';
 import 'package:saptaloka_web_revamp/router_const.dart';
-import 'package:saptaloka_web_revamp/screens/solutions/widgets/it_solution.dart';
+import 'package:saptaloka_web_revamp/screens/solutions/it_solution/screens/it_solution.dart';
 import 'package:go_router/go_router.dart';
 
 class OurSolutionsCoba extends StatefulWidget {

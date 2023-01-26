@@ -1,31 +1,31 @@
-// ignore_for_file: sized_box_for_whitespace
-
 import 'package:auto_animated/auto_animated.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
-import 'package:open_street_map_search_and_pick/open_street_map_search_and_pick.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:hovering/hovering.dart';
 import 'package:saptaloka_web_revamp/responsive.dart';
 import 'package:saptaloka_web_revamp/router_const.dart';
 import 'package:saptaloka_web_revamp/screens/about_us/about_us_screens.dart';
-import 'package:saptaloka_web_revamp/screens/contact_us/widgets/form_contact_us.dart';
-import 'package:saptaloka_web_revamp/screens/contact_us/widgets/maps_widget.dart';
+import 'package:saptaloka_web_revamp/screens/solutions/it_solution/widgets/card_solution.dart';
+import 'package:saptaloka_web_revamp/screens/contact_us/contact_us_screen.dart';
+import 'package:saptaloka_web_revamp/screens/solutions/it_solution/widgets/awalan_it_solution.dart';
+import 'package:saptaloka_web_revamp/screens/solutions/it_solution/widgets/digital_assesment.dart';
+import 'package:saptaloka_web_revamp/screens/solutions/it_solution/widgets/e_commerce.dart';
+import 'package:saptaloka_web_revamp/screens/solutions/it_solution/widgets/software_services.dart';
 import 'package:saptaloka_web_revamp/screens/solutions/solutions_screen.dart';
-import 'package:saptaloka_web_revamp/screens/solutions/it_solution/screens/it_solution.dart';
 import 'package:saptaloka_web_revamp/widgets/footer.dart';
 import 'package:saptaloka_web_revamp/widgets/header_widget.dart';
-import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../widgets/drawer.dart';
+import '../../../../widgets/drawer.dart';
 
-class ContactUsScreen extends StatefulWidget {
-  const ContactUsScreen({super.key});
+class ItSolutionScreen extends StatefulWidget {
+  const ItSolutionScreen({super.key});
 
   @override
-  State<ContactUsScreen> createState() => _ContactUsScreenState();
+  State<ItSolutionScreen> createState() => _ItSolutionScreenState();
 }
 
-class _ContactUsScreenState extends State<ContactUsScreen> {
+class _ItSolutionScreenState extends State<ItSolutionScreen> {
   final List _isHovering = [
     false,
     false,
@@ -36,16 +36,6 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
     false,
     false
   ];
-  // Controllers
-  late ScrollController _scrollController;
-
-  @override
-  void initState() {
-    // initialize scroll controllers
-    _scrollController = ScrollController();
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -208,25 +198,91 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
             body: AnimateIfVisibleWrapper(
               showItemInterval: Duration(milliseconds: 500),
               child: SingleChildScrollView(
-                controller: _scrollController,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    FormContactUs(),
-                    SizedBox(
-                      height: 50.0,
-                    ),
-                    //MapsWidget(),
-                    Container(
-                      height: 450,
-                      width: MediaQuery.of(context).size.width,
-                      child: Image.asset('assets/images/Untitled.png'),
-                    ),
-                    SizedBox(
-                      height: 65.0,
-                    ),
-                    Footer()
-                  ],
+                child: Container(
+                  color: Colors.white,
+                  child: Column(
+                    children: [
+                      // Header Nya
+                      AwalanSolutions(),
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      /* Column(
+                        children: [
+                          Text(
+                            "Software Services",
+                            style: GoogleFonts.inter(
+                              color: const Color(0xff013088),
+                              textStyle: const TextStyle(
+                                fontSize: 35.0,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ), */
+                      const SizedBox(
+                        height: 50,
+                      ),
+
+                      // Card Dan Hover Nya
+                      SoftwareServices(),
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      /* Container(
+                        child: Column(
+                          children: [
+                            Text(
+                              "Digital Assessment",
+                              style: GoogleFonts.inter(
+                                color: const Color(0xff013088),
+                                textStyle: const TextStyle(
+                                  fontSize: 35.0,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ), */
+                      const SizedBox(
+                        height: 50,
+                      ),
+
+                      // Isi Digital Assesement
+                      //DigitalAssesment(),
+                      const SizedBox(
+                        height: 50,
+                      ),
+
+                      // E-Commerce
+                      /* Container(
+                        // decoration: BoxDecoration(color: Colors.white),
+                        child: Column(
+                          children: [
+                            Text(
+                              "E-Commerce",
+                              style: GoogleFonts.inter(
+                                color: const Color(0xff013088),
+                                textStyle: const TextStyle(
+                                  fontSize: 35.0,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ), */
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      //ECommerce(),
+                      SizedBox(
+                        height: 20,
+                      ),
+
+                      // Footer
+                      Footer(),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -387,25 +443,91 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
             body: AnimateIfVisibleWrapper(
               showItemInterval: Duration(milliseconds: 500),
               child: SingleChildScrollView(
-                controller: _scrollController,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    FormContactUs(),
-                    SizedBox(
-                      height: 50.0,
-                    ),
-                    //MapsWidget(),
-                    Container(
-                      height: 450,
-                      width: MediaQuery.of(context).size.width,
-                      child: Image.asset('assets/images/Untitled.png'),
-                    ),
-                    SizedBox(
-                      height: 65.0,
-                    ),
-                    Footer()
-                  ],
+                child: Container(
+                  color: Colors.white,
+                  child: Column(
+                    children: [
+                      // Header Nya
+                      AwalanSolutions(),
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      /* Column(
+                        children: [
+                          Text(
+                            "Software Services",
+                            style: GoogleFonts.inter(
+                              color: const Color(0xff013088),
+                              textStyle: const TextStyle(
+                                fontSize: 35.0,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ), */
+                      const SizedBox(
+                        height: 50,
+                      ),
+
+                      // Card Dan Hover Nya
+                      SoftwareServices(),
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      /* Container(
+                        child: Column(
+                          children: [
+                            Text(
+                              "Digital Assessment",
+                              style: GoogleFonts.inter(
+                                color: const Color(0xff013088),
+                                textStyle: const TextStyle(
+                                  fontSize: 35.0,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ), */
+                      const SizedBox(
+                        height: 50,
+                      ),
+
+                      // Isi Digital Assesement
+                      //DigitalAssesment(),
+                      const SizedBox(
+                        height: 50,
+                      ),
+
+                      // E-Commerce
+                      /* Container(
+                        // decoration: BoxDecoration(color: Colors.white),
+                        child: Column(
+                          children: [
+                            Text(
+                              "E-Commerce",
+                              style: GoogleFonts.inter(
+                                color: const Color(0xff013088),
+                                textStyle: const TextStyle(
+                                  fontSize: 35.0,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ), */
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      //ECommerce(),
+                      SizedBox(
+                        height: 20,
+                      ),
+
+                      // Footer
+                      Footer(),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -566,25 +688,91 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
             body: AnimateIfVisibleWrapper(
               showItemInterval: Duration(milliseconds: 500),
               child: SingleChildScrollView(
-                controller: _scrollController,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    FormContactUs(),
-                    SizedBox(
-                      height: 50.0,
-                    ),
-                    //MapsWidget(),
-                    Container(
-                      height: 450,
-                      width: MediaQuery.of(context).size.width,
-                      child: Image.asset('assets/images/Untitled.png'),
-                    ),
-                    SizedBox(
-                      height: 65.0,
-                    ),
-                    Footer()
-                  ],
+                child: Container(
+                  color: Colors.white,
+                  child: Column(
+                    children: [
+                      // Header Nya
+                      AwalanSolutions(),
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      /* Column(
+                        children: [
+                          Text(
+                            "Software Services",
+                            style: GoogleFonts.inter(
+                              color: const Color(0xff013088),
+                              textStyle: const TextStyle(
+                                fontSize: 35.0,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ), */
+                      const SizedBox(
+                        height: 50,
+                      ),
+
+                      // Card Dan Hover Nya
+                      SoftwareServices(),
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      /* Container(
+                        child: Column(
+                          children: [
+                            Text(
+                              "Digital Assessment",
+                              style: GoogleFonts.inter(
+                                color: const Color(0xff013088),
+                                textStyle: const TextStyle(
+                                  fontSize: 35.0,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ), */
+                      const SizedBox(
+                        height: 50,
+                      ),
+
+                      // Isi Digital Assesement
+                      //DigitalAssesment(),
+                      const SizedBox(
+                        height: 50,
+                      ),
+
+                      // E-Commerce
+                      /* Container(
+                        // decoration: BoxDecoration(color: Colors.white),
+                        child: Column(
+                          children: [
+                            Text(
+                              "E-Commerce",
+                              style: GoogleFonts.inter(
+                                color: const Color(0xff013088),
+                                textStyle: const TextStyle(
+                                  fontSize: 35.0,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ), */
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      //ECommerce(),
+                      SizedBox(
+                        height: 20,
+                      ),
+
+                      // Footer
+                      Footer(),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -601,25 +789,91 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
             body: AnimateIfVisibleWrapper(
               showItemInterval: Duration(milliseconds: 500),
               child: SingleChildScrollView(
-                controller: _scrollController,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    FormContactUs(),
-                    SizedBox(
-                      height: 50.0,
-                    ),
-                    //MapsWidget(),
-                    Container(
-                      height: 450,
-                      width: MediaQuery.of(context).size.width,
-                      child: Image.asset('assets/images/Untitled.png'),
-                    ),
-                    SizedBox(
-                      height: 65.0,
-                    ),
-                    Footer()
-                  ],
+                child: Container(
+                  color: Colors.white,
+                  child: Column(
+                    children: [
+                      // Header Nya
+                      AwalanSolutions(),
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      /* Column(
+                        children: [
+                          Text(
+                            "Software Services",
+                            style: GoogleFonts.inter(
+                              color: const Color(0xff013088),
+                              textStyle: const TextStyle(
+                                fontSize: 35.0,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ), */
+                      const SizedBox(
+                        height: 50,
+                      ),
+
+                      // Card Dan Hover Nya
+                      SoftwareServices(),
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      /* Container(
+                        child: Column(
+                          children: [
+                            Text(
+                              "Digital Assessment",
+                              style: GoogleFonts.inter(
+                                color: const Color(0xff013088),
+                                textStyle: const TextStyle(
+                                  fontSize: 35.0,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ), */
+                      const SizedBox(
+                        height: 50,
+                      ),
+
+                      // Isi Digital Assesement
+                      //DigitalAssesment(),
+                      const SizedBox(
+                        height: 50,
+                      ),
+
+                      // E-Commerce
+                      /* Container(
+                        // decoration: BoxDecoration(color: Colors.white),
+                        child: Column(
+                          children: [
+                            Text(
+                              "E-Commerce",
+                              style: GoogleFonts.inter(
+                                color: const Color(0xff013088),
+                                textStyle: const TextStyle(
+                                  fontSize: 35.0,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ), */
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      //ECommerce(),
+                      SizedBox(
+                        height: 20,
+                      ),
+
+                      // Footer
+                      Footer(),
+                    ],
+                  ),
                 ),
               ),
             ),

@@ -5,7 +5,17 @@ import 'package:saptaloka_web_revamp/screens/solutions/solutions_screen.dart';
 import 'package:saptaloka_web_revamp/screens/solutions/widgets/detail_solution.dart';
 
 class CardSolutionLong extends StatefulWidget {
-  const CardSolutionLong({super.key});
+  const CardSolutionLong(
+      {super.key,
+      required this.imageBack,
+      required this.image,
+      required this.title,
+      required this.desc});
+
+  final String imageBack;
+  final String image;
+  final String title;
+  final String desc;
 
   @override
   State<CardSolutionLong> createState() => _CardSolutionLongState();
@@ -53,8 +63,7 @@ class _CardSolutionLongState extends State<CardSolutionLong> {
                     topLeft: Radius.circular(15),
                     topRight: Radius.circular(15)),
                 image: DecorationImage(
-                    image: AssetImage('assets/images/image_1.png'),
-                    fit: BoxFit.cover),
+                    image: AssetImage(widget.imageBack), fit: BoxFit.cover),
               ),
             ),
             Container(
@@ -79,8 +88,7 @@ class _CardSolutionLongState extends State<CardSolutionLong> {
                       height: 25,
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                            image: AssetImage('assets/images/logonetflix.png'),
-                            fit: BoxFit.fill),
+                            image: AssetImage(widget.image), fit: BoxFit.fill),
                       ),
                     ),
                     SizedBox(
@@ -88,7 +96,7 @@ class _CardSolutionLongState extends State<CardSolutionLong> {
                     ),
                     Container(
                       child: Text(
-                        'SAPTA ERP',
+                        widget.title,
                         style: GoogleFonts.bebasNeue(
                           color: Color.fromARGB(255, 9, 77, 133),
                           textStyle: const TextStyle(
@@ -102,7 +110,7 @@ class _CardSolutionLongState extends State<CardSolutionLong> {
                     ),
                     Container(
                       child: Text(
-                        'Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum  lorem ipsum lorem lorem ipsum lorem  lorem ipsum',
+                        widget.desc,
                         style: GoogleFonts.inter(
                           color: Colors.black,
                           textStyle: const TextStyle(
@@ -146,8 +154,7 @@ class _CardSolutionLongState extends State<CardSolutionLong> {
                     topLeft: Radius.circular(15),
                     topRight: Radius.circular(15)),
                 image: DecorationImage(
-                    image: AssetImage('assets/images/image_1.png'),
-                    fit: BoxFit.cover),
+                    image: AssetImage(widget.imageBack), fit: BoxFit.cover),
               ),
             ),
             Container(
@@ -172,8 +179,7 @@ class _CardSolutionLongState extends State<CardSolutionLong> {
                       height: 25,
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                            image: AssetImage('assets/images/logonetflix.png'),
-                            fit: BoxFit.fill),
+                            image: AssetImage(widget.image), fit: BoxFit.fill),
                       ),
                     ),
                     SizedBox(
@@ -181,7 +187,7 @@ class _CardSolutionLongState extends State<CardSolutionLong> {
                     ),
                     Container(
                       child: Text(
-                        'SAPTA ERP',
+                        widget.title,
                         style: GoogleFonts.bebasNeue(
                           color: Color.fromARGB(255, 9, 77, 133),
                           textStyle: const TextStyle(
@@ -195,7 +201,7 @@ class _CardSolutionLongState extends State<CardSolutionLong> {
                     ),
                     Container(
                       child: Text(
-                        'Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum  lorem ipsum lorem lorem ipsum lorem  lorem ipsum',
+                        widget.desc,
                         style: GoogleFonts.inter(
                           color: Colors.black,
                           textStyle: const TextStyle(
@@ -232,7 +238,7 @@ class _CardSolutionLongState extends State<CardSolutionLong> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    /* Text(
                       'Pelajari lebih lanjut tentang',
                       style: GoogleFonts.inter(
                         color: Colors.white,
@@ -257,13 +263,13 @@ class _CardSolutionLongState extends State<CardSolutionLong> {
                     ),
                     SizedBox(
                       height: 10,
-                    ),
+                    ), */
                     InkWell(
                       onTap: () {
-                        Navigator.push(
+                        /* Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => DetailSolutionScreen()));
+                                builder: (context) => DetailSolutionScreen())); */
                       },
                       onHover: (value) {
                         setState(() {

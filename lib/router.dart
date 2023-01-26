@@ -6,7 +6,7 @@ import 'package:saptaloka_web_revamp/screens/contact_us/contact_us_screen.dart';
 import 'package:saptaloka_web_revamp/screens/home_screen.dart';
 import 'package:saptaloka_web_revamp/screens/news/news_screens.dart';
 import 'package:saptaloka_web_revamp/screens/solutions/solutions_screen.dart';
-import 'package:saptaloka_web_revamp/screens/solutions/widgets/it_solution.dart';
+import 'package:saptaloka_web_revamp/screens/solutions/it_solution/screens/it_solution.dart';
 import 'router_const.dart';
 
 final GoRouter router = GoRouter(

@@ -439,7 +439,7 @@ class _FooterState extends State<Footer> {
                     },
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 15,
                   ),
                   AnimateIfVisible(
                     key: Key('item.21'),
@@ -462,7 +462,7 @@ class _FooterState extends State<Footer> {
                             child: Text(
                               '\u24B8 Saptaloka Digital 2022',
                               style: TextStyle(
-                                fontSize: 12,
+                                fontSize: 10,
                               ),
                             ),
                           ),
@@ -1824,7 +1824,7 @@ class _FooterState extends State<Footer> {
                     },
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 15,
                   ),
                   AnimateIfVisible(
                     key: Key('item.21'),

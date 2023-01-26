@@ -5,7 +5,7 @@ import 'package:saptaloka_web_revamp/router_const.dart';
 import 'package:saptaloka_web_revamp/screens/about_us/about_us_screens.dart';
 import 'package:saptaloka_web_revamp/screens/contact_us/contact_us_screen.dart';
 import 'package:saptaloka_web_revamp/screens/solutions/widgets/awalan.dart';
-import 'package:saptaloka_web_revamp/screens/solutions/widgets/it_solution.dart';
+import 'package:saptaloka_web_revamp/screens/solutions/it_solution/screens/it_solution.dart';
 import 'package:saptaloka_web_revamp/screens/solutions/widgets/our_solutions_coba.dart';
 import 'package:saptaloka_web_revamp/widgets/footer.dart';
 import 'package:saptaloka_web_revamp/widgets/header_widget.dart';
