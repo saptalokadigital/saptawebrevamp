@@ -727,7 +727,7 @@ class _AboutUsScreensState extends State<AboutUsScreens> {
                                                   });
                                                 },
                                                 onPressed: () {
-                                                  /* context.go(itSolutionsRoute); */
+                                                  context.go(itSolutionsRoute);
                                                 },
                                                 child: Text(
                                                   'IT Solution',
