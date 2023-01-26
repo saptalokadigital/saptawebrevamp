@@ -551,7 +551,7 @@ class CoreValues extends StatelessWidget {
                               "Saptaloka Digital memengang teguh kepercayaan yang diberikan.",
                         ),
                         const SizedBox(
-                          height: 20,
+                          height: 10,
                         ),
                         const ItemCoreValues(
                             fontSize: 20,
@@ -560,7 +560,7 @@ class CoreValues extends StatelessWidget {
                             deskripsi:
                                 "Saptaloka Digital berdedikasi untuk mendigitalisasikan perusahaan yang ada di seluruh Indonesia."),
                         const SizedBox(
-                          height: 20,
+                          height: 10,
                         ),
                         const ItemCoreValues(
                             fontSize: 20,
@@ -569,7 +569,7 @@ class CoreValues extends StatelessWidget {
                             deskripsi:
                                 "Saptaloka Digital terus berinovasi mengembangkan produk IT dalam memajukan teknologi di Indonesia."),
                         const SizedBox(
-                          height: 20,
+                          height: 10,
                         ),
                         const ItemCoreValues(
                             fontSize: 20,
@@ -578,7 +578,7 @@ class CoreValues extends StatelessWidget {
                             deskripsi:
                                 "Saptaloka Digital menciptakan produk IT yang baru untuk era 5.0 mendatang."),
                         const SizedBox(
-                          height: 20,
+                          height: 10,
                         ),
                         const ItemCoreValues(
                             fontSize: 20,
@@ -587,7 +587,7 @@ class CoreValues extends StatelessWidget {
                             deskripsi:
                                 "Saptaloka Digital antusias dalam menggerakkan ataupun menghadapi perubahan teknologi."),
                         const SizedBox(
-                          height: 2,
+                          height: 10,
                         ),
                         const ItemCoreValues(
                             fontSize: 20,
@@ -648,7 +648,7 @@ class ItemCoreValues extends StatelessWidget {
                 children: [
                   Flexible(
                     child: Text(deskripsi,
-                        maxLines: 3,
+                        maxLines: 5,
                         style: GoogleFonts.inter(
                           fontSize: fontSize2,
                           color: Colors.black,

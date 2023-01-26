@@ -226,10 +226,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           Text(
                             textAlign: TextAlign.center,
-                            "Through digital transformation, our solutions will take your business to the next level",
+                            "Our solutions will lead your business to digital transformation",
                             style: GoogleFonts.inter(
                               textStyle: const TextStyle(
                                 fontSize: 25.0,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
@@ -285,7 +286,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Column(
                         children: [
                           Text(
-                            "Our Client",
+                            "Our Clients",
                             style: GoogleFonts.inter(
                               textStyle: const TextStyle(
                                 fontSize: 35.0,
@@ -535,10 +536,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           Text(
                             textAlign: TextAlign.center,
-                            "Through digital transformation, our solutions will take your business to the next level",
+                            "Our solutions will lead your business to digital transformation",
                             style: GoogleFonts.inter(
                               textStyle: const TextStyle(
                                 fontSize: 25.0,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
@@ -594,7 +596,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Column(
                         children: [
                           Text(
-                            "Our Client",
+                            "Our Clients",
                             style: GoogleFonts.inter(
                               textStyle: const TextStyle(
                                 fontSize: 35.0,
@@ -844,10 +846,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           Text(
                             textAlign: TextAlign.center,
-                            "Through digital transformation, our solutions will take your business to the next level",
+                            "Our solutions will lead your business to digital transformation",
                             style: GoogleFonts.inter(
                               textStyle: const TextStyle(
                                 fontSize: 25.0,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
@@ -903,7 +906,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Column(
                         children: [
                           Text(
-                            "Our Client",
+                            "Our Clients",
                             style: GoogleFonts.inter(
                               textStyle: const TextStyle(
                                 fontSize: 35.0,
@@ -1009,10 +1012,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           Text(
                             textAlign: TextAlign.center,
-                            "Through digital transformation, our solutions will take your business to the next level",
+                            "Our solutions will lead your business to digital transformation",
                             style: GoogleFonts.inter(
                               textStyle: const TextStyle(
                                 fontSize: 25.0,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
@@ -1068,7 +1072,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Column(
                         children: [
                           Text(
-                            "Our Client",
+                            "Our Clients",
                             style: GoogleFonts.inter(
                               textStyle: const TextStyle(
                                 fontSize: 35.0,

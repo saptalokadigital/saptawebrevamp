@@ -65,7 +65,7 @@ class Awalan extends StatelessWidget {
                             end: Offset.zero,
                           ).animate(animation),
                           child: Text(
-                            'Your Satisfaction is Our Top Priority',
+                            'Client Trust and Satisfaction is Our Top Priority',
                             style: GoogleFonts.inter(
                               fontWeight: FontWeight.bold,
                               fontSize: 40,
@@ -175,7 +175,7 @@ class Awalan extends StatelessWidget {
                             end: Offset.zero,
                           ).animate(animation),
                           child: Text(
-                            'Your Satisfaction is Our Top Priority',
+                            'Client Trust and Satisfaction is Our Top Priority',
                             style: GoogleFonts.inter(
                               fontWeight: FontWeight.bold,
                               fontSize: 45,
