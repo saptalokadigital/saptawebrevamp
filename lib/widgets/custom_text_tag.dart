@@ -6,10 +6,11 @@ import 'package:styled_text/styled_text.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class CustomTextTag extends StatefulWidget {
-  const CustomTextTag({super.key, required this.text, this.style});
+  const CustomTextTag(
+      {super.key, required this.text, this.style, this.textAlign});
 
   final String text;
-
+  final TextAlign? textAlign;
   final TextStyle? style;
 
   @override
@@ -20,7 +21,8 @@ class _CustomTextTagState extends State<CustomTextTag> {
   @override
   Widget build(BuildContext context) {
     return StyledText(
-      text: widget.text,
+      textAlign: widget.textAlign,
+      text: """${widget.text}""",
       style: widget.style,
       tags: {
         'bold': StyledTextTag(
