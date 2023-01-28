@@ -371,7 +371,7 @@ class _FooterState extends State<Footer> {
                                             ),
                                           ),
                                           SizedBox(width: 10),
-                                          InkWell(
+                                          /* InkWell(
                                             onTap: () {
                                               setState(() {});
                                             },
@@ -389,7 +389,7 @@ class _FooterState extends State<Footer> {
                                                   border: Border.all(
                                                       color: Colors.white)),
                                             ),
-                                          )
+                                          ) */
                                         ],
                                       )
                                     ],
@@ -411,7 +411,7 @@ class _FooterState extends State<Footer> {
                   ),
                   SizedBox(width: 20),
                   SizedBox(
-                    height: 50,
+                    height: 20,
                   ),
                   AnimateIfVisible(
                     key: Key('item.20'),
@@ -826,7 +826,7 @@ class _FooterState extends State<Footer> {
                                               ),
                                             ),
                                             SizedBox(width: 10),
-                                            InkWell(
+                                            /* InkWell(
                                               onTap: () {
                                                 setState(() {});
                                               },
@@ -844,7 +844,7 @@ class _FooterState extends State<Footer> {
                                                     border: Border.all(
                                                         color: Colors.white)),
                                               ),
-                                            )
+                                            ) */
                                           ],
                                         )
                                       ],
@@ -1287,7 +1287,7 @@ class _FooterState extends State<Footer> {
                                                   ),
                                                 ),
                                                 SizedBox(width: 10),
-                                                InkWell(
+                                                /* InkWell(
                                                   onTap: () {
                                                     setState(() {});
                                                   },
@@ -1307,7 +1307,7 @@ class _FooterState extends State<Footer> {
                                                             color:
                                                                 Colors.white)),
                                                   ),
-                                                )
+                                                ) */
                                               ],
                                             ),
                                           ],
@@ -1753,7 +1753,7 @@ class _FooterState extends State<Footer> {
                                                   ),
                                                 ),
                                                 SizedBox(width: 10),
-                                                InkWell(
+                                                /* InkWell(
                                                   onTap: () {
                                                     setState(() {});
                                                   },
@@ -1773,7 +1773,7 @@ class _FooterState extends State<Footer> {
                                                             color:
                                                                 Colors.white)),
                                                   ),
-                                                )
+                                                ) */
                                               ],
                                             )
                                           ],
