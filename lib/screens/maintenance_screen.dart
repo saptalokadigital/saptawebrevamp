@@ -50,14 +50,14 @@ class _MaintenanceScreenState extends State<MaintenanceScreen> {
         children: [
           FloatingActionButton.small(
             backgroundColor: Color(0xff25d366),
-            child: const Icon(Icons.whatsapp),
+            child: const Icon(Icons.whatshot),
             onPressed: () => setState(() {
               _launchWA1();
             }),
           ),
           FloatingActionButton.small(
             backgroundColor: Color(0xff25d366),
-            child: const Icon(Icons.whatsapp),
+            child: const Icon(Icons.whatshot),
             onPressed: () => setState(() {
               _launchWA2();
             }),

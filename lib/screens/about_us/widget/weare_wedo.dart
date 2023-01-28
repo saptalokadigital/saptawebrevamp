@@ -54,6 +54,7 @@ class _WeAreWedoState extends State<WeAreWedo> {
                         height: 20,
                       ),
                       ListView.builder(
+                          physics: NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: weAre.length,
                           itemBuilder: (context, index) {
@@ -123,6 +124,7 @@ class _WeAreWedoState extends State<WeAreWedo> {
                         height: 20,
                       ),
                       ListView.builder(
+                          physics: NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: weDo.length,
                           itemBuilder: (context, index) {

@@ -7,7 +7,9 @@ import 'package:saptaloka_web_revamp/router_const.dart';
 import 'package:saptaloka_web_revamp/widgets/footer.dart';
 import 'package:auto_animated/auto_animated.dart';
 import 'package:styled_text/styled_text.dart';
+import 'package:url_launcher/url_launcher.dart';
 
+import '../../widgets/custom_text_tag.dart';
 import '../../widgets/drawer.dart';
 
 class NewsScreens extends StatefulWidget {
@@ -241,31 +243,13 @@ class _NewsScreensState extends State<NewsScreens> {
                                           SizedBox(
                                             height: 40,
                                           ),
-                                          StyledText(
+                                          CustomTextTag(
                                             text: snapshot.data!['deskripsi'],
                                             style: GoogleFonts.inter(
-                                              fontSize: 20,
+                                              fontSize: 25,
                                               color: Color.fromARGB(
                                                   255, 58, 60, 63),
                                             ),
-                                            tags: {
-                                              'title': StyledTextTag(
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 25,
-                                                ),
-                                              ),
-                                              'bold': StyledTextTag(
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                              ),
-                                              'italic': StyledTextTag(
-                                                style: TextStyle(
-                                                  fontStyle: FontStyle.italic,
-                                                ),
-                                              ),
-                                            },
                                           ),
                                         ],
                                       ),
@@ -578,31 +562,13 @@ class _NewsScreensState extends State<NewsScreens> {
                                           SizedBox(
                                             height: 40,
                                           ),
-                                          StyledText(
+                                          CustomTextTag(
                                             text: snapshot.data!['deskripsi'],
                                             style: GoogleFonts.inter(
                                               fontSize: 20,
                                               color: Color.fromARGB(
                                                   255, 58, 60, 63),
                                             ),
-                                            tags: {
-                                              'title': StyledTextTag(
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 25,
-                                                ),
-                                              ),
-                                              'bold': StyledTextTag(
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                              ),
-                                              'italic': StyledTextTag(
-                                                style: TextStyle(
-                                                  fontStyle: FontStyle.italic,
-                                                ),
-                                              ),
-                                            },
                                           ),
                                         ],
                                       ),
@@ -915,31 +881,13 @@ class _NewsScreensState extends State<NewsScreens> {
                                           SizedBox(
                                             height: 40,
                                           ),
-                                          StyledText(
+                                          CustomTextTag(
                                             text: snapshot.data!['deskripsi'],
                                             style: GoogleFonts.inter(
                                               fontSize: 20,
                                               color: Color.fromARGB(
                                                   255, 58, 60, 63),
                                             ),
-                                            tags: {
-                                              'title': StyledTextTag(
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 25,
-                                                ),
-                                              ),
-                                              'bold': StyledTextTag(
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                              ),
-                                              'italic': StyledTextTag(
-                                                style: TextStyle(
-                                                  fontStyle: FontStyle.italic,
-                                                ),
-                                              ),
-                                            },
                                           ),
                                         ],
                                       ),
@@ -1110,31 +1058,13 @@ class _NewsScreensState extends State<NewsScreens> {
                                           SizedBox(
                                             height: 40,
                                           ),
-                                          StyledText(
+                                          CustomTextTag(
                                             text: snapshot.data!['deskripsi'],
                                             style: GoogleFonts.inter(
                                               fontSize: 20,
                                               color: Color.fromARGB(
                                                   255, 58, 60, 63),
                                             ),
-                                            tags: {
-                                              'title': StyledTextTag(
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 25,
-                                                ),
-                                              ),
-                                              'bold': StyledTextTag(
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                              ),
-                                              'italic': StyledTextTag(
-                                                style: TextStyle(
-                                                  fontStyle: FontStyle.italic,
-                                                ),
-                                              ),
-                                            },
                                           ),
                                         ],
                                       ),
