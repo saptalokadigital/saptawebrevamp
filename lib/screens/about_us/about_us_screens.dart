@@ -760,7 +760,7 @@ class _AboutUsScreensState extends State<AboutUsScreens> {
                                                   });
                                                 },
                                                 onPressed: () {
-                                                  context.go(solutionsRoute);
+                                                  context.go(bDSolutionsRoute);
                                                 },
                                                 child: Text(
                                                   'Business Digital Solution',

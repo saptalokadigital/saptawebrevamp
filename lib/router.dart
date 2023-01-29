@@ -5,6 +5,7 @@ import 'package:saptaloka_web_revamp/screens/about_us/about_us_screens.dart';
 import 'package:saptaloka_web_revamp/screens/contact_us/contact_us_screen.dart';
 import 'package:saptaloka_web_revamp/screens/home_screen.dart';
 import 'package:saptaloka_web_revamp/screens/news/news_screens.dart';
+import 'package:saptaloka_web_revamp/screens/solutions/bd_solution/screens/bd_solution.dart';
 import 'package:saptaloka_web_revamp/screens/solutions/solutions_screen.dart';
 import 'package:saptaloka_web_revamp/screens/solutions/it_solution/screens/it_solution.dart';
 import 'router_const.dart';
@@ -47,6 +48,12 @@ final GoRouter router = GoRouter(
       path: itSolutionsRoute,
       builder: (BuildContext context, GoRouterState state) {
         return ItSolutionScreen();
+      },
+    ),
+    GoRoute(
+      path: bDSolutionsRoute,
+      builder: (BuildContext context, GoRouterState state) {
+        return BDSolution();
       },
     ),
     GoRoute(

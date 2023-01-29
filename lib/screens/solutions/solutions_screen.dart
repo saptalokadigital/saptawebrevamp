@@ -882,7 +882,7 @@ class _SolutionsScreenState extends State<SolutionsScreen> {
                                                   });
                                                 },
                                                 onPressed: () {
-                                                  context.go(solutionsRoute);
+                                                  context.go(bDSolutionsRoute);
                                                 },
                                                 child: Text(
                                                   'Business Digital Solution',

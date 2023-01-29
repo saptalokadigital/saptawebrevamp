@@ -59,7 +59,9 @@ class _CardHomeState extends State<CardHome> {
                         title: "Business Digital Solution",
                         image:
                             "assets/images/industrial-health-measures-during-corona-virus-pandemic.jpg",
-                        fct: () {}),
+                        fct: () {
+                          context.go(bDSolutionsRoute);
+                        }),
                   ),
                 ],
               ),
@@ -113,7 +115,9 @@ class _CardHomeState extends State<CardHome> {
                         title: "Business Digital Solution",
                         image:
                             "assets/images/industrial-health-measures-during-corona-virus-pandemic.jpg",
-                        fct: () {}),
+                        fct: () {
+                          context.go(bDSolutionsRoute);
+                        }),
                   ),
                 ],
               ),
@@ -167,7 +171,9 @@ class _CardHomeState extends State<CardHome> {
                         title: "Business Digital Solution",
                         image:
                             "assets/images/industrial-health-measures-during-corona-virus-pandemic.jpg",
-                        fct: () {}),
+                        fct: () {
+                          context.go(bDSolutionsRoute);
+                        }),
                   ),
                   const SizedBox(
                     height: 10,
@@ -231,7 +237,9 @@ class _CardHomeState extends State<CardHome> {
                         title: "Business Digital Solution",
                         image:
                             "assets/images/industrial-health-measures-during-corona-virus-pandemic.jpg",
-                        fct: () {}),
+                        fct: () {
+                          context.go(bDSolutionsRoute);
+                        }),
                   ),
                   const SizedBox(
                     height: 10,

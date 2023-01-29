@@ -752,7 +752,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                                                   });
                                                 },
                                                 onPressed: () {
-                                                  context.go(solutionsRoute);
+                                                  context.go(bDSolutionsRoute);
                                                 },
                                                 child: Text(
                                                   'Business Digital Solution',
