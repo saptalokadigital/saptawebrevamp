@@ -76,7 +76,9 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
                               end: Offset.zero,
                             ).animate(animation),
                             child: CardSolution(
-                              fct: () {},
+                              fct: () {
+                                context.go(bDSolutionsRoute);
+                              },
                               title: "Business Digital Solution",
                               image:
                                   "assets/images/industrial-health-measures-during-corona-virus-pandemic.jpg",
@@ -178,7 +180,9 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
                       end: Offset.zero,
                     ).animate(animation),
                     child: CardSolutionMobile(
-                      fct: () {},
+                      fct: () {
+                        context.go(bDSolutionsRoute);
+                      },
                       title: "Business Digital Solution",
                       image:
                           "assets/images/industrial-health-measures-during-corona-virus-pandemic.jpg",
@@ -282,7 +286,9 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
                               end: Offset.zero,
                             ).animate(animation),
                             child: CardSolution(
-                              fct: () {},
+                              fct: () {
+                                context.go(bDSolutionsRoute);
+                              },
                               title: "Business Digital Solution",
                               image:
                                   "assets/images/industrial-health-measures-during-corona-virus-pandemic.jpg",
@@ -361,7 +367,7 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
                             ).animate(animation),
                             child: CardSolution(
                               fct: () {
-                                /* context.go(itSolutionsRoute); */
+                                context.go(itSolutionsRoute);
                               },
                               title: "IT Solution",
                               image: "assets/images/image_1.png",
@@ -392,7 +398,9 @@ class _OurSolutionsState extends State<OurSolutionsCoba> {
                               end: Offset.zero,
                             ).animate(animation),
                             child: CardSolution(
-                              fct: () {},
+                              fct: () {
+                                context.go(bDSolutionsRoute);
+                              },
                               title: "Business Digital Solution",
                               image:
                                   "assets/images/industrial-health-measures-during-corona-virus-pandemic.jpg",
@@ -487,7 +495,7 @@ class _CardSolutionState extends State<CardSolution> {
             }
           },
           onTap: () {
-            context.go(itSolutionsRoute);
+            widget.fct();
           },
           child: AnimatedScale(
             scale: scale,
@@ -600,7 +608,7 @@ class _CardSolutionMobileState extends State<CardSolutionMobile> {
         child: InkWell(
           onHover: (isHovering) {},
           onTap: () {
-            context.go(itSolutionsRoute);
+            widget.fct();
           },
           child: Container(
             height: 254,
