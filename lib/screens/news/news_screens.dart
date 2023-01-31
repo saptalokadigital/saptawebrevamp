@@ -579,7 +579,7 @@ class _NewsScreensState extends State<NewsScreens> {
                                                 text:
                                                     snapshot.data!['deskripsi'],
                                                 style: GoogleFonts.inter(
-                                                  fontSize: 20,
+                                                  fontSize: 16,
                                                   color: Color.fromARGB(
                                                       255, 58, 60, 63),
                                                 ),

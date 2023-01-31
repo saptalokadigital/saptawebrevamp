@@ -105,6 +105,7 @@ class _VisiMisiState extends State<VisiMisi> {
                         height: 15,
                       ),
                       ListView.builder(
+                          physics: NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: misi.length,
                           itemBuilder: (context, index) {
@@ -238,6 +239,7 @@ class _VisiMisiState extends State<VisiMisi> {
                             height: 15,
                           ),
                           ListView.builder(
+                              physics: NeverScrollableScrollPhysics(),
                               shrinkWrap: true,
                               itemCount: misi.length,
                               itemBuilder: (context, index) {

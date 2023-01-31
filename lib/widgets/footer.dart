@@ -72,32 +72,35 @@ class _FooterState extends State<Footer> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.start,
                                           children: [
-                                            Text(
-                                              "About Us",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold),
+                                            TextButton(
+                                              onPressed: () {
+                                                context.go(aboutUsRoute);
+                                              },
+                                              child: Text(
+                                                "About Us",
+                                                style: TextStyle(
+                                                    fontSize: 16,
+                                                    color: Colors.white,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
                                             ),
                                             SizedBox(
-                                              height: 20,
+                                              height: 30,
                                             ),
+                                            TextButton(
+                                                onPressed: () {},
+                                                child: Text('Tutorial',
+                                                    style: TextStyle(
+                                                        color: Colors.white))),
                                             TextButton(
                                                 onPressed: () {},
                                                 child: Text('Stories',
                                                     style: TextStyle(
                                                         color: Colors.white))),
                                             SizedBox(
-                                              height: 10,
+                                              height: 18,
                                             ),
-                                            TextButton(
-                                                onPressed: () {},
-                                                child: Text('Press Release',
-                                                    style: TextStyle(
-                                                        color: Colors.white))),
-                                            TextButton(
-                                                onPressed: () {},
-                                                child: Text('Media Coverage',
-                                                    style: TextStyle(
-                                                        color: Colors.white))),
                                           ]),
                                     ),
                                   );
@@ -127,21 +130,33 @@ class _FooterState extends State<Footer> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.start,
                                           children: [
-                                            Text(
-                                              "Solutions",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold),
+                                            TextButton(
+                                              onPressed: () {
+                                                context.go(solutionsRoute);
+                                              },
+                                              child: Text(
+                                                "Solutions",
+                                                style: TextStyle(
+                                                    fontSize: 16,
+                                                    color: Colors.white,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
                                             ),
                                             SizedBox(
                                               height: 20,
                                             ),
                                             TextButton(
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  context.go(itSolutionsRoute);
+                                                },
                                                 child: Text('IT Solution',
                                                     style: TextStyle(
                                                         color: Colors.white))),
                                             TextButton(
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  context.go(bDSolutionsRoute);
+                                                },
                                                 child: Text(
                                                     'Business Digital Solution',
                                                     style: TextStyle(
@@ -521,34 +536,35 @@ class _FooterState extends State<Footer> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
                                       children: [
-                                        Text(
-                                          "About Us",
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
+                                        TextButton(
+                                          onPressed: () {
+                                            context.go(aboutUsRoute);
+                                          },
+                                          child: Text(
+                                            "About Us",
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                            ),
                                           ),
                                         ),
                                         SizedBox(
-                                          height: 10,
+                                          height: 30,
                                         ),
+                                        TextButton(
+                                            onPressed: () {},
+                                            child: Text('Tutorial',
+                                                style: TextStyle(
+                                                    color: Colors.white))),
                                         TextButton(
                                             onPressed: () {},
                                             child: Text('Stories',
                                                 style: TextStyle(
                                                     color: Colors.white))),
                                         SizedBox(
-                                          height: 10,
+                                          height: 17,
                                         ),
-                                        TextButton(
-                                            onPressed: () {},
-                                            child: Text('Press Release',
-                                                style: TextStyle(
-                                                    color: Colors.white))),
-                                        TextButton(
-                                            onPressed: () {},
-                                            child: Text('Media Coverage',
-                                                style: TextStyle(
-                                                    color: Colors.white))),
                                       ]),
                                 ),
                               );
@@ -578,21 +594,32 @@ class _FooterState extends State<Footer> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
                                       children: [
-                                        Text(
-                                          "Solutions",
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold),
+                                        TextButton(
+                                          onPressed: () {
+                                            context.go(solutionsRoute);
+                                          },
+                                          child: Text(
+                                            "Solutions",
+                                            style: TextStyle(
+                                                fontSize: 16,
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                         ),
                                         SizedBox(
                                           height: 20,
                                         ),
                                         TextButton(
-                                            onPressed: () {},
+                                            onPressed: () {
+                                              context.go(itSolutionsRoute);
+                                            },
                                             child: Text('IT Solution',
                                                 style: TextStyle(
                                                     color: Colors.white))),
                                         TextButton(
-                                            onPressed: () {},
+                                            onPressed: () {
+                                              context.go(bDSolutionsRoute);
+                                            },
                                             child: Text(
                                                 'Business Digital Solution',
                                                 style: TextStyle(
@@ -977,32 +1004,38 @@ class _FooterState extends State<Footer> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.start,
                                           children: [
-                                            Text(
-                                              "About Us",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold),
+                                            TextButton(
+                                              onPressed: () {
+                                                context.go(aboutUsRoute);
+                                              },
+                                              child: Text(
+                                                "About Us",
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 16,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
                                             ),
                                             SizedBox(
                                               height: 20,
                                             ),
+                                            SizedBox(
+                                              height: 10,
+                                            ),
+                                            TextButton(
+                                                onPressed: () {},
+                                                child: Text('Tutorial',
+                                                    style: TextStyle(
+                                                        color: Colors.white))),
                                             TextButton(
                                                 onPressed: () {},
                                                 child: Text('Stories',
                                                     style: TextStyle(
                                                         color: Colors.white))),
                                             SizedBox(
-                                              height: 10,
+                                              height: 17,
                                             ),
-                                            TextButton(
-                                                onPressed: () {},
-                                                child: Text('Press Release',
-                                                    style: TextStyle(
-                                                        color: Colors.white))),
-                                            TextButton(
-                                                onPressed: () {},
-                                                child: Text('Media Coverage',
-                                                    style: TextStyle(
-                                                        color: Colors.white))),
                                           ]),
                                     ),
                                   );
@@ -1034,21 +1067,33 @@ class _FooterState extends State<Footer> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.start,
                                           children: [
-                                            Text(
-                                              "Solutions",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold),
+                                            TextButton(
+                                              onPressed: () {
+                                                context.go(solutionsRoute);
+                                              },
+                                              child: Text(
+                                                "Solutions",
+                                                style: TextStyle(
+                                                    fontSize: 16,
+                                                    color: Colors.white,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
                                             ),
                                             SizedBox(
                                               height: 20,
                                             ),
                                             TextButton(
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  context.go(itSolutionsRoute);
+                                                },
                                                 child: Text('IT Solution',
                                                     style: TextStyle(
                                                         color: Colors.white))),
                                             TextButton(
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  context.go(bDSolutionsRoute);
+                                                },
                                                 child: Text(
                                                     'Business Digital Solution',
                                                     style: TextStyle(
@@ -1443,32 +1488,34 @@ class _FooterState extends State<Footer> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.start,
                                           children: [
-                                            Text(
-                                              "About Us",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold),
+                                            TextButton(
+                                              onPressed: () {
+                                                context.go(aboutUsRoute);
+                                              },
+                                              child: Text(
+                                                "About Us",
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
                                             ),
                                             SizedBox(
                                               height: 20,
                                             ),
                                             TextButton(
                                                 onPressed: () {},
+                                                child: Text('Tutorial',
+                                                    style: TextStyle(
+                                                        color: Colors.white))),
+                                            TextButton(
+                                                onPressed: () {},
                                                 child: Text('Stories',
                                                     style: TextStyle(
                                                         color: Colors.white))),
                                             SizedBox(
-                                              height: 10,
+                                              height: 27,
                                             ),
-                                            TextButton(
-                                                onPressed: () {},
-                                                child: Text('Press Release',
-                                                    style: TextStyle(
-                                                        color: Colors.white))),
-                                            TextButton(
-                                                onPressed: () {},
-                                                child: Text('Media Coverage',
-                                                    style: TextStyle(
-                                                        color: Colors.white))),
                                           ]),
                                     ),
                                   );
@@ -1500,21 +1547,32 @@ class _FooterState extends State<Footer> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.start,
                                           children: [
-                                            Text(
-                                              "Solutions",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold),
+                                            TextButton(
+                                              onPressed: () {
+                                                context.go(solutionsRoute);
+                                              },
+                                              child: Text(
+                                                "Solutions",
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
                                             ),
                                             SizedBox(
                                               height: 20,
                                             ),
                                             TextButton(
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  context.go(itSolutionsRoute);
+                                                },
                                                 child: Text('IT Solution',
                                                     style: TextStyle(
                                                         color: Colors.white))),
                                             TextButton(
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  context.go(bDSolutionsRoute);
+                                                },
                                                 child: Text(
                                                     'Business Digital Solution',
                                                     style: TextStyle(
