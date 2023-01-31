@@ -496,7 +496,7 @@ class _CarouselHomeState extends State<CarouselHome> {
                                       style: GoogleFonts.inter(
                                         color: Color(0xff013088),
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 42,
+                                        fontSize: 32,
                                       ),
                                     )
                                         .animate()
