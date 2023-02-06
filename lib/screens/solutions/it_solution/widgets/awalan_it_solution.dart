@@ -18,7 +18,7 @@ class AwalanSolutions extends StatelessWidget {
               height: 500,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('assets/images/image_1.png'),
+                    image: AssetImage('assets/images/coding-man_11zon.jpg'),
                     fit: BoxFit.cover),
               ),
             ),
@@ -73,7 +73,7 @@ class AwalanSolutions extends StatelessWidget {
               height: 500,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('assets/images/image_1.png'),
+                    image: AssetImage('assets/images/coding-man_11zon.jpg'),
                     fit: BoxFit.cover),
               ),
             ),
@@ -128,7 +128,7 @@ class AwalanSolutions extends StatelessWidget {
               height: 500,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('assets/images/image_1.png'),
+                    image: AssetImage('assets/images/coding-man_11zon.jpg'),
                     fit: BoxFit.cover),
               ),
             ),
@@ -183,7 +183,7 @@ class AwalanSolutions extends StatelessWidget {
               height: 300,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('assets/images/image_1.png'),
+                    image: AssetImage('assets/images/coding-man_11zon.jpg'),
                     fit: BoxFit.cover),
               ),
             ),

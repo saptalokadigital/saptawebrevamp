@@ -45,7 +45,7 @@ class _CardHomeState extends State<CardHome> {
                   Expanded(
                     child: ItemCard(
                       title: "IT Solution",
-                      image: "assets/images/image_1.png",
+                      image: "assets/images/coding-man_11zon.jpg",
                       fct: () {
                         context.go(itSolutionsRoute);
                       },
@@ -101,7 +101,7 @@ class _CardHomeState extends State<CardHome> {
                   Expanded(
                     child: ItemCard(
                       title: "IT Solution",
-                      image: "assets/images/image_1.png",
+                      image: "assets/images/coding-man_11zon.jpg",
                       fct: () {
                         context.go(itSolutionsRoute);
                       },
@@ -157,7 +157,7 @@ class _CardHomeState extends State<CardHome> {
                   Expanded(
                     child: ItemCard(
                       title: "IT Solution",
-                      image: "assets/images/image_1.png",
+                      image: "assets/images/coding-man_11zon.jpg",
                       fct: () {
                         context.go(itSolutionsRoute);
                       },
@@ -223,7 +223,7 @@ class _CardHomeState extends State<CardHome> {
                   Expanded(
                     child: ItemCard(
                       title: "IT Solution",
-                      image: "assets/images/image_1.png",
+                      image: "assets/images/coding-man_11zon.jpg",
                       fct: () {
                         context.go(itSolutionsRoute);
                       },
