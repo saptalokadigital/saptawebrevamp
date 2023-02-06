@@ -20,7 +20,7 @@ class CoreValues extends StatelessWidget {
               decoration: const BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage(
-                          "assets/images/teamwork-power-successful-business-meeting-workplace-concept.jpg"),
+                          "assets/images/aerial-view-business-team_11zon.jpg"),
                       fit: BoxFit.cover)),
             ),
             Container(
@@ -169,7 +169,7 @@ class CoreValues extends StatelessWidget {
               decoration: const BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage(
-                          "assets/images/teamwork-power-successful-business-meeting-workplace-concept.jpg"),
+                          "assets/images/aerial-view-business-team_11zon.jpg"),
                       fit: BoxFit.cover)),
             ),
             Container(
@@ -318,7 +318,7 @@ class CoreValues extends StatelessWidget {
               decoration: const BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage(
-                          "assets/images/teamwork-power-successful-business-meeting-workplace-concept.jpg"),
+                          "assets/images/aerial-view-business-team_11zon.jpg"),
                       fit: BoxFit.cover)),
             ),
             Container(
@@ -466,7 +466,8 @@ class CoreValues extends StatelessWidget {
               height: 600,
               decoration: const BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage("assets/images/image_1.png"),
+                      image: AssetImage(
+                          "assets/images/aerial-view-business-team_11zon.jpg"),
                       fit: BoxFit.cover)),
             ),
             Container(
